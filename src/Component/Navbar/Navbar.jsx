@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
-import Shadi from "../../assets/Images/Group 22.png";
+import Group from '../../assets/Images/Group 22.png';
+
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,12 +28,12 @@ function Navbar() {
       } py-4 px-6`}
     >
       <div className="container mx-auto flex items-center justify-between">
-        {/* Logo */}
+        {/* {/ Logo /} */}
         <div>
-          <img src={Shadi} alt="Shadi" className="h-12" />
+          <img src={Group} alt="Shadi" className="h-12" />
         </div>
 
-        {/* Hamburger Menu (Mobile) */}
+        {/* {/ Hamburger Menu (Mobile) /} */}
         <div className="md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -42,7 +43,7 @@ function Navbar() {
           </button>
         </div>
 
-        {/* Navigation Links (Responsive) */}
+        {/* {/ Navigation Links (Responsive) /} */}
         <nav
           className={`absolute top-18 text-centerw-full shadow-md md:shadow-none md:static md:flex md:items-center md:space-x-6  gilda-display-regular
             ${isOpen ? "block bg-white text-black p-2 left-15" : "hidden"} md:block`}
@@ -61,9 +62,15 @@ function Navbar() {
               BLOG
             </NavLink>
 
+<<<<<<< HEAD
             {/* Mobile Register Button */}
             <div className="md:hidden gilda-display-regular py-2">
               <NavLink to="/register">
+=======
+            {/* {/ Mobile Register Button /} */}
+            <div className="md:hidden gilda-display-regular py-2">
+              <NavLink to="/Login">
+>>>>>>> e16c123b994e846be8340a56f58818db24f833cc
                 <button className="w-full bg-[#C34040] text-white px-5 py-2 rounded-full">
                   Register Now
                 </button>
@@ -72,9 +79,15 @@ function Navbar() {
           </div>
         </nav>
 
+<<<<<<< HEAD
         {/* Register Button (Desktop) */}
         <div className="hidden md:block gilda-display-regular">
           <NavLink to="/register">
+=======
+        {/* {/ Register Button (Desktop) /} */}
+        <div className="hidden md:block gilda-display-regular">
+          <NavLink to="/Login">
+>>>>>>> e16c123b994e846be8340a56f58818db24f833cc
             <button className="bg-[#C34040] cursor-pointer hover:bg-black text-white px-5 py-2 rounded-full ">
               Register Now
             </button>

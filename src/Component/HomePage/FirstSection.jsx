@@ -25,7 +25,7 @@ function FirstSection() {
 
   return (
     <div className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image Section */}
+      {/* {/ Background Image Section /} */}
       <div className="absolute inset-0 w-full h-full">
         {images.map((image, index) => (
           <img
@@ -39,7 +39,11 @@ function FirstSection() {
         ))}
         <div className="absolute inset-0 bg-black/50  flex flex-col items-center justify-center text-center px-4">
 
+<<<<<<< HEAD
           {/* Heading and Description */}
+=======
+          {/* {/ Heading and Description /} */}
+>>>>>>> e16c123b994e846be8340a56f58818db24f833cc
           <h1 className="text-3xl sm:text-4xl md:text-5xl  text-white gilda-display-regular">
             F
             <span className="relative inline-block">
@@ -59,7 +63,7 @@ function FirstSection() {
             Love knows no boundaries! Whether you're looking for a life partner in India or worldwide, we bring people together with our advanced matchmaking system.
           </p>
 
-          {/* Buttons Section */}
+          {/* {/ Buttons Section /} */}
           <div className="mt-6 flex flex-col  md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
             <button className="flex items-center cursor-pointer space-x-2 bg-[#EB5757] text-white px-6 py-3 gilda-display-regular rounded-full text-lg font-medium shadow-lg hover:bg-red-700 transition">
               <FiSearch size={24} />

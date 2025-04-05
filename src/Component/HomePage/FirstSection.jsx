@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'; 
 import { FiSearch } from 'react-icons/fi'; 
-import Image1 from '../../assets/Image1.png';
-import Image2 from '../../assets/Image2.png';
+import Image1 from '../../assets/Images/Image1.png';
+import Image2 from '../../assets/Images/Image2.png';
 
 const images = [Image1, Image2];
 

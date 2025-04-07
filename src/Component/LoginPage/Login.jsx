@@ -22,7 +22,7 @@ function Login() {
       <div className="absolute top-4 right-4 z-10 flex items-center gap-2 sm:gap-4 flex-wrap  justify-end">
         <h1 className="text-sm sm:text-lg font-semibold text-gray-800">New to Shaadi?</h1>
         <button className="text-[#DE5353] px-4 sm:px-6 py-2 cursor-pointer rounded-full border-[#DE5353] border-2 font-semibold text-sm sm:text-base">
-          Sign Up Free
+           <Link to="/register/step-one" >Sign Up Free</Link>
         </button>
       </div>
 

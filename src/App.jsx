@@ -5,6 +5,7 @@ import LoginNavbarPage from './Pages/LoginNavbarPage'
 import StepOne from './Component/FormPage/StepOne';
 import StepTwo from './Component/FormPage/StepTwo';
 import Footer from './Component/FooterPage/Footer';
+import StepThree from './Component/FormPage/StepThree';
 
 function App() {
   const [step, setStep] = useState(1);
@@ -35,6 +36,9 @@ function App() {
           path="/register/step-two"
           element={<StepTwo formData={formData} setFormData={setFormData} />}
         />
+
+        {/* <Route path='/StepThree' element={<StepThree/> }/> */}
+
     </Routes>
     
   <Footer />

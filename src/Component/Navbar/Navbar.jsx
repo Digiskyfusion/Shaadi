@@ -62,15 +62,9 @@ function Navbar() {
               BLOG
             </NavLink>
 
-<<<<<<< HEAD
-            {/* Mobile Register Button */}
-            <div className="md:hidden gilda-display-regular py-2">
-              <NavLink to="/register">
-=======
             {/* {/ Mobile Register Button /} */}
             <div className="md:hidden gilda-display-regular py-2">
-              <NavLink to="/Login">
->>>>>>> e16c123b994e846be8340a56f58818db24f833cc
+              <NavLink to="/register/step-one">
                 <button className="w-full bg-[#C34040] text-white px-5 py-2 rounded-full">
                   Register Now
                 </button>
@@ -79,15 +73,9 @@ function Navbar() {
           </div>
         </nav>
 
-<<<<<<< HEAD
-        {/* Register Button (Desktop) */}
-        <div className="hidden md:block gilda-display-regular">
-          <NavLink to="/register">
-=======
         {/* {/ Register Button (Desktop) /} */}
         <div className="hidden md:block gilda-display-regular">
-          <NavLink to="/Login">
->>>>>>> e16c123b994e846be8340a56f58818db24f833cc
+          <NavLink to="/register/step-one">
             <button className="bg-[#C34040] cursor-pointer hover:bg-black text-white px-5 py-2 rounded-full ">
               Register Now
             </button>

@@ -4,6 +4,7 @@ import SecondSection from '../Component/HomePage/SecondSection'
 import ThirdSection from '../Component/HomePage/ThirdSection'
 import FourthSection from '../Component/HomePage/FourthSection'
 import Navbar from '../Component/Navbar/Navbar'
+import FifthSection from '../Component/HomePage/FifthSection'
 
 function HomePage() {
   return (
@@ -14,6 +15,7 @@ function HomePage() {
     <SecondSection />
     <ThirdSection />
     <FourthSection />
+    <FifthSection />
     </div>
       
     </>

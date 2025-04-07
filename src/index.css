@@ -1,13 +1,9 @@
 @import "tailwindcss";
 
 .active{
-<<<<<<< HEAD
     color: white ;
     background-color:brown ;
     border-radius: 10px;
-=======
-    color: brown;
->>>>>>> e16c123b994e846be8340a56f58818db24f833cc
 }
 
 .gilda-display-regular {

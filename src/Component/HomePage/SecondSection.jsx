@@ -6,12 +6,8 @@ import Image3 from '../../assets/Images/Image3.png';
 import Image4 from '../../assets/Images/Image4.png';
 import Image5 from '../../assets/Images/Image5.png';
 import Image6 from '../../assets/Images/Image6.png';
-<<<<<<< HEAD
-import Image7 from '../../assets/Images/Group95.png';
-=======
 import Image7 from '../../assets/Images/Group 95.png';
 
->>>>>>> e16c123b994e846be8340a56f58818db24f833cc
 
 const stories = [
   {
@@ -81,11 +77,7 @@ function SecondSection() {
               key={story.id}
               className="flex flex-col md:flex-row w-full transition-opacity duration-1000 ease-in-out"
             >
-<<<<<<< HEAD
-              {/* Image Section */}
-=======
               {/* {/ Image Section /} */}
->>>>>>> e16c123b994e846be8340a56f58818db24f833cc
               <div className="relative md:w-1/2 w-full shadow-md overflow-hidden">
                 <img
                   src={story.image}
@@ -96,11 +88,7 @@ function SecondSection() {
                 <FaHeart className="absolute top-4 right-4 text-pink-500 text-2xl drop-shadow-lg hover:scale-125 transition-transform duration-300" />
               </div>
 
-<<<<<<< HEAD
-              {/* Text Section */}
-=======
               {/* {/ Text Section /} */}
->>>>>>> e16c123b994e846be8340a56f58818db24f833cc
               <div
                 className="relative md:w-1/2 w-full flex shadow-md items-center justify-center text-center p-4"
                 style={{
@@ -119,11 +107,7 @@ function SecondSection() {
           ))}
         </Carousel>
 
-<<<<<<< HEAD
-        {/* Custom Dots Below Section */}
-=======
         {/* {/ Custom Dots Below Section /} */}
->>>>>>> e16c123b994e846be8340a56f58818db24f833cc
         <div className="md:mt-10 flex justify-center">
           {stories.map((_, index) => {
             const isActive = index === currentSlide;

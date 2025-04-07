@@ -39,11 +39,7 @@ function FirstSection() {
         ))}
         <div className="absolute inset-0 bg-black/50  flex flex-col items-center justify-center text-center px-4">
 
-<<<<<<< HEAD
-          {/* Heading and Description */}
-=======
           {/* {/ Heading and Description /} */}
->>>>>>> e16c123b994e846be8340a56f58818db24f833cc
           <h1 className="text-3xl sm:text-4xl md:text-5xl  text-white gilda-display-regular">
             F
             <span className="relative inline-block">

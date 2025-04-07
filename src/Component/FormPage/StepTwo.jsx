@@ -12,7 +12,7 @@ const StepTwo = ({ formData, setFormData, prevStep }) => {
   const handleSubmit = async () => {
     try {
       const res = await axios.post(
-        "http://192.168.29.50:3000/user/register",
+        "http://localhost:3000/user/register",
         formData
       );
       alert("User registered!");

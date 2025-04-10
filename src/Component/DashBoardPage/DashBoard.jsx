@@ -26,7 +26,7 @@ function DashBoard() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF4EE] p-4 md:p-8">
+    <div className=" bg-[#FAF4EE] p-4 md:p-8">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-6 mt-4">
 
         {/* Left - Profile Section */}
@@ -37,7 +37,7 @@ function DashBoard() {
           </div>
 
 
-    <div className='bg-white w-full rounded-md px-3 py-10 mt-6 md:mt-10'>
+    <div className='bg-white w-full rounded-md px-6 py-6 mt-6 md:mt-10'>
           <div className="w-full   flex justify-between items-start">
             <div>
               <h1 className="text-xl font-bold text-black leading-tight">Jashanpreet Preet</h1>
@@ -90,8 +90,8 @@ function DashBoard() {
           </div>
 
           {/* Invitations Carousel with Scroll Buttons */}
-          <div className="bg-[#FF5A60] rounded-2xl p-6  relative">
-            <h2 className="text-lg font-semibold text-black mb-4">Invitations</h2>
+          <div className=" rounded-2xl   relative">
+            <h2 className="text-lg font-semibold text-black mb-4 text-center">Invitations</h2>
 
             {/* Scroll Buttons */}
             <button
@@ -110,13 +110,14 @@ function DashBoard() {
             {/* Carousel Content */}
             <div
               ref={scrollRef}
-              className="flex gap-5 lg:max-w-3xl overflow-x-auto no-scrollbar px-2 scroll-smooth"
+              className="flex gap-5 lg:max-w-3xl  overflow-x-auto no-scrollbar px-2  scroll-smooth"
+           
             >
               {invitations.map((invitation, index) => (
                 <div
                   key={index}
-                  className="min-w-[240px] bg-gradient-to-br from-[#fef5f0] to-[#f8eadd] rounded-2xl shadow-lg p-6 text-center flex-shrink-0
-                  flex flex-col items-center justify-between transition-transform hover:scale-105 duration-300"
+                  className="w-[235px] bg-[#FF5A60] rounded-2xl shadow-lg py-10   text-center flex-shrink-0
+                  flex flex-col items-center justify-between "
                 >
                   <img
                     src={invitation.img}
@@ -127,8 +128,8 @@ function DashBoard() {
                     <h3 className="text-lg font-bold text-black capitalize">{invitation.name}</h3>
                     
                     <p className="text-sm text-black mt-1">
-                      {invitation.age} yrs, {invitation.location}
-                     
+                      {invitation.age} yrs, 
+                     <p>{invitation.location}</p>
                     </p>
                     
                   </div>

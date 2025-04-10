@@ -53,7 +53,8 @@ function Navbar4() {
     };
 
     return (
-        <div className="min-h-screen flex flex-col items-center bg-white relative">
+        <div className='sticky top-0  z-50'>
+        <div className="flex flex-col items-center bg-white relative ">
             <div className="w-full flex flex-col items-center shadow-md bg-gradient-to-b from-[#FFCCA8] ">
                 {/* {/ Top Navbar /} */}
                 <div className="w-full flex flex-col md:flex-row items-center justify-between px-6 py-4">
@@ -147,6 +148,7 @@ function Navbar4() {
 
 
             </div>
+        </div>
         </div>
     );
 }

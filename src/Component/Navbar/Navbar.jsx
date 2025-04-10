@@ -23,7 +23,7 @@ function Navbar() {
 
   return (
     <header
-      className={`w-full fixed top-0 z-10 transition-all duration-300 ${
+      className={`w-full fixed top-0 z-50 transition-all  duration-300 ${
         scrolled ? "bg-white shadow-md text-black" : "bg-transparent text-white"
       } py-4 px-6`}
     >

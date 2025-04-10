@@ -4,17 +4,22 @@ import { FaArrowCircleLeft } from "react-icons/fa";
 import Image17 from '../../assets/Images/Image17.png';
 import Navbar3 from "../Navbar/Navbar3";
 import { CiCircleQuestion } from "react-icons/ci";
-
+import { ToastContainer, toast } from 'react-toastify';
 const StepOne = ({ formData, setFormData }) => {
   const navigate = useNavigate();
 
   const handleNext = (e) => {
     e.preventDefault();
     if (!formData.profileFor || !formData.firstName || !formData.religion) {
-      alert("Please fill in all required fields.");
+      toast.warning("Filled all field");
       return;
     }
-    navigate("/register/step-two");
+    toast.success("You complete One step");
+    setTimeout(()=>
+        {
+            navigate("/register/step-two");
+        },1500)
+   
   };
 
   return (
@@ -43,6 +48,7 @@ const StepOne = ({ formData, setFormData }) => {
 
           <form onSubmit={handleNext} className="space-y-4">
             {/* Profile For */}
+           <ToastContainer />
             <label className="text-white">Profile for</label>
             <select
               value={formData.profileFor}
@@ -132,7 +138,7 @@ const StepOne = ({ formData, setFormData }) => {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full bg-black text-white font-semibold py-2 px-4 rounded-lg transition duration-300"
+              className="w-full cursor-pointer bg-black text-white font-semibold py-2 px-4 rounded-lg transition duration-300"
             >
               Next
             </button>

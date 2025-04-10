@@ -4,7 +4,7 @@ import { FaArrowCircleLeft } from "react-icons/fa";
 import Image17 from '../../assets/Images/Image17.png';
 import Navbar3 from "../Navbar/Navbar3";
 import { CiCircleQuestion } from "react-icons/ci";
-
+import { ToastContainer, toast } from 'react-toastify';
 const StepOne = ({ formData, setFormData }) => {
   const navigate = useNavigate();
 
@@ -14,7 +14,12 @@ const StepOne = ({ formData, setFormData }) => {
       alert("Please fill in all required fields.");
       return;
     }
-    navigate("/register/step-two");
+    toast.success("You complete One step");
+    setTimeout(()=>
+        {
+            navigate("/register/step-two");
+        },1500)
+   
   };
 
   return (
@@ -42,7 +47,8 @@ const StepOne = ({ formData, setFormData }) => {
           </h2>
 
           <form onSubmit={handleNext} className="space-y-4">
-            {/* Profile For */}
+            {/* {/ Profile For /} */}
+           <ToastContainer />
             <label className="text-white">Profile for</label>
             <select
               value={formData.profileFor}
@@ -61,7 +67,7 @@ const StepOne = ({ formData, setFormData }) => {
               <option value="Friend">Friend</option>
             </select>
 
-            {/* Name Fields */}
+            {/* {/ Name Fields /} */}
             <div className="md:flex gap-3">
               <div>
                 <label className="text-white">First Name</label>
@@ -89,7 +95,7 @@ const StepOne = ({ formData, setFormData }) => {
               </div>
             </div>
 
-            {/* Religion Selector */}
+            {/* {/ Religion Selector /} */}
             <label className="text-white">Religion</label>
             <select
               value={formData.religion}
@@ -108,7 +114,7 @@ const StepOne = ({ formData, setFormData }) => {
               <option value="Other">Other</option>
             </select>
 
-            {/* Community Selector */}
+            {/* {/ Community Selector /} */}
             <label className="text-white flex items-center gap-1">
               Community <CiCircleQuestion />
             </label>
@@ -129,7 +135,7 @@ const StepOne = ({ formData, setFormData }) => {
               <option value="Other">Other</option>
             </select>
 
-            {/* Submit Button */}
+            {/* {/ Submit Button /} */}
             <button
               type="submit"
               className="w-full bg-black text-white font-semibold py-2 px-4 rounded-lg transition duration-300"
@@ -137,7 +143,7 @@ const StepOne = ({ formData, setFormData }) => {
               Next
             </button>
 
-            {/* Already a Member */}
+            {/* {/ Already a Member /} */}
             <div className="text-center mt-4">
               <h1 className="text-black">
                 Already a Member?{" "}

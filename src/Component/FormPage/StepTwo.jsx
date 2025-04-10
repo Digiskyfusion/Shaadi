@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaArrowCircleLeft } from "react-icons/fa";
 import Image17 from '../../assets/Images/Image17.png';
 import Navbar3 from "../Navbar/Navbar3";
-
+import { ToastContainer, toast } from 'react-toastify';
 
 const StepTwo = ({ formData, setFormData, prevStep }) => {
   const navigate = useNavigate();
@@ -15,7 +15,13 @@ const StepTwo = ({ formData, setFormData, prevStep }) => {
         "http://192.168.29.50:3000/user/register",
         formData
       );
-      alert("User registered!");
+      console.log(res);
+      const { token } = res.data;
+      // const {user}= res.data
+
+      localStorage.setItem("token", token);
+      localStorage.setItem("userProfile", JSON.stringify(res.data.user));
+      toast.success("Form submit successfully");
       setFormData({
         profileFor: "",
         firstName: "",
@@ -28,9 +34,12 @@ const StepTwo = ({ formData, setFormData, prevStep }) => {
         location: "",
         password: "",
       });
-      navigate("/");
+      setTimeout(()=>
+    {
+        navigate("/StepThree");
+    },1500)
     } catch (err) {
-      alert("All field are require");
+      alert("user register already");
     }
   };
 
@@ -61,6 +70,7 @@ const StepTwo = ({ formData, setFormData, prevStep }) => {
           }}
           className="space-y-3"
         >
+         <ToastContainer />
           <h2 className="text-sm sm:text-xl text-center font-semibold text-white">
             Great! Now fill some basic details
           </h2>
@@ -94,7 +104,7 @@ const StepTwo = ({ formData, setFormData, prevStep }) => {
           <label className="text-white block text-sm sm:text-xl">Date of Birth</label>
       
 <div className="flex gap-2 text-sm sm:text-xl">
-          {/* {/ // Day /} */}
+          {/* {/ {/ // Day /} /} */}
           <select
             value={formData.dobDay}
             onChange={(e) => {
@@ -118,7 +128,7 @@ const StepTwo = ({ formData, setFormData, prevStep }) => {
             ))}
           </select>
 
-          {/* {/ // Month /} */}
+          {/* {/ {/ // Month /} /} */}
           <select
             value={formData.dobMonth}
             onChange={(e) => {
@@ -155,7 +165,7 @@ const StepTwo = ({ formData, setFormData, prevStep }) => {
             ))}
           </select>
 
-          {/* {/ // Year /} */}
+          {/* {/ {/ // Year /} /} */}
           <select
             value={formData.dobYear}
             onChange={(e) => {

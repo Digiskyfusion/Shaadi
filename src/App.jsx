@@ -6,6 +6,10 @@ import StepOne from './Component/FormPage/StepOne';
 import StepTwo from './Component/FormPage/StepTwo';
 import Footer from './Component/FooterPage/Footer';
 import StepThree from './Component/FormPage/StepThree';
+import VerifyOtp from './Component/FormPage/VerifyOtp';
+import Navbar4 from './Component/Navbar/Navbar4';
+import DashBoard from './Component/DashBoardPage/DashBoard';
+import Matches from './Component/DashBoardPage/Matches';
 
 function App() {
   const [step, setStep] = useState(1);
@@ -37,9 +41,13 @@ function App() {
           element={<StepTwo formData={formData} setFormData={setFormData} />}
         />
 
-        {/* <Route path='/StepThree' element={<StepThree/> }/> */}
+        <Route path='/StepThree' element={<StepThree/> }/>
+        <Route path="/VerifyOtp" element={<VerifyOtp/> }/>
+        <Route path='/DashBoard' element={<DashBoard/> }/>
+        <Route path='/Matches' element={<Matches/> }/>
 
     </Routes>
+    {/* <Navbar4 /> */}
     
   <Footer />
    

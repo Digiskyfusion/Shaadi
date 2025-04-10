@@ -1,13 +1,45 @@
 import React from 'react';
 
-const HoverHeart = () => (
-  <>
-    <span className="group-hover:hidden text-[#53321B]">❤️</span>
-    <span className="hidden group-hover:inline text-white">🤍</span>
-  </>
-);
+
 
 const FifthSection = () => {
+  const plans = [
+    {
+      name: 'Gold',
+      duration: '3 Months',
+      price: '₹3499',
+      monthly: '₹1166 per month',
+      features: [
+        'Send unlimited Messages',
+        'View upto 150 contact Numbers',
+        'Standout from other profiles',
+      ],
+    },
+    {
+      name: 'Diamond',
+      duration: '6 Months',
+      price: '₹5499',
+      monthly: '₹916 per month',
+      features: [
+        'Send unlimited Messages',
+        'View upto 300 contact Numbers',
+        'Standout from other profiles',
+        'Lets matches contact you directly',
+      ],
+    },
+    {
+      name: 'Platinum',
+      duration: '12 Months',
+      price: '₹10499',
+      monthly: '₹874 per month',
+      features: [
+        'Send unlimited Messages',
+        'View upto 600 contact Numbers',
+        'Standout from other profiles',
+        'Lets matches contact you directly',
+      ],
+    },
+  ];
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100 px-4 py-10">
       <div>
@@ -27,47 +59,40 @@ const FifthSection = () => {
           <p className="ml-40">Exclusive Features</p>
         </h1>
 
-        <div className="flex flex-wrap justify-center gap-6">
-          {/* Features */}
-          <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg border border-gray-300 hover:bg-[#EB5757] hover:text-white hover:shadow-neutral-700 transition-transform transform hover:scale-105 flex flex-col items-center text-center w-full sm:w-72 group">
-            <h2 className="text-xl sm:text-2xl font-semibold mb-4 group-hover:text-white">Feature</h2>
-            <ul className="text-red-700 space-y-2 text-base sm:text-lg group-hover:text-white">
-              <li><span><HoverHeart /></span> Profile Viewing</li>
-              <li className="mr-7"><span><HoverHeart /></span> Messaging</li>
-              <li><span><HoverHeart /></span> Match Priority</li>
-              <li><span><HoverHeart /></span> Direct Contact</li>
-              <li className="mr-4"><span><HoverHeart /></span> Profile Boost</li>
-            </ul>
-          </div>
+        <div className="max-w-5xl mx-auto grid gap-8 md:grid-cols-3 p-6 relative">
+  {plans.map((plan, index) => (
+    <div
+      key={index}
+      className="bg-[#E8E0D5] rounded-xl shadow-black p-6 flex flex-col items-center text-center 
+                 hover:shadow hover:bg-[#EB5757] hover:text-white 
+                 transition-transform transform hover:scale-105 border border-black group"
+    >
+      <h2 className="text-3xl font-semibold mb-6">
+        {plan.name}{' '}
+        <span className="text-gray-950 group-hover:text-white font-normal text-xl">
+          {plan.duration}
+        </span>
+      </h2>
 
-          {/* Free Users Plan */}
-          <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg border border-gray-300 hover:bg-[#EB5757] hover:text-white hover:shadow-neutral-700 transition-transform transform hover:scale-105 flex flex-col items-center text-center w-full sm:w-72 group">
-            <h2 className="text-xl sm:text-2xl font-semibold mb-4 group-hover:text-white">Free Users</h2>
-            <ul className="space-y-2 text-base sm:text-lg text-red-700 group-hover:text-white">
-              <li><span><HoverHeart /></span> Limited</li>
-              <li className="ml-4"><span><HoverHeart /></span> Restricted</li>
-              <li className="mr-8"><span><HoverHeart /></span> No</li>
-              <li className="mr-8"><span><HoverHeart /></span> No</li>
-              <li className="mr-8"><span><HoverHeart /></span> No</li>
-            </ul>
-            <button className="mt-6 bg-black text-white py-2 px-6 rounded-full text-base sm:text-lg shadow-md hover:bg-gray-800 transition">
-              Choose Plan
-            </button>
-          </div>
+      <p className="text-3xl font-bold text-black group-hover:text-white mb-1">{plan.price}</p>
+      <p className="text-black group-hover:text-white mb-5">{plan.monthly}</p>
 
-          {/* Premium Users Plan */}
-          <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg border border-gray-300 hover:bg-[#EB5757] hover:text-white hover:shadow-neutral-700 transition-transform transform hover:scale-105 flex flex-col items-center text-center w-full sm:w-72 group relative z-0">
-            <h2 className="text-xl sm:text-2xl font-semibold mb-4 group-hover:text-white">Premium Users</h2>
-            <ul className="text-red-700 space-y-2 text-base sm:text-lg group-hover:text-white">
-              <li><span><HoverHeart /></span> Unlimited</li>
-              <li><span><HoverHeart /></span> Unlimited</li>
-              <li className="mr-12"><span><HoverHeart /></span> Yes</li>
-              <li className="mr-12"><span><HoverHeart /></span> Yes</li>
-              <li className="mr-12"><span><HoverHeart /></span> Yes</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <button className="bg-black text-white px-6 py-2 rounded-full mb-6 hover:bg-gray-800">
+        Continue
+      </button>
+
+      <ul className="text-left font-light text-black group-hover:text-white space-y-6">
+        {plan.features.map((feature, i) => (
+          <li key={i} className="flex items-start">
+            <span className="text-green-400 mr-2 mt-0.5 group-hover:text-white">✔</span>
+            {feature}
+          </li>
+        ))}
+      </ul>
+    </div>
+  ))}
+</div>
+</div>
     </div>
   );
 };

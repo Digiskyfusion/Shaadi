@@ -42,21 +42,7 @@ function SecondSection() {
   return (
     <section className="success-stories py-16 px-4">
       <h1 className="text-5xl font-bold text-center mb-14 text-rose-600 drop-shadow-md font-serif">
-      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black text-center gilda-display-regular">
-      Success Stor
-
-            <span className="relative inline-block">
-              <span className="inline-block ">
-                <svg className="w-[7px] h-[15px] md:h-[22px] lg:w-[10px] lg:h-[23px]" viewBox="0 0 6 100" xmlns="http://www.w3.org/2000/svg">
-                  <line x1="3" y1="0" x2="3" y2="100" stroke="black" strokeWidth="15" />
-                </svg>
-              </span>
-              <span className="absolute top-[-13px] sm:top-[-8px] lg:top-[-10px] left-1/2 transform -translate-x-1/2 text-[#EB5757] text-lg">
-                ❤️
-              </span>
-            </span>
-            es
-          </h1>
+     
       </h1>
 
       <div className="mt-10">

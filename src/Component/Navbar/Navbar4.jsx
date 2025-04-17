@@ -32,8 +32,9 @@ function Navbar4() {
     const bottomNavItems = {
         'MY SHAADI': [
             { label: 'Dashboard', path: '/dashboard' },
-            { label: 'Edit Profile', path: '/edit-profile' },
-            { label: 'Upgrade Plan', path: '/upgrade' },
+            { label: 'My Profile', path: '/userprofile' },
+            { label: 'My Photos', path: '/photo' },
+            { label: 'Settings', path: '/setting' },
         ],
         MATCHES: [
             { label: 'My Matches', path: '/matches' },

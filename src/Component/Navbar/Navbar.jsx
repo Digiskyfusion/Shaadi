@@ -64,7 +64,7 @@ function Navbar() {
 
             {/* {/ Mobile Register Button /} */}
             <div className="md:hidden gilda-display-regular py-2">
-              <NavLink to="/Login">
+              <NavLink to="/register/step-one">
                 <button className="w-full bg-[#C34040] text-white px-5 py-2 rounded-full">
                   Register Now
                 </button>
@@ -75,7 +75,7 @@ function Navbar() {
 
         {/* {/ Register Button (Desktop) /} */}
         <div className="hidden md:block gilda-display-regular">
-          <NavLink to="/Login">
+          <NavLink to="/register/step-one">
             <button className="bg-[#C34040] cursor-pointer hover:bg-black text-white px-5 py-2 rounded-full ">
               Register Now
             </button>

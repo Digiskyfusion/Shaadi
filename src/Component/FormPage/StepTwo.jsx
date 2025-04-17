@@ -107,7 +107,7 @@ const StepTwo = ({ formData, setFormData, prevStep }) => {
           <label className="text-white block text-sm sm:text-xl">Date of Birth</label>
       
 <div className="flex gap-2 text-sm sm:text-xl">
-          {/* {/ // Day /} */}
+          {/* {/ {/ // Day /} /} */}
           <select
             value={formData.dobDay}
             onChange={(e) => {
@@ -131,7 +131,7 @@ const StepTwo = ({ formData, setFormData, prevStep }) => {
             ))}
           </select>
 
-          {/* {/ // Month /} */}
+          {/* {/ {/ // Month /} /} */}
           <select
             value={formData.dobMonth}
             onChange={(e) => {
@@ -168,7 +168,7 @@ const StepTwo = ({ formData, setFormData, prevStep }) => {
             ))}
           </select>
 
-          {/* {/ // Year /} */}
+          {/* {/ {/ // Year /} /} */}
           <select
             value={formData.dobYear}
             onChange={(e) => {

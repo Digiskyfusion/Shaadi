@@ -46,7 +46,8 @@ function Login() {
       // ✅ Redirect after login (optional)
     setTimeout(()=>
     {
-      navigate(`/user/${userId}`); // Change this route to your actual dashboard or home
+      // navigate(`/user/${userId}`); // Change this route to your actual dashboard or home
+      navigate(`/CardsPage`); // Change this route to your actual dashboard or home
     },2000)
     } catch (err) {
       toast.error("Login failed");

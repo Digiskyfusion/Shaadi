@@ -4,7 +4,7 @@ import { FaUserFriends, FaLock, FaShieldAlt } from 'react-icons/fa';
 
 const MoneybackPage = () => {
   return (
-    <div className="text-center p-6 bg-white min-h-screen mt-28">
+    <div className="text-center p-6 bg-white  mt-28">
       <h1 className="text-3xl text-black font-serif font-normal">The safest,smartest and the most secure</h1>
       <p className="text-xl mt-1 text-black font-normal">The safest,smartest and the most secure</p>
 

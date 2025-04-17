@@ -40,7 +40,7 @@ function SecondSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   return (
-    <section className="success-stories py-16 px-4">
+    <section className="success-stories pb-10 px-4">
       <h1 className="text-5xl font-bold text-center mb-14 text-rose-600 drop-shadow-md font-serif">
      
       </h1>

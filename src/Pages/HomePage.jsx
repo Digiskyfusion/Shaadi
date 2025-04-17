@@ -5,14 +5,15 @@ import ThirdSection from '../Component/HomePage/ThirdSection'
 import FourthSection from '../Component/HomePage/FourthSection'
 import Navbar from '../Component/Navbar/Navbar'
 import FifthSection from '../Component/HomePage/FifthSection'
+import Footer from '../Component/FooterPage/Footer'
 
 function HomePage() {
   return (
     <>
-     <div>
+     
      <Navbar />
     <FirstSection />
-    <div> <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black text-center gilda-display-regular">
+    <div> <h1 className="text-3xl  mt-10 sm:text-4xl md:text-5xl font-bold text-black text-center gilda-display-regular">
           Success Stor
     
                 <span className="relative inline-block">
@@ -31,8 +32,8 @@ function HomePage() {
     <ThirdSection />
     <FourthSection />
     <FifthSection />
-    </div>
-      
+    <Footer />
+        
     </>
   )
 }

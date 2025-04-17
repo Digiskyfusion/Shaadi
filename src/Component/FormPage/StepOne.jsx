@@ -47,7 +47,7 @@ const StepOne = ({ formData, setFormData }) => {
           </h2>
 
           <form onSubmit={handleNext} className="space-y-4">
-            {/* Profile For */}
+            {/* {/ Profile For /} */}
            <ToastContainer />
             <label className="text-white">Profile for</label>
             <select
@@ -67,7 +67,7 @@ const StepOne = ({ formData, setFormData }) => {
               <option value="Friend">Friend</option>
             </select>
 
-            {/* Name Fields */}
+            {/* {/ Name Fields /} */}
             <div className="md:flex gap-3">
               <div>
                 <label className="text-white">First Name</label>
@@ -95,7 +95,7 @@ const StepOne = ({ formData, setFormData }) => {
               </div>
             </div>
 
-            {/* Religion Selector */}
+            {/* {/ Religion Selector /} */}
             <label className="text-white">Religion</label>
             <select
               value={formData.religion}
@@ -114,7 +114,7 @@ const StepOne = ({ formData, setFormData }) => {
               <option value="Other">Other</option>
             </select>
 
-            {/* Community Selector */}
+            {/* {/ Community Selector /} */}
             <label className="text-white flex items-center gap-1">
               Community <CiCircleQuestion />
             </label>
@@ -135,7 +135,7 @@ const StepOne = ({ formData, setFormData }) => {
               <option value="Other">Other</option>
             </select>
 
-            {/* Submit Button */}
+            {/* {/ Submit Button /} */}
             <button
               type="submit"
               className="w-full cursor-pointer bg-black text-white font-semibold py-2 px-4 rounded-lg transition duration-300"
@@ -143,7 +143,7 @@ const StepOne = ({ formData, setFormData }) => {
               Next
             </button>
 
-            {/* Already a Member */}
+            {/* {/ Already a Member /} */}
             <div className="text-center mt-4">
               <h1 className="text-black">
                 Already a Member?{" "}

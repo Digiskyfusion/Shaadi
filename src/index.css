@@ -11,5 +11,20 @@
     font-weight: 400;
     font-style: normal;
   }
+<<<<<<< HEAD
 
  
+=======
+  
+  
+  /* global.css or index.css */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  
+>>>>>>> e5bf020691a612e468b81684c733032b3fd0356f

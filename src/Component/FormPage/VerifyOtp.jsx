@@ -57,6 +57,29 @@ const VerifyOtp = () => {
       setError(err.response?.data?.message || 'Something went wrong');
     }
   };
+
+
+  const handleResendOTP = async () => {
+    setLoading(true);
+    try {
+      const token = localStorage.getItem("token");
+      const response = await axios.post(
+        "http://localhost:3000/api/auth/resend-otp",
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      toast.success("OTP has been resent successfully!");
+    } catch (err) {
+      toast.error(err.response?.data?.message || "Failed to resend OTP");
+    } finally {
+      setLoading(false);
+    }
+  };
+  
   return (
     <div
       className="min-h-screen bg-cover bg-center flex items-center justify-center"
@@ -111,6 +134,19 @@ const VerifyOtp = () => {
           >
             {loading ? 'Verifying...' : 'Verify'}
           </button>
+         
+          <p className='text-center'>
+  Didn't receive OTP? 
+  <button 
+    type="button"
+    onClick={handleResendOTP} 
+    className='cursor-pointer text-white underline ml-1'
+    disabled={loading}
+  >
+    Resend PIN
+  </button>
+</p>
+
 
           {/* <div className="flex items-center justify-center gap-x-2 mt-4 text-sm text-white">
             <p>Didn’t receive the PIN?</p>

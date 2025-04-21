@@ -64,14 +64,14 @@ function Planpage() {
         <h2 className="text-center text-amber-50 text-2xl font-normal mt-2">
           Upgrade to any of our Premium Plans we guarantee you will find a match!
         </h2>
-<Link to="/dashboard">
-  
-<div className="flex justify-center mt-4">
-          <button className="bg-[#EB5757] text-white px-6 py-2 rounded-full hover:bg-amber-50 hover:text-black transition-transform transform hover:scale-105 hover:shadow shadow-black">
+       
+       <Link to="/dashboard">
+       <div className="flex justify-center mt-4 ">
+          <button className="bg-[#EB5757] cursor-pointer text-white px-6 py-2 rounded-full hover:bg-amber-50 hover:text-black transition-transform transform hover:scale-105 hover:shadow shadow-black">
             Do This Later
           </button>
         </div>
-</Link>
+       </Link>
 
         <div className="max-w-5xl mx-auto grid gap-8 md:grid-cols-3 p-6 relative md:top-40 lg:top-20">
           {plans.map((plan, index) => (

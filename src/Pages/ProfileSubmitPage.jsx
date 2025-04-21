@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar2 from '../Component/Navbar/NavBar2'
 import StepThree from '../Component/FormPage/StepThree'
+import Footer from './../Component/FooterPage/Footer';
 
 
 function ProfileSubmitPage() {
@@ -8,6 +9,7 @@ function ProfileSubmitPage() {
     <div>
       <Navbar2 />
       <StepThree />
+      <Footer />
     </div>
   )
 }

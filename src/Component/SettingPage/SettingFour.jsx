@@ -96,7 +96,7 @@ function SettingFour() {
     };
 
     return (
-        <div className="bg-gray-50 p-5">
+        <div className="bg-gray-50 jost p-5">
             <h1 className="text-black text-2xl font-semibold mb-2 ml-1">Contact Filters</h1>
 
             <div className="py-3">

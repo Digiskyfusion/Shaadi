@@ -17,7 +17,7 @@ function SettingEight() {
 
 
   return (
-    <div className="flex items-center justify-center px-4 py-6">
+    <div className="flex items-center jost justify-center px-4 py-6">
       <div className="relative w-full max-w-md bg-[#FF5A60] shadow-md rounded-xl p-6 space-y-6">
 
         {/* Arrow + Skip text */}

@@ -86,7 +86,7 @@ function SecondSection() {
               >
                 <div className=" p-8  max-w-lg mx-auto space-y-4 gilda-display-regular">
                   <h2 className="text-2xl font-bold text-rose-600 ">{story.name}</h2>
-                  <p className="text-gray-700 italic text-lg leading-relaxed">{story.text}</p>
+                  <p className="text-gray-700 italic text-lg leading-relaxed jost">{story.text}</p>
                 </div>
               </div>
             </div>

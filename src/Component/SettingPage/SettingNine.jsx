@@ -11,7 +11,7 @@ function SettingNine() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white px-4 py-8">
+    <div className="min-h-screen flex items-center jost justify-center bg-white px-4 py-8">
       <div className="w-full max-w-md md:max-w-lg lg:max-w-xl bg-white text-black rounded-2xl p-6 md:p-8 space-y-6 border border-gray-200 shadow-md">
 
         {/* Heading */}

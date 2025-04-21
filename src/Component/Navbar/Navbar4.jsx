@@ -54,7 +54,7 @@ function Navbar4() {
     };
 
     return (
-        <div className='sticky top-0  z-50'>
+        <div className='sticky top-0 jost z-50'>
         <div className="flex flex-col items-center bg-white relative ">
             <div className="w-full flex flex-col items-center shadow-md bg-gradient-to-b from-[#FFCCA8] ">
                 {/* {/ Top Navbar /} */}

@@ -6,7 +6,7 @@ import ProfileFour from './ProfileFour'
 
 function ProfileFull() {
   return (
-    <div className="py-6 bg-[#FFCCA8]">
+    <div className="py-6 jost bg-[#FFCCA8]">
       
       {/* Main layout: ProfileOne on left, rest on right */}
       <div className="md:flex md:gap-6 w-full max-w-7xl mx-auto">

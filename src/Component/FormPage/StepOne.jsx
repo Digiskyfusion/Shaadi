@@ -34,7 +34,7 @@ const StepOne = ({ formData, setFormData }) => {
         }}
       >
       <Navbar3 />
-      <div  className="min-h-screen flex justify-center items-center px-4">
+      <div  className="min-h-screen jost flex justify-center items-center px-4">
      
         <div className="bg-[#DE5353] bg-opacity-90 p-8 rounded-2xl shadow-lg w-full max-w-md">
           <FaArrowCircleLeft

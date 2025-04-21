@@ -49,7 +49,7 @@ const FifthSection = () => {
             <span className="relative inline-block">
               <span className="inline-block">
                 <svg className="w-[10px] h-[13px] md:h-[24px] lg:w-[10px] lg:h-[24px]" viewBox="0 0 6 100" xmlns="http://www.w3.org/2000/svg">
-                  <line x1="3" y1="0" x2="3" y2="100" stroke="black" strokeWidth="20" />
+                  <line x1="3" y1="0" x2="3" y2="100" stroke="black" strokeWidth="17" />
                 </svg>
               </span>
               <span className="absolute top-[-12px] sm:top-[-15px] left-1/2 transform -translate-x-1/2 text-red-500 text-lg">
@@ -62,7 +62,7 @@ const FifthSection = () => {
           </h1>
     
     
-        <div className="max-w-5xl mx-auto grid gap-8 md:grid-cols-3 p-6 relative">
+        <div className="max-w-5xl mx-auto grid gap-8 md:grid-cols-3 p-6 relative jost">
   {plans.map((plan, index) => (
     <div
       key={index}

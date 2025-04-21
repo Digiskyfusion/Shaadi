@@ -26,7 +26,7 @@ function DashBoard() {
   };
 
   return (
-    <div className=" bg-[#FAF4EE] p-4 md:p-8">
+    <div className=" bg-[#FAF4EE] p-4 jost md:p-8">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-6 mt-4">
 
         {/* Left - Profile Section */}

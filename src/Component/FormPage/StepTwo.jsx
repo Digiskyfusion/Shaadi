@@ -55,7 +55,7 @@ const StepTwo = ({ formData, setFormData, prevStep }) => {
       }}
     >
     <Navbar3 />
-    <div className="min-h-screen flex items-center justify-center px-4 py-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex items-center jost justify-center px-4 py-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-md bg-[#DE5353] bg-opacity-90 rounded-2xl p-4 shadow-xl">
        <Link to="/register/step-one">
        <FaArrowCircleLeft
@@ -71,7 +71,7 @@ const StepTwo = ({ formData, setFormData, prevStep }) => {
           className="space-y-3"
         >
          <ToastContainer />
-          <h2 className="text-sm sm:text-xl text-center font-semibold text-white">
+          <h2 className="text-sm sm:text-xl text-center font-semibold text-black">
             Great! Now fill some basic details
           </h2>
 

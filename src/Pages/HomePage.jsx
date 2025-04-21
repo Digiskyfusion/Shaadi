@@ -4,7 +4,7 @@ import SecondSection from '../Component/HomePage/SecondSection'
 import ThirdSection from '../Component/HomePage/ThirdSection'
 import FourthSection from '../Component/HomePage/FourthSection'
 import Navbar from '../Component/Navbar/Navbar'
-import FifthSection from '../Component/HomePage/FifthSection'
+
 import Footer from '../Component/FooterPage/Footer'
 
 function HomePage() {
@@ -31,7 +31,7 @@ function HomePage() {
     <SecondSection />
     <ThirdSection />
     <FourthSection />
-    <FifthSection />
+    
     <Footer />
         
     </>

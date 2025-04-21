@@ -57,7 +57,7 @@ const Footer = () => {
               (platform, i) => (
                 <li
                   key={i}
-                  className="hover:text-yellow-300 transition cursor-pointer"
+                  className="hover:text-[#FF5A60] transition cursor-pointer"
                 >
                   {platform}
                 </li>

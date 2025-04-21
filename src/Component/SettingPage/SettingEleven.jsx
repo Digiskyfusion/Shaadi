@@ -9,7 +9,7 @@ function SettingEleven() {
   };
 
   return (
-    <div className="px-4 py-10 bg-[#FFCCA8] flex items-center justify-center">
+    <div className="px-4 py-10 jost bg-[#FFCCA8] flex items-center justify-center">
       <div className="w-full space-y-8">
 
         {/* Main Title */}

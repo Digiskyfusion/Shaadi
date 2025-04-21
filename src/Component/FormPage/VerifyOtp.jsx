@@ -82,7 +82,7 @@ const VerifyOtp = () => {
   
   return (
     <div
-      className="min-h-screen bg-cover bg-center flex items-center justify-center"
+      className="min-h-screen bg-cover bg-center flex items-center jost  justify-center"
       style={{ backgroundImage: `url(${Image17})` }}
     >
       <div className="max-w-md w-full bg-[#EB5757] border border-gray-300 p-6 rounded-xl shadow-lg">

@@ -12,7 +12,7 @@ function CardsPage() {
    
     <Planpage/>
     <MoneybackPage/>
-    <div className='text-center text-4xl font-serif mt-28'>
+    <div className='text-center gilda-display-regular text-4xl font-serif mt-28'>
   <h1>
     With <span className="text-[#De5353]">Shaadi Premium</span> they found their Perfect match 
     <p className='text-'>and so can you</p>

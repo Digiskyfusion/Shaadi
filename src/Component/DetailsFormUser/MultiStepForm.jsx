@@ -62,7 +62,7 @@ const MultiStepForm = () => {
 
   return (
     <div className="p-5">
-    <div className=" mt-8 p-6 border rounded shadow">
+    <div className=" mt-8 p-6 border rounded shadow jost">
       <ToastContainer />
       {step === 1 && <StepOneForm formData={formData} handleChange={handleChange} onNext={() => setStep(2)} />}
       {step === 2 && <StepTwoForm formData={formData} handleChange={handleChange} onNext={() => setStep(3)} onBack={() => setStep(1)} />}

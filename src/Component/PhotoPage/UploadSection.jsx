@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 function UploadSection() {
   return (
     <>
-    <div className=' p-2 md:p-4 md:px-10 md:py-5'>
+    <div className=' p-2 md:p-4 jost md:px-10 md:py-5'>
       <div className='bg-[#FFCCA8]  p-2 md:py-3 md:px-5 rounded-md'>
 
       <div className='flex justify-center gap-3  mt-3 '>
@@ -34,7 +34,7 @@ function UploadSection() {
     </div>
 
     <div className="p-6">
-  <h1 className="text-center text-2xl font-semibold mb-4">My Photos</h1>
+  <h1 className="text-center text-2xl font-semibold gilda-display-regular  mb-4">My Photos</h1>
   <div className="flex justify-center gap-4 flex-wrap">
     <img src={profileone} alt="Profile One" className="w-40 h-40 object-cover rounded-xl shadow-md hover:scale-105 transition-transform duration-300" />
     <img src={profiletwo} alt="Profile Two" className="w-40 h-40 object-cover rounded-xl shadow-md hover:scale-105 transition-transform duration-300" />

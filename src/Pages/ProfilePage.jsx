@@ -18,7 +18,7 @@ import DetailFormSix from "../Component/PatnerPrefrenceDetails.jsx/DetailFormSix
 
 function ProfilePage() {
   return (
-    <div>
+    <div className="jost">
       <Navbar4 />
       <ProfileFull />
       <div className="md:flex gap-3 p-4 md:px-7">

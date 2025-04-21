@@ -2,7 +2,7 @@ import React from 'react';
 
 function SettingTwo() {
   return (
-    <div className=" bg-gray-50 p-5">
+    <div className=" bg-gray-50 jost p-5">
       <h1 className="text-black text-2xl font-semibold mb-4 ml-1">Settings</h1>
 
       <div className="bg-[#FFE7D6] p-6 rounded-lg shadow-md">

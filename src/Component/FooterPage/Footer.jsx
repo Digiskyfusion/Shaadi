@@ -29,7 +29,7 @@ const Footer = () => {
     <footer className="bg-[#53321B] text-[#EFE1CD] px-6 py-12 sm:px-10 md:px-16">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-12 ">
         {/* Brand Section */}
-        <div>
+        <div className="jost">
           <img src={photo} alt="shadiii" className="h-9 mb-4" />
           <p className="mb-1">Lorem ipsum dolor sit amet consectetur</p>
           <p className="mb-1">sit amet consectetur</p>
@@ -51,13 +51,13 @@ const Footer = () => {
 
         {/* Follow Us Section */}
         <div>
-          <h3 className="text-xl font-semibold mb-4">Follow us</h3>
+          <h3 className="text-xl font-semibold mb-4 gilda-display-regular">Follow us</h3>
           <ul className="space-y-2">
             {["Instagram", "Facebook", "Twitter", "LinkedIn"].map(
               (platform, i) => (
                 <li
                   key={i}
-                  className="hover:text-yellow-300 transition cursor-pointer"
+                  className="hover:text-yellow-300 transition cursor-pointer jost"
                 >
                   {platform}
                 </li>
@@ -68,8 +68,8 @@ const Footer = () => {
 
         {/* Gallery Section */}
         <div>
-          <h3 className="text-xl font-semibold mb-4">Gallery</h3>
-          <div className="grid grid-cols-3 gap-2">
+          <h3 className="text-xl font-semibold mb-4 gilda-display-regular">Gallery</h3>
+          <div className="grid grid-cols-3 gap-2 ">
             {obj.map((item, index) => (
               <img
                 key={index}
@@ -83,7 +83,7 @@ const Footer = () => {
 
         {/* Contact Section */}
         <div>
-          <h3 className="text-xl font-semibold mb-4">Contact us</h3>
+          <h3 className="text-xl font-semibold mb-4 gilda-display-regular">Contact us</h3>
           <input
             type="email"
             placeholder="Enter Your Email"

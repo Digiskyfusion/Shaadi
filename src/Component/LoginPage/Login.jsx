@@ -69,8 +69,8 @@ function Login() {
       </div>
 
       {/* {/ Top Right Heading + Sign Up Button /} */}
-      <div className="absolute top-4 right-4 z-10 flex items-center gap-2 sm:gap-4 flex-wrap justify-end">
-        <h1 className="text-sm sm:text-lg font-semibold text-gray-800">New to Shaadi?</h1>
+      <div className="absolute top-4 right-4 z-10 flex items-center gap-2 jost sm:gap-4 flex-wrap justify-end">
+        <h1 className="text-sm sm:text-lg font-semibold text-gray-800 ">New to Shaadi?</h1>
         <button className="text-[#DE5353] px-4 sm:px-6 py-2 cursor-pointer rounded-full border-[#DE5353] border-2 font-semibold text-sm sm:text-base">
           <Link to="/register/step-one">Sign Up Free</Link>
         </button>
@@ -80,8 +80,8 @@ function Login() {
       <div className="w-full max-w-6xl flex flex-col gap-6 gilda-display-regular sm:gap-10 mt-24 px-2 sm:px-6">
 
         {/* {/ Heading /} */}
-        <h2 className="text-center text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-800">
-          Join the <span className="font-bold">Best Matchmaking Platform</span> in Just a Few Clicks!
+        <h2 className="text-center text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-800 gilda-display-regular">
+          Join the Best Matchmaking Platform in Just a Few Clicks!
         </h2>
 
         {/* {/ Combined Image + Form Card /} */}
@@ -97,7 +97,7 @@ function Login() {
           </div>
 
           {/* {/ Form Section /} */}
-          <form onSubmit={handleLogin} className="w-full lg:w-1/2 bg-black text-white flex flex-col justify-center relative px-6 py-8 space-y-6">
+          <form onSubmit={handleLogin} className="w-full lg:w-1/2 bg-black jost  text-white flex flex-col justify-center relative px-6 py-8 space-y-6">
 <ToastContainer />
             {/* {/ Balloon icon /} */}
             <img

@@ -9,7 +9,7 @@ function SettingThree() {
   };
 
   return (
-    <div className="bg-[#FFE7D6] p-6 rounded-lg shadow-md">
+    <div className="bg-[#FFE7D6] p-6 jost rounded-lg shadow-md">
       <div className="md:flex justify-between items-center mb-4">
         <div className="flex items-center gap-2">
           <h1 className="text-black text-xl font-bold">My Contact Settings</h1>

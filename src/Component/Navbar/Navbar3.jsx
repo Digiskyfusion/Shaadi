@@ -16,7 +16,7 @@ function Navbar3() {
 
         {/* Help Button */}
         <div>
-          <button className="bg-[#DE5353] text-white px-4 py-2 rounded-full text-sm hover:bg-red-600 transition">
+          <button className="bg-[#DE5353] text-white px-4 py-2 jost rounded-full text-sm hover:bg-red-600 transition">
             Help
           </button>
         </div>

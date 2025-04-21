@@ -1,18 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { FaArrowCircleLeft } from "react-icons/fa";
 import Image17 from '../../assets/Images/Image17.png';
 import Navbar3 from "../Navbar/Navbar3";
 import { ToastContainer, toast } from 'react-toastify';
+import { Eye, EyeOff } from 'lucide-react'; // optional icons
 
 const StepTwo = ({ formData, setFormData, prevStep }) => {
+ 
   const navigate = useNavigate();
-
+  const [showPassword, setShowPassword] = useState(false);
   const handleSubmit = async () => {
     try {
       const res = await axios.post(
-        "http://192.168.29.50:3000/user/register",
+        "http://localhost:3000/user/register",
         formData
       );
       console.log(res);
@@ -39,7 +41,8 @@ const StepTwo = ({ formData, setFormData, prevStep }) => {
         navigate("/StepThree");
     },1500)
     } catch (err) {
-      alert("user register already");
+      // alert("user register already");
+      toast.warning("user register already");
     }
   };
 
@@ -55,7 +58,7 @@ const StepTwo = ({ formData, setFormData, prevStep }) => {
       }}
     >
     <Navbar3 />
-    <div className="min-h-screen flex items-center justify-center px-4 py-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex items-center jost justify-center px-4 py-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-md bg-[#DE5353] bg-opacity-90 rounded-2xl p-4 shadow-xl">
        <Link to="/register/step-one">
        <FaArrowCircleLeft
@@ -71,7 +74,7 @@ const StepTwo = ({ formData, setFormData, prevStep }) => {
           className="space-y-3"
         >
          <ToastContainer />
-          <h2 className="text-sm sm:text-xl text-center font-semibold text-white">
+          <h2 className="text-sm sm:text-xl text-center font-semibold text-black">
             Great! Now fill some basic details
           </h2>
 
@@ -205,19 +208,26 @@ const StepTwo = ({ formData, setFormData, prevStep }) => {
               className="w-full px-3 py-2 rounded-lg bg-white outline-none"
             />
           </div>
-
-          <div className="space-y-1">
-            <label className="text-white block text-sm sm:text-xl">Password</label>
-            <input
-              type="password"
-              placeholder="Password"
-              value={formData.password}
-              onChange={(e) =>
-                setFormData({ ...formData, password: e.target.value })
-              }
-              className="w-full px-3 py-2 rounded-lg bg-white outline-none"
-            />
-          </div>
+{/* //password */}
+          <div className="space-y-1 relative">
+      <label className="text-white block text-sm sm:text-xl">Password</label>
+      <input
+        type={showPassword ? 'text' : 'password'}
+        placeholder="Password"
+        value={formData.password}
+        onChange={(e) =>
+          setFormData({ ...formData, password: e.target.value })
+        }
+        className="w-full px-3 py-2 rounded-lg bg-white outline-none pr-10"
+      />
+      <button
+        type="button"
+        onClick={() => setShowPassword(!showPassword)}
+        className="absolute right-3 top-11 md:top-13 transform -translate-y-1/2 text-gray-600"
+      >
+        {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+      </button>
+    </div>
 
           <button
             type="submit"

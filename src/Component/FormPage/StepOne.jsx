@@ -11,7 +11,7 @@ const StepOne = ({ formData, setFormData }) => {
   const handleNext = (e) => {
     e.preventDefault();
     if (!formData.profileFor || !formData.firstName || !formData.religion) {
-      alert("Please fill in all required fields.");
+      toast.warning("Filled all field");
       return;
     }
     toast.success("You complete One step");
@@ -34,7 +34,7 @@ const StepOne = ({ formData, setFormData }) => {
         }}
       >
       <Navbar3 />
-      <div  className="min-h-screen flex justify-center items-center px-4">
+      <div  className="min-h-screen jost flex justify-center items-center px-4">
      
         <div className="bg-[#DE5353] bg-opacity-90 p-8 rounded-2xl shadow-lg w-full max-w-md">
           <FaArrowCircleLeft
@@ -138,7 +138,7 @@ const StepOne = ({ formData, setFormData }) => {
             {/* {/ Submit Button /} */}
             <button
               type="submit"
-              className="w-full bg-black text-white font-semibold py-2 px-4 rounded-lg transition duration-300"
+              className="w-full cursor-pointer bg-black text-white font-semibold py-2 px-4 rounded-lg transition duration-300"
             >
               Next
             </button>

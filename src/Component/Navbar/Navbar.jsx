@@ -45,7 +45,7 @@ function Navbar() {
 
         {/* {/ Navigation Links (Responsive) /} */}
         <nav
-          className={`absolute top-18 text-centerw-full shadow-md md:shadow-none md:static md:flex md:items-center md:space-x-6  gilda-display-regular
+          className={`absolute top-18 text-centerw-full shadow-md md:shadow-none md:static md:flex md:items-center md:space-x-6  jost
             ${isOpen ? "block bg-white text-black p-2 left-15" : "hidden"} md:block`}
         >
           <div className="flex flex-col md:flex-row lg:space-x-4 text-center">
@@ -63,9 +63,9 @@ function Navbar() {
             </NavLink>
 
             {/* {/ Mobile Register Button /} */}
-            <div className="md:hidden gilda-display-regular py-2">
-              <NavLink to="/Login">
-                <button className="w-full bg-[#C34040] text-white px-5 py-2 rounded-full">
+            <div className="md:hidden jost py-2">
+              <NavLink to="/register/step-one">
+                <button className="w-full bg-[#C34040] text-white px-5 py-2 rounded-full ">
                   Register Now
                 </button>
               </NavLink>
@@ -74,8 +74,8 @@ function Navbar() {
         </nav>
 
         {/* {/ Register Button (Desktop) /} */}
-        <div className="hidden md:block gilda-display-regular">
-          <NavLink to="/Login">
+        <div className="hidden md:block jost">
+          <NavLink to="/register/step-one">
             <button className="bg-[#C34040] cursor-pointer hover:bg-black text-white px-5 py-2 rounded-full ">
               Register Now
             </button>

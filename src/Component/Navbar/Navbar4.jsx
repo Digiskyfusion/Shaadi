@@ -32,8 +32,9 @@ function Navbar4() {
     const bottomNavItems = {
         'MY SHAADI': [
             { label: 'Dashboard', path: '/dashboard' },
-            { label: 'Edit Profile', path: '/edit-profile' },
-            { label: 'Upgrade Plan', path: '/upgrade' },
+            { label: 'My Profile', path: '/userprofile' },
+            { label: 'My Photos', path: '/photo' },
+            { label: 'Settings', path: '/setting' },
         ],
         MATCHES: [
             { label: 'My Matches', path: '/matches' },
@@ -53,7 +54,7 @@ function Navbar4() {
     };
 
     return (
-        <div className='sticky top-0  z-50'>
+        <div className='sticky top-0 jost z-50'>
         <div className="flex flex-col items-center bg-white relative ">
             <div className="w-full flex flex-col items-center shadow-md bg-gradient-to-b from-[#FFCCA8] ">
                 {/* {/ Top Navbar /} */}

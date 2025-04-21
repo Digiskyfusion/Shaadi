@@ -5,10 +5,10 @@ import { FaUserFriends, FaLock, FaShieldAlt } from 'react-icons/fa';
 const MoneybackPage = () => {
   return (
     <div className="text-center p-6 bg-white  mt-28">
-      <h1 className="text-3xl text-black font-serif font-normal">The safest,smartest and the most secure</h1>
-      <p className="text-xl mt-1 text-black font-normal">The safest,smartest and the most secure</p>
+      <h1 className="text-3xl text-black font-serif font-normal gilda-display-regular">The safest,smartest and the most secure</h1>
+      <p className="text-xl mt-1 text-black font-normal jost ">The safest,smartest and the most secure</p>
 
-      <div className="bg-[#f0eae1] mt-10 max-w-2xl mx-auto rounded-2xl transition-transform transform hover:scale-105 hover:shadow shadow-black p-8">
+      <div className="bg-[#f0eae1] mt-10  jost mx-auto rounded-2xl  shadow-black p-8">
         <img
           src={moneyback}
           alt="Money Back Guarantee"

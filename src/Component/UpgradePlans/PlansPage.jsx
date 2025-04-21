@@ -1,6 +1,8 @@
 import React from 'react';
-import image from "../../assets/Images/Rectangle 117.png";
 import Navbar3 from '../Navbar/Navbar3';
+import { Link } from 'react-router-dom';
+import Rectangle67 from '../../assets/Images/Rectangle 67.png';
+
 
 function Planpage() {
   const plans = [
@@ -43,10 +45,10 @@ function Planpage() {
 
   return (
     <div
-      className="relative bg-white py-1 px-1 sm:px-8"
+      className="relative bg-white py-1 px-1 jost sm:px-8"
       style={{
-        backgroundImage: `url(${image})`,
-        backgroundSize: '100%',
+        backgroundImage: `url(${Rectangle67})`,
+        backgroundSize: 'cover  ',
         backgroundRepeat: 'no-repeat',
       }}
     >
@@ -57,18 +59,20 @@ function Planpage() {
       <div className="relative z-10">
         <Navbar3 />
 
-        <h1 className="text-center mt-96 text-6xl text-amber-50 font-serif">
+        <h1 className="text-center gilda-display-regular mt-96 text-6xl text-amber-50 font-serif">
           Upgrade now & Get Premium benefits
         </h1>
-        <h2 className="text-center text-amber-50 text-2xl font-normal mt-2">
+        <h2 className="text-center text-amber-50 jost text-2xl font-normal mt-2">
           Upgrade to any of our Premium Plans we guarantee you will find a match!
         </h2>
-
-        <div className="flex justify-center mt-4">
-          <button className="bg-[#EB5757] text-white px-6 py-2 rounded-full hover:bg-amber-50 hover:text-black transition-transform transform hover:scale-105 hover:shadow shadow-black">
+       
+       <Link to="/dashboard">
+       <div className="flex justify-center mt-4 ">
+          <button className="bg-[#EB5757] cursor-pointer jost  text-white px-6 py-2 rounded-full hover:bg-amber-50 hover:text-black transition-transform transform hover:scale-105 hover:shadow shadow-black">
             Do This Later
           </button>
         </div>
+       </Link>
 
         <div className="max-w-5xl mx-auto grid gap-8 md:grid-cols-3 p-6 relative md:top-40 lg:top-20">
           {plans.map((plan, index) => (

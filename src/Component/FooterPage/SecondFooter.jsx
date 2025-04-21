@@ -9,7 +9,7 @@ import picture from "../../assets/Images/Group 22.png";
 
 function SecondFooter() {
   return (
-    <div className="bg-[#53321B] p-6 sm:p-8 flex flex-col gap-8 md:flex-row md:items-center md:justify-between text-white">
+    <div className="bg-[#53321B] p-6 gilda-display-regular  sm:p-8 flex flex-col gap-8 md:flex-row md:items-center md:justify-between text-white">
       {/* Left: Logo */}
       <div className="flex justify-center md:justify-start">
         <img src={picture} alt="Shaadi" className="w-28 sm:w-32 md:w-40" />

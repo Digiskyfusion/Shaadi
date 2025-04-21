@@ -26,7 +26,7 @@ function ThirdSection() {
        Recently Jo
             <span className="relative inline-block">
               <span className="inline-block">
-                <svg className="w-[10px] h-[16px] md:h-[24px] lg:w-[15px] lg:h-[25px]" viewBox="0 0 6 100" xmlns="http://www.w3.org/2000/svg">
+                <svg className="w-[10px] h-[16px] md:h-[24px] lg:w-[15px] lg:h-[23px]" viewBox="0 0 6 100" xmlns="http://www.w3.org/2000/svg">
                   <line x1="3" y1="0" x2="3" y2="100" stroke="black" strokeWidth="15" />
                 </svg>
               </span>
@@ -56,17 +56,17 @@ function ThirdSection() {
               </div>
 
               {/* Online Badge bottom-left */}
-              <div className="absolute bottom-2 left-2 flex items-center gap-2 bg-[#DE5353] px-1 py-1 rounded-full shadow-sm">
-                <span className="text-white text-xs font-medium">Online</span>
-                <span className="w-3 h-3 relative  left-2 right-1 bg-green-500 rounded-full"></span>
+              <div className="absolute bottom-4 left-4 flex justify-center items-center gap- bg-[#DE5353] px-1  py-1 rounded-full shadow-sm">
+                <span className="text-white text-xs text-center font-medium">Online</span>
+                <span className="w-3 h-3 relative  left-2 right-1  bg-green-500 rounded-full"></span>
               </div>
             </div>
 
-            <div className="text-center space-y-1">
+            <div className="text-center space-y-1 gilda-display-regular">
               <h2 className="text-2xl font-semibold text-rose-700 font-cursive">
                 {member.name}, {member.age}
               </h2>
-              <p className="text-gray-600 text-sm italic">
+              <p className="text-gray-600 text-sm jost">
                 Looking for a perfect match
               </p>
             </div>

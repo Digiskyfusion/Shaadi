@@ -12,7 +12,7 @@
       city: '',
       liveWithFamily: false,
       livingInIndiaSince: '',
-      maritalStatus: '',
+      maritalStatus: '',  
       diet: '',
       height: '',
       subCommunity: '',
@@ -31,7 +31,7 @@
           const id = storedUser?.id || storedUser?._id;
           if (id) {
             setUserId(id);
-            const res = await axios.get(`http://192.168.29.50:3000/api/profile/${id}`, {
+            const res = await axios.get(`http://localhost:3000/api/profile/${id}`, {
               headers: { Authorization: `Bearer ${token}` },
             });
             if (res.data?.data) {
@@ -75,11 +75,11 @@
         }
 
         const fullData = { ...formData, userId };
-        const res = await axios.post('http://192.168.29.50:3000/api/profile', fullData, {
+        const res = await axios.post('http://localhost:3000/api/profile', fullData, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
-        await axios.post('http://192.168.29.50:3000/api/auth/send-otp', {
+        await axios.post('http://localhost:3000/api/auth/send-otp', {
           emailId, mobileNumber,
         }, {
           headers: { Authorization: `Bearer ${token}` },
@@ -99,7 +99,7 @@
     };
 
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center p-6">
+      <div className="min-h-screen bg-white flex items-center jost justify-center p-6">
         <div className="flex flex-col md:flex-row w-full gap-2 md:gap-7 items-start shadow-2xl p-3 rounded-md">
           <div className="w-full md:flex-1 justify-center mb- md:mb-0">
             <img src={Image18} alt="Profile Step" className="w-full h-auto max-h-lvh object-cover rounded-lg" />
@@ -112,7 +112,7 @@
                 <FaArrowCircleLeft className="mr-4 text-2xl" />
               </button>
 
-              <h2 className="text-2xl text-center font-semibold">Create your profile now!</h2>
+              <h2 className="text-2xl text-center font-semibold gilda-display-regular">Create your profile now!</h2>
 
               {/* City */}
               <div>

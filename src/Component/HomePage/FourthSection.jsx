@@ -25,12 +25,12 @@ function FourthSection() {
             les
           </h1>
 
-    <section className="relative  py-20 px-6 md:px-16 overflow-hidden">
+    <section className="relative  py-20 px-6 md:px-16 text-[#53321B] overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 z-10 relative">
         {/* Text Content */}
         <div className="space-y-6">
         
-          <h2 className="text-3xl sm:text-4xl md:text-5xl  text-[#53321B] ">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl ">
        Meet Prem
             <span className="relative inline-block">
               <span className="inline-block">
@@ -38,17 +38,17 @@ function FourthSection() {
                   <line x1="3" y1="0" x2="3" y2="100" stroke="#53321B" strokeWidth="15" />
                 </svg>
               </span>
-              <span className="absolute top-[-10px] sm:top-[-8px] left-1/2 transform -translate-x-1/2 text-[#EB5757] text-lg">
+              <span className="absolute top-[-10px] sm:top-[-8px] left-1/2 transform -translate-x-1/2  text-lg">
                 ❤️
               </span>
             </span>
          num Members Looking for Love
           </h2>
-          <p className="text-gray-600 text-base">
+          <p className="text-gray-600 text-base jost">
             Check out our handpicked profiles of genuine individuals seeking a
             lifelong commitment.
           </p>
-          <button className="bg-[#DE5353] text-white px-6 py-2 rounded-full shadow">
+          <button className="bg-[#DE5353] text-white px-6 py-2 rounded-full  jost shadow">
             View Profile
           </button>
         </div>

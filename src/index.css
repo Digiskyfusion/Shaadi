@@ -1,7 +1,9 @@
 @import "tailwindcss";
 
 .active{
-    color: brown;
+    color: white ;
+    background-color:brown ;
+    border-radius: 10px;
 }
 
 .gilda-display-regular {
@@ -21,3 +23,9 @@
   }
   
   
+.jost {
+  font-family: "Jost", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}

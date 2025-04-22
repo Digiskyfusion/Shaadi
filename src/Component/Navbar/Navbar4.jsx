@@ -39,9 +39,10 @@ function Navbar4() {
             { label: 'Settings', path: '/setting' },
         ],
         MATCHES: [
-            { label: 'My Matches', path: '/matches' },
-            { label: 'Shortlisted', path: '/shortlisted' },
-            { label: 'Recently Viewed', path: '/recently-viewed' },
+            { label: 'New Matches', path: '/matches' },
+            { label: 'Todays Matches', path: '/shortlisted' },
+            { label: 'Near Me', path: '/recently-viewed' },
+            { label: 'More', path: '/recently-viewed' },
         ],
         SEARCH: [
             { label: 'Search Profiles', path: '/search' },

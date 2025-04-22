@@ -94,12 +94,12 @@ const Footer = () => {
             <img
               src={photo7}
               alt="Google Play"
-              className="w-32 hover:opacity-80 transition"
+              className="w-28 hover:opacity-80 transition"
             />
             <img
               src={photo8}
               alt="App Store"
-              className="w-32 hover:opacity-80 transition"
+              className="w-28 hover:opacity-80 transition"
             />
           </div>
         </div>

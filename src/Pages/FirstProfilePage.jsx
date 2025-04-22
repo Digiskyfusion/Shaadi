@@ -9,7 +9,9 @@ function FirstProfilePage() {
     <>
     <Navbar4 />
     <FirstProfile />
+    <div className='py-4 '>
     <SecondProfile />
+    </div>
     <Footer />
       
     </>

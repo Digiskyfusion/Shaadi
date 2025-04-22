@@ -19,7 +19,6 @@ function FirstProfile() {
 
       {/* Main Content */}
       <div className="relative z-10">
-        <Navbar3 />
 
         <div className="text-center mt-36 px-4">
           <h1 className="text-5xl text-amber-50 font-serif flex justify-center items-center gap-4 flex-wrap">

@@ -18,12 +18,12 @@ import DeleteOtpPage from "./Pages/DeleteOtpPage";
 import ProfileSubmitPage from "./Pages/ProfileSubmitPage";
 import ProfileFull from "./Component/MyProfilePage/ProfileFull";
 import MultiStepForm from "./Component/DetailsFormUser/MultiStepForm";
-import FirstProfile from "./Component/ProfileMatches/FirstProfile";
-import ThirdProfile from "./Component/ProfileMatches/ThirdProfile";
-import FourthProfile from "./Component/ProfileMatches/FourthProfile";
-import FifthProfile from "./Component/ProfileMatches/FifthProfile";
-import SixthProfile from "./Component/ProfileMatches/SixthProfile";
-import SecondProfile from "./Component/ProfileMatches/SecondProfile";
+import FirstProfilePage from "./Pages/FirstProfilePage";
+import ThirdProfilePage from "./Pages/ThirdProfilePage";
+import FourthSectionPage from "./Pages/FourthProfilePage";
+import FifthProfilePage from "./Pages/FifthProfilePage";
+import FourthProfilePage from "./Pages/FourthProfilePage";
+import SixthProfilePage from "./Pages/SixthProfilePage";
 function App() {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -66,12 +66,11 @@ function App() {
         <Route path="/profiledelete" element={<ProfileDeletePage />} />
         <Route path="/deleteotp" element={<DeleteOtpPage />} />
         <Route path="/multifrom" element={<MultiStepForm />} />
-        <Route path='/FirstProfile' element={<FirstProfile /> }/>
-        <Route path='/SecondProfile' element={<SecondProfile /> }/>
-        <Route path='/ThirdProfile' element={<ThirdProfile/> }/>
-        <Route path='/FourthProfile' element={<FourthProfile/> }/>
-        <Route path='/FifthProfile' element={<FifthProfile/> }/>
-        <Route path='/SixthProfile' element={<SixthProfile/> }/>
+        <Route path='/FirstProfile' element={<FirstProfilePage /> }/>
+        <Route path='/ThirdProfile' element={<ThirdProfilePage/> }/>
+        <Route path='/FourthProfile' element={<FourthProfilePage /> }/>
+        <Route path='/FifthProfile' element={<FifthProfilePage/> }/>
+        <Route path='/SixthProfile' element={<SixthProfilePage/> }/>
       </Routes>
     </>
   );

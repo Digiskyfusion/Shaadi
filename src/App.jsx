@@ -53,9 +53,9 @@ function App() {
         />
         <Route path="/StepThree" element={<ProfileSubmitPage />} />
         <Route path="/verifyOtp" element={<VerifyOtp />} />
+        <Route path="/Login" element={<LoginNavbarPage />} />
         <Route path="/CardsPage" element={<CardsPage />} />
         <Route path="/dashboard" element={<DashBoardPage />} />
-        <Route path="/Login" element={<LoginNavbarPage />} />
         <Route path="/profile" element={<ProfileFull />} />
         <Route path="/userprofile" element={<ProfilePage />} />
         <Route path="/photo" element={<UploadPage />} />

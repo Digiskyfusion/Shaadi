@@ -6,18 +6,18 @@ import ProfileFour from './ProfileFour'
 
 function ProfileFull() {
   return (
-    <div className="py-6 jost bg-[#FFCCA8]">
+    <div className="py-6 px-3 jost bg-[#FFCCA8]">
       
       {/* Main layout: ProfileOne on left, rest on right */}
-      <div className="md:flex md:gap-6 w-full max-w-7xl mx-auto">
+      <div className=" flex flex-col justify-between lg:flex-row md:gap-6 w-full max-w-7xl mx-auto">
         
         {/* Left Side */}
-        <div className="md:w-1/3 mb-6 md:mb-0">
+        <div className="lg:w-1/3 mb-6 md:mb-0">
           <ProfileOne />
         </div>
 
         {/* Right Side */}
-        <div className="md:w-2/3 space-y-6">
+        <div className="lg:w-2/3 space-y-6">
           
           {/* Top card */}
           <div>
@@ -26,7 +26,7 @@ function ProfileFull() {
           </div>
 
           {/* Bottom section: Two cards side by side */}
-          <div className="flex flex-col md:flex-row gap-6">
+          <div className="flex flex-col lg:flex-row gap-6">
             <div className="flex-1">
               <ProfileThree />
             </div>

@@ -434,7 +434,7 @@ const FifthProfile = () => {
 
       
       <div className="mt-5 flex justify-end">
-              <button className="bg-[#FF5A60] hover:bg-[#ff3b5f] text-white font-medium px-4 py-2 rounded-full">
+              <button className="bg-[#FF5A60] hover:bg-[#ff3b5f] text-white font-medium px-4 py-2 rounded-full ">
                 Back to top
               </button>
               </div>

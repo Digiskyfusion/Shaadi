@@ -6,6 +6,7 @@ import FourthSection from '../Component/HomePage/FourthSection'
 import Navbar from '../Component/Navbar/Navbar'
 
 import Footer from '../Component/FooterPage/Footer'
+import FifthSection from '../Component/HomePage/FifthSection'
 
 function HomePage() {
   return (
@@ -31,7 +32,7 @@ function HomePage() {
     <SecondSection />
     <ThirdSection />
     <FourthSection />
-    
+    <FifthSection />
     <Footer />
         
     </>

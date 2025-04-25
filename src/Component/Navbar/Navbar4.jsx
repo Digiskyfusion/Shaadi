@@ -39,10 +39,10 @@ function Navbar4() {
             { label: 'Settings', path: '/setting' },
         ],
         MATCHES: [
-            { label: 'New Matches', path: '/FifthProfile' },
-            { label: 'Todays Matches', path: '/FirstProfile' },
-            { label: 'Near Me', path: '/ThirdProfile' },
-            { label: 'More', path: '/FourthProfile' },
+            { label: 'New Matches', path: '/fifthProfile' },
+            { label: 'Todays Matches', path: '/firstProfile' },
+            { label: 'Near Me', path: '/thirdProfile' },
+            { label: 'More', path: '/fourthProfile' },
         ],
         SEARCH: [
             { label: 'Search Profiles', path: '/search' },
@@ -107,16 +107,16 @@ function Navbar4() {
 
                         {/* Desktop Buttons */}
                         <div className="hidden md:flex items-center gap-3">
-                            <button className="bg-black text-white px-4 py-2 rounded-xl">
+                            {/* <button className="bg-black text-white px-4 py-2 rounded-xl">
                                 Upgrade Now
-                            </button>
+                            </button> */}
                             <button
         onClick={() => {
             // Add your logout logic here
             localStorage.clear(); // or remove auth tokens
             navigate('/login'); // redirect to login
         }}
-        className="text-white bg-red-700 rounded-lg px-5 py-2 "
+        className="text-white bg-red-700 cursor-pointer rounded-lg px-5 py-2 "
     >
         Logout
     </button>
@@ -142,16 +142,16 @@ function Navbar4() {
                                     {item}
                                 </h1>
                             ))}
-                            <button className="bg-[#EB5757] text-white px-4 py-2 rounded hover:bg-red-600 transition mt-2">
+                            {/* <button className="bg-[#EB5757] text-white px-4 py-2 rounded hover:bg-red-600 transition mt-2">
                                 Upgrade Now
-                            </button>
+                            </button> */}
                             <button
         onClick={() => {
             // Add your logout logic here
             localStorage.clear(); // or remove auth tokens
             navigate('/login'); // redirect to login
         }}
-        className="text-white bg-red-700 rounded-lg px-5 py-2"
+        className="text-white cursor-pointer bg-red-700 rounded-lg px-5 py-2"
     >
         Logout
     </button>

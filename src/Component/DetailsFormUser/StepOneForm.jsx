@@ -27,6 +27,9 @@ const StepOneForm = ({ formData, handleChange, onNext }) => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <InputField label="name" name="name" value={formData.name} onChange={handleChange} />
+        <InputField label="emailId" name="emailId" value={formData.emailId} onChange={handleChange} />
+        <InputField label="phonenumber" name="phonenumber" value={formData.phonenumber} onChange={handleChange} />
           <InputField label="Family Detail" name="familydetail" value={formData.familydetail} onChange={handleChange} />
           <InputField label="Age" name="age" type="number" value={formData.age} onChange={handleChange} />
           <InputField label="Date of Birth" name="dob" type="date" value={formData.dob} onChange={handleChange} />
@@ -37,6 +40,13 @@ const StepOneForm = ({ formData, handleChange, onNext }) => {
           <InputField label="Blood Group" name="bloodgroup" value={formData.bloodgroup} onChange={handleChange} />
           <InputField label="Health Information" name="healthinformation" value={formData.healthinformation} onChange={handleChange} />
           <InputField label="Disability" name="disability" value={formData.disability} onChange={handleChange} />
+          <InputField label="Gender (Male or Female)" name="gender" type="select" value={formData.gender} onChange={handleChange} options={[{ label: "Select Gender", value: "" },
+    { label: "Male", value: "male" },
+    { label: "Female", value: "female" },
+    { label: "Other", value: "other" },
+  ]}
+/>
+
         </div>
 
         <div className="mt-10 flex justify-center">

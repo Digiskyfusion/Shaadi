@@ -17,7 +17,7 @@ function ProfileFull() {
         </div>
 
         {/* Right Side */}
-        <div className="lg:w-2/3 space-y-6">
+        <div className="lg:w-2/3 flex flex-col justify-center space-y-6">
           
           {/* Top card */}
           <div>
@@ -26,13 +26,13 @@ function ProfileFull() {
           </div>
 
           {/* Bottom section: Two cards side by side */}
-          <div className="flex flex-col lg:flex-row gap-6">
-            <div className="flex-1">
+          <div className=" ">
+            {/* <div className="flex-1">
               <ProfileThree />
-            </div>
-            <div className="flex-1">
+            </div> */}
+            {/* <div className="flex-1"> */}
             <ProfileTwo />
-            </div>
+            {/* </div> */}
           </div>
         </div>
 

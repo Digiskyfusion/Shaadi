@@ -21,13 +21,13 @@ function ProfilePage() {
     <div className="jost ">
       <Navbar4 />
       <ProfileFull />
-      <div className="md:flex gap-3 p-4 md:px-7">
+      <div className="md:flex items-center gap-3 p-4   md:px-7">
         <button className="bg-red-600 text-white px-5 py-1 rounded-full">
           About Myself
         </button>
-        <button className="bg-black text-white px-5 py-1 mt-3 md:mt-0 rounded-full">
+        {/* <button className="bg-black text-white px-5 py-1 mt-3 md:mt-0 rounded-full">
           About Myself
-        </button>
+        </button> */}
       </div>
       <DetailOne />
       <DetailTwo />
@@ -42,11 +42,11 @@ function ProfilePage() {
         </button>
       </div>
       <DetailFromOne />
-      <DetailFormTwo />
-      <DetailFormThree />
-      <DetailFormFour />
+      {/* <DetailFormTwo /> */}
+      {/* <DetailFormThree /> */}
+      {/* <DetailFormFour />
       <DetailFormFive />
-      <DetailFormSix />
+      <DetailFormSix /> */}
       <div className="md:flex gap-3 p-4 md:px-7">
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

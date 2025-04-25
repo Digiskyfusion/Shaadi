@@ -29,7 +29,7 @@ const MultiStepForm = () => {
     religion: "", community: "", subcommunity: "", gothram: "", mothertongue: "", manglik: "", timeofbirth: "", cityofbirth: "",
     motherdetails: "", fatherdetails: "", familylocation: "", nosisters: "", nobrothers: "", familyfinancialstatus: "",
     highestqualification: "", collegesattended: "", annualincome: "",
-    workingwith: "", workingas: "", employername: "",
+    workingwith: "", workingas: "", employername: "",name:"", emailId:"",phonenumber:"", gender:"",
     userId: getUserIdFromLocalStorage()
   });
 
@@ -50,7 +50,7 @@ const MultiStepForm = () => {
         toast.success("Profile submitted successfully!");
         setTimeout(()=>
         {
-          navigate("/Login");
+          navigate("/login");
         },1500)
       } else {
         toast.error(result.error || "Something went wrong.");

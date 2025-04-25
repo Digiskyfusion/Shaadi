@@ -1,70 +1,125 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { FaPencilAlt } from "react-icons/fa";
 import { LuDot } from "react-icons/lu";
+
+const fieldSections = [
+  {
+    title: "Basic & Lifestyle",
+    fields: ['age', 'religion', 'maritalstatus', 'height', 'growup', 'diet', 'community', 'healthinformation', 'disability', 'gothram']
+  },
+  {
+    title: "Education & Career",
+    fields: ['highestqualification', 'workingwith']
+  },
+  {
+    title: "Location",
+    fields: ['currentresidence', 'stateofresidence', 'residencystatus', 'zippincode']
+  },
+  {
+    title: "My Contact Details",
+    fields: ['mobile', 'name', 'whatsappno', 'emailId']
+  }
+];
+
 function DetailFromOne() {
+  const [partnerData, setPartnerData] = useState({});
+  const [isEditing, setIsEditing] = useState(false);
+  const userId = JSON.parse(localStorage.getItem("userProfile"))?._id;
+
+  useEffect(() => {
+    if (userId) {
+      axios.get(`http://localhost:3000/api/patner/${userId}`)
+        .then(res => res.data && setPartnerData(res.data))
+        .catch(err => console.error("Fetch error:", err));
+    }
+  }, [userId]);
+
+  const handleChange = (e) => {
+    setPartnerData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSave = () => {
+    const request = partnerData._id
+      ? axios.put(`http://localhost:3000/api/patner/${userId}`, partnerData)
+      : axios.post(`http://localhost:3000/api/patner`, { ...partnerData, userId });
+
+    request
+      .then(res => {
+        setPartnerData(res.data);
+        setIsEditing(false);
+      })
+      .catch(err => console.error("Save error:", err));
+  };
+
+  const renderField = (field) => (
+    <p className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3" key={field}>
+      <span className="font-semibold w-full sm:w-[180px] text-sm capitalize">
+        {field === 'height' ? 'Height (in cm):' :
+         field === 'whatsappNumber' ? 'WhatsApp Number:' :
+         field === 'contactPersonName' ? 'Contact Person Name:' :
+         field === 'zipCode' ? 'ZIP Code:' :
+         field.replace(/([A-Z])/g, ' $1') + ':'}
+      </span>
+      {isEditing ? (
+        <input
+          type="text"
+          name={field}
+          value={partnerData[field] || ''}
+          onChange={handleChange}
+          className="border border-gray-300 px-3 py-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-red-600"
+        />
+      ) : (
+        <span className="text-gray-700">
+          {field === 'height' && partnerData[field] ? `${partnerData[field]} cm` : partnerData[field]}
+        </span>
+      )}
+    </p>
+  );
+
   return (
- <div className='px-5 py-5'>
-      <div className='bg-[#FFE7D6] p-5 rounded-md'>
-        <div className='md:flex justify-between items-center'>
-          <div className='flex items-center gap-2'>
-            <LuDot className='text-4xl text-red-600' />
-            <h1 className='text-red-600 text-base md:text-xl font-bold'>
-             Basic & Lifestyle
+    <div className="px-4 md:px-8 py-6">
+      <div className="bg-[#FFE7D6] p-6 rounded-lg shadow-md">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
+          <div className="flex items-center gap-3">
+            <LuDot className="text-4xl text-red-600" />
+            <h1 className="text-red-600 text-lg md:text-xl font-bold">
+              Basic & Lifestyle, Education & Career, Location, and My Contact Details
             </h1>
           </div>
-         <div className='flex justify-center'>
-         <div className='flex items-center  mt-2 md:mt-0 gap-1 bg-black rounded-full text-white px-4 py-1 cursor-pointer hover:bg-gray-800 transition'>
+          <button
+            onClick={() => setIsEditing(!isEditing)}
+            className="flex items-center gap-2 mt-4 md:mt-0 cursor-pointer bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800 transition"
+          >
             <FaPencilAlt />
-            <span>Edit</span>
-          </div>
-         </div>
+            <span>{isEditing ? "Cancel" : "Edit"}</span>
+          </button>
         </div>
 
-        {/* Inner Section */}
-        <div className='py-3 '>
-          <div className='bg-white text-black p-4 rounded-md md:px-10'>
-          <div className='md:flex md:justify-between md:items-start gap-10'>
-                {/* Left Column */}
-                <div className='flex flex-col space-y-3'>
-                    <p className='flex'>
-                    <span className='font-semibold min-w-[150px]'>Age:</span> 28
-                    </p>
-                    <p className='flex'>
-                    <span className='font-semibold min-w-[150px]'>Date Of Birth:</span> 14 April 1997
-                    </p>
-                    <p className='flex'>
-                    <span className='font-semibold min-w-[150px]'>Marital Status:</span> Never Married
-                    </p>
-                    <p className='flex'>
-                    <span className='font-semibold min-w-[150px]'>Height:</span> 5'9"
-                    </p>
-                    <p className='flex'>
-                    <span className='font-semibold min-w-[150px]'>Grew up in:</span> Mumbai, India
-                    </p>
-                </div>
+        <div className="mt-6 bg-white p-6 rounded-lg shadow-md space-y-6">
+          {fieldSections.map((section, idx) => (
+            <div key={idx} className="space-y-4 ">
+              <h2 className="text-md font-semibold text-red-600">{section.title}</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 justify-between  gap-4">
+                {section.fields.map(field => renderField(field))}
+              </div>
+            </div>
+          ))}
 
-                {/* Right Column */}
-                <div className='flex flex-col space-y-3'>
-                    <p className='flex'>
-                    <span className='font-semibold min-w-[150px]'>Diet:</span> Vegetarian
-                    </p>
-                    <p className='flex'>
-                    <span className='font-semibold min-w-[150px]'>Blood Group:</span> B+
-                    </p>
-                    <p className='flex'>
-                    <span className='font-semibold min-w-[150px]'>Health Information:</span> Fit & Healthy
-                    </p>
-                    <p className='flex'>
-                    <span className='font-semibold min-w-[150px]'>Disability:</span> None
-                    </p>
-                </div>
-                </div>
-
-          </div>
+          {isEditing && (
+            <div className="text-right pt-4">
+              <button
+                onClick={handleSave}
+                className="bg-red-600 cursor-pointer text-white px-6 py-3 rounded-lg hover:bg-red-700 transition"
+              >
+                Save
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default DetailFromOne
+export default DetailFromOne;

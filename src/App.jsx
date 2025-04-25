@@ -53,7 +53,7 @@ function App() {
         />
         <Route path="/StepThree" element={<ProfileSubmitPage />} />
         <Route path="/verifyOtp" element={<VerifyOtp />} />
-        <Route path="/Login" element={<LoginNavbarPage />} />
+        <Route path="/login" element={<LoginNavbarPage />} />
         <Route path="/CardsPage" element={<CardsPage />} />
         <Route path="/dashboard" element={<DashBoardPage />} />
         <Route path="/profile" element={<ProfileFull />} />
@@ -66,11 +66,11 @@ function App() {
         <Route path="/profiledelete" element={<ProfileDeletePage />} />
         <Route path="/deleteotp" element={<DeleteOtpPage />} />
         <Route path="/multifrom" element={<MultiStepForm />} />
-        <Route path='/FirstProfile' element={<FirstProfilePage /> }/>
-        <Route path='/ThirdProfile' element={<ThirdProfilePage/> }/>
-        <Route path='/FourthProfile' element={<FourthProfilePage /> }/>
-        <Route path='/FifthProfile' element={<FifthProfilePage/> }/>
-        <Route path='/SixthProfile' element={<SixthProfilePage/> }/>
+        <Route path='/firstProfile' element={<FirstProfilePage /> }/>
+        <Route path='/thirdProfile' element={<ThirdProfilePage/> }/>
+        <Route path='/fourthProfile' element={<FourthProfilePage /> }/>
+        <Route path='/fifthProfile' element={<FifthProfilePage/> }/>
+        <Route path='/sixthProfile' element={<SixthProfilePage/> }/>
       </Routes>
     </>
   );

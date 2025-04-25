@@ -30,17 +30,17 @@ function DetailFormSix() {
                                      <span className='font-semibold min-w-[150px]'>Mobile :</span> 28
                                      </p>
                                      <p className='flex'>
-                                     <span className='font-semibold min-w-[150px]'>Contact Person :</span> 14 April 1997
+                                     <span className='font-semibold min-w-[150px]'>Contact Person Name :</span> 14 April 1997
                                      </p>
                                      <p className='flex'>
-                                     <span className='font-semibold min-w-[150px]'>Relationship with the member :</span> 14 April 1997
+                                     <span className='font-semibold min-w-[150px]'>Whatsapp Number :</span> 14 April 1997
                                      </p>
                                      <p className='flex'>
-                                     <span className='font-semibold min-w-[150px]'>Convenient Tome to Call :</span> 14 April 1997
+                                     <span className='font-semibold min-w-[150px]'>Email_id :</span> 14 April 1997
                                      </p>
-                                     <p className='flex'>
+                                     {/* <p className='flex'>
                                      <span className='font-semibold min-w-[150px]'>Display Option :</span> 14 April 1997
-                                     </p>
+                                     </p> */}
                                    
                                      
                                  </div>

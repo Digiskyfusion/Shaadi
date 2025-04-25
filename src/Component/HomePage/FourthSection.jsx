@@ -10,23 +10,28 @@ import Ellipse4 from "../../assets/Images/Ellipse4.png";
 function FourthSection() {
   return (
     <div>
-    <h1 className="text-3xl mt-9 sm:text-4xl md:text-5xl gilda-display-regular text-black text-center">
-          Featured Prof
-            <span className="relative inline-block">
-              <span className="inline-block">
-                <svg className="w-[10px] h-[16px] lg:w-[15px] lg:h-[25px]" viewBox="0 0 6 100" xmlns="http://www.w3.org/2000/svg">
-                  <line x1="3" y1="0" x2="3" y2="100" stroke="black" strokeWidth="15" />
-                </svg>
-              </span>
-              <span className="absolute top-[-10px] sm:top-[-8px] left-1/2 transform -translate-x-1/2 text-[#EB5757] text-sm">
-                ❤️
-              </span>
-            </span>
-            les
-          </h1>
+    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mt-12 gilda-display-regular text-black text-center">
+  Featured Prof
+  <span className="relative inline-block mx-2">
+    <span className="inline-block">
+      <svg
+        className="w-[12px] h-[20px] lg:w-[18px] lg:h-[30px]"
+        viewBox="0 0 6 100"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <line x1="3" y1="0" x2="3" y2="100" stroke="black" strokeWidth="15" />
+      </svg>
+    </span>
+    <span className="absolute top-[-14px] sm:top-[-1px] left-1/2 transform -translate-x-1/2 text-[#EB5757] text-base sm:text-lg">
+      ❤️
+    </span>
+  </span>
+  les
+</h1>
+
 
     <section className="relative  py-20 px-6 md:px-16 text-[#53321B] overflow-hidden">
-      <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 z-10 relative">
+      <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 z-10 relative gilda-display-regular">
         {/* Text Content */}
         <div className="space-y-6">
         
@@ -34,8 +39,8 @@ function FourthSection() {
        Meet Prem
             <span className="relative inline-block">
               <span className="inline-block">
-                <svg className="w-[10px] h-[16px] lg:w-[15px] lg:h-[25px]" viewBox="0 0 6 100" xmlns="http://www.w3.org/2000/svg">
-                  <line x1="3" y1="0" x2="3" y2="100" stroke="#53321B" strokeWidth="15" />
+                <svg className="w-[10px] h-[16px] lg:w-[15px] lg:h-[20px]" viewBox="0 0 6 100" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="3" y1="0" x2="3" y2="100" stroke="#53321B" strokeWidth="20" />
                 </svg>
               </span>
               <span className="absolute top-[-10px] sm:top-[-8px] left-1/2 transform -translate-x-1/2  text-lg">
@@ -44,7 +49,7 @@ function FourthSection() {
             </span>
          num Members Looking for Love
           </h2>
-          <p className="text-gray-600 text-base jost">
+          <p className="text-black text-base jost">
             Check out our handpicked profiles of genuine individuals seeking a
             lifelong commitment.
           </p>

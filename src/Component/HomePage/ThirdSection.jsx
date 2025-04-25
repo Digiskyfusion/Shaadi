@@ -22,20 +22,30 @@ const members = [
 function ThirdSection() {
   return (
     <section className="py-5 px-4 sm:px-12 ">
-       <h1 className="text-3xl sm:text-4xl md:text-5xl mb-10  text-black text-center gilda-display-regular">
-       Recently Jo
-            <span className="relative inline-block">
-              <span className="inline-block">
-                <svg className="w-[10px] h-[16px] md:h-[24px] lg:w-[15px] lg:h-[23px]" viewBox="0 0 6 100" xmlns="http://www.w3.org/2000/svg">
-                  <line x1="3" y1="0" x2="3" y2="100" stroke="black" strokeWidth="15" />
-                </svg>
-              </span>
-              <span className="absolute top-[-10px] sm:top-[-8px] left-1/2 transform -translate-x-1/2 text-[#EB5757] text-lg">
-                ❤️
-              </span>
-            </span>
-            ned Members
-          </h1>
+      <h1 className="text-4xl sm:text-5xl  font-bold md:text-6xl lg:text-7xl mb-12 text-black text-center gilda-display-regular leading-tight">
+  HeartSync Recently
+  <br />
+  <span className="inline-block">
+    Jo
+    <span className="relative inline-block ">
+      <span className="inline-block">
+        <svg
+          className="w-[12px] h-[20px] md:h-[28px] lg:w-[18px] lg:h-[30px]"
+          viewBox="0 0 6 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <line x1="3" y1="0" x2="3" y2="100" stroke="black" strokeWidth="15" />
+        </svg>
+      </span>
+      <span className="absolute top-[-14px] sm:top-[-1px] left-1/2 transform -translate-x-1/2 text-[#EB5757] text-xl sm:text-2xl">
+        ❤️
+      </span>
+    </span>
+    ned   Members
+  </span>
+</h1>
+
+
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
         {members.map((member) => (
@@ -62,11 +72,11 @@ function ThirdSection() {
               </div>
             </div>
 
-            <div className="text-center space-y-1 gilda-display-regular">
-              <h2 className="text-2xl font-semibold text-rose-700 font-cursive">
+            <div className=" space-y-1 gilda-display-regular">
+              <h2 className="text-2xl font-semibold font-cursive">
                 {member.name}, {member.age}
               </h2>
-              <p className="text-gray-600 text-sm jost">
+              <p className="text-[#53321B] text-sm jost">
                 Looking for a perfect match
               </p>
             </div>

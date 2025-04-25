@@ -66,9 +66,9 @@ const FifthSection = () => {
   {plans.map((plan, index) => (
     <div
       key={index}
-      className="bg-[#E8E0D5] rounded-xl shadow-black p-6 flex flex-col items-center text-center 
-                 hover:shadow hover:bg-[#EB5757] hover:text-white 
-                 transition-transform transform hover:scale-105 border border-black group"
+      className="bg-[#FFFFFF] rounded-xl shadow-md shadow-black/40 p-6 flex flex-col items-center text-center 
+           hover:shadow-lg hover:bg-[#EB5757] hover:text-white transition-all duration-300"
+
     >
       <h2 className="text-3xl font-semibold mb-6">
         {plan.name}{' '}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { FaHeart } from 'react-icons/fa';
+
 import Image3 from '../../assets/Images/Image3.png';
 import Image4 from '../../assets/Images/Image4.png';
 import Image5 from '../../assets/Images/Image5.png';
@@ -40,7 +40,7 @@ function SecondSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   return (
-    <section className="success-stories pb-10 px-4">
+    <section className="success-stories pb-10 px-4 ">
       <h1 className="text-5xl font-bold text-center mb-14 text-rose-600 drop-shadow-md font-serif">
      
       </h1>
@@ -61,7 +61,7 @@ function SecondSection() {
           {stories.map((story) => (
             <div
               key={story.id}
-              className="flex flex-col md:flex-row w-full transition-opacity duration-1000 ease-in-out"
+              className="flex flex-col md:flex-row w-full transition-opacity duration-1000 ease-in-out "
             >
               {/* {/ Image Section /} */}
               <div className="relative md:w-1/2 w-full shadow-md overflow-hidden">
@@ -70,8 +70,8 @@ function SecondSection() {
                   alt={`Photo of ${story.name}`}
                   className="w-full h-[450px] object-cover transform transition duration-500 hover:scale-105"
                 />
-                <div className="absolute inset-1 border-4 border-white pointer-events-none"></div>
-                <FaHeart className="absolute top-4 right-4 text-pink-500 text-2xl drop-shadow-lg hover:scale-125 transition-transform duration-300" />
+                <div className="absolute inset-3 border-4 border-white pointer-events-none"></div>
+           
               </div>
 
               {/* {/ Text Section /} */}
@@ -85,7 +85,7 @@ function SecondSection() {
                 }}
               >
                 <div className=" p-8  max-w-lg mx-auto space-y-4 gilda-display-regular">
-                  <h2 className="text-2xl font-bold text-rose-600 ">{story.name}</h2>
+                  <h2 className="text-3xl font-bold text-black ">{story.name}</h2>
                   <p className="text-gray-700 italic text-lg leading-relaxed jost">{story.text}</p>
                 </div>
               </div>

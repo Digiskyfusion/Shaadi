@@ -40,7 +40,7 @@ const Footer = () => {
               (Icon, idx) => (
                 <div
                   key={idx}
-                  className="bg-fuchsia-200 text-[#53321B] rounded-full p-2.5 text-xl hover:scale-105 transition"
+                  className="bg-[#D0BEA9] text-[#53321B] rounded-full p-2.5 text-xl hover:scale-105 transition"
                 >
                   <Icon />
                 </div>

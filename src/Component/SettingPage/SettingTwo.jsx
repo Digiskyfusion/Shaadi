@@ -14,10 +14,10 @@ function SettingTwo() {
   useEffect(() => {
     if (userId) {
       axios
-        .get(`http://localhost:3000/api/user/getuser/${userId}`)
+        .get(`http://localhost:3000/user/${userId}`)
         .then((res) => {
-          setEmail(res.data.emailId);
-          setNewEmail(res.data.emailId);
+          setEmail(res.data.user.emailId);
+          setNewEmail(res.data.user.emailId);
         })
         .catch((err) => console.error('Error fetching email:', err));
     }

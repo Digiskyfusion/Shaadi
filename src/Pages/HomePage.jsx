@@ -14,25 +14,33 @@ function HomePage() {
      
      <Navbar />
     <FirstSection />
-    <div> <h1 className="text-3xl  mt-10 sm:text-4xl md:text-5xl font-bold text-black text-center gilda-display-regular">
-          Success Stor
-    
-                <span className="relative inline-block">
-                  <span className="inline-block ">
-                    <svg className="w-[7px] h-[15px] md:h-[22px] lg:w-[10px] lg:h-[23px]" viewBox="0 0 6 100" xmlns="http://www.w3.org/2000/svg">
-                      <line x1="3" y1="0" x2="3" y2="100" stroke="black" strokeWidth="15" />
-                    </svg>
-                  </span>
-                  <span className="absolute top-[-13px] sm:top-[-8px] lg:top-[-10px] left-1/2 transform -translate-x-1/2 text-[#EB5757] text-lg">
-                    ❤️
-                  </span>
-                </span>
-                es
-              </h1></div>
+    <div>
+  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-black text-center mt-24 gilda-display-regular">
+    Success Stor
+    <span className="relative inline-block">
+      <span className="inline-block">
+        <svg
+          className="w-[10px] h-[30px] sm:h-[40px] md:h-[50px] lg:h-[35px] "
+          viewBox="0 0 6 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <line x1="3" y1="0" x2="3" y2="100" stroke="black" strokeWidth="15"  />
+        </svg>
+      </span>
+      <span className="absolute top-[-18px] sm:top-[-14px] md:top-[-16px] lg:top-[-18px] left-1/2 transform -translate-x-1/2 text-[#EB5757] text-xl sm:text-2xl md:text-3xl">
+        ❤️
+      </span>
+    </span>
+    es
+  </h1>
+</div>
+
+
     <SecondSection />
     <ThirdSection />
     <FourthSection />
     <FifthSection />
+    
     <Footer />
         
     </>

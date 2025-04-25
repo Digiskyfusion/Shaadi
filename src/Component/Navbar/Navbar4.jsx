@@ -151,7 +151,7 @@ function Navbar4() {
             localStorage.clear(); // or remove auth tokens
             navigate('/login'); // redirect to login
         }}
-        className="text-white cursor-pointer bg-red-700 rounded-lg px-5 py-2"
+        className="text-white bg-red-700 cursor-pointer rounded-lg px-5 py-2"
     >
         Logout
     </button>

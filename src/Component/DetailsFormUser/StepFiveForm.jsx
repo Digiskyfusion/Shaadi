@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 
 const StepFiveForm = ({ formData, handleChange, onNext, onBack }) => {
   const handleNext = () => {
-    toast.success("✅ Step five completed! Moving to the next step...");
+    toast.success("Step five completed!");
     setTimeout(() => {
       onNext();
     }, 1500);
@@ -24,7 +24,7 @@ const StepFiveForm = ({ formData, handleChange, onNext, onBack }) => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <InputField
-          label="Working With"
+          label="Job/Business"
           name="workingwith"
           value={formData.workingwith}
           onChange={handleChange}

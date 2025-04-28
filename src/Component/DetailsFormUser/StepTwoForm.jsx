@@ -5,7 +5,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const StepTwoForm = ({ formData, handleChange, onNext, onBack }) => {
   const handleNext = () => {
-    toast.success("✅ Step two completed! Moving to the next step...");
+    toast.success("Step two completed!");
     setTimeout(() => {
       onNext();
     }, 1500);
@@ -23,9 +23,6 @@ const StepTwoForm = ({ formData, handleChange, onNext, onBack }) => {
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <InputField label="Religion" name="religion" value={formData.religion} onChange={handleChange} />
-        <InputField label="Community" name="community" value={formData.community} onChange={handleChange} />
-        <InputField label="Sub-community" name="subcommunity" value={formData.subcommunity} onChange={handleChange} />
         <InputField label="Gothram" name="gothram" value={formData.gothram} onChange={handleChange} />
         <InputField label="Mother Tongue" name="mothertongue" value={formData.mothertongue} onChange={handleChange} />
         <InputField label="Manglik" name="manglik" value={formData.manglik} onChange={handleChange} />

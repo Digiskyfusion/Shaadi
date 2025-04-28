@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 
 const StepFourForm = ({ formData, handleChange, onNext, onBack }) => {
   const handleNext = () => {
-    toast.success("✅ Step four completed! Moving to the next step...");
+    toast.success("Step four completed!");
     setTimeout(() => {
       onNext();
     }, 1500);

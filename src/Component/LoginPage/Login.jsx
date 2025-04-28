@@ -124,7 +124,7 @@ function Login() {
                 type="text"
                 value={identifier}
                 onChange={(e) => setIdentifier(e.target.value)}
-                className="w-100  pl-4 pr-10 py-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 text-black bg-[#FFFFFF]"
+                className="w-100  pl-4 pr-10 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 text-black bg-[#FFFFFF]"
               />
               
             </div>
@@ -139,7 +139,7 @@ function Login() {
                 type={showPassword ? "text" : "password"}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-100 pl-4 pr-10 py-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2  text-black bg-[#FFFFFF]"
+                className="w-100 pl-4 pr-10 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2  text-black bg-[#FFFFFF]"
               />
               <button
                 type="button"
@@ -158,10 +158,10 @@ function Login() {
             </div>
 
             {/* Login Button */}
-            <div className="gap-4 jost text-center">
+            <div className="gap-4 jost  text-center">
               <button
                 type="submit"
-                className="w-100 bg-[#EB5757] cursor-pointer text-white py-4 rounded-full text-xl"
+                className="w-1/2 bg-[#EB5757] cursor-pointer text-white py-2 rounded-full text-xl"
                 disabled={loading}
               >
                 {loading ? "Logging in..." : "Login"}

@@ -5,7 +5,7 @@ import { FaArrowLeft, FaArrowRight, FaHome } from "react-icons/fa";
 
 const StepThreeForm = ({ formData, handleChange, onNext, onBack }) => {
   const handleNext = () => {
-    toast.success("✅ Step three completed! Moving to the next step...");
+    toast.success("Step three completed!");
     setTimeout(() => {
       onNext();
     }, 1500);

@@ -47,7 +47,7 @@ const VerifyOtp = () => {
         
        setTimeout(()=>
       {
-        navigate("/login");
+        navigate("/multifrom");
       },2000)
       }
 

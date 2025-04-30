@@ -26,6 +26,7 @@ import FourthProfilePage from "./Pages/FourthProfilePage";
 import SixthProfilePage from "./Pages/SixthProfilePage";
 import FirstMatch from "./Component/NewmatchesPage/FirstMatch";
 import ThirdMatch from "./Component/NewmatchesPage/ThirdMatch";
+import FifthMatch from "./Component/NewmatchesPage/FifthMatch";
 function App() {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -77,6 +78,7 @@ function App() {
 
       <FirstMatch />
       <ThirdMatch />
+      <FifthMatch />
     </>
   );
 }

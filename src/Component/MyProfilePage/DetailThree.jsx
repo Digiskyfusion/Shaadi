@@ -1,72 +1,53 @@
-import React, { useEffect, useState } from 'react';
-import { FaPencilAlt } from "react-icons/fa";
+import React, { useState, useEffect } from 'react';
 import { LuDot } from "react-icons/lu";
 import axios from 'axios';
-
+import { FaPencilAlt } from "react-icons/fa";
 function DetailThree() {
-  const [profile, setProfile] = useState(null);
-  const [isEditing, setIsEditing] = useState(false);
-  const [editData, setEditData] = useState({
-    religion: '',
-    community: '',
-    subcommunity: '',
-    gothram: '',
-    mothertongue: '',
-    manglik: '',
-    dob: '',
-    timeofbirth: '',
-    cityofbirth: ''
+  let a= JSON.parse(localStorage.getItem("userProfile"))
+  const userId = a._id;  // Replace with the actual user ID
+  const [profile, setProfile] = useState({
+    religion: "",
+    community: "",
+    subCommunity: "",
+    manglik: "",
+    timeofbirth: "",
+    cityofbirth: "",
+    
   });
+  const [editData, setEditData] = useState(profile);
+  const [isEditing, setIsEditing] = useState(false);
 
+  // Fetch profile data when the component mounts
   useEffect(() => {
-    const fetchProfileData = async () => {
+    const fetchProfile = async () => {
       try {
-        const userProfile = JSON.parse(localStorage.getItem("userProfile"));
-        const userId = userProfile?._id;
-        if (!userId) return;
-
-        const res = await axios.get(`http://localhost:3000/api/user/getuser/${userId}`);
-        setProfile(res.data);
-        // console.log(res.data)
-        setEditData({
-          religion: res.data.religion,
-          community: res.data.community,
-          subcommunity: res.data.subcommunity,
-          gothram: res.data.gothram,
-          mothertongue: res.data.mothertongue,
-          manglik: res.data.manglik,
-          dob: res.data.dob,
-          timeofbirth: res.data.timeofbirth,
-          cityofbirth: res.data.cityofbirth
-        });
-      } catch (err) {
-        console.error("Error fetching profile data", err);
+        const response = await axios.get(`http://localhost:3000/api/profileget/${userId}`);
+        setProfile(response.data.data); // Assuming the response has the profile data
+        setEditData(response.data.data); // Set initial edit data
+      } catch (error) {
+        console.error("Error fetching profile:", error);
       }
     };
 
-    fetchProfileData();
-  }, []);
+    fetchProfile();
+  }, [userId]);
+
+  const handleChange = (e) => {
+    setEditData({
+      ...editData,
+      [e.target.name]: e.target.value
+    });
+  };
 
   const handleSave = async () => {
     try {
-      const userProfile = JSON.parse(localStorage.getItem("userProfile"));
-      const userId = userProfile?._id;
-      if (!userId) return;
-
-      const updatedData = {
-        ...profile,
-        ...editData,
-      };
-
-      await axios.put(`http://localhost:3000/api/user/updateuser/${userId}`, updatedData);
-      setProfile(updatedData);
-      setIsEditing(false);
-    } catch (err) {
-      console.error("Error updating details", err);
+      const response = await axios.put(`http://localhost:3000/api/profileupdate/${userId}`, editData);
+      setProfile(response.data.data); // Update the profile with the saved data
+      setIsEditing(false); // Exit edit mode
+    } catch (error) {
+      console.error("Error updating profile:", error);
     }
   };
-
-  if (!profile) return <div>Loading...</div>;
 
   return (
     <div className='px-5 py-5'>
@@ -78,14 +59,33 @@ function DetailThree() {
               Religious Background & Astro Details
             </h1>
           </div>
-          <div className='flex justify-center'>
-            <div
+          {/* Edit Button */}
+          <div>
+            {!isEditing ? (
+              <div className='flex items-center mt-2 md:mt-0 gap-1 bg-black cursor-pointer rounded-full text-white px-4 py-1  hover:bg-gray-800 transition'
               onClick={() => setIsEditing(true)}
-              className='flex items-center mt-2 md:mt-0 gap-1 cursor-pointer bg-black rounded-full text-white px-4 py-1 cursor-pointer hover:bg-gray-800 transition'
-            >
-              <FaPencilAlt />
-              <span>Edit</span>
-            </div>
+              >
+                 <FaPencilAlt />
+              <button
+                
+                className="bg-balck text-white cursor-pointer rounded-md"
+              >
+                Edit
+              </button>
+              </div>
+            ) : (
+              <div className='flex items-center px-4 py-1 bg-black cursor-pointer text-white  rounded-full'
+              onClick={handleSave}
+              >
+                 <FaPencilAlt />
+              <button
+                
+                className=" cursor-pointer"
+              >
+                Save
+              </button>
+              </div>
+            )}
           </div>
         </div>
 
@@ -100,8 +100,9 @@ function DetailThree() {
                   {isEditing ? (
                     <input
                       type="text"
+                      name="religion"
                       value={editData.religion}
-                      onChange={(e) => setEditData({ ...editData, religion: e.target.value })}
+                      onChange={handleChange}
                       className="border rounded-md px-2 py-1"
                     />
                   ) : (
@@ -113,8 +114,9 @@ function DetailThree() {
                   {isEditing ? (
                     <input
                       type="text"
+                      name="community"
                       value={editData.community}
-                      onChange={(e) => setEditData({ ...editData, community: e.target.value })}
+                      onChange={handleChange}
                       className="border rounded-md px-2 py-1"
                     />
                   ) : (
@@ -126,40 +128,17 @@ function DetailThree() {
                   {isEditing ? (
                     <input
                       type="text"
-                      value={editData.subcommunity}
-                      onChange={(e) => setEditData({ ...editData, subcommunity: e.target.value })}
+                      name="subCommunity"
+                      value={editData.subCommunity}
+                      onChange={handleChange}
                       className="border rounded-md px-2 py-1"
                     />
                   ) : (
-                    <span>{profile.subcommunity}</span>
+                    <span>{profile.subCommunity}</span>
                   )}
                 </p>
-                <p className='md:flex'>
-                  <span className='font-semibold min-w-[150px]'>Gothra / Gothram:</span>
-                  {isEditing ? (
-                    <input
-                      type="text"
-                      value={editData.gothram}
-                      onChange={(e) => setEditData({ ...editData, gothram: e.target.value })}
-                      className="border rounded-md px-2 py-1"
-                    />
-                  ) : (
-                    <span>{profile.gothram}</span>
-                  )}
-                </p>
-                <p className='md:flex'>
-                  <span className='font-semibold min-w-[150px]'>Mother Tongue:</span>
-                  {isEditing ? (
-                    <input
-                      type="text"
-                      value={editData.mothertongue}
-                      onChange={(e) => setEditData({ ...editData, mothertongue: e.target.value })}
-                      className="border rounded-md px-2 py-1"
-                    />
-                  ) : (
-                    <span>{profile.mothertongue}</span>
-                  )}
-                </p>
+                
+             
               </div>
 
               {/* Right Column */}
@@ -169,34 +148,24 @@ function DetailThree() {
                   {isEditing ? (
                     <input
                       type="text"
+                      name="manglik"
                       value={editData.manglik}
-                      onChange={(e) => setEditData({ ...editData, manglik: e.target.value })}
+                      onChange={handleChange}
                       className="border rounded-md px-2 py-1"
                     />
                   ) : (
                     <span>{profile.manglik}</span>
                   )}
                 </p>
-                <p className='md:flex'>
-                  <span className='font-semibold min-w-[150px]'>Date of Birth:</span>
-                  {isEditing ? (
-                    <input
-                      type="date"
-                      value={editData.dob}
-                      onChange={(e) => setEditData({ ...editData, dob: e.target.value })}
-                      className="border rounded-md px-2 py-1"
-                    />
-                  ) : (
-                    <span>{new Date(profile.dob).toLocaleDateString('en-GB')}</span>
-                  )}
-                </p>
+                
                 <p className='md:flex'>
                   <span className='font-semibold min-w-[150px]'>Time of Birth:</span>
                   {isEditing ? (
                     <input
                       type="text"
+                      name="timeofbirth"
                       value={editData.timeofbirth}
-                      onChange={(e) => setEditData({ ...editData, timeofbirth: e.target.value })}
+                      onChange={handleChange}
                       className="border rounded-md px-2 py-1"
                     />
                   ) : (
@@ -208,8 +177,9 @@ function DetailThree() {
                   {isEditing ? (
                     <input
                       type="text"
+                      name="cityofbirth"
                       value={editData.cityofbirth}
-                      onChange={(e) => setEditData({ ...editData, cityofbirth: e.target.value })}
+                      onChange={handleChange}
                       className="border rounded-md px-2 py-1"
                     />
                   ) : (
@@ -218,17 +188,6 @@ function DetailThree() {
                 </p>
               </div>
             </div>
-
-            {isEditing && (
-              <div className="mt-4 flex justify-end gap-4">
-                <button onClick={() => setIsEditing(false)} className="px-4 cursor-pointer py-2 bg-gray-300 rounded">
-                  Cancel
-                </button>
-                <button onClick={handleSave} className="px-4 py-2 bg-[#FF5A60] cursor-pointer text-white rounded">
-                  Save
-                </button>
-              </div>
-            )}
           </div>
         </div>
       </div>

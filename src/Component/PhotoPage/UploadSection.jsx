@@ -17,11 +17,11 @@ function UploadSection() {
         <button className='px-5 py-1 cursor-pointer bg-[#FF5A60] text-white text-center rounded-full'>
             Photo
         </button>
-        <Link  to="/photosetting">
+        {/* <Link  to="/photosetting">
         <button className='px-5 py-1 cursor-pointer  bg-black text-white text-center rounded-full'>
             Settings
         </button>
-        </Link>
+        </Link> */}
       </div>
 
       <ProfileThree />  

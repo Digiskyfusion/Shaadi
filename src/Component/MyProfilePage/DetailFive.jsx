@@ -1,10 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { FaPencilAlt } from "react-icons/fa";
 import { LuDot } from "react-icons/lu";
-import axios from 'axios';
 
 export default function DetailFive() {
-  const [profile, setProfile] = useState(null);
+  const [profile, setProfile] = useState({
+    highestqualification: '',
+    collegesattended: '',
+    annualincome: '',
+    workingwith: '',
+    workingas: '',
+    employername: ''
+  });
+
   const [isEditing, setIsEditing] = useState(false);
   const [editData, setEditData] = useState({
     highestqualification: '',
@@ -15,52 +23,39 @@ export default function DetailFive() {
     employername: ''
   });
 
+  // Fetch profile data on component mount
   useEffect(() => {
-    const fetchProfileData = async () => {
+    const fetchProfile = async () => {
       try {
         const userProfile = JSON.parse(localStorage.getItem("userProfile"));
         const userId = userProfile?._id;
-        if (!userId) return;
+        const response = await axios.get(`http://localhost:3000/api/profileget/${userId}`);
+        const data = response.data.data;
 
-        const res = await axios.get(`http://localhost:3000/api/user/getuser/${userId}`);
-        setProfile(res.data);
-        // console.log(res.data)
-        setEditData({
-          highestqualification: res.data.highestqualification,
-          collegesattended: res.data.collegesattended,
-          annualincome: res.data.annualincome,
-          workingwith: res.data.workingwith,
-          workingas: res.data.workingas,
-          employername: res.data.employername
-        });
-      } catch (err) {
-        console.error("Error fetching profile data", err);
+        setProfile(data);
+        setEditData(data); // Update editData for the editing form
+      } catch (error) {
+        console.error("Error fetching profile:", error);
       }
     };
 
-    fetchProfileData();
+    fetchProfile();
   }, []);
 
+  // Handle saving the profile
   const handleSave = async () => {
     try {
       const userProfile = JSON.parse(localStorage.getItem("userProfile"));
       const userId = userProfile?._id;
-      if (!userId) return;
 
-      const updatedData = {
-        ...profile,
-        ...editData,
-      };
+      await axios.put(`http://localhost:3000/api/profileupdate/${userId}`, editData);
 
-      await axios.put(`http://localhost:3000/api/user/updateuser/${userId}`, updatedData);
-      setProfile(updatedData);
+      setProfile(editData);
       setIsEditing(false);
-    } catch (err) {
-      console.error("Error updating details", err);
+    } catch (error) {
+      console.error("Error updating profile:", error);
     }
   };
-
-  if (!profile) return <div>Loading...</div>;
 
   return (
     <div className='px-5 py-5'>

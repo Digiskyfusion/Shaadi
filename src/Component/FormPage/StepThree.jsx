@@ -133,14 +133,14 @@
                   <button
                     type="button"
                     onClick={() => handleFamilyClick(true)}
-                    className={`px-4 py-2 rounded-lg ${formData.liveWithFamily ? 'bg-[#824A23] text-white' : 'bg-[#E9D8C0]'}`}
+                    className={`px-4 py-2 cursor-pointer rounded-lg ${formData.liveWithFamily ? 'bg-[#824A23] text-white' : 'bg-[#E9D8C0]'}`}
                   >
                     Yes
                   </button>
                   <button
                     type="button"
                     onClick={() => handleFamilyClick(false)}
-                    className={`px-4 py-2 rounded-lg ${!formData.liveWithFamily ? 'bg-[#824A23] text-white' : 'bg-[#E9D8C0]'}`}
+                    className={`px-4 py-2 cursor-pointer rounded-lg ${!formData.liveWithFamily ? 'bg-[#824A23] text-white' : 'bg-[#E9D8C0]'}`}
                   >
                     No
                   </button>
@@ -153,7 +153,7 @@
                   name="livingInIndiaSince"
                   value={formData.livingInIndiaSince}
                   onChange={handleChange}
-                  className="mt-1 w-full border-0 border-b border-gray-400 py-2 pr-6 bg-transparent focus:outline-none appearance-none"
+                  className="mt-1 w-full border-0 cursor-pointer border-b border-gray-400 py-2 pr-6 bg-transparent focus:outline-none appearance-none"
                 >
                   <option value="">You are living in India since*</option>
                   <option value="Birth">Birth</option>
@@ -179,7 +179,7 @@
                   name="maritalStatus"
                   value={formData.maritalStatus}
                   onChange={handleChange}
-                  className="mt-1 w-full border-0 border-b border-gray-400 py-2 pr-6 bg-transparent focus:outline-none appearance-none"
+                  className="mt-1 w-full border-0 cursor-pointer border-b border-gray-400 py-2 pr-6 bg-transparent focus:outline-none appearance-none"
                 >
                   <option value="">Your marital status*</option>
                   <option value="Single">Single</option>
@@ -193,9 +193,9 @@
               {/* Diet */}
               <div>
                 <label className="block font-medium">Your diet</label>
-                <div className="grid grid-cols-2 gap-2 mt-1">
+                <div className="grid grid-cols-2 gap-2 mt-1 cursor-pointer">
                   {['Vegetarian', 'Non-Vegetarian', 'Vegan', 'Other'].map((diet) => (
-                    <label key={diet} className="flex items-center gap-2">
+                    <label key={diet} className="flex items-center gap-2 cursor-pointer">
                       <input
                         type="radio"
                         name="diet"
@@ -215,7 +215,7 @@
                   name="height"
                   value={formData.height}
                   onChange={handleChange}
-                  className="mt-1 w-full border-0 border-b border-gray-400 py-2 pr-6 bg-transparent focus:outline-none appearance-none"
+                  className="mt-1 w-full border-0 border-b cursor-pointer border-gray-400 py-2 pr-6 bg-transparent focus:outline-none appearance-none"
                 >
                   <option value="">Your height?*</option>
                   {Array.from({ length: (7 - 4) * 12 + 1 }, (_, i) => {
@@ -235,7 +235,7 @@
                   name="subCommunity"
                   value={formData.subCommunity}
                   onChange={handleChange}
-                  className="mt-1 w-full border-0 border-b border-gray-400 py-2 pr-6 bg-transparent focus:outline-none appearance-none"
+                  className="mt-1 w-full border-0 cursor-pointer border-b border-gray-400 py-2 pr-6 bg-transparent focus:outline-none appearance-none"
                 >
                   <option value="">Your sub-community?*</option>
                   {[

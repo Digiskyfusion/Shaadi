@@ -80,7 +80,7 @@ const FifthSection = () => {
       <p className="text-3xl font-bold text-black group-hover:text-white mb-1">{plan.price}</p>
       <p className="text-black group-hover:text-white mb-5">{plan.monthly}</p>
 
-      <button className="bg-black text-white px-6 py-2 rounded-full mb-6 hover:bg-gray-800">
+      <button className="bg-black cursor-pointer text-white px-6 py-2 rounded-full mb-6 hover:bg-gray-800">
         Continue
       </button>
 

@@ -16,6 +16,7 @@ function SettingTwo() {
       axios
         .get(`http://localhost:3000/user/${userId}`)
         .then((res) => {
+          
           setEmail(res.data.user.emailId);
           setNewEmail(res.data.user.emailId);
         })
@@ -28,7 +29,7 @@ function SettingTwo() {
 
     setLoading(true);
     axios
-      .put(`http://localhost:3000/api/user/updateuser/${userId}`, {
+      .put(`http://localhost:3000/user/${userId}`, {
         emailId: newEmail,
       })
       .then((res) => {

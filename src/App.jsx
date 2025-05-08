@@ -17,23 +17,21 @@ import ProfileDeletePage from "./Pages/ProfileDeletePage";
 import DeleteOtpPage from "./Pages/DeleteOtpPage";
 import ProfileSubmitPage from "./Pages/ProfileSubmitPage";
 import ProfileFull from "./Component/MyProfilePage/ProfileFull";
-import MultiStepForm from "./Component/DetailsFormUser/MultiStepForm";
 import FirstProfilePage from "./Pages/FirstProfilePage";
 import ThirdProfilePage from "./Pages/ThirdProfilePage";
-import FourthSectionPage from "./Pages/FourthProfilePage";
 import FifthProfilePage from "./Pages/FifthProfilePage";
 import FourthProfilePage from "./Pages/FourthProfilePage";
 import SixthProfilePage from "./Pages/SixthProfilePage";
-import FirstMatch from "./Component/NewmatchesPage/FirstMatch";
-import ThirdMatch from "./Component/NewmatchesPage/ThirdMatch";
+import ProfileDetails from "./Component/ProfileDetails/ProfileDetails";
+import AllProfilePage from "./Pages/AllProfilePage";
+;
 function App() {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     profileFor: "",
     firstName: "",
     lastName: "",
-    religion: "",
-    community: "",
+    gender: "",
     mobileNumber: "",
     emailId: "",
     dob: "",
@@ -67,16 +65,15 @@ function App() {
         <Route path="/confirm" element={<ConfirmPage />} />
         <Route path="/profiledelete" element={<ProfileDeletePage />} />
         <Route path="/deleteotp" element={<DeleteOtpPage />} />
-        <Route path="/multifrom" element={<MultiStepForm />} />
+        {/* <Route path="/multifrom" element={<MultiStepForm />} /> */}
         <Route path='/firstProfile' element={<FirstProfilePage /> }/>
         <Route path='/thirdProfile' element={<ThirdProfilePage/> }/>
         <Route path='/fourthProfile' element={<FourthProfilePage /> }/>
         <Route path='/fifthProfile' element={<FifthProfilePage/> }/>
         <Route path='/sixthProfile' element={<SixthProfilePage/> }/>
+        <Route path="/profile/:userId" element={<ProfileDetails />} />
+        <Route path="/allprofile" element={<AllProfilePage />} />
       </Routes>
-
-      <FirstMatch />
-      <ThirdMatch />
     </>
   );
 }

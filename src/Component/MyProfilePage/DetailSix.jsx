@@ -4,44 +4,41 @@ import { LuDot } from "react-icons/lu";
 import axios from 'axios';
 
 function DetailSix() {
-  const [locationData, setLocationData] = useState({});
+  const [locationData, setLocationData] = useState({
+    currentresidence: '',
+    stateofresidence: '',
+    residencystatus: '',
+    zippincode: ''
+  });
   const [isEditing, setIsEditing] = useState(false);
-  const [editData, setEditData] = useState({});
+  const [editData, setEditData] = useState(locationData);
 
-  // Fetch location details when the component mounts
-  const fetchLocationData = async () => {
-    try {
-      const userProfile = JSON.parse(localStorage.getItem("userProfile"));
-      const userId = userProfile?._id;
-      if (!userId) return;
-
-      const res = await axios.get(`http://localhost:3000/api/user/getuser/${userId}`);
-      // console.log(res.data);
-      setLocationData(res.data); // Directly set location data
-      setEditData(res.data); // Set the editable data as the same as fetched data
-    } catch (err) {
-      console.error("Error fetching location data", err);
-    }
-  };
-
+  // Fetch location data on component mount
   useEffect(() => {
-    fetchLocationData();
+    const userProfile = JSON.parse(localStorage.getItem("userProfile"));
+        const userId = userProfile?._id;
+    axios.get(`http://localhost:3000/api/profileget/${userId}`)
+      .then(response => {
+        setLocationData(response.data.data);
+        setEditData(response.data.data); // Initialize editData with fetched data
+      })
+      .catch(error => {
+        console.error('Error fetching location data:', error);
+      });
   }, []);
 
-  // Handle save (update the location data in the backend)
-  const handleSave = async () => {
-    try {
-      const userProfile = JSON.parse(localStorage.getItem("userProfile"));
-      const userId = userProfile?._id;
-      if (!userId) return;
-
-      // Directly send updated editData
-      await axios.put(`http://localhost:3000/api/user/updateuser/${userId}`, editData);
-      setLocationData(editData); // Update the displayed data with the edited data
-      setIsEditing(false); // Switch back to view mode
-    } catch (err) {
-      console.error("Error updating location data", err);
-    }
+  // Handle save (update the location data)
+  const handleSave = () => {
+    const userProfile = JSON.parse(localStorage.getItem("userProfile"));
+        const userId = userProfile?._id;
+    axios.put(`http://localhost:3000/api/profileupdate/${userId}`, editData)
+      .then(response => {
+        setLocationData(editData); // Update the displayed data with the edited data
+        setIsEditing(false); // Switch back to view mode
+      })
+      .catch(error => {
+        console.error('Error saving location data:', error);
+      });
   };
 
   return (

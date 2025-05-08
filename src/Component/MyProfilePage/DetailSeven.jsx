@@ -1,47 +1,40 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaPencilAlt } from "react-icons/fa";
 import { LuDot } from "react-icons/lu";
 import axios from 'axios';
 
 function DetailSeven() {
-  const [hobbies, setHobbies] = useState("");
+  const [hobbies, setHobbies] = useState('');
   const [isEditing, setIsEditing] = useState(false);
-  const [editHobbies, setEditHobbies] = useState("");
+  const [editHobbies, setEditHobbies] = useState(hobbies);
 
-  const fetchUserHobbies = async () => {
-    try {
-      const userProfile = JSON.parse(localStorage.getItem("userProfile"));
-      const userId = userProfile?._id;
-      if (!userId) return;
-
-      const res = await axios.get(`http://localhost:3000/api/user/getuser/${userId}`);
-      setHobbies(res.data.hobbies || "");
-      setEditHobbies(res.data.hobbies || "");
-    } catch (err) {
-      console.error("Error fetching hobbies", err);
-    }
-  };
-
+  // Fetch hobbies on component mount
   useEffect(() => {
-    fetchUserHobbies();
+    const userProfile = JSON.parse(localStorage.getItem("userProfile"));
+    const userId = userProfile?._id;
+    axios.get(`http://localhost:3000/api/profileget/${userId}`) // Replace with your API endpoint
+      .then(response => {
+        const fetchedHobbies = response.data.data?.hobbies || '';
+        setHobbies(fetchedHobbies); // Ensure hobbies is a string
+        setEditHobbies(fetchedHobbies); // Initialize editHobbies with fetched data
+      })
+      .catch(error => {
+        console.error('Error fetching hobbies:', error);
+      });
   }, []);
 
-  const handleSave = async () => {
-    try {
-      const userProfile = JSON.parse(localStorage.getItem("userProfile"));
-      const userId = userProfile?._id;
-      if (!userId) return;
-
-      const updatedProfile = {
-        hobbies: editHobbies
-      };
-
-      await axios.put(`http://localhost:3000/api/user/updateuser/${userId}`, updatedProfile);
-      setIsEditing(false);
-      await fetchUserHobbies(); // refresh data
-    } catch (err) {
-      console.error("Error updating hobbies", err);
-    }
+  // Handle save (update the hobbies)
+  const handleSave = () => {
+    const userProfile = JSON.parse(localStorage.getItem("userProfile"));
+    const userId = userProfile?._id;
+    axios.put(`http://localhost:3000/api/profileupdate/${userId}`, { hobbies: editHobbies }) // Replace with your API endpoint
+      .then(response => {
+        setHobbies(editHobbies); // Update the displayed hobbies with the edited data
+        setIsEditing(false); // Switch back to view mode
+      })
+      .catch(error => {
+        console.error('Error saving hobbies:', error);
+      });
   };
 
   return (
@@ -97,13 +90,14 @@ function DetailSeven() {
                   </div>
                 </div>
               ) : (
-                <p className=' flex flex-wrap pl-6 space-y-1 space-x-5'>
-                  {hobbies.split(",").map((hobby, index) => (
-                    <p className='bg-rose-200 px-3 py-1 rounded-md' key={index}>
-                      {hobby.trim()}
-                    </p>
-                  ))}
-                </p>
+                <div className='flex flex-wrap pl-6 gap-2'>
+  {(typeof hobbies === 'string' ? hobbies.split(",") : []).map((hobby, index) => (
+    <span className='bg-rose-200 px-3 py-1 rounded-md' key={index}>
+      {hobby.trim()}
+    </span>
+  ))}
+</div>
+
               )}
             </div>
           </div>

@@ -10,7 +10,7 @@ const StepOne = ({ formData, setFormData }) => {
 
   const handleNext = (e) => {
     e.preventDefault();
-    if (!formData.profileFor || !formData.firstName || !formData.religion) {
+    if (!formData.profileFor || !formData.firstName || !formData.gender) {
       toast.warning("Filled all field");
       return;
     }
@@ -63,8 +63,8 @@ const StepOne = ({ formData, setFormData }) => {
               <option value="Daughter">Daughter</option>
               <option value="Brother">Brother</option>
               <option value="Sister">Sister</option>
-              <option value="Relative">Relative</option>
-              <option value="Friend">Friend</option>
+              {/* <option value="Relative">Relative</option>
+              <option value="Friend">Friend</option> */}
             </select>
 
             {/* {/ Name Fields /} */}
@@ -96,42 +96,21 @@ const StepOne = ({ formData, setFormData }) => {
             </div>
 
             {/* {/ Religion Selector /} */}
-            <label className="text-white">Religion</label>
-            <select
-              value={formData.religion}
-              onChange={(e) =>
-                setFormData({ ...formData, religion: e.target.value })
-              }
-              className="w-full px-4 py-2 border rounded-lg bg-white text-black focus:outline-none focus:ring-2 focus:ring-pink-400"
-            >
-              <option value="">Select</option>
-              <option value="Hindu">Hindu</option>
-              <option value="Muslim">Muslim</option>
-              <option value="Christian">Christian</option>
-              <option value="Sikh">Sikh</option>
-              <option value="Jain">Jain</option>
-              <option value="Buddhist">Buddhist</option>
-              <option value="Other">Other</option>
-            </select>
 
             {/* {/ Community Selector /} */}
             <label className="text-white flex items-center gap-1">
-              Community <CiCircleQuestion />
+              Gender <CiCircleQuestion />
             </label>
             <select
-              value={formData.community}
+              value={formData.gender}
               onChange={(e) =>
-                setFormData({ ...formData, community: e.target.value })
+                setFormData({ ...formData, gender: e.target.value })
               }
               className="w-full px-4 py-2 border rounded-lg bg-white text-black focus:outline-none focus:ring-2 focus:ring-pink-400"
             >
               <option value="">Select</option>
-              <option value="Brahmin">Brahmin</option>
-              <option value="Rajput">Rajput</option>
-              <option value="Yadav">Yadav</option>
-              <option value="Agarwal">Agarwal</option>
-              <option value="Kayastha">Kayastha</option>
-              <option value="Jat">Jat</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
               <option value="Other">Other</option>
             </select>
 

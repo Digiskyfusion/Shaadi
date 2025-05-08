@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Group from '../../assets/Images/Group 22.png';
 import { FaChevronDown, FaHeart, FaBars, FaTimes } from 'react-icons/fa';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 
 function Navbar4() {
     const navigate = useNavigate();
@@ -39,10 +39,10 @@ function Navbar4() {
             { label: 'Settings', path: '/setting' },
         ],
         MATCHES: [
-            { label: 'New Matches', path: '/fifthProfile' },
-            { label: 'Todays Matches', path: '/firstProfile' },
+            { label: 'New Profiles', path: '/fifthProfile' },
+            { label: 'Todays Profiles', path: '/firstProfile' },
             { label: 'Near Me', path: '/thirdProfile' },
-            { label: 'More', path: '/fourthProfile' },
+            { label: 'All Profiles', path: '/allprofile' },
         ],
         SEARCH: [
             { label: 'Search Profiles', path: '/search' },
@@ -86,7 +86,9 @@ function Navbar4() {
                     {/* Top Navbar */}
                     <div className="w-full flex flex-col md:flex-row items-center justify-between px-6  py-4">
                         <div className="flex items-center justify-between w-full md:w-auto">
+                            <Link to="/dashboard">
                             <img src={Group} alt="Group" className="w-18 h-10" />
+                            </Link> 
                             <div className="md:hidden text-black" onClick={toggleMobileMenu}>
                                 {mobileMenuOpen ? <FaTimes size={22} /> : <FaBars size={22} />}
                             </div>

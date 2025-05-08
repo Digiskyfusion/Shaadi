@@ -28,12 +28,10 @@ const StepTwo = ({ formData, setFormData, prevStep }) => {
         profileFor: "",
         firstName: "",
         lastName: "",
-        religion: "",
-        community: "",
+        gender: "",
         mobileNumber: "",
         emailId: "",
         dob: "",
-        location: "",
         password: "",
       });
       setTimeout(()=>
@@ -196,18 +194,7 @@ const StepTwo = ({ formData, setFormData, prevStep }) => {
           </select>
 </div>
     </div>
-          <div className="space-y-1">
-            <label className="text-white block text-sm sm:text-xl">Where do you live?</label>
-            <input
-              type="text"
-              placeholder="Location"
-              value={formData.location}
-              onChange={(e) =>
-                setFormData({ ...formData, location: e.target.value })
-              }
-              className="w-full px-3 py-2 rounded-lg bg-white outline-none"
-            />
-          </div>
+          
 {/* //password */}
           <div className="space-y-1 relative">
       <label className="text-white block text-sm sm:text-xl">Password</label>
@@ -228,6 +215,9 @@ const StepTwo = ({ formData, setFormData, prevStep }) => {
         {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
       </button>
     </div>
+   <marquee> <p className="text-center text-yellow-500 text-sm  rounded-md ">
+  You have to use uppercase, lowercase, numeric, and symbol for your password.
+</p></marquee>
 
           <button
             type="submit"

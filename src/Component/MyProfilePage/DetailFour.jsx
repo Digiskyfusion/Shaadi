@@ -1,66 +1,60 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { FaPencilAlt } from "react-icons/fa";
 import { LuDot } from "react-icons/lu";
-import axios from 'axios';
 
 function DetailFour() {
-  const [profile, setProfile] = useState(null);
-  const [isEditing, setIsEditing] = useState(false);
-  const [editData, setEditData] = useState({
-    motherdetails: '',
-    fatherdetails: '',
-    familylocation: '',
-    nosisters: '',
-    nobrothers: '',
-    familyfinancialstatus: ''
+  const [profile, setProfile] = useState({
+    motherdetails: "Details about mother",
+    fatherdetails: "Details about father",
+    familylocation: "Location",
+    nosisters: 2,
+    nobrothers: 1,
+    familyfinancialstatus: "Middle Class"
   });
 
+  const [isEditing, setIsEditing] = useState(false);
+  const [editData, setEditData] = useState({
+    motherdetails: profile.motherdetails,
+    fatherdetails: profile.fatherdetails,
+    familylocation: profile.familylocation,
+    nosisters: profile.nosisters,
+    nobrothers: profile.nobrothers,
+    familyfinancialstatus: profile.familyfinancialstatus
+  });
+
+  // Fetch profile data when component mounts
   useEffect(() => {
-    const fetchProfileData = async () => {
+    const fetchProfile = async () => {
       try {
         const userProfile = JSON.parse(localStorage.getItem("userProfile"));
         const userId = userProfile?._id;
-        if (!userId) return;
+        const response = await axios.get(`http://localhost:3000/api/profileget/${userId}`);
+        const data = response.data.data;
 
-        const res = await axios.get(`http://localhost:3000/api/user/getuser/${userId}`);
-        setProfile(res.data);
-        // console.log(res.data)
-        setEditData({
-          motherdetails: res.data.motherdetails,
-          fatherdetails: res.data.fatherdetails,
-          familylocation: res.data.familylocation,
-          nosisters: res.data.nosisters,
-          nobrothers: res.data.nobrothers,
-          familyfinancialstatus: res.data.familyfinancialstatus
-        });
-      } catch (err) {
-        console.error("Error fetching profile data", err);
+        setProfile(data);
+        setEditData(data);
+      } catch (error) {
+        console.error("Error fetching profile:", error);
       }
     };
 
-    fetchProfileData();
+    fetchProfile();
   }, []);
 
   const handleSave = async () => {
     try {
       const userProfile = JSON.parse(localStorage.getItem("userProfile"));
       const userId = userProfile?._id;
-      if (!userId) return;
 
-      const updatedData = {
-        ...profile,
-        ...editData,
-      };
+      await axios.put(`http://localhost:3000/api/profileupdate/${userId}`, editData);
 
-      await axios.put(`http://localhost:3000/api/user/updateuser/${userId}`, updatedData);
-      setProfile(updatedData);
+      setProfile(editData);
       setIsEditing(false);
-    } catch (err) {
-      console.error("Error updating details", err);
+    } catch (error) {
+      console.error("Error updating profile:", error);
     }
   };
-
-  if (!profile) return <div>Loading...</div>;
 
   return (
     <div className='px-5 py-5'>

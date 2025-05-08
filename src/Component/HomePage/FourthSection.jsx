@@ -6,6 +6,7 @@ import Ellipse2 from "../../assets/Images/Ellipse2.png";
 import Ellipse3 from "../../assets/Images/Ellipse3.png";
 import Heart from "../../assets/Images/Heart.png";
 import Ellipse4 from "../../assets/Images/Ellipse4.png";
+import { Link } from "react-router-dom";
 
 function FourthSection() {
   return (
@@ -53,9 +54,11 @@ function FourthSection() {
             Check out our handpicked profiles of genuine individuals seeking a
             lifelong commitment.
           </p>
-          <button className="bg-[#DE5353] text-white px-6 py-2 rounded-full  jost shadow">
+        <Link to="/userprofile">
+          <button className="bg-[#DE5353] text-white px-6 py-2 cursor-pointer rounded-full  jost shadow">
             View Profile
           </button>
+          </Link>
         </div>
 
         {/* Main Image with Floating Elements */}

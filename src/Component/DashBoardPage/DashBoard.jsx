@@ -1,24 +1,35 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import Image7 from '../../assets/Images/Image7.png';
 import ProfileOne from '../MyProfilePage/ProfileOne';
+import axios from 'axios';
 
 function DashBoard() {
-  const invitations = [
-    { name: 'jainmia', age: 23, location: 'Punjab, India', img: Image7 },
-    { name: 'rahul123', age: 25, location: 'Delhi, India', img: Image7 },
-    { name: 'simran22', age: 22, location: 'Mumbai, India', img: Image7 },
-    { name: 'aarti_89', age: 26, location: 'Jaipur, India', img: Image7 },
-    { name: 'mohit_', age: 24, location: 'Hyderabad, India', img: Image7 },
-  ];
-
+  const [invitations, setInvitations] = useState([]);
   const scrollRef = useRef(null);
+  let a=  JSON.parse(localStorage.getItem("userProfile"));
+  let userId= a._id
+  // console.log(userId);
+  
+  // Fetch invitations from backend
+  useEffect(() => {
+    const fetchInvitations = async () => {
+      try {
+        const res = await axios.get(`http://localhost:3000/user/opposite/${userId}`);
+        setInvitations(res.data); // Adjust according to actual API structure
+        console.log(res.data)
+      } catch (error) {
+        console.error('Error fetching invitations:', error);
+      }
+    };
+
+    if (userId) fetchInvitations();
+  }, [userId]);
 
   const handleScroll = (direction) => {
-    const scrollAmount = 300;
+    const scrollAmount = 500;
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
-        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        left: direction === 'right' ? -scrollAmount : scrollAmount,
         behavior: 'smooth',
       });
     }
@@ -27,14 +38,11 @@ function DashBoard() {
   return (
     <div className="bg-[#FAF4EE] p-4 jost md:p-8">
       <div className="flex flex-col lg:flex-row lg:justify-center lg:px-10 items-center gap-6 mt-4">
-        {/* Left - Profile Section */}
-        <div className=" max-w-sm w-full">
+        <div className="max-w-sm w-full">
           <ProfileOne />
         </div>
 
-        {/* Right - Activity & Invitations */}
         <div className="flex flex-col gap-6 w-full">
-          {/* Activity Section */}
           <div className="bg-[#FF5A60] rounded-2xl shadow-lg p-6">
             <h2 className="text-xl font-bold text-white mb-8">Your Activity</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -50,43 +58,40 @@ function DashBoard() {
             </div>
           </div>
 
-          {/* Invitations Carousel with Scroll Buttons */}
           <div className="rounded-2xl relative">
-            <h2 className="text-lg font-semibold text-black mb-4 text-center">Invitations</h2>
+            <h2 className="text-lg font-semibold text-black mb-4 text-center">Users</h2>
 
-            {/* Scroll Buttons */}
             <button
               onClick={() => handleScroll('left')}
-              className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white border shadow-md rounded-full p-2 z-10 hover:bg-[#f4ece7]"
+              className="absolute left-2 top-1/2 cursor-pointer transform -translate-y-1/2 bg-white border shadow-md rounded-full p-2 z-10 hover:bg-[#f4ece7]"
             >
               <FaChevronLeft className="text-[#824A23]" />
             </button>
             <button
               onClick={() => handleScroll('right')}
-              className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white border shadow-md rounded-full p-2 z-10 hover:bg-[#f4ece7]"
+              className="absolute right-2 top-1/2 cursor-pointer transform -translate-y-1/2 bg-white border shadow-md rounded-full p-2 z-10 hover:bg-[#f4ece7]"
             >
               <FaChevronRight className="text-[#824A23]" />
             </button>
 
-            {/* Carousel Content */}
             <div
               ref={scrollRef}
-              className="flex justify-center items-center gap-5 lg:max-w-xl xl:max-w-4xl overflow-x-auto no-scrollbar px-2 scroll-smooth mx-auto"
+              className="flex  items-center gap-5 xl:gap-10 p-2 lg:max-w-xl xl:max-w-5xl  overflow-x-auto no-scrollbar px-4 sm:px-10 scroll-smooth "
             >
               {invitations.map((invitation, index) => (
                 <div
                   key={index}
-                  className="w-[235px] sm:w-[200px] md:w-[170px] xl:w-[272px] bg-[#FF5A60] rounded-2xl shadow-lg py-10 text-center flex-shrink-0 flex flex-col items-center justify-between"
+                  className="w-[260px] sm:w-[200px] md:w-[210px] xl:w-[265px] bg-[#FF5A60] rounded-2xl  py-10  text-center flex-shrink-0 flex flex-col items-center justify-between"
                 >
                   <img
-                    src={invitation.img}
-                    alt={`Profile picture of ${invitation.name}`}
+                    src={invitation.userId?.profileImage || 'https://img.freepik.com/free-psd/contact-icon-illustration-isolated_23-2151903337.jpg?t=st=1746421661~exp=1746425261~hmac=94de5d3835e78ee5b387f34b0214b3683e7436a1738902e45cc16be9f41b682b&w=826'}
+                    alt={`Profile picture of ${invitation.userId?.profileImage}`}
                     className="w-24 h-24 rounded-md object-cover mb-3 border-4 border-white shadow-md"
                   />
                   <div>
-                    <h3 className="text-lg font-bold text-black capitalize">{invitation.name}</h3>
+                    <h3 className="text-lg font-bold text-black capitalize">{invitation.userId?.firstName} {invitation.userId?.lastName}</h3>
                     <p className="text-sm text-black mt-1">
-                      {invitation.age} yrs, {invitation.location}
+                      {invitation.age} yrs, {invitation.city}, {invitation.growup}
                     </p>
                   </div>
                 </div>

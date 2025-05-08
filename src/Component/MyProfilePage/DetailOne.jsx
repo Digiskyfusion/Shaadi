@@ -1,51 +1,40 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { FaPencilAlt } from "react-icons/fa";
 import { LuDot } from "react-icons/lu";
-import axios from 'axios';
 
 function DetailOne() {
-  const [profile, setProfile] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [editContent, setEditContent] = useState('');
-
+  const a = JSON.parse(localStorage.getItem('userProfile')) // Assuming the userId is stored in localStorage
+  const userId = a._id
   useEffect(() => {
-    const fetchUserDetails = async () => {
+    // Fetch user profile data on component mount
+    const fetchProfileData = async () => {
       try {
-        const userProfile = JSON.parse(localStorage.getItem("userProfile"));
-        const userId = userProfile?._id;
-        if (!userId) return;
-
-        const res = await axios.get(`http://localhost:3000/api/user/getuser/${userId}`);
-        setProfile(res.data);
-        setEditContent(res.data.familydetail || '');
-      } catch (err) {
-        console.error("Error fetching user details", err);
+        const response = await axios.get(`http://localhost:3000/api/profileget/${userId}`);
+        // console.log(response.data.data.familydetail);
+        
+        setEditContent(response.data.data.familydetail || 'No details available.');
+      } catch (error) {
+        console.error("Error fetching profile data:", error);
       }
     };
 
-    fetchUserDetails();
+    fetchProfileData();
   }, []);
 
   const handleSave = async () => {
     try {
-      const userProfile = JSON.parse(localStorage.getItem("userProfile"));
-      const userId = userProfile?._id;
-      if (!userId) return;
-
-      const updatedProfile = {
-        ...profile,
+      // Send the updated content to the backend
+      await axios.put(`http://localhost:3000/api/profileupdate/${userId}`, {
         familydetail: editContent,
-      };
-
-      await axios.put(`http://localhost:3000/api/user/updateuser/${userId}`, updatedProfile);
-      setProfile(updatedProfile);
+      });
       setIsEditing(false);
-    } catch (err) {
-      console.error("Error updating details", err);
+    } catch (error) {
+      console.error("Error updating profile data:", error);
     }
   };
-
-  if (!profile) return <div>Loading...</div>;
 
   return (
     <div className='px-5 py-2'>
@@ -57,13 +46,11 @@ function DetailOne() {
               Personality, Family Details, Career, Partner Expectations, etc.
             </h1>
           </div>
+
           {!isEditing && (
             <div className='flex justify-center'>
               <div
-                onClick={() => {
-                  setEditContent(profile.familydetail || '');
-                  setIsEditing(true);
-                }}
+                onClick={() => setIsEditing(true)}
                 className='flex items-center gap-1 mt-2 cursor-pointer md:mt-0 bg-black rounded-full text-white px-4 md:px-6 py-1 hover:bg-gray-800 transition'
               >
                 <FaPencilAlt />
@@ -99,7 +86,7 @@ function DetailOne() {
                 </div>
               </>
             ) : (
-              <p>{profile.familydetail || "No details added yet."}</p>
+              <p>{editContent || "No details added yet."}</p>
             )}
           </div>
         </div>

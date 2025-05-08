@@ -18,7 +18,7 @@ function SettingEleven() {
         </h1>
 
         {/* Hide Profile Card */}
-        <div className="bg-white rounded-2xl shadow-md p-6 space-y-3">
+        {/* <div className="bg-white rounded-2xl shadow-md p-6 space-y-3">
           <div className="flex justify-between items-center">
             <h2 className="text-xl font-semibold text-gray-800">
               {isHidden ? 'Unhide Profile' : 'Hide Profile'}
@@ -40,7 +40,7 @@ function SettingEleven() {
               ? 'When you unhide your profile, you will become visible again on Shaadi.com and be able to interact with others.'
               : 'When you hide your profile, you will not be visible on Shaadi.com. You will neither be able to send invitations or messages.'}
           </p>
-        </div>
+        </div> */}
 
         {/* Delete Profile Card */}
         <div className="bg-white rounded-2xl shadow-md p-6 space-y-3">

@@ -1,46 +1,30 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { FaPencilAlt } from "react-icons/fa";
 import { LuDot } from "react-icons/lu";
-import axios from 'axios';
 
 function DetailTwo() {
-  const [profile, setProfile] = useState(null);
-  const [isEditing, setIsEditing] = useState(false);
-  const [editData, setEditData] = useState({
-    age: '',
-    dob: '',
-    maritalStatus: '',
-    height: '',
+  const [profile, setProfile] = useState({
     growup: '',
     diet: '',
-    bloodGroup: '',
     healthinformation: '',
     disability: ''
   });
 
+  const [isEditing, setIsEditing] = useState(false);
+  const [editData, setEditData] = useState({ ...profile });
+
+  // Fetch profile data on component mount
+  let a = JSON.parse(localStorage.getItem("userProfile"))
+  let userId= a._id;
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const userProfile = JSON.parse(localStorage.getItem("userProfile"));
-        const userId = userProfile?._id;
-        if (!userId) return;
-
-        const res = await axios.get(`http://localhost:3000/api/user/getuser/${userId}`);
-        setProfile(res.data);
-        // console.log(res.data)
-        setEditData({
-          age: res.data.age,
-          dob: res.data.dob,
-          maritalStatus: res.data.maritalstatus,
-          height: res.data.height,
-          growup: res.data.growup,
-          diet: res.data.diet,
-          bloodGroup: res.data.bloodgroup,
-          healthealthinformationhInfo: res.data.healthinformation,
-          disability: res.data.disability
-        });
-      } catch (err) {
-        console.error("Error fetching profile data", err);
+        const response = await axios.get(`http://localhost:3000/api/profileget/${userId}`);
+        setProfile(response.data.data); // Assuming response contains the necessary fields
+        setEditData(response.data.data);
+      } catch (error) {
+        console.error("Error fetching profile data:", error);
       }
     };
 
@@ -49,24 +33,14 @@ function DetailTwo() {
 
   const handleSave = async () => {
     try {
-      const userProfile = JSON.parse(localStorage.getItem("userProfile"));
-      const userId = userProfile?._id;
-      if (!userId) return;
-
-      const updatedData = {
-        ...profile,
-        ...editData,
-      };
-
-      await axios.put(`http://localhost:3000/api/user/updateuser/${userId}`, updatedData);
-      setProfile(updatedData);
-      setIsEditing(false);
-    } catch (err) {
-      console.error("Error updating details", err);
+      // Update profile data with PUT request
+      await axios.put(`http://localhost:3000/api/profileupdate/${userId}`, editData);
+      setProfile(editData); // Update local profile state
+      setIsEditing(false); // Exit editing mode
+    } catch (error) {
+      console.error("Error updating profile data:", error);
     }
   };
-
-  if (!profile) return <div>Loading...</div>;
 
   return (
     <div className='px-5 py-5'>
@@ -81,7 +55,7 @@ function DetailTwo() {
           <div className='flex justify-center'>
             <div
               onClick={() => setIsEditing(true)}
-              className='flex items-center mt-2 md:mt-0 gap-1 bg-black cursor-pointer rounded-full text-white px-4 py-1 cursor-pointer hover:bg-gray-800 transition'
+              className='flex items-center mt-2 md:mt-0 gap-1 bg-black cursor-pointer rounded-full text-white px-4 py-1 hover:bg-gray-800 transition'
             >
               <FaPencilAlt />
               <span>Edit</span>
@@ -96,58 +70,6 @@ function DetailTwo() {
               {/* Left Column */}
               <div className='flex flex-col space-y-3'>
                 <p className='md:flex'>
-                  <span className='font-semibold min-w-[150px]'>Age:</span>
-                  {isEditing ? (
-                    <input
-                      type="text"
-                      value={editData.age}
-                      onChange={(e) => setEditData({ ...editData, age: e.target.value })}
-                      className="border rounded-md px-2 py-1"
-                    />
-                  ) : (
-                    <span>{profile.age}</span>
-                  )}
-                </p>
-                <p className='md:flex'>
-                  <span className='font-semibold min-w-[150px]'>Date Of Birth:</span>
-                  {isEditing ? (
-                    <input
-                      type="date"
-                      value={editData.dob}
-                      onChange={(e) => setEditData({ ...editData, dob: e.target.value })}
-                      className="border rounded-md px-2 py-1"
-                    />
-                  ) : (
-                    <span>{new Date(profile.dob).toLocaleDateString('en-GB')}</span>
-                  )}
-                </p>
-                <p className='md:flex'>
-                  <span className='font-semibold min-w-[150px]'>Marital Status:</span>
-                  {isEditing ? (
-                    <input
-                      type="text"
-                      value={editData.maritalStatus}
-                      onChange={(e) => setEditData({ ...editData, maritalStatus: e.target.value })}
-                      className="border rounded-md px-2 py-1"
-                    />
-                  ) : (
-                    <span>{profile.maritalstatus}</span>
-                  )}
-                </p>
-                <p className='md:flex'>
-                  <span className='font-semibold min-w-[150px]'>Height:</span>
-                  {isEditing ? (
-                    <input
-                      type="text"
-                      value={editData.height}
-                      onChange={(e) => setEditData({ ...editData, height: e.target.value })}
-                      className="border rounded-md px-2 py-1"
-                    />
-                  ) : (
-                    <span>{profile.height}</span>
-                  )}
-                </p>
-                <p className='md:flex'>
                   <span className='font-semibold min-w-[150px]'>Grew up in:</span>
                   {isEditing ? (
                     <input
@@ -160,10 +82,6 @@ function DetailTwo() {
                     <span>{profile.growup}</span>
                   )}
                 </p>
-              </div>
-
-              {/* Right Column */}
-              <div className='flex flex-col space-y-3'>
                 <p className='md:flex'>
                   <span className='font-semibold min-w-[150px]'>Diet:</span>
                   {isEditing ? (
@@ -177,19 +95,10 @@ function DetailTwo() {
                     <span>{profile.diet}</span>
                   )}
                 </p>
-                <p className='md:flex'>
-                  <span className='font-semibold min-w-[150px]'>Blood Group:</span>
-                  {isEditing ? (
-                    <input
-                      type="text"
-                      value={editData.bloodGroup}
-                      onChange={(e) => setEditData({ ...editData, bloodGroup: e.target.value })}
-                      className="border rounded-md px-2 py-1"
-                    />
-                  ) : (
-                    <span>{profile.bloodgroup}</span>
-                  )}
-                </p>
+              </div>
+
+              {/* Right Column */}
+              <div className='flex flex-col space-y-3'>
                 <p className='md:flex'>
                   <span className='font-semibold min-w-[150px]'>Health Information:</span>
                   {isEditing ? (

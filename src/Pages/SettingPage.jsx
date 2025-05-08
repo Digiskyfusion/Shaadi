@@ -12,13 +12,13 @@ import SettingEight from '../Component/SettingPage/SettingEight'
 import SettingNine from '../Component/SettingPage/SettingNine'
 import SettingTen from '../Component/SettingPage/SettingTen'
 
-function SettingPage() {
+function  SettingPage() {
   return (
     <div>
       <Navbar4 />
       <SettingTwo />
-      <SettingThree />
-      <SettingFour />
+      {/* <SettingThree />
+      <SettingFour /> */}
       {/* <SettingFive /> */}
       <SettingEleven />
       

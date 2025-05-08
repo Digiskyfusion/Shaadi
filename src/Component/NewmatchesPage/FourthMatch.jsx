@@ -2,11 +2,11 @@ import React from "react";
 import { IoIosChatbubbles } from "react-icons/io";
 
 // Image imports
-import image1 from "../../assets/Images/Rectangle 268.png";
-import image2 from "../../assets/Images/Rectangle 271.png";
-import image3 from "../../assets/Images/Rectangle 274.png";
-import image4 from "../../assets/Images/Rectangle 277.png";
-import image5 from "../../assets/Images/Rectangle 280.png";
+import image1 from "../../assets/Images/Rectangle 268 (1).png";
+import image2 from "../../assets/Images/Rectangle 271 (1).png";
+import image3 from "../../assets/Images/Rectangle 274 (1).png";
+import image4 from "../../assets/Images/Rectangle 277 (1).png";
+import image5 from "../../assets/Images/Rectangle 280 (1).png";
 import image6 from "../../assets/Images/Rectangle 283.png";
 import image7 from "../../assets/Images/Rectangle 286.png";
 import image8 from "../../assets/Images/Rectangle 289.png";
@@ -59,7 +59,7 @@ const profiles = [
     income: "Earns Upto INR 1 Lakh annually",
   },
   {
-    name: "Harjit Kaur",
+    name: "Aman",
     image: image4,
     onlineStatus: "Online 1 day ago",
     age: "21 yrs",
@@ -74,7 +74,7 @@ const profiles = [
     income: "Earns Upto INR 1 Lakh annually",
   },
   {
-    name: "pavneet Kaur",
+    name: "Dinesh",
     image: image5,
     onlineStatus: "Online 1 day ago",
     age: "21 yrs",
@@ -150,12 +150,13 @@ const profiles = [
   },
 ];
 
-const FirstMatch = () => {
+const FourthMatch = () => {
   return (
     <div className="p-4 md:p-8 jost">
       <h2 className="text-xl md:text-2xl font-normal mb-5 text-center md:mr-56 mx-auto px-4 gilda-display-regular">
-        New Members who match most of your Preferences
-      </h2>
+  Members that match your Partner Preferences
+</h2>
+
       <div className="space-y-6">
         {profiles.map((profile, index) => (
           <div
@@ -188,10 +189,9 @@ const FirstMatch = () => {
               </div>
             </div>
             <div className="flex flex-col justify-between items-center sm:items-end mt-4 sm:mt-0 text-white text-xs md:text-sm w-full sm:w-auto">
-            <button className="bg-white text-black font-normal px-6 py-0.5 rounded-md mb-2 hover:bg-black hover:text-white transition duration-300">
-  Follow
-</button>
-
+              <button className="bg-white text-black font-normal px-6 py-0.5 rounded-md mb-2 hover:bg-black hover:text-white transition duration-300">
+                Follow
+              </button>
 
               <div className="space-y-1 mt-5 sm:mt-10 text-center sm:text-right md:text-left">
                 <div>{profile.maritalStatus}</div>
@@ -203,12 +203,8 @@ const FirstMatch = () => {
           </div>
         ))}
       </div>
-      <div className="text-center mt-10 text-xl">
-        You can check out these Recently Joined profiles that meet many of your
-        Preferences.
-      </div>
     </div>
   );
 };
 
-export default FirstMatch;
+export default FourthMatch;

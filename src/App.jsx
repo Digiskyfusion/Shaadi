@@ -24,7 +24,10 @@ import FourthProfilePage from "./Pages/FourthProfilePage";
 import SixthProfilePage from "./Pages/SixthProfilePage";
 import ProfileDetails from "./Component/ProfileDetails/ProfileDetails";
 import AllProfilePage from "./Pages/AllProfilePage";
-;
+import SecondProfilePage from "./Pages/SecondProfilePage";
+import TodayProfilePage from "./Pages/TodayProfilePage";
+import NewMatchesPage from "./Pages/NewMatchesPage";
+import SecondMatchPage from "./Pages/SecondMatchPage";
 function App() {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -67,13 +70,21 @@ function App() {
         <Route path="/deleteotp" element={<DeleteOtpPage />} />
         {/* <Route path="/multifrom" element={<MultiStepForm />} /> */}
         <Route path='/firstProfile' element={<FirstProfilePage /> }/>
-        <Route path='/thirdProfile' element={<ThirdProfilePage/> }/>
+        <Route path='/SecondProfile' element={<SecondProfilePage />}/>
+        <Route path='/thirdProfile' element={<ThirdProfilePage /> }/>
         <Route path='/fourthProfile' element={<FourthProfilePage /> }/>
         <Route path='/fifthProfile' element={<FifthProfilePage/> }/>
         <Route path='/sixthProfile' element={<SixthProfilePage/> }/>
+        <Route path='/fifthProfile' element={<FifthProfilePage /> }/>
+        <Route path='/sixthProfile' element={<SixthProfilePage /> }/>
+        <Route path='/FirstMatch' element={<TodayProfilePage /> }/>
+        <Route path='/secondmatch' element={<SecondMatchPage /> }/>
+        <Route path='/newmatch' element={<NewMatchesPage /> }/>
         <Route path="/profile/:userId" element={<ProfileDetails />} />
         <Route path="/allprofile" element={<AllProfilePage />} />
       </Routes>
+
+      
     </>
   );
 }

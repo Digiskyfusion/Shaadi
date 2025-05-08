@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Footer from '../FooterPage/Footer';
 import Navbar4 from '../Navbar/Navbar4';
+import { BsChatRightHeartFill } from "react-icons/bs";
 import {
   FaUser, FaVenusMars, FaCity, FaBirthdayCake, FaHeartbeat, FaUsers, FaUniversity,
   FaBuilding, FaMoneyBillWave, FaHome, FaLanguage, FaBalanceScale, FaMapMarkerAlt,
@@ -76,13 +77,23 @@ function ProfileDetails() {
       <div className="bg-gradient-to-tr from-rose-100 via-pink-50 to-rose-200 bg-[url('/hearts-bg.svg')] bg-fixed bg-cover min-h-screen py-10 px-2">
         <div className="max-w-6xl mx-auto bg-white/80 backdrop-blur-lg p-2 md:p-10 rounded-[10px]  border border-rose-200 space-y-10">
 
-          <div className="text-left">
+          <div className="flex justify-between">
             <button
               onClick={() => navigate(-1)}
-              className="px-5 py-2 bg-pink-600 hover:bg-pink-700 text-white rounded-full shadow transition-all duration-300"
+              className="px-5 py-2 bg-pink-600 hover:bg-pink-700 cursor-pointer text-white rounded-full shadow transition-all duration-300"
             >
               ⬅ Back
             </button>
+
+           <div className='flex gap-2 items-center justify-center px-5 py-2 bg-pink-600 text-white  rounded-full hover:bg-pink-700'>
+           <BsChatRightHeartFill />
+           <button
+              onClick={() => navigate(-1)}
+              className="  cursor-pointer  transition-all duration-300"
+            >
+               Connect Now
+            </button>
+           </div>
           </div>
 
           {/* Profile Header */}

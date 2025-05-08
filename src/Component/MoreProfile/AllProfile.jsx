@@ -24,8 +24,9 @@ function AllProfile() {
 
   return (
     <div className="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {/*  data.map((profile) => ( */}
       {data.length > 0 ? (
-        data.map((profile) => (
+        [...data].reverse().map((profile) => (
           <div
             key={profile._id}
             className=" rounded-2xl shadow-md pt-4 bg-[#FF5A60] min-h-[320px] flex flex-col justify-between transition-transform hover:shadow-lg hover:-translate-y-1"
@@ -41,14 +42,15 @@ function AllProfile() {
               <h2 className="text-center text-lg font-normal text-white italic mb-2">
                 {profile.userId?.firstName} {profile.userId?.lastName}
               </h2>
-              <div className="text-sm lg:text-[15px] text-white  px-2 flex justify-center flex-wrap text-center gap-1">
-                <p>{profile.age}</p>,
-                <p>{profile.height}</p>,
-                <p>{profile.community}</p>,
-                <p>{profile.subCommunity}</p>,
-                <p>{profile.currentresidence}</p>,
-                <p>{profile.growup}</p>
-              </div>
+              <div className="text-sm lg:text-[15px] text-white   flex justify-center flex-wrap text-center gap-1">
+  <div className="px-2 py-1  rounded-md">Age: {profile.age}</div>
+  <div className="px-2 py-1 rounded-md">Height: {profile.height}</div>
+  <div className="px-2 py-1 ">Community: {profile.community}</div>
+  {/* <div className="px-2 py-1 ">SubCommunity: {profile.subCommunity}</div> */}
+  {/* <div className="px-2 py-1 ">Current Residence: {profile.currentresidence}</div> */}
+  <div className="px-2 py-1 ">Grew Up: {profile.growup}</div>
+</div>
+
             </div>
             <div className="mt-4 bg-[#FFCCA8] rounded-b-2xl flex flex-col justify-center items-center py-3">
               {/* <h1 className="text-black text-base font-medium">Connect With Her?</h1> */}

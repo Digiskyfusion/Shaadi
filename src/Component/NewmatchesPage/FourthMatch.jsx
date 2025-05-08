@@ -165,7 +165,7 @@ const FourthMatch = () => {
           >
             <div className="flex flex-col sm:flex-row gap-4 items-center sm:items-start w-full">
               <img
-                src={profile.image}
+                src={profile.image} 
                 alt={profile.name}
                 className="w-full sm:w-32 h-48 rounded-lg object-cover"
               />
@@ -174,7 +174,7 @@ const FourthMatch = () => {
                   {profile.name}
                 </h3>
                 <p className="text-xs md:text-sm flex items-center justify-center sm:justify-start mt-1">
-                  <IoIosChatbubbles className="text-amber-50 mr-1" />
+                  <IoIosChatbubbles className="text-amber-50 mr-1"/>
                   {profile.onlineStatus}
                 </p>
                 <div className="h-px bg-white my-2  w-140"></div>

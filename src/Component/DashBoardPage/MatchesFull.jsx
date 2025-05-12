@@ -28,7 +28,7 @@ function MatchesFull() {
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/user/opposite/${userId}`);
+        const res = await axios.get(`http://192.168.29.50:3000/user/opposite/${userId}`);
         setData(res.data); // Assuming res.data is an array
         // console.log(res.data);
         

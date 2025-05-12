@@ -14,7 +14,7 @@ function SettingTwo() {
   useEffect(() => {
     if (userId) {
       axios
-        .get(`http://localhost:3000/user/${userId}`)
+        .get(`http://192.168.29.50:3000/user/${userId}`)
         .then((res) => {
           
           setEmail(res.data.user.emailId);

@@ -21,7 +21,7 @@ function ProfileDetails() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/user/user-Profile/${userId}`)
+      .get(`http://192.168.29.50:3000/user/user-Profile/${userId}`)
       .then((response) => setProfile(response.data))
       .catch((error) => console.error('Error fetching profile data:', error));
   }, [userId]);

@@ -12,7 +12,7 @@ function DetailOne() {
     // Fetch user profile data on component mount
     const fetchProfileData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/profileget/${userId}`);
+        const response = await axios.get(`http://192.168.29.50:3000/api/profileget/${userId}`);
         // console.log(response.data.data.familydetail);
         
         setEditContent(response.data.data.familydetail || 'No details available.');

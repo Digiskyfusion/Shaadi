@@ -14,7 +14,7 @@ function DashBoard() {
   useEffect(() => {
     const fetchInvitations = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/user/opposite/${userId}`);
+        const res = await axios.get(`http://192.168.29.50:3000/user/opposite/${userId}`);
         setInvitations(res.data); // Adjust according to actual API structure
         console.log(res.data)
       } catch (error) {

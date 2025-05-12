@@ -21,7 +21,7 @@ function DetailThree() {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/profileget/${userId}`);
+        const response = await axios.get(`http://192.168.29.50:3000/api/profileget/${userId}`);
         setProfile(response.data.data); // Assuming the response has the profile data
         setEditData(response.data.data); // Set initial edit data
       } catch (error) {

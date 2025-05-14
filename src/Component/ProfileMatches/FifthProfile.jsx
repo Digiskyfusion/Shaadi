@@ -26,6 +26,7 @@ import {
 // 🔔 Other Icons
 import { Mail, Phone } from "lucide-react";
 import { RiUserSearchFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 const FifthProfile = () => {
   const preferences = [
@@ -55,13 +56,17 @@ const FifthProfile = () => {
 
         {/* Navigation Buttons */}
         <div className="flex justify-center items-center space-x-8 mb-4 mt-14">
+        <Link to="/fourthProfile">
          <button className="flex items-center justify-center cursor-pointer rounded-4xl bg-[#FFCCAB] h-12 w-24">
            <img src={image10} alt="Previous button" className="w-15 h-16" />
          </button>
-       
+         </Link>
+         
+          <Link to="/sixthProfile">
          <button className="flex items-center justify-center cursor-pointer rounded-4xl bg-[#FFCCAB] h-12 w-24">
            <img src={image11} alt="Next button" className="w-16 h-16" />
          </button>
+         </Link>
        </div>
         {/* Profile Card */}
 

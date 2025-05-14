@@ -52,7 +52,7 @@ function Navbar() {
             <NavLink to="/" className="block py-2 px-6">
               HOME
             </NavLink>
-            <NavLink to="/AboutUsPage" className="block py-2 px-6">
+            <NavLink to="/aboutus" className="block py-2 px-6">
               ABOUT US
             </NavLink>
             <NavLink to="/MarriageServices" className="block py-2 px-6">

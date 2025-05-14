@@ -22,7 +22,7 @@ function SecondSection() {
       </div>
 
       {/* Image Section */}
-      <div className="relative lg:w-1/2 w-full max-w-md mx-auto mt-8 lg:mt-0">
+      <div className="relative lg:w-1/2 w-full max-w-sm mx-auto mt-8 lg:mt-0">
         {/* Main Circle Image */}
         <img
           src={Image15}
@@ -34,7 +34,7 @@ function SecondSection() {
         <img
           src={ballon}
           alt="ballon"
-          className="absolute top-1/2 -translate-y-1/2 -right-8 sm:-right-44 md:-right-[12.4rem] w-20 md:w-80"
+          className="absolute top-1/2 -translate-y-1/2 -right-8 sm:-right-44 md:-right-[4rem] w-20 md:w-28 xl:-right-[10rem] xl:w-50"
         />
         <img
           src={Ellipse1}

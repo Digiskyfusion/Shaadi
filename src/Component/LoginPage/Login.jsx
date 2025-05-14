@@ -25,7 +25,7 @@ function Login() {
     setError('');
 
     try {
-      const response = await axios.post('http://192.168.29.50:3000/user/login', {
+      const response = await axios.post('http://localhost:3000/user/login', {
         identifier,
         password,
       });
@@ -129,9 +129,11 @@ function Login() {
             </div>
 
             {/* Forgot Password */}
-            {/* <div className="flex justify-end text-sm sm:text-base">
+            <div className="flex justify-end text-sm sm:text-base">
+            <Link to="/forget-password">
               <a href="#" className="text-[#DE5353] hover:underline">Forgot Password?</a>
-            </div> */}
+              </Link>
+            </div>
 
             {/* Login Button */}
             <div className="text-center">

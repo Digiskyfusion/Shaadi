@@ -52,14 +52,14 @@ function Navbar() {
             <NavLink to="/" className="block py-2 px-6">
               HOME
             </NavLink>
-            <NavLink to="/Matchmaking" className="block py-2 px-6">
-              MATCHMAKING
+            <NavLink to="/AboutUsPage" className="block py-2 px-6">
+              ABOUT US
             </NavLink>
             <NavLink to="/MarriageServices" className="block py-2 px-6">
-              MARRIAGE SERVICES
+              BLOG
             </NavLink>
             <NavLink to="/Blog" className="block py-2 px-6">
-              BLOG
+             CONTACT US
             </NavLink>
 
             {/* {/ Mobile Register Button /} */}

@@ -28,6 +28,12 @@ import SecondProfilePage from "./Pages/SecondProfilePage";
 import TodayProfilePage from "./Pages/TodayProfilePage";
 import NewMatchesPage from "./Pages/NewMatchesPage";
 import SecondMatchPage from "./Pages/SecondMatchPage";
+import ForgetPasswordPage from "./Pages/ForgetPasswordPage";
+import ResetPasswordPage from './Pages/ResetPasswordPage';
+import OneSection from "./Component/AboutUsPage/OneSection";
+import SecondSection from "./Component/AboutUsPage/SecondSection";
+import FourthSections from "./Component/AboutUsPage/FourthSections";
+import AboutUsPage from "./Pages/AboutUsPage";
 function App() {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -82,11 +88,20 @@ function App() {
         <Route path='/newmatch' element={<NewMatchesPage /> }/>
         <Route path="/profile/:userId" element={<ProfileDetails />} />
         <Route path="/allprofile" element={<AllProfilePage />} />
+        <Route path="/forget-password" element={<ForgetPasswordPage  />} />
+        <Route path="/reset-password" element={<ResetPasswordPage  />} />
+        <Route path="/aboutus" element={<AboutUsPage  />} />
+        
       </Routes>
 
+   
       
     </>
+    
   );
 }
+
+
+
 
 export default App;

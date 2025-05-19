@@ -33,6 +33,7 @@ import ResetPasswordPage from './Pages/ResetPasswordPage';
 import AboutUsPage from "./Pages/AboutUsPage";
 import BlogPage from "./Pages/BlogPage";
 import SecondPage from "./Component/BlogPage/SecondBlog";
+import ContactUsPage from "./Pages/ContactUsPage";
 
 function App() {
   const [step, setStep] = useState(1);
@@ -63,26 +64,26 @@ function App() {
         <Route path="/StepThree" element={<ProfileSubmitPage />} />
         <Route path="/verifyOtp" element={<VerifyOtp />} />
         <Route path="/login" element={<LoginNavbarPage />} />
-        <Route path="/CardsPage" element={<CardsPage />} />
+        {/* <Route path="/CardsPage" element={<CardsPage />} /> */}
         <Route path="/dashboard" element={<DashBoardPage />} />
         <Route path="/profile" element={<ProfileFull />} />
         <Route path="/userprofile" element={<ProfilePage />} />
         <Route path="/photo" element={<UploadPage />} />
-        <Route path="/photosetting" element={<PhotoSetting />} />
-        <Route path="/setting" element={<SettingPage />} />
+        {/* <Route path="/photosetting" element={<PhotoSetting />} />
+        <Route path="/setting" element={<SettingPage />} /> */}
         <Route path="/delete" element={<DeletePage />} />
-        <Route path="/confirm" element={<ConfirmPage />} />
+        {/* <Route path="/confirm" element={<ConfirmPage />} /> */}
         <Route path="/profiledelete" element={<ProfileDeletePage />} />
         <Route path="/deleteotp" element={<DeleteOtpPage />} />
         {/* <Route path="/multifrom" element={<MultiStepForm />} /> */}
-        <Route path='/firstProfile' element={<FirstProfilePage /> }/>
+        {/* <Route path='/firstProfile' element={<FirstProfilePage /> }/>
         <Route path='/SecondProfile' element={<SecondProfilePage />}/>
         <Route path='/thirdProfile' element={<ThirdProfilePage /> }/>
         <Route path='/fourthProfile' element={<FourthProfilePage /> }/>
         <Route path='/fifthProfile' element={<FifthProfilePage/> }/>
         <Route path='/sixthProfile' element={<SixthProfilePage/> }/>
         <Route path='/fifthProfile' element={<FifthProfilePage /> }/>
-        <Route path='/sixthProfile' element={<SixthProfilePage /> }/>
+        <Route path='/sixthProfile' element={<SixthProfilePage /> }/> */}
         <Route path='/FirstMatch' element={<TodayProfilePage /> }/>
         <Route path='/secondmatch' element={<SecondMatchPage /> }/>
         <Route path='/newmatch' element={<NewMatchesPage /> }/>
@@ -91,12 +92,12 @@ function App() {
         <Route path="/forget-password" element={<ForgetPasswordPage  />} />
         <Route path="/reset-password" element={<ResetPasswordPage  />} />
         <Route path="/aboutus" element={<AboutUsPage  />} />
-        <Route path="/blog" element={<BlogPage  />} />
-        <Route path="/seocd" element={<SecondPage  />} />
-        
+        {/* <Route path="/blog" element={<BlogPage  />} />
+        <Route path="/seocd" element={<SecondPage  />} /> */}
+          <Route path="/contactUs" element={<ContactUsPage  />} />
       </Routes>
-     
-
+      
+   
    
       
     </>

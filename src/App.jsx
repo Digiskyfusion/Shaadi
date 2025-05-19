@@ -33,6 +33,8 @@ import ResetPasswordPage from './Pages/ResetPasswordPage';
 import AboutUsPage from "./Pages/AboutUsPage";
 import BlogPage from "./Pages/BlogPage";
 import SecondPage from "./Component/BlogPage/SecondBlog";
+import ContactUsPage from "./Pages/ContactUsPage";
+import FileTwo from "./Component/ContactUsPage/FileTwo";
 
 function App() {
   const [step, setStep] = useState(1);
@@ -95,6 +97,9 @@ function App() {
         <Route path="/seocd" element={<SecondPage  />} /> */}
           <Route path="/contactUs" element={<ContactUsPage  />} />
       </Routes>
+      
+   
+      
      
 
    

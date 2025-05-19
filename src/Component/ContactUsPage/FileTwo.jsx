@@ -26,7 +26,7 @@ function FileTwo() {
           <FaMapMarkerAlt className="text-[#EB5757] text-xl mt-1 shrink-0" />
           <div>
             <h3 className="text-base sm:text-lg font-semibold">Our Location</h3>
-            <p className="text-sm sm:text-base">Chandigarh</p>
+            {/* <p className="text-sm sm:text-base">Chandigarh</p> */}
             <p className="text-sm sm:text-base">Chandigarh, India</p>
           </div>
         </div>

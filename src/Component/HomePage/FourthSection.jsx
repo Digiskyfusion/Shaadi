@@ -13,7 +13,7 @@ function FourthSection() {
     <div>
     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mt-12 gilda-display-regular text-black text-center">
   Featured Prof
-  <span className="relative inline-block mx-2">
+  <span className="relative inline-block mx-[2px]">
     <span className="inline-block">
       <svg
         className="w-[12px] h-[20px] lg:w-[18px] lg:h-[30px]"
@@ -40,11 +40,11 @@ function FourthSection() {
        Meet Prem
             <span className="relative inline-block">
               <span className="inline-block">
-                <svg className="w-[10px] h-[16px] lg:w-[15px] lg:h-[20px]" viewBox="0 0 6 100" xmlns="http://www.w3.org/2000/svg">
+                <svg className="w-[10px] h-[14px] lg:w-[15px] lg:h-[20px]" viewBox="0 0 6 100" xmlns="http://www.w3.org/2000/svg">
                   <line x1="3" y1="0" x2="3" y2="100" stroke="#53321B" strokeWidth="20" />
                 </svg>
               </span>
-              <span className="absolute top-[-10px] sm:top-[-8px] left-1/2 transform -translate-x-1/2  text-lg">
+              <span className="absolute top-[-12px] sm:top-[-8px] left-1/2 transform -translate-x-1/2  text-lg">
                 ❤️
               </span>
             </span>

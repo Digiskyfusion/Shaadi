@@ -189,8 +189,8 @@ const FirstMatch = () => {
             </div>
             <div className="flex flex-col justify-between items-center sm:items-end mt-4 sm:mt-0 text-white text-xs md:text-sm w-full sm:w-auto">
             <button className="bg-white text-black font-normal px-6 py-0.5 rounded-md mb-2 hover:bg-black hover:text-white transition duration-300">
-  Follow
-</button>
+              Follow
+            </button>
 
 
               <div className="space-y-1 mt-5 sm:mt-10 text-center sm:text-right md:text-left">

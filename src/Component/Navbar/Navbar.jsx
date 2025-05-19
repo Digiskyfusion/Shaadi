@@ -55,7 +55,7 @@ function Navbar() {
             <NavLink to="/aboutus" className="block py-2 px-6">
               ABOUT US
             </NavLink>
-            <NavLink to="/MarriageServices" className="block py-2 px-6">
+            <NavLink to="/blog" className="block py-2 px-6">
               BLOG
             </NavLink>
             <NavLink to="/Blog" className="block py-2 px-6">

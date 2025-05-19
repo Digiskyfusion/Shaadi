@@ -30,10 +30,10 @@ import NewMatchesPage from "./Pages/NewMatchesPage";
 import SecondMatchPage from "./Pages/SecondMatchPage";
 import ForgetPasswordPage from "./Pages/ForgetPasswordPage";
 import ResetPasswordPage from './Pages/ResetPasswordPage';
-import OneSection from "./Component/AboutUsPage/OneSection";
-import SecondSection from "./Component/AboutUsPage/SecondSection";
-import FourthSections from "./Component/AboutUsPage/FourthSections";
 import AboutUsPage from "./Pages/AboutUsPage";
+import BlogPage from "./Pages/BlogPage";
+import SecondPage from "./Component/BlogPage/SecondBlog";
+
 function App() {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -91,8 +91,11 @@ function App() {
         <Route path="/forget-password" element={<ForgetPasswordPage  />} />
         <Route path="/reset-password" element={<ResetPasswordPage  />} />
         <Route path="/aboutus" element={<AboutUsPage  />} />
+        <Route path="/blog" element={<BlogPage  />} />
+        <Route path="/seocd" element={<SecondPage  />} />
         
       </Routes>
+     
 
    
       

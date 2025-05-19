@@ -39,10 +39,10 @@ function Navbar4() {
             { label: 'Settings', path: '/setting' },
         ],
         MATCHES: [
-            { label: 'New Matches', path: '/FirstMatch' },
+            { label: 'New Profile', path: '/FirstMatch' },
             { label: 'Todays Profiles', path: '/firstProfile' },
             { label: 'Near Me', path: '/secondmatch' },
-            { label: 'More', path: '/newmatch' },
+            { label: 'More', path: '/allprofile' },
         ],
         SEARCH: [
             { label: 'Search Profiles', path: '/search' },

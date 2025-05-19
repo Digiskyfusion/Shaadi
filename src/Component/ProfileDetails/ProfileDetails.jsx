@@ -21,7 +21,7 @@ function ProfileDetails() {
 
   useEffect(() => {
     axios
-      .get(`http://192.168.29.50:3000/user/user-Profile/${userId}`)
+      .get(`http://localhost:3000/user/user-Profile/${userId}`)
       .then((response) => setProfile(response.data))
       .catch((error) => console.error('Error fetching profile data:', error));
   }, [userId]);
@@ -68,32 +68,35 @@ function ProfileDetails() {
   };
 
   if (!profile) {
-    return <div className="text-center py-24 text-pink-600 text-xl font-semibold animate-pulse">Loading profile...</div>;
+    return (
+      <div className="text-center py-24 text-pink-600 text-xl font-semibold animate-pulse">
+        Loading profile...
+      </div>
+    );
   }
 
   return (
     <>
       <Navbar4 />
       <div className="bg-gradient-to-tr from-rose-100 via-pink-50 to-rose-200 bg-[url('/hearts-bg.svg')] bg-fixed bg-cover min-h-screen py-10 px-2">
-        <div className="max-w-6xl mx-auto bg-white/80 backdrop-blur-lg p-2 md:p-10 rounded-[10px]  border border-rose-200 space-y-10">
+        <div className="max-w-6xl mx-auto bg-white/80 backdrop-blur-lg p-4 md:p-10 rounded-3xl border border-rose-300 shadow-xl space-y-10">
 
-          <div className="flex justify-between">
+          {/* Top Buttons */}
+          <div className="flex justify-between items-center">
             <button
               onClick={() => navigate(-1)}
-              className="px-5 py-2 bg-pink-600 hover:bg-pink-700 cursor-pointer text-white rounded-full shadow transition-all duration-300"
+              className="px-5 py-2 bg-pink-600 cursor-pointer hover:bg-pink-700 text-white rounded-full shadow-lg transition duration-300"
             >
               ⬅ Back
             </button>
 
-           <div className='flex gap-2 items-center justify-center px-5 py-2 bg-pink-600 text-white  rounded-full hover:bg-pink-700'>
-           <BsChatRightHeartFill />
-           <button
+            <button
               onClick={() => navigate(-1)}
-              className="  cursor-pointer  transition-all duration-300"
+              className="flex items-center gap-2 px-5 py-2 cursor-pointer bg-pink-600 hover:bg-pink-700 text-white rounded-full shadow-lg transition duration-300"
             >
-               Connect Now
+              <BsChatRightHeartFill />
+              Connect Now
             </button>
-           </div>
           </div>
 
           {/* Profile Header */}
@@ -101,14 +104,14 @@ function ProfileDetails() {
             <img
               src={profile.userId?.profileImage}
               alt="Profile"
-              className="w-44 h-44 object-cover rounded-full border-4 border-rose-400 shadow-lg hover:scale-105 transition duration-300"
+              className="w-44 h-44 object-cover rounded-full border-4 border-rose-400 shadow-xl hover:scale-105 transition duration-300"
             />
             <h2 className="text-4xl font-bold text-gray-800 italic">
               {profile.userId?.firstName} {profile.userId?.lastName}
             </h2>
           </div>
 
-          {/* Sections */}
+          {/* Section Mapping */}
           <div className="space-y-10">
             {[
               {
@@ -172,17 +175,22 @@ function ProfileDetails() {
             ].map((section, idx) => (
               <div
                 key={idx}
-                className="bg-white border border-pink-100 p-3 rounded-xl shadow-md hover:shadow-lg transition duration-300"
+                className="bg-white/70 border border-rose-200 p-5 rounded-2xl shadow-md hover:shadow-xl transition duration-300"
               >
-                <h3 className="text-2xl font-semibold text-pink-600 mb-4 border-b border-rose-200 pb-2">
+                <h3 className="text-2xl font-bold text-pink-600 mb-6 border-b pb-2">
                   {section.title}
                 </h3>
-                <div className="flex flex-wrap gap-6 text-gray-700 text-base">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-gray-800">
                   {section.data.map(([label, value], i) => (
-                    <p key={i} className="flex items-center space-x-2 min-w-[250px]">
-                      <span className="text-pink-500">{iconMap[label]}</span>
-                      <span><strong>{label}:</strong> {value || 'N/A'}</span>
-                    </p>
+                    <div
+                      key={i}
+                      className="flex items-center gap-3 bg-rose-50 hover:bg-rose-100 p-3 rounded-xl shadow-sm transition"
+                    >
+                      <div className="text-pink-500 text-xl">{iconMap[label]}</div>
+                      <div className="text-sm">
+                        <strong>{label}:</strong> {value || 'N/A'}
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>

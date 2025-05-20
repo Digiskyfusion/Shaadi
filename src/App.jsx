@@ -86,7 +86,7 @@ function App() {
         <Route path='/fifthProfile' element={<FifthProfilePage /> }/>
         <Route path='/sixthProfile' element={<SixthProfilePage /> }/>
         <Route path='/FirstMatch' element={<TodayProfilePage /> }/>
-        <Route path='/secondmatch' element={<SecondMatchPage /> }/>
+        <Route path='/secondmatch' element={<SecondMatchPage /> }/> 
         <Route path='/newmatch' element={<NewMatchesPage /> }/>
         <Route path="/profile/:userId" element={<ProfilesDetailsPage />} />
         <Route path="/allprofile" element={<AllProfilePage />} />

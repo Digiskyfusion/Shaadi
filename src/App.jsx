@@ -34,6 +34,7 @@ import BlogPage from "./Pages/BlogPage";
 import SecondpageBlogs from "./Pages/SecondpageBlogs";
 import ProfilesDetailsPage from "./Pages/ProfilesDetailsPage";
 import ContactUsPage from "./Pages/ContactUsPage";
+import PlanPageFull from "./Pages/PlanPageFull";
 
 function App() {
   const [step, setStep] = useState(1);
@@ -94,7 +95,8 @@ function App() {
         <Route path="/aboutus" element={<AboutUsPage  />} />
         <Route path="/blog" element={<BlogPage  />} />
         <Route path="/seocd" element={<SecondpageBlogs  />} />
-           <Route path="/contactUs" element={<ContactUsPage  />} />
+        <Route path="/contactUs" element={<ContactUsPage  />} />
+        <Route path="/plans" element={<PlanPageFull />} />
         
       </Routes>
      

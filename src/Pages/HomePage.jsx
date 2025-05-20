@@ -8,7 +8,7 @@ import Navbar from '../Component/Navbar/Navbar'
 import Footer from '../Component/FooterPage/Footer'
 import FifthSection from '../Component/HomePage/FifthSection'
 
-function HomePage() {
+function  HomePage() {
   return (
     <>
      
@@ -37,7 +37,7 @@ function HomePage() {
 </div>
 
 
-
+let a= process.env.
 
 
     <SecondSection />

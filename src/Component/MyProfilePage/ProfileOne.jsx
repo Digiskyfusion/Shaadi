@@ -23,7 +23,7 @@ function ProfileOne() {
   
 
   useEffect(() => {
-    axios.get(`http://192.168.29.50:3000/user/${userId}`)
+    axios.get(`http://localhost:3000/user/${userId}`)
       .then((res) => {
         const { firstName, lastName, mobileNumber, emailId, profileImage, dob, gender } = res.data.user
         setFirstName(firstName)

@@ -42,7 +42,7 @@ function FileFour() {
         </div>
 
         {/* Right Side - Form Box */}
-        <div className="md:w-1/2 h-[555px] p-4 flex ">
+        <div className="md:w-1/2 h-[555px] jost p-4 flex ">
           <div className="bg-gray-50 p-6 rounded-xl shadow-md border border-gray-200 w-full">
             <h1 className="text-2xl font-bold mb-2 text-gray-800">Have Any Questions?</h1>
             <p className="text-gray-600 mb-6">

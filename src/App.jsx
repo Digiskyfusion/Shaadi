@@ -70,8 +70,8 @@ function App() {
         <Route path="/profile" element={<ProfileFull />} />
         <Route path="/userprofile" element={<ProfilePage />} />
         <Route path="/photo" element={<UploadPage />} />
-        {/* <Route path="/photosetting" element={<PhotoSetting />} />
-        <Route path="/setting" element={<SettingPage />} /> */}
+        <Route path="/photosetting" element={<PhotoSetting />} />
+        <Route path="/setting" element={<SettingPage />} />
         <Route path="/delete" element={<DeletePage />} />
         {/* <Route path="/confirm" element={<ConfirmPage />} /> */}
         <Route path="/profiledelete" element={<ProfileDeletePage />} />
@@ -84,9 +84,9 @@ function App() {
         <Route path='/fifthProfile' element={<FifthProfilePage/> }/>
         <Route path='/sixthProfile' element={<SixthProfilePage/> }/>
         <Route path='/fifthProfile' element={<FifthProfilePage /> }/>
-        <Route path='/sixthProfile' element={<SixthProfilePage /> }/> */}
+        <Route path='/sixthProfile' element={<SixthProfilePage /> }/>
         <Route path='/FirstMatch' element={<TodayProfilePage /> }/>
-        <Route path='/secondmatch' element={<SecondMatchPage /> }/>
+        <Route path='/secondmatch' element={<SecondMatchPage /> }/> */}
         <Route path='/newmatch' element={<NewMatchesPage /> }/>
         <Route path="/profile/:userId" element={<ProfileDetails />} />
         <Route path="/allprofile" element={<AllProfilePage />} />

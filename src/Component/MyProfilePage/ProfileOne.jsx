@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { MdPhotoCamera, MdEdit } from 'react-icons/md'
 import axios from 'axios'
-
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { storage } from "../../firebase";
 
 function ProfileOne() {
   const [editMode, setEditMode] = useState(false)
@@ -9,9 +10,12 @@ function ProfileOne() {
   const [lastName, setLastName] = useState('')
   const [phone, setPhone] = useState('')
   const [email, setEmail] = useState('')
-  const [image, setImage] = useState('')
   const [date, setDate] = useState('')
   const [gender, setGender] = useState('')
+  const [image, setImage] = useState(null)
+  const [imageUrl, setImageUrl] = useState('')
+  const [previewUrl, setPreviewUrl] = useState('');
+
 
   const userProfile = JSON.parse(localStorage.getItem('userProfile'))
   const userId = userProfile._id
@@ -26,7 +30,7 @@ function ProfileOne() {
         setLastName(lastName)
         setPhone(mobileNumber)
         setEmail(emailId)
-        setImage(profileImage)
+        setImageUrl(profileImage)
         setDate(dob)
         setGender(gender)
         console.log(res.data.user.profileImage);
@@ -38,22 +42,58 @@ function ProfileOne() {
   }, [])
 
   const handleSave = () => {
+  if (image) {
+    // Upload image first
+    const storageRef = ref(storage, `profiles/${userId}/${image.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, image);
+
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+      },
+      (error) => {
+        console.error('Upload failed:', error);
+      },
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+          setImageUrl(url);
+          axios.put(`http://localhost:3000/user/${userId}`, {
+            firstName,
+            lastName,
+            mobileNumber: phone,
+            emailId: email,
+            profileImage: url, 
+            dob: date,
+            gender,
+          })
+          .then(() => {
+            setEditMode(false);
+            setImage(null); 
+          })
+          .catch((err) => {
+            console.error('Error updating user:', err);
+          });
+        });
+      }
+    );
+  } else {
     axios.put(`http://localhost:3000/user/${userId}`, {
       firstName,
       lastName,
       mobileNumber: phone,
       emailId: email,
-      profileImage: image,
+      profileImage: imageUrl,
       dob: date,
-      gender:gender,
+      gender,
     })
-      .then(() => {
-        setEditMode(false)
-      })
-      .catch((err) => {
-        console.error('Error updating user:', err)
-      })
+    .then(() => {
+      setEditMode(false);
+    })
+    .catch((err) => {
+      console.error('Error updating user:', err);
+    });
   }
+};
 
   const formatDisplayDate = (isoDate) => {
     if (!isoDate) return ''
@@ -70,22 +110,26 @@ function ProfileOne() {
       {/* Profile Picture */}
       <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mx-auto drop-shadow-lg">
         <img
-          src={image}
+          src={previewUrl || imageUrl}
           alt="Profile"
           className="w-full h-full object-cover rounded-full"
         />
         <div className="absolute bottom-2 right-2 bg-black bg-opacity-70 text-white rounded-full p-1 cursor-pointer">
           <MdPhotoCamera className="text-lg sm:text-xl" />
         </div>
-        {/* {editMode && (
-          <input
-            type="text"
-            value={image}
-            onChange={(e) => setImage(e.target.value)}
-            placeholder="Image URL"
-            className="w-full text-sm text-gray-800 h-10 px-3 mt-2 rounded border border-gray-400"
-          />
-        )} */}
+        {editMode && (
+              <input
+        type="file"
+        onChange={(e) => {
+          const file = e.target.files[0];
+          setImage(file);
+          if (file) {
+            setPreviewUrl(URL.createObjectURL(file)); 
+          }
+        }}
+        className="w-full text-sm text-gray-800 h-10 px-3 mt-2 rounded border border-gray-400"
+      />
+        )}
       </div>
 
       {/* User Info */}

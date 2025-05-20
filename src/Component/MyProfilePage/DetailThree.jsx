@@ -21,7 +21,7 @@ function DetailThree() {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await axios.get(`http://192.168.29.50:3000/api/profileget/${userId}`);
+        const response = await axios.get(`http://localhost:3000/api/profileget/${userId}`);
         setProfile(response.data.data); // Assuming the response has the profile data
         setEditData(response.data.data); // Set initial edit data
       } catch (error) {
@@ -62,13 +62,13 @@ function DetailThree() {
           {/* Edit Button */}
           <div>
             {!isEditing ? (
-              <div className='flex items-center mt-2 md:mt-0 gap-1 bg-black cursor-pointer rounded-full text-white px-4 py-1  hover:bg-gray-800 transition'
+              <div className='flex w-1/2 sm:w-auto  items-center mt-2 md:mt-0 gap-2 bg-black cursor-pointer rounded-full text-white px-4 py-1  hover:bg-gray-800 transition'
               onClick={() => setIsEditing(true)}
               >
                  <FaPencilAlt />
               <button
                 
-                className="bg-balck text-white cursor-pointer rounded-md"
+                className="bg-balck  text-white cursor-pointer rounded-md"
               >
                 Edit
               </button>
@@ -95,20 +95,28 @@ function DetailThree() {
             <div className='md:flex md:justify-between md:items-start gap-10'>
               {/* Left Column */}
               <div className='flex flex-col space-y-3'>
-                <p className='md:flex'>
-                  <span className='font-semibold min-w-[150px]'>Religion:</span>
-                  {isEditing ? (
-                    <input
-                      type="text"
-                      name="religion"
-                      value={editData.religion}
-                      onChange={handleChange}
-                      className="border rounded-md px-2 py-1"
-                    />
-                  ) : (
-                    <span>{profile.religion}</span>
-                  )}
-                </p>
+              <p className='md:flex'>
+  <span className='font-semibold min-w-[150px]'>Religion:</span>
+  {isEditing ? (
+    <select
+      name="religion"
+      value={editData.religion}
+      onChange={handleChange}
+      className="border rounded-md px-10 py-2"
+    >
+      <option value="">Select Religion</option>
+      <option value="Hindu">Hindu</option>
+      <option value="Christian">Christian</option>
+      <option value="Sikh">Sikh</option>
+      <option value="Buddhist">Buddhist</option>
+      <option value="Jain">Jain</option>
+      <option value="Other">Other</option>
+    </select>
+  ) : (
+    <span>{profile.religion}</span>
+  )}
+</p>
+
                 <p className='md:flex'>
                   <span className='font-semibold min-w-[150px]'>Community:</span>
                   {isEditing ? (

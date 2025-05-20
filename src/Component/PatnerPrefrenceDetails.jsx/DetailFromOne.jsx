@@ -29,7 +29,7 @@ function DetailFromOne() {
 
   useEffect(() => {
     if (userId) {
-      axios.get(`http://192.168.29.50:3000/api/patner/${userId}`)
+      axios.get(`http://localhost:3000/api/patner/${userId}`)
         .then(res => res.data && setPartnerData(res.data))
         .catch(err => console.error("Fetch error:", err));
     }
@@ -41,8 +41,8 @@ function DetailFromOne() {
 
   const handleSave = () => {
     const request = partnerData._id
-      ? axios.put(`http://192.168.29.50:3000/api/patner/${userId}`, partnerData)
-      : axios.post(`http://192.168.29.50:3000/api/patner`, { ...partnerData, userId });
+      ? axios.put(`http://localhost:3000/api/patner/${userId}`, partnerData)
+      : axios.post(`http://localhost:3000/api/patner`, { ...partnerData, userId});
 
     request
       .then(res => {

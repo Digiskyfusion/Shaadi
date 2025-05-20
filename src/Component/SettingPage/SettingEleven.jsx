@@ -14,7 +14,7 @@ function SettingEleven() {
 
         {/* Main Title */}
         <h1 className="text-2xl font-bold text-black">
-          Hide/Delete Profile
+          Delete Profile
         </h1>
 
         {/* Hide Profile Card */}

@@ -26,7 +26,7 @@ const ProfileFour = () => {
        
        
         
-        const response = await axios.get(`http://192.168.29.50:3000/api/profileget/${userId}`);
+        const response = await axios.get(`http://localhost:3000/api/profileget/${userId}`);
         // const res= await axios.get(`http://localhost:3000/user/${userId}`)
         const data = response.data.data;
         // const data1 = res.data;

@@ -37,7 +37,7 @@ function Login() {
 
       toast.success("User Login successfully");
       setTimeout(() => {
-        navigate(`/CardsPage`);
+        navigate(`/dashboard`);
       }, 2000);
     } catch (err) {
       toast.error("Login failed");

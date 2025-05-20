@@ -50,9 +50,9 @@ function Navbar4() {
         //     { label: 'Saved Searches', path: '/saved-searches' },
         // ],
         INBOX: [
-            { label: 'Messages', path: '/messages' },
-            { label: 'Sent Requests', path: '/sent-requests' },
-            { label: 'Received Requests', path: '/received-requests' },
+            { label: 'Messages', path: '/messages' }, 
+            // { label: 'Sent Requests', path: '/sent-requests' },
+            // { label: 'Received Requests', path: '/received-requests' },
         ],
     };
 

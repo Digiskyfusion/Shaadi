@@ -39,16 +39,16 @@ function Navbar4() {
             { label: 'Settings', path: '/setting' },
         ],
         MATCHES: [
-            { label: 'New Profile', path: '/FirstMatch' },
-            { label: 'Todays Profiles', path: '/firstProfile' },
+            // { label: 'New Profile', path: '/FirstMatch' },
+            // { label: 'Todays Profiles', path: '/firstProfile' },
             { label: 'Near Me', path: '/secondmatch' },
             { label: 'More', path: '/allprofile' },
         ],
-        SEARCH: [
-            { label: 'Search Profiles', path: '/search' },
-            { label: 'Advanced Search', path: '/advanced-search' },
-            { label: 'Saved Searches', path: '/saved-searches' },
-        ],
+        // SEARCH: [
+        //     { label: 'Search Profiles', path: '/search' },
+        //     { label: 'Advanced Search', path: '/advanced-search' },
+        //     { label: 'Saved Searches', path: '/saved-searches' },
+        // ],
         INBOX: [
             { label: 'Messages', path: '/messages' },
             { label: 'Sent Requests', path: '/sent-requests' },

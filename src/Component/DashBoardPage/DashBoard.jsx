@@ -5,6 +5,7 @@ import axios from 'axios';
 
 function DashBoard() {
   const [invitations, setInvitations] = useState([]);
+  const [credits, setcredits]= useState();
   const scrollRef = useRef(null);
   let a=  JSON.parse(localStorage.getItem("userProfile"));
   let userId= a._id
@@ -22,6 +23,16 @@ function DashBoard() {
       }
     };
 
+    const credits= async ()=>
+    {
+     let res=  await axios.get(`http://localhost:3000/user/${userId}`)
+    //  console.log(res.data.user);
+     
+   setcredits(res.data.user)
+     
+    }
+
+  credits()
     if (userId) fetchInvitations();
   }, [userId]);
 
@@ -46,16 +57,19 @@ function DashBoard() {
           <div className="bg-[#FF5A60] rounded-2xl shadow-lg p-6">
             <h2 className="text-xl font-bold text-white mb-8">Your Activity</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {['Pending Invitations', 'No Accepted Invitations', 'No Recent Visitors'].map((label, index) => (
-                <div
-                  key={index}
-                  className="bg-[#FAF4EE] rounded-xl p-4 flex flex-col items-center text-center shadow-sm"
-                >
-                  <span className="text-2xl font-bold text-black">0</span>
-                  <span className="text-sm text-black">{label}</span>
-                </div>
-              ))}
-            </div>
+  <div className="bg-[#FAF4EE] rounded-xl p-4 flex flex-col items-center text-center shadow-sm">
+    <span className="text-2xl font-bold text-black">{credits?.credits}</span>
+    <span className="text-sm text-black">Your Credits</span>
+  </div>
+  <div className="bg-[#FAF4EE] rounded-xl p-4 flex flex-col items-center text-center shadow-sm">
+    <span className="text-2xl font-bold text-black">0</span>
+    <span className="text-sm text-black">You have talked to the user.</span>
+  </div>
+  <div className="bg-[#FAF4EE] rounded-xl p-4 flex flex-col items-center text-center shadow-sm">
+    <span className="text-2xl font-bold text-black">0</span>
+    <span className="text-sm text-black">Your Account Performance</span>
+  </div>
+</div>
           </div>
 
           <div className="rounded-2xl relative">

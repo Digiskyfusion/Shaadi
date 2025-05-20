@@ -4,7 +4,9 @@ import image2 from "../../assets/Images/Rectangle 368.png";
 
 const SecondPage = () => {
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-white gilda-display-regular">
+    <>
+    
+    <div className="max-w-7xl mx-auto p-6 bg-white gilda-display-regular">
       {/* Header */}
       <h1 className="text-5xl text-center mb-6">
         <span className="text-black">HeartSync</span>{" "}
@@ -22,7 +24,7 @@ const SecondPage = () => {
 
       {/* Author and Date */}
       <div className="text-sm text-black flex items-center gap-2 mb-2">
-        <span className="w-4 h-1 bg-rose-400 inline-block"></span>
+        <span className="w-6 h-1 bg-rose-400 inline-block"></span>
         <span>Manesh Sita | 15 Nov 2024</span>
       </div>
 
@@ -90,6 +92,7 @@ const SecondPage = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

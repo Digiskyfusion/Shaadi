@@ -14,7 +14,7 @@ function SettingNine() {
   const userId = userProfile?._id;
 
   const handleCancel = () => {
-    navigate("/setting");
+    navigate("/delete");
   };
 
   const handleDelete = async () => {

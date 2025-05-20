@@ -22,7 +22,6 @@ import ThirdProfilePage from "./Pages/ThirdProfilePage";
 import FifthProfilePage from "./Pages/FifthProfilePage";
 import FourthProfilePage from "./Pages/FourthProfilePage";
 import SixthProfilePage from "./Pages/SixthProfilePage";
-import ProfileDetails from "./Component/ProfileDetails/ProfileDetails";
 import AllProfilePage from "./Pages/AllProfilePage";
 import SecondProfilePage from "./Pages/SecondProfilePage";
 import TodayProfilePage from "./Pages/TodayProfilePage";
@@ -31,8 +30,9 @@ import SecondMatchPage from "./Pages/SecondMatchPage";
 import ForgetPasswordPage from "./Pages/ForgetPasswordPage";
 import ResetPasswordPage from './Pages/ResetPasswordPage';
 import AboutUsPage from "./Pages/AboutUsPage";
-import SecondPage from "./Component/BlogPage/SecondBlog";
-import FirstBlog from "./Component/BlogPage/FirstBlog";
+import BlogPage from "./Pages/BlogPage";
+import SecondpageBlogs from "./Pages/SecondpageBlogs";
+import ProfilesDetailsPage from "./Pages/ProfilesDetailsPage";
 
 function App() {
   const [step, setStep] = useState(1);
@@ -86,12 +86,17 @@ function App() {
         <Route path='/FirstMatch' element={<TodayProfilePage /> }/>
         <Route path='/secondmatch' element={<SecondMatchPage /> }/>
         <Route path='/newmatch' element={<NewMatchesPage /> }/>
-        <Route path="/profile/:userId" element={<ProfileDetails />} />
+        <Route path="/profile/:userId" element={<ProfilesDetailsPage />} />
         <Route path="/allprofile" element={<AllProfilePage />} />
         <Route path="/forget-password" element={<ForgetPasswordPage  />} />
         <Route path="/reset-password" element={<ResetPasswordPage  />} />
         <Route path="/aboutus" element={<AboutUsPage  />} />
+        <Route path="/blog" element={<BlogPage  />} />
+        <Route path="/seocd" element={<SecondpageBlogs  />} />
+        
+        
       </Routes>
+     
 
     </>
     

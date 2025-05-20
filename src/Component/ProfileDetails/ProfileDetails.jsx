@@ -75,24 +75,60 @@ function ProfileDetails() {
     );
   }
 
+  // Determine theme based on gender
+  const gender = profile.userId?.gender;
+  console.log(gender);
+  
+  let bgGradient, borderColor, textColor, cardBg, cardBorder, buttonBg, backgroundImage;
+
+  if (gender === "Female") {
+    bgGradient = "bg-gradient-to-tr from-rose-100 via-pink-50 to-rose-200";
+    borderColor = "border-rose-300";
+    textColor = "text-pink-600";
+    cardBg = "bg-rose-50 hover:bg-rose-100";
+    cardBorder = "border-rose-200";
+    buttonBg = "bg-pink-600 hover:bg-pink-700";
+    backgroundImage = "url('/hearts-bg.svg')";
+  } else if (gender === "Male") {
+    bgGradient = "bg-gradient-to-tr from-blue-100 via-blue-50 to-blue-200";
+    borderColor = "border-blue-300";
+    textColor = "text-blue-600";
+    cardBg = "bg-blue-50 hover:bg-blue-100";
+    cardBorder = "border-blue-200";
+    buttonBg = "bg-blue-600 hover:bg-blue-700";
+    backgroundImage = "none";
+  } else {
+    // Other gender - brown theme
+    bgGradient = "bg-gradient-to-tr from-yellow-100 via-yellow-50 to-yellow-200"; // warm brownish yellow
+    borderColor = "border-yellow-400";
+    textColor = "text-yellow-700";
+    cardBg = "bg-yellow-50 hover:bg-yellow-100";
+    cardBorder = "border-yellow-300";
+    buttonBg = "bg-yellow-600 hover:bg-yellow-700";
+    backgroundImage = "none";
+  }
+
   return (
     <>
-      <Navbar4 />
-      <div className="bg-gradient-to-tr from-rose-100 via-pink-50 to-rose-200 bg-[url('/hearts-bg.svg')] bg-fixed bg-cover min-h-screen py-10 px-2">
-        <div className="max-w-6xl mx-auto bg-white/80 backdrop-blur-lg p-4 md:p-10 rounded-3xl border border-rose-300 shadow-xl space-y-10">
+    
+      <div
+        className={`${bgGradient} bg-fixed bg-cover min-h-screen py-10 px-2`}
+        style={{ backgroundImage: backgroundImage }}
+      >
+        <div className={`max-w-6xl mx-auto bg-white/80 backdrop-blur-lg p-4 md:p-10 rounded-3xl border ${borderColor} shadow-xl space-y-10`}>
 
           {/* Top Buttons */}
           <div className="flex justify-between items-center">
             <button
               onClick={() => navigate(-1)}
-              className="px-5 py-2 bg-pink-600 cursor-pointer hover:bg-pink-700 text-white rounded-full shadow-lg transition duration-300"
+              className={`px-5 py-2 ${buttonBg} cursor-pointer text-white rounded-full shadow-lg transition duration-300`}
             >
               ⬅ Back
             </button>
 
             <button
               onClick={() => navigate(-1)}
-              className="flex items-center gap-2 px-5 py-2 cursor-pointer bg-pink-600 hover:bg-pink-700 text-white rounded-full shadow-lg transition duration-300"
+              className={`flex items-center gap-2 px-5 py-2 cursor-pointer ${buttonBg} text-white rounded-full shadow-lg transition duration-300`}
             >
               <BsChatRightHeartFill />
               Connect Now
@@ -104,14 +140,14 @@ function ProfileDetails() {
             <img
               src={profile.userId?.profileImage}
               alt="Profile"
-              className="w-44 h-44 object-cover rounded-full border-4 border-rose-400 shadow-xl hover:scale-105 transition duration-300"
+              className={`w-44 h-44 object-cover rounded-full border-4 ${borderColor} shadow-xl hover:scale-105 transition duration-300`}
             />
-            <h2 className="text-4xl font-bold text-gray-800 italic">
+            <h2 className={`text-4xl font-bold italic ${textColor}`}>
               {profile.userId?.firstName} {profile.userId?.lastName}
             </h2>
           </div>
 
-          {/* Section Mapping */}
+          {/* Sections */}
           <div className="space-y-10">
             {[
               {
@@ -175,18 +211,18 @@ function ProfileDetails() {
             ].map((section, idx) => (
               <div
                 key={idx}
-                className="bg-white/70 border border-rose-200 p-5 rounded-2xl shadow-md hover:shadow-xl transition duration-300"
+                className={`bg-white/70 border ${cardBorder} p-5 rounded-2xl shadow-md hover:shadow-xl transition duration-300`}
               >
-                <h3 className="text-2xl font-bold text-pink-600 mb-6 border-b pb-2">
+                <h3 className={`text-2xl font-bold ${textColor} mb-6 border-b pb-2`}>
                   {section.title}
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-gray-800">
                   {section.data.map(([label, value], i) => (
                     <div
                       key={i}
-                      className="flex items-center gap-3 bg-rose-50 hover:bg-rose-100 p-3 rounded-xl shadow-sm transition"
+                      className={`flex items-center gap-3 ${cardBg} p-3 rounded-xl shadow-sm transition`}
                     >
-                      <div className="text-pink-500 text-xl">{iconMap[label]}</div>
+                      <div className={`${textColor} text-xl`}>{iconMap[label]}</div>
                       <div className="text-sm">
                         <strong>{label}:</strong> {value || 'N/A'}
                       </div>
@@ -198,7 +234,7 @@ function ProfileDetails() {
           </div>
         </div>
       </div>
-      <Footer />
+    
     </>
   );
 }

@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { FaHeart } from "react-icons/fa";
 import { ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 
 function SettingEight() {
   const [selectedReason, setSelectedReason] = useState('');
+  const [customReason, setCustomReason] = useState('');
   const navigate = useNavigate();
 
   const reasons = [
@@ -16,14 +18,24 @@ function SettingEight() {
 
   const handleContinue = () => {
     if (!selectedReason) {
-      alert("Please select a reason to continue.");
+          toast.warning("Please select a reason to continue.");
+      
+    } else if (selectedReason === "Other reason" && !customReason.trim()) {
+      toast.warning("Please enter your custom reason.");
+     
     } else {
-      navigate('/confirm', { state: { reason: selectedReason } });
+      const reasonToSend = selectedReason === "Other reason" ? customReason.trim() : selectedReason;
+      toast.success("Reason Selected");
+      setTimeout(()=>
+      {
+        navigate('/confirm', { state: { reason: reasonToSend } });
+      },4000)
     }
   };
 
   return (
     <div className="flex items-center jost justify-center px-4 py-6">
+     <ToastContainer />
       <div className="relative w-full max-w-md bg-[#FF5A60] shadow-md rounded-xl p-6 space-y-6">
 
         {/* Arrow + Skip text */}
@@ -62,7 +74,10 @@ function SettingEight() {
                 name="deleteReason"
                 value={reason}
                 checked={selectedReason === reason}
-                onChange={() => setSelectedReason(reason)}
+                onChange={() => {
+                  setSelectedReason(reason);
+                  if (reason !== "Other reason") setCustomReason('');
+                }}
                 className="appearance-none w-4 h-4 border-2 border-white rounded-full checked:bg-white checked:border-white transition"
               />
               <span className={`text-sm sm:text-base ${selectedReason === reason ? 'text-[#FF5A60]' : 'text-white'}`}>
@@ -70,6 +85,16 @@ function SettingEight() {
               </span>
             </label>
           ))}
+
+          {/* Show textarea if "Other reason" is selected */}
+          {selectedReason === "Other reason" && (
+            <textarea
+              value={customReason}
+              onChange={(e) => setCustomReason(e.target.value)}
+              placeholder="Please specify your reason..."
+              className="w-full mt-2 p-3 rounded-lg border resize-none text-white border-white focus:outline-none"
+            />
+          )}
         </div>
 
         {/* Continue Button */}

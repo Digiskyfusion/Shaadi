@@ -30,7 +30,9 @@ function Navbar() {
       <div className="container mx-auto flex items-center justify-between">
         {/* {/ Logo /} */}
         <div>
-          <img src={Group} alt="Shadi" className="h-12" />
+          <Link to="/">
+            <img src={Group} alt="Shadi" className="h-12" />
+          </Link>
         </div>
 
         {/* {/ Hamburger Menu (Mobile) /} */}
@@ -55,9 +57,9 @@ function Navbar() {
             <NavLink to="/aboutus" className="block py-2 px-6">
               ABOUT US
             </NavLink>
-            <NavLink to="/blog" className="block py-2 px-6">
+            {/* <NavLink to="/blog" className="block py-2 px-6">
               BLOG
-            </NavLink>
+            </NavLink> */}
             <NavLink to="/contactUs" className="block py-2 px-6">
              CONTACT US
             </NavLink>

@@ -12,7 +12,7 @@ function AllProfile() {
         if (!userProfile?._id) return;
 
         const userId = userProfile._id;
-        const res = await axios.get(`http://192.168.29.50:3000/user/opposite/${userId}`);
+        const res = await axios.get(`http://localhost:3000/user/opposite/${userId}`);
         setData(res.data);
       } catch (error) {
         console.error("Error fetching user profiles:", error);
@@ -64,7 +64,7 @@ function AllProfile() {
           </div>
         ))
       ) : (
-        <p>No profiles found.</p>
+        <p>No profiles right now</p>
       )}
     </div>
   );

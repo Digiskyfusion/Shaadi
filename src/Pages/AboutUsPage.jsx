@@ -10,7 +10,7 @@ function AboutUsPage() {
   return (
     <>
     <Navbar />
-    <OneSection />
+    <OneSection name="About Us" />
     <SecondSection />
     <ThirdSection />
     <FourthSections />

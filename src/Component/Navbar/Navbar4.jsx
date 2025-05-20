@@ -42,7 +42,7 @@ function Navbar4() {
             // { label: 'New Profile', path: '/FirstMatch' },
             // { label: 'Todays Profiles', path: '/firstProfile' },
             { label: 'Near Me', path: '/secondmatch' },
-            { label: 'More', path: '/allprofile' },
+            { label: 'All Profiles', path: '/allprofile' },
         ],
         // SEARCH: [
         //     { label: 'Search Profiles', path: '/search' },
@@ -52,6 +52,9 @@ function Navbar4() {
         INBOX: [
             { label: 'Messages', path: '/Chat' }, 
             // { label: 'Sent Requests', path: '/sent-requests' },
+             { label: 'Plans', path: '/plans' },
+            { label: 'Messages', path: '/messages' }, 
+           
             // { label: 'Received Requests', path: '/received-requests' },
         ],
     };

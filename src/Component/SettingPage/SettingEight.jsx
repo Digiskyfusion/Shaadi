@@ -29,7 +29,7 @@ function SettingEight() {
       setTimeout(()=>
       {
         navigate('/confirm', { state: { reason: reasonToSend } });
-      },4000)
+      },1500)
     }
   };
 
@@ -41,7 +41,8 @@ function SettingEight() {
         {/* Arrow + Skip text */}
         <div className="absolute top-4 left-4 right-4 flex justify-between items-center">
           <div className="bg-black p-2 rounded-full cursor-pointer">
-            <ArrowLeft className="text-white w-4 h-4" />
+            <ArrowLeft className="text-white w-4 h-4"
+            onClick={() => navigate("/setting")} />
           </div>
           <span className="text-white text-sm sm:text-base cursor-pointer font-normal">Skip</span>
         </div>

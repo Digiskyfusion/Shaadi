@@ -9,7 +9,7 @@ function SecondMatchPage() {
     <>
     <Navbar4 />
     <FourthMatch />
-    <ThirdMatch />
+    {/* <ThirdMatch /> */}
     <Footer />
       
     </>

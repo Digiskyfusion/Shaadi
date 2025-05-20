@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Rectangle67 from '../../assets/Images/Rectangle 67.png';
 
 
-function Planpage() {
+function PlanPage() {
   const plans = [
     {
       name: 'Gold',
@@ -57,7 +57,7 @@ function Planpage() {
 
       {/* Main Content */}
       <div className="relative z-10">
-        <Navbar3 />
+       
 
         <h1 className="text-center gilda-display-regular mt-96 text-6xl text-amber-50 font-serif">
           Upgrade now & Get Premium benefits
@@ -108,4 +108,4 @@ function Planpage() {
   );
 }
 
-export default Planpage;
+export default PlanPage;

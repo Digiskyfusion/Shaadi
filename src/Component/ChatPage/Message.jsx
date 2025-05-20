@@ -5,7 +5,7 @@ import image2 from "../../assets/Images/403022_business man_male_user_avatar_pro
 
 const Massage = () => {
   return (
-    <div className="max-w-160 mx-auto bg-[#FFCCA8] rounded-t-2xl rounded-b-2xl  mt-4 min-h-[450px] flex flex-col jost mb-4">
+    <div className="w-full bg-[#FFCCA8] rounded-t-2xl rounded-b-2xl mt-4 flex flex-col jost mb-4">
       
       {/* Header */}
       <div className="flex items-center p-5 bg-[#FFEADC] rounded-t-2xl">
@@ -33,7 +33,7 @@ const Massage = () => {
             className="w-8 h-8 rounded-full"
           />
           <div>
-            <div className="bg-[#FF5A60] text-white px-4 py-2 rounded-full text-sm[--">
+            <div className="bg-[#FF5A60] text-white px-4 py-2 rounded-full text-sm">
               Hi how are you
             </div>
             <div className="text-xs text-[#000000] mt-1">8:40 AM Today</div>

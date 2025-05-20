@@ -50,7 +50,7 @@ function Navbar4() {
         //     { label: 'Saved Searches', path: '/saved-searches' },
         // ],
         INBOX: [
-            { label: 'Messages', path: '/messages' }, 
+            { label: 'Messages', path: '/Chat' }, 
             // { label: 'Sent Requests', path: '/sent-requests' },
             // { label: 'Received Requests', path: '/received-requests' },
         ],

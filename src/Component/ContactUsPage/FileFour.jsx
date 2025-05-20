@@ -44,8 +44,8 @@ function FileFour() {
         {/* Right Side - Form Box */}
         <div className="md:w-1/2 h-[555px] jost p-4 flex ">
           <div className="bg-gray-50 p-6 rounded-xl shadow-md border border-gray-200 w-full">
-            <h1 className="text-2xl font-bold mb-2 text-gray-800">Have Any Questions?</h1>
-            <p className="text-gray-600 mb-6">
+            <h1 className="text-2xl font-bold mb-2 text-gray-800 cursor-pointer">Have Any Questions?</h1>
+            <p className="text-gray-600 mb-6 cursor-pointer">
               Please feel free to get in touch with us using the contact form below.
               We’d love to hear from you.
             </p>
@@ -97,7 +97,7 @@ function FileFour() {
                   onChange={() => setIsChecked(!isChecked)}
                   className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
                 />
-                <label htmlFor="saveInfo" className="text-sm text-gray-700">
+                <label htmlFor="saveInfo" className="text-sm text-gray-700 cursor-pointer">
                   Save my name, email, and website in this browser for the next time.
                 </label>
                 {isChecked && (
@@ -107,7 +107,7 @@ function FileFour() {
 
               <button
                 type="submit"
-                className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition"
+                className="w-full bg-[#EB5757] text-white py-2 px-4 rounded-md hover:bg-black transition cursor-pointer"
               >
                 Submit
               </button>

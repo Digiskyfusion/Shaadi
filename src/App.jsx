@@ -100,7 +100,7 @@ function App() {
         <Route path="/seocd" element={<SecondpageBlogs  />} />
         <Route path="/contactUs" element={<ContactUsPage  />} />
         <Route path="/Chat" element={<ChatPage  />} />
-
+        <Route path="/plans" element={<PlanPageFull  />} />
         
       </Routes>
      

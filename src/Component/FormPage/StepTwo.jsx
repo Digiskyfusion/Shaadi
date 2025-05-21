@@ -24,7 +24,7 @@
   }
 
         const res = await axios.post(
-          `http://${API}/user/register`,
+          `${API}/user/register`,
           formData
         );
         console.log(res);

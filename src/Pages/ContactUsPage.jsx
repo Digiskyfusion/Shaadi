@@ -9,7 +9,7 @@ function ContactUsPage() {
   return (
     <>
     <Navbar />
-    <OneSection name="We're here to support journey to love " />
+    <OneSection name="We're here to support journey love " />
     <FileTwo />
     <FileFour />
     <Footer />

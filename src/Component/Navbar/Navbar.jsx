@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
-import Group from '../../assets/Images/Group 22.png';
+import Logo2 from '../../assets/Images/Shaadi Sanskar 2.png';
+
 
 
 function Navbar() {
@@ -31,7 +32,7 @@ function Navbar() {
         {/* {/ Logo /} */}
         <div>
           <Link to="/">
-            <img src={Group} alt="Shadi" className="h-12" />
+            <img src={Logo2} alt="Logo2" className="h-20 w-30" />
           </Link>
         </div>
 

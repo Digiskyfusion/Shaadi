@@ -227,7 +227,7 @@
         </button>
       </div>
     <marquee> <p className="text-center text-yellow-500 text-sm  rounded-md ">
-    You have to use uppercase, lowercase, numeric, and symbol for your password.
+    You have to use uppercase, lowercase, numeric, and symbol for your password and Password must be at least 8 characters.
   </p></marquee>
 
             <button

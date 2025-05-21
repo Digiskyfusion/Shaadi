@@ -34,7 +34,7 @@ const Footer = () => {
           <img src={photo} alt="shadiii" className="h-9 mb-4" />
           <p className="mb-1">Shaadi Sanskar - Where true love begins.</p>
           <p className="mb-1">
-            At Shaadi Sanskar, we believe in real connections that lead to lasting love. 
+            At Shaadi Sanskar, we believe in real connections that lead to lasting love.
             Join a trusted platform where meaningful relationships begin.
           </p>
         </div>
@@ -65,7 +65,7 @@ const Footer = () => {
         key={idx}
         className="bg-[#D0BEA9] border border-[#EFE1CD] rounded-lg p-3 w-12 h-12 flex items-center justify-center hover:scale-105 transition"
       >
-        <Icon className="text-[#53321B] text-xl" />
+        <Icon className="text-[#53321B] text-xl"/>
       </div>
     ))}
   </div>

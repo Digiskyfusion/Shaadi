@@ -17,7 +17,7 @@ function DetailSix() {
   useEffect(() => {
     const userProfile = JSON.parse(localStorage.getItem("userProfile"));
         const userId = userProfile?._id;
-    axios.get(`http://192.168.29.50:3000/api/profileget/${userId}`)
+    axios.get(`http://localhost:3000/api/profileget/${userId}`)
       .then(response => {
         setLocationData(response.data.data);
         setEditData(response.data.data); // Initialize editData with fetched data

@@ -20,7 +20,7 @@ function DetailTwo() {
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const response = await axios.get(`http://192.168.29.50:3000/api/profileget/${userId}`);
+        const response = await axios.get(`http://localhost:3000/api/profileget/${userId}`);
         setProfile(response.data.data); // Assuming response contains the necessary fields
         setEditData(response.data.data);
       } catch (error) {

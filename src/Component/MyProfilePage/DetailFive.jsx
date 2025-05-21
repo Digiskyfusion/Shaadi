@@ -29,7 +29,7 @@ export default function DetailFive() {
       try {
         const userProfile = JSON.parse(localStorage.getItem("userProfile"));
         const userId = userProfile?._id;
-        const response = await axios.get(`http://192.168.29.50:3000/api/profileget/${userId}`);
+        const response = await axios.get(`http://localhost:3000/api/profileget/${userId}`);
         const data = response.data.data;
 
         setProfile(data);

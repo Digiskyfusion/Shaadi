@@ -1,11 +1,11 @@
-import React from 'react';
-import Image15 from '../../assets/Images/Image15.png';
-import Ellipse1 from '../../assets/Images/Ellipse1.png';
-import ballon from '../../assets/Images/ballon.png';
-import Ellipse2 from '../../assets/Images/Ellipse2.png';
-import Ellipse3 from '../../assets/Images/Ellipse3.png';
-import Ellipse4 from '../../assets/Images/Ellipse4.png';
-import Heart from '../../assets/Images/Heart.png';
+import React from "react";
+import Image15 from "../../assets/Images/Image15.png";
+import Ellipse1 from "../../assets/Images/Ellipse1.png";
+import ballon from "../../assets/Images/ballon.png";
+import Ellipse2 from "../../assets/Images/Ellipse2.png";
+import Ellipse3 from "../../assets/Images/Ellipse3.png";
+import Ellipse4 from "../../assets/Images/Ellipse4.png";
+import Heart from "../../assets/Images/Heart.png";
 
 function SecondSection() {
   return (
@@ -13,12 +13,28 @@ function SecondSection() {
       {/* Text Section */}
       <div className="lg:w-1/2 text-left">
         <h1 className="text-4xl font-semibold mb-4 gilda-display-regular">
-          We Care About Your <span className="text-[#EB5757]">Happiness</span>
+          Love isn't just about finding someone{" "}
+          <span className="text-[#EB5757]">
+            {" "}
+            — it's about finding the right someone.
+          </span>
         </h1>
         <p className="text-lg leading-relaxed break-words jost">
-          Challenges of traditional dating force more and more people to look for soul mates in the cyberspace. In fact, online dating has radically changed the way lonely hearts meet each other today. One of its advantages is a possibility to remove the location barrier, which allows singles to expand the scope of their search.
-          We all know that true love finds itself, but the world is so spacious that you may miss a rare chance to encounter your one and only in the daily life. What’s more, most loners are too shy to approach the person they cherish warm feelings for. This is when a dating site comes in handy, as it allows for comfortable communication by exchanging letters or via live chats.
+          At Shaadi Sanskar, we go beyond algorithms and swipes. We believe in
+          meaningful matches, soulful conversations, and lasting connections.
+          Whether you're someone who believes in fairy-tale endings or just
+          looking for someone to share everyday moments with — you're in the
+          right place.
         </p>
+        <p className="text-lg leading-relaxed break-words jost">
+          Our journey began with a simple idea: to create a platform where real
+          people find real love. With a blend of technology, intuition, and a whole lot of heart, we've helped countless individuals find their life
+          partners — and we're just getting started.Every profile on Shaadi Sanskar is handpicked, verified, and part of a
+          safe, respectful environment where you can truly be yourself. Our
+          advanced matchmaking system is designed to understand not just who you
+          are, but what your heart seeks.Let your story begin with us.
+        </p>
+    
       </div>
 
       {/* Image Section */}

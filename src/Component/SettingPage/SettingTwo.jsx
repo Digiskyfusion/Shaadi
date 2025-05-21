@@ -4,6 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function SettingTwo() {
+  let API= import.meta.env.VITE_APP_API_URL
   const [email, setEmail] = useState('');
   const [newEmail, setNewEmail] = useState('');
   const [loading, setLoading] = useState(false);
@@ -14,7 +15,7 @@ function SettingTwo() {
   useEffect(() => {
     if (userId) {
       axios
-        .get(`http://localhost:3000/user/${userId}`)
+        .get(`${API}user/${userId}`)
         .then((res) => {
           
           setEmail(res.data.user.emailId);
@@ -29,7 +30,7 @@ function SettingTwo() {
 
     setLoading(true);
     axios
-      .put(`http://localhost:3000/user/${userId}`, {
+      .put(`${API}user/${userId}`, {
         emailId: newEmail,
       })
       .then((res) => {

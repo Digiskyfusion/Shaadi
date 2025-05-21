@@ -4,6 +4,7 @@ import { FaPencilAlt } from "react-icons/fa";
 import { LuDot } from "react-icons/lu";
 
 function DetailTwo() {
+  let API= import.meta.env.VITE_APP_API_URL
   const [profile, setProfile] = useState({
     growup: '',
     diet: '',
@@ -20,7 +21,7 @@ function DetailTwo() {
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/profileget/${userId}`);
+        const response = await axios.get(`${API}api/profileget/${userId}`);
         setProfile(response.data.data); // Assuming response contains the necessary fields
         setEditData(response.data.data);
       } catch (error) {
@@ -34,7 +35,7 @@ function DetailTwo() {
   const handleSave = async () => {
     try {
       // Update profile data with PUT request
-      await axios.put(`http://localhost:3000/api/profileupdate/${userId}`, editData);
+      await axios.put(`${API}api/profileupdate/${userId}`, editData);
       setProfile(editData); // Update local profile state
       setIsEditing(false); // Exit editing mode
     } catch (error) {

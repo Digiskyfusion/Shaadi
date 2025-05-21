@@ -3,6 +3,7 @@ import { LuDot } from "react-icons/lu";
 import axios from 'axios';
 import { FaPencilAlt } from "react-icons/fa";
 function DetailThree() {
+  let API= import.meta.env.VITE_APP_API_URL
   let a= JSON.parse(localStorage.getItem("userProfile"))
   const userId = a._id;  // Replace with the actual user ID
   const [profile, setProfile] = useState({
@@ -21,7 +22,7 @@ function DetailThree() {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/profileget/${userId}`);
+        const response = await axios.get(`${API}api/profileget/${userId}`);
         setProfile(response.data.data); // Assuming the response has the profile data
         setEditData(response.data.data); // Set initial edit data
       } catch (error) {
@@ -41,7 +42,7 @@ function DetailThree() {
 
   const handleSave = async () => {
     try {
-      const response = await axios.put(`http://localhost:3000/api/profileupdate/${userId}`, editData);
+      const response = await axios.put(`${API}api/profileupdate/${userId}`, editData);
       setProfile(response.data.data); // Update the profile with the saved data
       setIsEditing(false); // Exit edit mode
     } catch (error) {

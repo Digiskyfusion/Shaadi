@@ -4,6 +4,7 @@ import { LuDot } from "react-icons/lu";
 import axios from 'axios';
 
 function DetailSeven() {
+  let API= import.meta.env.VITE_APP_API_URL
   const [hobbies, setHobbies] = useState('');
   const [isEditing, setIsEditing] = useState(false);
   const [editHobbies, setEditHobbies] = useState(hobbies);
@@ -12,7 +13,7 @@ function DetailSeven() {
   useEffect(() => {
     const userProfile = JSON.parse(localStorage.getItem("userProfile"));
     const userId = userProfile?._id;
-    axios.get(`http://localhost:3000/api/profileget/${userId}`) // Replace with your API endpoint
+    axios.get(`${API}api/profileget/${userId}`) // Replace with your API endpoint
       .then(response => {
         const fetchedHobbies = response.data.data?.hobbies || '';
         setHobbies(fetchedHobbies); // Ensure hobbies is a string
@@ -27,7 +28,7 @@ function DetailSeven() {
   const handleSave = () => {
     const userProfile = JSON.parse(localStorage.getItem("userProfile"));
     const userId = userProfile?._id;
-    axios.put(`http://localhost:3000/api/profileupdate/${userId}`, { hobbies: editHobbies }) // Replace with your API endpoint
+    axios.put(`${API}api/profileupdate/${userId}`, { hobbies: editHobbies }) // Replace with your API endpoint
       .then(response => {
         setHobbies(editHobbies); // Update the displayed hobbies with the edited data
         setIsEditing(false); // Switch back to view mode

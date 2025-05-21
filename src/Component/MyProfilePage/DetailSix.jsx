@@ -4,6 +4,7 @@ import { LuDot } from "react-icons/lu";
 import axios from 'axios';
 
 function DetailSix() {
+  let API= import.meta.env.VITE_APP_API_URL
   const [locationData, setLocationData] = useState({
     currentresidence: '',
     stateofresidence: '',
@@ -17,7 +18,7 @@ function DetailSix() {
   useEffect(() => {
     const userProfile = JSON.parse(localStorage.getItem("userProfile"));
         const userId = userProfile?._id;
-    axios.get(`http://localhost:3000/api/profileget/${userId}`)
+    axios.get(`${API}api/profileget/${userId}`)
       .then(response => {
         setLocationData(response.data.data);
         setEditData(response.data.data); // Initialize editData with fetched data
@@ -31,7 +32,7 @@ function DetailSix() {
   const handleSave = () => {
     const userProfile = JSON.parse(localStorage.getItem("userProfile"));
         const userId = userProfile?._id;
-    axios.put(`http://localhost:3000/api/profileupdate/${userId}`, editData)
+    axios.put(`${API}api/profileupdate/${userId}`, editData)
       .then(response => {
         setLocationData(editData); // Update the displayed data with the edited data
         setIsEditing(false); // Switch back to view mode

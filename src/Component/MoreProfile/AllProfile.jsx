@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 function AllProfile() {
+  let API= import.meta.env.VITE_APP_API_URL
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -12,7 +13,7 @@ function AllProfile() {
         if (!userProfile?._id) return;
 
         const userId = userProfile._id;
-        const res = await axios.get(`http://localhost:3000/user/opposite/${userId}`);
+        const res = await axios.get(`${API}user/opposite/${userId}`);
         setData(res.data);
       } catch (error) {
         console.error("Error fetching user profiles:", error);

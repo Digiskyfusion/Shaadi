@@ -6,6 +6,7 @@
   import { ToastContainer, toast } from 'react-toastify';
 
   function StepThree() {
+    let API= import.meta.env.VITE_APP_API_URL
     const navigate = useNavigate();
     const [userId, setUserId] = useState('');
     const [formData, setFormData] = useState({
@@ -31,7 +32,7 @@
           const id = storedUser?.id || storedUser?._id;
           if (id) {
             setUserId(id);
-            const res = await axios.get(`http://localhost:3000/api/profile/${id}`, {
+            const res = await axios.get(`${API}api/profile/${id}`, {
               headers: { Authorization: `Bearer ${token}` },
             });
             if (res.data?.data) {
@@ -75,7 +76,7 @@
         }
 
         const fullData = { ...formData, userId };
-        const res = await axios.post('http://localhost:3000/api/profile', fullData, {
+        const res = await axios.post(`${API}api/profile`, fullData, {
           headers: { Authorization: `Bearer ${token}` },
         });
         toast.success("Profile saved successfully!");

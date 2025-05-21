@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 
 function SettingNine() {
+  let API= import.meta.env.VITE_APP_API_URL
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -27,7 +28,7 @@ function SettingNine() {
 
     try {
       const res = await axios.post(
-  'http://localhost:3000/delete/delete-profile',
+  `${API}delete/delete-profile`,
   { userId, reason: selectedReason },
   { headers: { Authorization: `Bearer ${token}` } }
 );

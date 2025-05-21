@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 
 const ForgotPassword = () => {
+  let API= import.meta.env.VITE_APP_API_URL
   const [emailId, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
@@ -9,7 +10,7 @@ const ForgotPassword = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `http://localhost:3000/user/forget-password`,
+        `${API}user/forget-password`,
         { emailId }
       );
       setMessage(response.data.message || "Reset link sent successfully.");

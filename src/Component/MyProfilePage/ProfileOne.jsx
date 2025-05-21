@@ -5,6 +5,7 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage } from "../../firebase";
 
 function ProfileOne() {
+  let API= import.meta.env.VITE_APP_API_URL
   const [editMode, setEditMode] = useState(false)
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
@@ -23,7 +24,7 @@ function ProfileOne() {
   
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/user/${userId}`)
+    axios.get(`${API}user/${userId}`)
       .then((res) => {
         const { firstName, lastName, mobileNumber, emailId, profileImage, dob, gender } = res.data.user
         setFirstName(firstName)
@@ -57,7 +58,7 @@ function ProfileOne() {
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((url) => {
           setImageUrl(url);
-          axios.put(`http://localhost:3000/user/${userId}`, {
+          axios.put(`${API}user/${userId}`, {
             firstName,
             lastName,
             mobileNumber: phone,
@@ -77,7 +78,7 @@ function ProfileOne() {
       }
     );
   } else {
-    axios.put(`http://localhost:3000/user/${userId}`, {
+    axios.put(`${API}user/${userId}`, {
       firstName,
       lastName,
       mobileNumber: phone,

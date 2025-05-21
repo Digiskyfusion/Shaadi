@@ -8,6 +8,7 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 
 function Login() {
+  let API= import.meta.env.VITE_APP_API_URL
   const [showPassword, setShowPassword] = useState(false);
   const [identifier, setIdentifier] = useState('');
   const [password, setPassword] = useState('');
@@ -25,7 +26,7 @@ function Login() {
     setError('');
 
     try {
-      const response = await axios.post('http://localhost:3000/user/login', {
+      const response = await axios.post(`${API}user/login`, {
         identifier,
         password,
       });

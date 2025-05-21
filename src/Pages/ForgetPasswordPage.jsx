@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar2 from '../Component/Navbar/NavBar2'
+import Navbar2 from '../Component/Navbar/Navbar2'
 import ForgotPassword from '../Component/ForgetPassword/ForgetPassword'
 import Footer from '../Component/FooterPage/Footer'
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import Login from '../Component/LoginPage/Login'
 import WebsiteName from '../Component/WebsitePage/WebsiteName'
-import Navbar2 from '../Component/Navbar/NavBar2'
+import Navbar2 from '../Component/Navbar/Navbar2'
 
 
 function LoginNavbarPage() {

@@ -12,6 +12,8 @@ function SettingNine() {
   const userProfile = JSON.parse(localStorage.getItem('userProfile'));
   let token = localStorage.getItem("token")
   const userId = userProfile?._id;
+  console.log(userId);
+  
 
   const handleCancel = () => {
     navigate("/delete");

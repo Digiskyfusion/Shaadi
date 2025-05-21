@@ -8,7 +8,7 @@
   import { Eye, EyeOff } from 'lucide-react'; // optional icons
 
   const StepTwo = ({ formData, setFormData, prevStep }) => {
-  
+  let API= import.meta.env.VITE_APP_API_URL
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     const handleSubmit = async () => {
@@ -24,7 +24,7 @@
   }
 
         const res = await axios.post(
-          "http://localhost:3000/user/register",
+          `http://${API}/user/register`,
           formData
         );
         console.log(res);

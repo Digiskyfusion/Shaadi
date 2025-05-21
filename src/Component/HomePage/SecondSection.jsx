@@ -13,26 +13,26 @@ const stories = [
   {
     id: 1,
     image: Image3,
-    name: 'Anjali & Raj',
-    text: 'We met through this platform, and within months, we knew we were meant to be. Thank you for making our dream come true!',
+    name: 'Ravi & Anjali',
+    text: 'I joined this platform a year ago and found Ravi within a month. I never imagined meeting someone so caring and genuine. Truly blessed to have him—thanks to this amazing platform!',
   },
   {
     id: 2,
     image: Image4,
-    name: 'Aisika & Aaman',
-    text: 'We met through this platform, and within months, we knew we were meant to be. Thank you for making our dream come true!',
+    name: 'Aman & Shweta',
+    text: 'We connected on this platform and instantly felt a spark. What began as a simple chat soon turned into a beautiful bond. Forever grateful for bringing us together!',
   },
   {
     id: 3,
     image: Image5,
-    name: 'Lumi & Luma',
-    text: 'We met through this platform, and within months, we knew we were meant to be. Thank you for making our dream come true!',
+    name: 'Geetanjali & Aditya',
+    text: 'Thanks to this platform, I met Aditya—my perfect match. Our journey from strangers to soulmates began here, and we couldn’t be happier!',
   },
   {
     id: 4,
     image: Image6,
-    name: 'Miti & Jot',
-    text: 'We met through this platform, and within months, we knew we were meant to be. Thank you for making our dream come true!',
+    name: 'Paras & Apoorva',
+    text: 'We found love where we least expected—right here on this platform. Now we’re building a future together, and it all started with a single message. So thankful!',
   },
 ];
 

@@ -61,15 +61,16 @@ function FirstSection() {
 
 
           <p className="text-white mt-4 text-lg max-w-2xl jost">
-            Love knows no boundaries! Whether you're looking for a life partner in India or worldwide, we bring people together with our advanced matchmaking system.
+            Everyone deserves someone who will stand by them through the good and bad times.
+            With our advanced matchmaking system, we bring the right people together
           </p>
 
           {/* {/ Buttons Section /} */}
           <div className="mt-6  flex flex-col  md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
-            <button className="flex items-center cursor-pointer space-x-2 bg-[#EB5757] text-white px-6 py-3 jost rounded-full text-lg font-medium shadow-lg hover:bg-red-700 transition">
+            {/* <button className="flex items-center cursor-pointer space-x-2 bg-[#EB5757] text-white px-6 py-3 jost rounded-full text-lg font-medium shadow-lg hover:bg-red-700 transition">
               <FiSearch size={18} />
               <span>Find Your Match</span>
-            </button>
+            </button> */}
             <button className="bg-white text-[#EB5757] px-15 jost py-3 cursor-pointer rounded-full text-lg font-medium shadow-lg hover:bg-gray-100 transition">
               Join Now
             </button>

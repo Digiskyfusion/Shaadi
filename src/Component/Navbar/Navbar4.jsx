@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Group from '../../assets/Images/Group 22.png';
 import { FaChevronDown, FaHeart, FaBars, FaTimes } from 'react-icons/fa';
-import { useNavigate, useLocation, Link } from 'react-router-dom';
-
+import { useNavigate,useLocation, Link } from 'react-router-dom';
 function Navbar4() {
     const navigate = useNavigate();
     const location = useLocation();

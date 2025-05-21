@@ -4,37 +4,37 @@ const FifthSection = () => {
   const plans = [
     {
       name: 'Gold',
-      duration: '3 Months',
-      price: '₹3499',
-      monthly: '₹1166 per month',
+      // duration: '3 Months',
+      price: '₹149',
+      Credits: '10 Credits',
       features: [
-        'Send unlimited Messages',
-        'View up to 150 contact numbers',
-        'Stand out from other profiles',
+        'Send messages to people',
+        'View upto 10 profiles',
       ],
     },
     {
       name: 'Diamond',
-      duration: '6 Months',
-      price: '₹5499',
-      monthly: '₹916 per month',
+      // duration: '6 Months',
+      price: '₹299',
+      Credits: '30 Credits',
       features: [
-        'Send unlimited Messages',
-        'View up to 300 contact numbers',
-        'Stand out from other profiles',
-        'Let matches contact you directly',
+        'Send messages to people',
+        'View upto 30 profiles ',
+        'Standout from other profiles',
+        
       ],
     },
     {
       name: 'Platinum',
-      duration: '12 Months',
-      price: '₹10499',
-      monthly: '₹874 per month',
+      // duration: '12 Months',
+      price: '₹599',
+      Credits: '100 Credits',
+    
       features: [
+        'Send messages to people',
         'Send unlimited Messages',
-        'View up to 600 contact numbers',
-        'Stand out from other profiles',
-        'Let matches contact you directly',
+        'Standout from other profiles',
+      
       ],
     },
   ];

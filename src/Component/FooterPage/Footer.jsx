@@ -27,49 +27,22 @@ const obj = [
 const Footer = () => {
   return (
     <footer className="bg-[#53321B] text-[#EFE1CD] px-6 py-12 sm:px-10 md:px-16">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-12 ">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        
         {/* Brand Section */}
         <div className="jost">
           <img src={photo} alt="shadiii" className="h-9 mb-4" />
-          <p className="mb-1">Lorem ipsum dolor sit amet consectetur</p>
-          <p className="mb-1">sit amet consectetur</p>
-          <p className="mb-1">Lectus ac sed purus</p>
-          <p className="mb-4">ultricies diam eu scelerisque.</p>
-          <div className="flex gap-3 mt-4 flex-wrap">
-            {[FaInstagram, FaFacebookF, FaTwitter, FaLinkedinIn].map(
-              (Icon, idx) => (
-                <div
-                  key={idx}
-                  className="bg-[#D0BEA9] text-[#53321B] rounded-full p-2.5 text-xl hover:scale-105 transition"
-                >
-                  <Icon />
-                </div>
-              )
-            )}
-          </div>
-        </div>
-
-        {/* Follow Us Section */}
-        <div>
-          <h3 className="text-xl font-semibold mb-4 gilda-display-regular">Follow us</h3>
-          <ul className="space-y-2">
-            {["Instagram", "Facebook", "Twitter", "LinkedIn"].map(
-              (platform, i) => (
-                <li
-                  key={i}
-                  className="hover:text-yellow-300 transition cursor-pointer jost"
-                >
-                  {platform}
-                </li>
-              )
-            )}
-          </ul>
+          <p className="mb-1">Shaadi Sanskar - Where true love begins.</p>
+          <p className="mb-1">
+            At Shaadi Sanskar, we believe in real connections that lead to lasting love. 
+            Join a trusted platform where meaningful relationships begin.
+          </p>
         </div>
 
         {/* Gallery Section */}
         <div>
           <h3 className="text-xl font-semibold mb-4 gilda-display-regular">Gallery</h3>
-          <div className="grid grid-cols-3 gap-2 ">
+          <div className="grid grid-cols-3 gap-2">
             {obj.map((item, index) => (
               <img
                 key={index}
@@ -81,7 +54,26 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Contact Section */}
+       
+
+        {/* Social Icons Section on the Right */}
+      <div className="">
+  <h3 className="text-xl font-semibold gilda-display-regular lg:text-center">Follow us</h3>
+  <div className="flex flex-wrap  mt-2 lg:justify-center items-center gap-2">
+    {[FaInstagram, FaFacebookF, FaTwitter, FaLinkedinIn].map((Icon, idx) => (
+      <div
+        key={idx}
+        className="bg-[#D0BEA9] border border-[#EFE1CD] rounded-lg p-3 w-12 h-12 flex items-center justify-center hover:scale-105 transition"
+      >
+        <Icon className="text-[#53321B] text-xl" />
+      </div>
+    ))}
+  </div>
+</div>
+
+
+
+         {/* Contact Section */}
         <div>
           <h3 className="text-xl font-semibold mb-4 gilda-display-regular">Contact us</h3>
           <input
@@ -90,7 +82,7 @@ const Footer = () => {
             aria-label="Email"
             className="w-full p-2 mb-4 border-2 border-white rounded-full bg-transparent text-white placeholder:text-white"
           />
-          <div className="flex flex-col sm:flex-row sm:gap-4 gap-2">
+          {/* <div className="flex flex-col sm:flex-row sm:gap-4 gap-2">
             <img
               src={photo7}
               alt="Google Play"
@@ -101,7 +93,7 @@ const Footer = () => {
               alt="App Store"
               className="w-28 hover:opacity-80 transition"
             />
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

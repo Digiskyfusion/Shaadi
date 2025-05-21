@@ -78,15 +78,16 @@
         const res = await axios.post('http://localhost:3000/api/profile', fullData, {
           headers: { Authorization: `Bearer ${token}` },
         });
-       toast.success("Profile saved successfully! wait for OTP ");
-        await axios.post('http://localhost:3000/api/auth/send-otp', {
-          emailId, mobileNumber,
-        }, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        toast.success("Profile saved successfully!");
+      //  toast.success("Profile saved successfully! wait for OTP ");
+        // await axios.post('http://localhost:3000/api/auth/send-otp', {
+        //   emailId, mobileNumber,
+        // }, {
+        //   headers: { Authorization: `Bearer ${token}` },
+        // });
 
-        toast.success("OTP sent to your email and phone.");
-        setTimeout(() => navigate('/verifyOtp'), 2000);
+        // toast.success("OTP sent to your email and phone.");
+        setTimeout(() => navigate('/login'), 1000);
       } catch (error) {
         const errorMsg = error.response?.data?.message || error.message;
         if (errorMsg.includes("already submitted")) {

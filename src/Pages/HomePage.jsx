@@ -37,7 +37,6 @@ function  HomePage() {
 </div>
 
 
-let a= process.env.
 
 
     <SecondSection />

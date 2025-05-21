@@ -38,6 +38,7 @@ import ProfileShow from "./Component/ChatPage/ProfileShow";
 import ChatPage from "./Pages/ChatPage";
 import Massage from "./Component/ChatPage/Message";
 import PlanPageFull from "./Pages/PlanPageFull";
+import FifthSection from "./Component/HomePage/FifthSection";
 
 function App() {
   const [step, setStep] = useState(1);
@@ -100,6 +101,7 @@ function App() {
         <Route path="/seocd" element={<SecondpageBlogs  />} />
         <Route path="/contactUs" element={<ContactUsPage  />} />
         <Route path="/Chat" element={<ChatPage  />} />
+        <Route path="/plans" element={<PlanPageFull />} />
 
         
       </Routes>

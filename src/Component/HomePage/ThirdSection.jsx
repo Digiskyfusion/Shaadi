@@ -9,14 +9,14 @@ import Image13 from '../../assets/Images/Image13.png';
 import Image14 from '../../assets/Images/Image14.png';
 
 const members = [
-  { id: 1, name: 'Anjela', age: 23, image: Image7 },
-  { id: 2, name: 'Andera Gudio', age: 26, image: Image8 },
-  { id: 3, name: 'Athan', age: 27, image: Image9 },
-  { id: 4, name: 'Meleesa', age: 23, image: Image10 },
-  { id: 5, name: 'Lima', age: 27, image: Image11 },
-  { id: 6, name: 'Luna', age: 23, image: Image12 },
-  { id: 7, name: 'Meet', age: 21, image: Image13 },
-  { id: 8, name: 'Noor', age: 23, image: Image14 },
+  { id: 1, name: 'Aish', age: 25, image: Image7 },
+  { id: 2, name: 'Aarti', age: 28, image: Image8 },
+  { id: 3, name: 'Rahul', age: 23, image: Image9 },
+  { id: 4, name: 'Meera', age: 31, image: Image10 },
+  { id: 5, name: 'Pritam', age: 27, image: Image11 },
+  { id: 6, name: 'Zara', age: 29, image: Image12 },
+  { id: 7, name: 'Shweta', age: 27, image: Image13 },
+  { id: 8, name: 'Sherya', age: 29, image: Image14 },
 ];
 
 function ThirdSection() {
@@ -76,9 +76,9 @@ function ThirdSection() {
               <h2 className="text-2xl font-semibold font-cursive">
                 {member.name}, {member.age}
               </h2>
-              <p className="text-[#53321B] text-sm jost">
+              {/* <p className="text-[#53321B] text-sm jost">
                 Looking for a perfect match
-              </p>
+              </p> */}
             </div>
           </div>
         ))}

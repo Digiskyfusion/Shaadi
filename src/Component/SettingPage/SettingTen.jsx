@@ -10,7 +10,7 @@ const navigate= useNavigate()
     setTimeout(()=>
     {
       navigate("/register/step-one")
-    },4000)
+    },1000)
   })
   return (
     <div className="flex items-center jost justify-center min-h-screen px-4 py-16 bg-white">

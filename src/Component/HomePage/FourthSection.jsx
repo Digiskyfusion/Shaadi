@@ -37,7 +37,7 @@ function FourthSection() {
         <div className="space-y-6">
         
           <h2 className="text-3xl sm:text-4xl md:text-5xl ">
-       Meet Prem
+       Discover Prem
             <span className="relative inline-block">
               <span className="inline-block">
                 <svg className="w-[10px] h-[14px] lg:w-[15px] lg:h-[20px]" viewBox="0 0 6 100" xmlns="http://www.w3.org/2000/svg">
@@ -48,11 +48,13 @@ function FourthSection() {
                 ❤️
               </span>
             </span>
-         num Members Looking for Love
+         num Members Ready for a Meaningful Connection
           </h2>
           <p className="text-black text-base jost">
-            Check out our handpicked profiles of genuine individuals seeking a
-            lifelong commitment.
+            Looking for someone special? Explore our curated selection of genuine, verified
+            members who are serious about finding love and building a lasting relationship.
+            Real people. Real intentions. Real love.
+
           </p>
         <Link to="/userprofile">
           <button className="bg-[#DE5353] text-white px-6 py-2 cursor-pointer rounded-full  jost shadow">

@@ -10,7 +10,7 @@ const FifthSection = () => {
   const plans = [
     {
       name: "Gold",
-      price: 1,
+      price: 199,
       credits: 10,
       features: ["Send messages to people", "View upto 10 profiles"],
     },

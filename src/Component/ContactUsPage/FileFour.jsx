@@ -106,11 +106,15 @@ function FileFour() {
               </div>
 
               <button
-                type="submit"
-                className="w-full bg-[#EB5757] text-white py-2 px-4 rounded-md hover:bg-black transition cursor-pointer"
-              >
-                Submit
-              </button>
+  type="submit"
+  className="w-full bg-[#EB5757] text-white py-2 px-4 rounded-md hover:bg-black transition cursor-pointer
+             mt-2 sm:mt-4 md:mt-0"
+>
+  Submit
+</button>
+
+
+
             </form>
           </div>
         </div>

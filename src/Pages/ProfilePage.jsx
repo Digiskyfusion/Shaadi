@@ -32,7 +32,7 @@ function ProfilePage() {
         <ErrorBoundary>
         <ProfileFull />
         <div className="md:flex items-center gap-3 p-4 md:px-7">
-          <button className="bg-red-600 text-white px-5 py-1 rounded-full">
+          <button className="bg-red-600 text-white px-5 py-1 cursor-pointer rounded-full">
             About Myself
           </button>
         </div>
@@ -48,7 +48,7 @@ function ProfilePage() {
         <DetailSix />
         <DetailSeven />
         <div className="md:flex gap-3 p-4 md:px-7">
-          <button className="bg-red-600 text-white px-5 py-1 rounded-full">
+          <button className="bg-red-600 text-white px-5 py-1 cursor-pointer rounded-full">
             Partner Preferences
           </button>
         </div>

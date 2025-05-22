@@ -6,6 +6,8 @@ import Image17 from '../../assets/Images/Image17.png';
 import Navbar3 from "../Navbar/Navbar3";
 import { ToastContainer, toast } from 'react-toastify';
 import { Eye, EyeOff } from 'lucide-react'; // optional icons
+import SecondFooter from "../FooterPage/SecondFooter";
+
 
 const StepTwo = ({ formData, setFormData, prevStep }) => {
  
@@ -45,7 +47,7 @@ const StepTwo = ({ formData, setFormData, prevStep }) => {
   };
 
   return (
-
+<>
     
     <div
       className="min-h-screen"
@@ -236,7 +238,11 @@ const StepTwo = ({ formData, setFormData, prevStep }) => {
       </div>
       </div>
     </div>
+
+    <SecondFooter />
+  </>
   );
 };
+
 
 export default StepTwo;

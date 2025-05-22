@@ -66,7 +66,7 @@ const Footer = () => {
     {[FaInstagram, FaFacebookF, FaTwitter, FaLinkedinIn].map((Icon, idx) => (
       <div
         key={idx}
-        className="bg-[#D0BEA9] border border-[#EFE1CD] rounded-lg p-3 w-12 h-12 flex items-center justify-center hover:scale-105 transition"
+        className="bg-[#D0BEA9] border border-[#EFE1CD] cursor-pointer rounded-lg p-3 w-12 h-12 flex items-center justify-center hover:scale-105 transition"
       >
         <Icon className="text-[#53321B] text-xl" />
       </div>

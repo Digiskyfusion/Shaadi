@@ -1,23 +1,29 @@
 import React from 'react';
-import Group from '../../assets/Images/Group 22.png';
 import { Link } from 'react-router-dom';
+import Logo2 from '../../assets/Images/Shaadi Sanskar 2.png';
 
-function Navbar2() {
+function Navbar3() {
   return (
-    <nav className="bg-white p-4 flex justify-between items-center shadow-md sticky top-0 z-50">
-      {/* Logo */}
-     <Link to="/">
-     <div className="w-28 sm:w-32 md:w-40">
-        <img src={Group} alt="Logo" className="w-full h-auto object-contain" />
-      </div>
+    <div className="bg-white shadow-none sticky top-0 z-50">
+      <div className="flex justify-between items-center px-2 py-1">
+        {/* Logo */}
+        <Link to="/">
+          <div className="h-20 flex items-center">
+            <img
+              src={Logo2}
+              alt="Logo2"
+              className="h-full w-auto object-contain"
+            />
+          </div>
+        </Link>
 
-     </Link>
-      {/* Help Button */}
-      <button className="bg-[#DE5353] cursor-pointer text-white px-4 py-2 rounded-full text-sm hover:bg-red-600 transition">
-        Help
-      </button>
-    </nav>
+        {/* Help Button */}
+        <button className="bg-[#DE5353] text-white px-6 py-1 rounded-full text-sm hover:bg-red-600 transition">
+          Help
+        </button>
+      </div>
+    </div>
   );
 }
 
-export default Navbar2;
+export default Navbar3;

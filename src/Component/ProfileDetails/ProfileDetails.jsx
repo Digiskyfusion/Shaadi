@@ -23,8 +23,7 @@ function ProfileDetails() {
   const [profile, setProfile] = useState(null);
   const [CurrentUser, setCurrentUser]= useState(null)
   const [showNumber, setShowNumber] = useState(false);
-  const [hasFetched, setHasFetched] = useState(false); // tracks if API already called
-
+const [hasDeductedCredits, setHasDeductedCredits] = useState(false);
   let a = JSON.parse(localStorage.getItem("userProfile"));
   let id= a?._id
   // console.log("hello id ", id);
@@ -54,21 +53,21 @@ function ProfileDetails() {
 
 const handleConnect = () => {
   if (CurrentUser > 0) {
-    if (!showNumber) {
-      // Call API every time number is going to be shown
+    if (!hasDeductedCredits) {
       axios.post(`${API}user/credits/${id}`)
         .then((res) => {
-          console.log("Credits deducted:", res.data);
-          setShowNumber(true); // Show the number
+          console.log("hello credits", res.data);
+          setShowNumber(true); // show number after first deduction
+          setHasDeductedCredits(true); // prevent future deductions
         })
-        .catch(err => {
-          console.error("Credit error:", err);
+        .catch((err) => {
+          console.error("Credit deduction failed:", err);
         });
     } else {
-      // Just hide the number
-      setShowNumber(false);
+      // Already deducted once, just toggle the visibility
+      setShowNumber(prev => !prev);
     }
-    console.log("User ID:", id);
+    console.log("cure", id);
   } else {
     toast.info("You Need To Purchase Any Plan");
     setTimeout(() => {

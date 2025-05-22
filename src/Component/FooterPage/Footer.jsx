@@ -5,7 +5,7 @@ import {
   FaTwitter,
   FaLinkedinIn,
 } from "react-icons/fa";
-import photo from "../../assets/Images/Group 22.png";
+// import photo from "../../assets/Images/Group 22.png";
 import photo1 from "../../assets/Images/Rectangle 45.png";
 import photo2 from "../../assets/Images/Rectangle 47.png";
 import photo3 from "../../assets/Images/Rectangle 50.png";
@@ -14,6 +14,9 @@ import photo5 from "../../assets/Images/Rectangle 49.png";
 import photo6 from "../../assets/Images/Rectangle 51.png";
 import photo7 from "../../assets/Images/image play.png";
 import photo8 from "../../assets/Images/image 2.png";
+import Logo2 from '../../assets/Images/Shaadi Sanskar 2.png';
+
+
 
 const obj = [
   { image: photo1 },
@@ -31,7 +34,7 @@ const Footer = () => {
         
         {/* Brand Section */}
         <div className="jost">
-          <img src={photo} alt="shadiii" className="h-9 mb-4" />
+          <img src={Logo2} alt="Logo2" className="h-20 w-30 mb-2" />
           <p className="mb-1">Shaadi Sanskar - Where true love begins.</p>
           <p className="mb-1">
             At Shaadi Sanskar, we believe in real connections that lead to lasting love.

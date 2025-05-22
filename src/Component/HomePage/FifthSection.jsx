@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import { ToastContainer, toast } from 'react-toastify'
 const FifthSection = () => {
   let API = import.meta.env.VITE_APP_API_URL;
   const RAZORPAY_KEY = import.meta.env.VITE_RAZORPAY_KEY_ID;
@@ -41,7 +41,13 @@ const FifthSection = () => {
 
   const handlePayment = async (plan) => {
     if (!user) {
-      alert("Please login first.");
+      // alert("Please login first.");
+      toast.warning("Please login first.");
+      setTimeout(()=>
+    {
+navigate("/login")
+    },1000)
+      
       return;
     }
 
@@ -58,7 +64,7 @@ const FifthSection = () => {
         key: RAZORPAY_KEY,
         amount: amount,
         currency: currency,
-        name: "Your Company Name",
+        name: "Shaadi Website",
         description: `${plan.name} Plan Purchase`,
         order_id: order_id,
         handler: async function (response) {
@@ -74,12 +80,18 @@ const FifthSection = () => {
                 planName: plan.name,
               }
             );
-            navigate("/userReceipts");
-            alert("Payment Successful! Credits Added.");
+           
+            toast.success("Payment Successful! Credits Added.");
+            setTimeout(()=>
+            {
+               navigate("/userReceipts");
+            },1000)
+            // alert("Payment Successful! Credits Added.");
             console.log("Receipt:", verifyResponse.data.receipt);
           } catch (error) {
             console.error("Payment verification failed", error);
-            alert("Payment verification failed.");
+  toast.error("Payment verification failed.");
+            // alert("Payment verification failed.");
           } finally {
             setProcessingPlan(null);
           }
@@ -98,6 +110,7 @@ const FifthSection = () => {
       rzp.open();
 
       rzp.on("payment.failed", function (response) {
+        
         alert("Payment failed: " + response.error.description);
         setProcessingPlan(null);
       });
@@ -110,6 +123,7 @@ const FifthSection = () => {
 
   return (
     <div className="bg-gray-50 py-10 px-4 sm:px-6 lg:px-10">
+     <ToastContainer />
       <div className="text-center mb-10 px-2">
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black gilda-display-regular leading-tight">
           Upgrade to Prem

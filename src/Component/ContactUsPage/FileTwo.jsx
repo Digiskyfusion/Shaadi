@@ -15,10 +15,19 @@ function FileTwo() {
         {/* Contact Us Block */}
         <div className="flex items-start gap-4 max-w-xs w-full jost md:ml-36 cursor-pointer ">
           <FaPhoneAlt className="text-[#EB5757] text-xl mt-1 shrink-0 " />
-          <div>
-            <h3 className="text-base sm:text-lg font-semibold">Contact Us</h3>
-            <p className="text-sm sm:text-base ">Email: yourmail@example.com</p>
-          </div>
+         <div>
+  <h3 className="text-base sm:text-lg font-semibold">Contact Us</h3>
+  <p className="text-sm sm:text-base">
+    Email:{" "}
+    <a
+      href="mailto:shaadisanskar1@gmail.com"
+      className="text-black hover:underline"
+    >
+      shaadisanskar1@gmail.com
+    </a>
+  </p>
+</div>
+
         </div>
 
         {/* Our Location Block */}

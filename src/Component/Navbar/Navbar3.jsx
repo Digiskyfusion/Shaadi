@@ -7,7 +7,7 @@ import Logo2 from '../../assets/Images/Shaadi Sanskar 2.png';
 function Navbar3() {
   return (
     <div className="p-4 bg-transparent shadow-none sticky top-0 z-50 ">
-      <div className="flex justify-between items-center relative -top-3">
+      <div className="flex justify-between items-center relative -top-7">
         {/* Logo */}
         <Link to="/">
         <div className="w-auto ">

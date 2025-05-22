@@ -86,10 +86,11 @@
             </h2>
 
             <div className="space-y-1">
-              <label className="text-white block text-sm sm:text-xl">Phone Number</label>
+              <label className="text-white block text-sm sm:text-xl">Phone Number/<span className="lowercase text-lg">use whatsapp number</span></label>
+
               <input
                 type="text"
-                placeholder="Mobile Number"
+                placeholder="Use Whatsup Number"
                 value={formData.mobileNumber}
                 onChange={(e) =>
                   setFormData({ ...formData, mobileNumber: e.target.value })

@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const FifthSection = () => {
-  let API = import.meta.env.VITE_APP_API_URL
+  let API = import.meta.env.VITE_APP_API_URL;
   const RAZORPAY_KEY = import.meta.env.VITE_RAZORPAY_KEY_ID;
+  const navigate = useNavigate();
+
   const plans = [
     {
       name: "Gold",
-      price: 149,
+      price: 1,
       credits: 10,
       features: ["Send messages to people", "View upto 10 profiles"],
     },
@@ -33,12 +36,8 @@ const FifthSection = () => {
     },
   ];
 
-  // Example: get user from localStorage or your context/state
   const user = JSON.parse(localStorage.getItem("userProfile")) || null;
-  // Make sure user has _id, firstName, lastName, emailId, mobileNumber
-  // If user data shape is different, adjust accordingly.
-
-  const [loading, setLoading] = useState(false);
+  const [processingPlan, setProcessingPlan] = useState(null);
 
   const handlePayment = async (plan) => {
     if (!user) {
@@ -46,45 +45,43 @@ const FifthSection = () => {
       return;
     }
 
-    setLoading(true);
+    setProcessingPlan(plan.name);
+
     try {
-      // Step 1: Create Razorpay order from backend
-      const orderResponse = await axios.post(
-        `${API}api/payment/create-order`,
-        { amount: plan.price }
-      );
+      const orderResponse = await axios.post(`${API}api/payment/create-order`, {
+        amount: plan.price,
+      });
 
       const { id: order_id, currency, amount } = orderResponse.data;
 
-      // Step 2: Setup Razorpay options
       const options = {
-        key: RAZORPAY_KEY, // Your Razorpay key id from env variables
+        key: RAZORPAY_KEY,
         amount: amount,
         currency: currency,
         name: "Your Company Name",
         description: `${plan.name} Plan Purchase`,
         order_id: order_id,
         handler: async function (response) {
-          // Step 4: Verify payment with backend
           try {
             const verifyResponse = await axios.post(
-              "http://localhost:3000/api/payment/verify-payment",
+              `${API}api/payment/verify-payment`,
               {
                 razorpay_order_id: response.razorpay_order_id,
                 razorpay_payment_id: response.razorpay_payment_id,
                 razorpay_signature: response.razorpay_signature,
                 userId: user._id,
-                plan: plan.credits, // Credits to add
+                plan: plan.credits,
                 planName: plan.name,
               }
             );
-
+            navigate("/userReceipts");
             alert("Payment Successful! Credits Added.");
             console.log("Receipt:", verifyResponse.data.receipt);
-            // You can update your app state here, refresh user credits etc.
           } catch (error) {
             console.error("Payment verification failed", error);
             alert("Payment verification failed.");
+          } finally {
+            setProcessingPlan(null);
           }
         },
         prefill: {
@@ -97,18 +94,18 @@ const FifthSection = () => {
         },
       };
 
-      // Step 3: Open Razorpay checkout
       const rzp = new window.Razorpay(options);
       rzp.open();
 
       rzp.on("payment.failed", function (response) {
         alert("Payment failed: " + response.error.description);
+        setProcessingPlan(null);
       });
     } catch (error) {
       console.error("Error in payment process:", error);
       alert("Something went wrong. Please try again.");
+      setProcessingPlan(null);
     }
-    setLoading(false);
   };
 
   return (
@@ -122,7 +119,14 @@ const FifthSection = () => {
               viewBox="0 0 6 100"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <line x1="3" y1="0" x2="3" y2="100" stroke="black" strokeWidth="16" />
+              <line
+                x1="3"
+                y1="0"
+                x2="3"
+                y2="100"
+                stroke="black"
+                strokeWidth="16"
+              />
             </svg>
             <span className="absolute top-[-23px] sm:top-[-20px] md:top-[-25px] left-1/2 transform -translate-x-1/2 text-red-500 text-base sm:text-lg">
               ❤️
@@ -130,7 +134,9 @@ const FifthSection = () => {
           </span>
           um & Unlock
         </h1>
-        <h2 className="text-lg sm:text-xl mt-2 text-gray-700">Exclusive Features</h2>
+        <h2 className="text-lg sm:text-xl mt-2 text-gray-700">
+          Exclusive Features
+        </h2>
       </div>
 
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 jost px-2">
@@ -152,17 +158,19 @@ const FifthSection = () => {
             </p>
 
             <button
-              disabled={loading}
+              disabled={processingPlan === plan.name}
               onClick={() => handlePayment(plan)}
               className="bg-black cursor-pointer text-white px-6 py-2 rounded-full mb-5 hover:bg-gray-800 text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {loading ? "Processing..." : "Continue"}
+              {processingPlan === plan.name ? "Processing..." : "Continue"}
             </button>
 
             <ul className="text-left font-light text-black group-hover:text-white space-y-3 text-sm sm:text-base">
               {plan.features.map((feature, i) => (
                 <li key={i} className="flex items-start">
-                  <span className="text-green-400 mr-2 mt-0.5 group-hover:text-white">✔</span>
+                  <span className="text-green-400 mr-2 mt-0.5 group-hover:text-white">
+                    ✔
+                  </span>
                   {feature}
                 </li>
               ))}

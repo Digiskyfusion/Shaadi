@@ -38,6 +38,7 @@ import ProfileShow from "./Component/ChatPage/ProfileShow";
 import ChatPage from "./Pages/ChatPage";
 import Massage from "./Component/ChatPage/Message";
 import PlanPageFull from "./Pages/PlanPageFull";
+import UserReceipts from "./Component/Receipts/UserReceipts";
 
 function App() {
   const [step, setStep] = useState(1);
@@ -101,6 +102,7 @@ function App() {
         <Route path="/contactUs" element={<ContactUsPage  />} />
         <Route path="/Chat" element={<ChatPage  />} />
         <Route path="/plans" element={<PlanPageFull  />} />
+        <Route path="/userReceipts" element={<UserReceipts  />} />
         
       </Routes>
      

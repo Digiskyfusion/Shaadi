@@ -51,6 +51,7 @@ function Navbar4() {
         INBOX: [
              { label: 'Plans', path: '/plans' },
             { label: 'Messages', path: '/Chat' }, 
+            { label: 'Receipt', path: '/userReceipts' }, 
             // { label: 'Sent Requests', path: '/sent-requests' },
             // { label: 'Messages', path: '/messages' }, 
            

@@ -28,8 +28,8 @@ function SettingNine() {
 
     try {
       const res = await axios.post(
-  `${API}delete/delete-profile`,
-  { userId, reason: selectedReason },
+  `${API}delete/delete-profile/${userId}`,
+  { reason: selectedReason },
   { headers: { Authorization: `Bearer ${token}` } }
 );
 

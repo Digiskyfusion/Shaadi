@@ -18,7 +18,7 @@ function DashBoard() {
       try {
         const res = await axios.get(`${API}user/opposite/${userId}`);
         setInvitations(res.data); // Adjust according to actual API structure
-        // console.log(res.data)
+        // console.log("dashboard data",res.data)
       } catch (error) {
         console.error('Error fetching invitations:', error);
       }

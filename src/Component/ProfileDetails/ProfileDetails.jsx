@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Footer from '../FooterPage/Footer';
 import Navbar4 from '../Navbar/Navbar4';
+import { FaWhatsapp } from "react-icons/fa";
 import { BsChatRightHeartFill } from "react-icons/bs";
 import {
   FaUser, FaVenusMars, FaCity, FaBirthdayCake, FaHeartbeat, FaUsers, FaUniversity,
@@ -13,19 +14,70 @@ import {
   GiFamilyTree, GiLoveMystery, GiHealthNormal, GiIndiaGate,
   GiBodyHeight, GiGothicCross
 } from 'react-icons/gi';
+  import { ToastContainer, toast } from 'react-toastify';
 
 function ProfileDetails() {
   let API= import.meta.env.VITE_APP_API_URL
   const { userId } = useParams();
   const navigate = useNavigate();
   const [profile, setProfile] = useState(null);
+  const [CurrentUser, setCurrentUser]= useState(null)
+  const [showNumber, setShowNumber] = useState(false);
+  const [hasFetched, setHasFetched] = useState(false); // tracks if API already called
+
+  let a = JSON.parse(localStorage.getItem("userProfile"));
+  let id= a?._id
+  // console.log("hello id ", id);
+  
 
   useEffect(() => {
     axios
       .get(`${API}user/user-Profile/${userId}`)
-      .then((response) => setProfile(response.data))
+      .then((response) => {
+        setProfile(response.data)
+      })
       .catch((error) => console.error('Error fetching profile data:', error));
+      
+
+      axios.get(`${API}user/${id}`)
+      .then((res)=>
+      {
+        setCurrentUser(res.data.user.credits)
+        // console.log("hello",res.data.user.credits);
+        
+      })
+      // console.log("current", CurrentUser);
   }, [userId]);
+
+ 
+
+
+const handleConnect = () => {
+  if (CurrentUser > 0) {
+    if (!showNumber) {
+      // Call API every time number is going to be shown
+      axios.post(`${API}user/credits/${id}`)
+        .then((res) => {
+          console.log("Credits deducted:", res.data);
+          setShowNumber(true); // Show the number
+        })
+        .catch(err => {
+          console.error("Credit error:", err);
+        });
+    } else {
+      // Just hide the number
+      setShowNumber(false);
+    }
+    console.log("User ID:", id);
+  } else {
+    toast.info("You Need To Purchase Any Plan");
+    setTimeout(() => {
+      navigate('/plans');
+    }, 1500);
+  }
+};
+
+
 
   const iconMap = {
     'Age': <FaBirthdayCake />,
@@ -116,25 +168,55 @@ function ProfileDetails() {
         className={`${bgGradient} bg-fixed bg-cover min-h-screen py-10 px-2`}
         style={{ backgroundImage: backgroundImage }}
       >
+      <ToastContainer />
         <div className={`max-w-6xl mx-auto bg-white/80 backdrop-blur-lg p-4 md:p-10 rounded-3xl border ${borderColor} shadow-xl space-y-10`}>
 
           {/* Top Buttons */}
-          <div className="flex justify-between items-center">
-            <button
-              onClick={() => navigate(-1)}
-              className={`px-5 py-2 ${buttonBg} cursor-pointer text-white rounded-full shadow-lg transition duration-300`}
-            >
-              ⬅ Back
-            </button>
+       <div className="flex flex-col items-center">
+  <div className="w-full flex justify-between items-center">
+    <button
+      onClick={() => navigate(-1)}
+      className={`px-5 py-2 ${buttonBg} cursor-pointer text-white rounded-full shadow-lg transition duration-300`}
+    >
+      ⬅ Back
+    </button>
 
-            <button
-              onClick={() => navigate(-1)}
-              className={`flex items-center gap-2 px-5 py-2 cursor-pointer ${buttonBg} text-white rounded-full shadow-lg transition duration-300`}
-            >
-              <BsChatRightHeartFill />
-              Connect Now
-            </button>
-          </div>
+    <button
+      onClick={handleConnect}
+      className={`flex items-center gap-2 px-5 py-2 cursor-pointer ${buttonBg} text-white rounded-full shadow-lg transition duration-300`}
+    >
+      <BsChatRightHeartFill />
+      Connect Now
+    </button>
+  </div>
+
+  {/* Mobile Number Display */}
+  {showNumber && (
+    <div className="text-center mt-4 text-lg font-semibold text-green-600 flex items-center gap-1">
+      <FaWhatsapp /> Whatsapp Number: {profile.userId?.mobileNumber || 'Not Provided'}
+    </div>
+  )}
+
+  {/* WhatsApp Button */}
+  {showNumber && profile.userId?.mobileNumber && (
+    <a
+      href={`https://wa.me/${profile.userId.mobileNumber}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="mt-3 inline-flex items-center gap-2 px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-md transition"
+    >
+      <svg
+        className="w-5 h-5"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path d="M20.52 3.48A11.84 11.84 0 0012 0C5.37 0 .02 5.34.02 11.93c0 2.1.55 4.14 1.6 5.94L0 24l6.3-1.64a12.13 12.13 0 005.7 1.45h.03c6.63 0 12-5.34 12-11.93 0-3.19-1.25-6.2-3.51-8.4zM12 22.03h-.02a10.07 10.07 0 01-5.13-1.4l-.37-.22-3.73.97 1-3.65-.24-.38A9.87 9.87 0 012 11.93C2 6.5 6.5 2 12 2c2.7 0 5.2 1.05 7.07 2.94A9.94 9.94 0 0122 11.93c0 5.43-4.5 10.1-10 10.1zm5.44-7.47c-.3-.15-1.78-.88-2.06-.98-.27-.1-.47-.15-.67.15-.2.3-.77.98-.94 1.18-.17.2-.35.22-.65.08a8.3 8.3 0 01-2.45-1.5 9.18 9.18 0 01-1.7-2.12c-.17-.3 0-.46.13-.61.14-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38 0-.53-.07-.15-.67-1.6-.92-2.19-.24-.58-.5-.5-.68-.5H7.7c-.2 0-.5.06-.76.35-.25.3-.97.95-.97 2.3s1 2.66 1.13 2.84c.14.2 1.96 2.99 4.76 4.03.67.29 1.2.46 1.6.6.67.2 1.28.17 1.76.1.54-.08 1.78-.73 2.03-1.44.25-.72.25-1.35.17-1.44-.1-.1-.28-.16-.58-.3z" />
+      </svg>
+      Chat on WhatsApp
+    </a>
+  )}
+</div>
+
 
           {/* Profile Header */}
           <div className="flex flex-col items-center text-center space-y-4">

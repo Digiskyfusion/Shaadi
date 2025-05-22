@@ -36,13 +36,13 @@ function Navbar4() {
         'MY SHAADI': [
             { label: 'Dashboard', path: '/dashboard' },
             { label: 'My Profile', path: '/userprofile' },
-            { label: 'My Photos', path: '/photo' },
+            // { label: 'My Photos', path: '/photo' },
             { label: 'Settings', path: '/setting' },
         ],
         MATCHES: [
             // { label: 'New Profile', path: '/FirstMatch' },
             // { label: 'Todays Profiles', path: '/firstProfile' },
-            { label: 'Near Me', path: '/secondmatch' },
+            // { label: 'Near Me', path: '/secondmatch' },
             { label: 'All Profiles', path: '/allprofile' },
         ],
         // SEARCH: [

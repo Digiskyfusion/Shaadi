@@ -4,13 +4,13 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID,
-  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
+  apiKey: "AIzaSyDud8yzaAbwHqx9nxaJDbwcIJaosPMJT7w",
+  authDomain: "shaddi-b6f88.firebaseapp.com",
+  projectId: "shaddi-b6f88",
+  storageBucket: "shaddi-b6f88.firebasestorage.app",
+  messagingSenderId: "395418576948",
+  appId: "1:395418576948:web:a5b9c5661d1a2eeeb70261",
+  measurementId: "G-XJM2FE9Y4R"
 };
 
 // Initialize Firebase

@@ -4,6 +4,7 @@ import { FaPencilAlt } from "react-icons/fa";
 import { LuDot } from "react-icons/lu";
 
 export default function DetailFive() {
+  let API= import.meta.env.VITE_APP_API_URL
   const [profile, setProfile] = useState({
     highestqualification: '',
     collegesattended: '',
@@ -29,7 +30,7 @@ export default function DetailFive() {
       try {
         const userProfile = JSON.parse(localStorage.getItem("userProfile"));
         const userId = userProfile?._id;
-        const response = await axios.get(`http://192.168.29.50:3000/api/profileget/${userId}`);
+        const response = await axios.get(`${API}api/profileget/${userId}`);
         const data = response.data.data;
 
         setProfile(data);
@@ -48,7 +49,7 @@ export default function DetailFive() {
       const userProfile = JSON.parse(localStorage.getItem("userProfile"));
       const userId = userProfile?._id;
 
-      await axios.put(`http://localhost:3000/api/profileupdate/${userId}`, editData);
+      await axios.put(`${API}api/profileupdate/${userId}`, editData);
 
       setProfile(editData);
       setIsEditing(false);

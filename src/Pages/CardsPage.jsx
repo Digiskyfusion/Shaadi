@@ -3,8 +3,6 @@ import Planpage from '../Component/UpgradePlans/PlansPage'
 import MoneybackPage from '../Component/UpgradePlans/MoneybackPage'
 import SecondSection from '../Component/HomePage/SecondSection'
 import SecondFooter from '../Component/FooterPage/SecondFooter'
-import Navbar2 from '../Component/Navbar/NavBar2'
-import Navbar3 from '../Component/Navbar/Navbar3'
 
 function CardsPage() {
   return (

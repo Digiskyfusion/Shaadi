@@ -1,47 +1,118 @@
-import React from 'react';
+import React, { useState } from "react";
+import axios from "axios";
 
 const FifthSection = () => {
+  let API = import.meta.env.VITE_APP_API_URL
+  const RAZORPAY_KEY = import.meta.env.VITE_RAZORPAY_KEY_ID;
   const plans = [
     {
-      name: 'Gold',
-      // duration: '3 Months',
-      price: '₹149',
-      Credits: '10 Credits',
+      name: "Gold",
+      price: 149,
+      credits: 10,
+      features: ["Send messages to people", "View upto 10 profiles"],
+    },
+    {
+      name: "Diamond",
+      price: 299,
+      credits: 30,
       features: [
-        'Send messages to people',
-        'View upto 10 profiles',
+        "Send messages to people",
+        "View upto 30 profiles ",
+        "Standout from other profiles",
       ],
     },
     {
-      name: 'Diamond',
-      // duration: '6 Months',
-      price: '₹299',
-      Credits: '30 Credits',
+      name: "Platinum",
+      price: 599,
+      credits: 100,
       features: [
-        'Send messages to people',
-        'View upto 30 profiles ',
-        'Standout from other profiles',
-        
-      ],
-    },
-    {
-      name: 'Platinum',
-      // duration: '12 Months',
-      price: '₹599',
-      Credits: '100 Credits',
-    
-      features: [
-        'Send messages to people',
-        'Send unlimited Messages',
-        'Standout from other profiles',
-      
+        "Send messages to people",
+        "Send unlimited Messages",
+        "Standout from other profiles",
       ],
     },
   ];
 
+  // Example: get user from localStorage or your context/state
+  const user = JSON.parse(localStorage.getItem("userProfile")) || null;
+  // Make sure user has _id, firstName, lastName, emailId, mobileNumber
+  // If user data shape is different, adjust accordingly.
+
+  const [loading, setLoading] = useState(false);
+
+  const handlePayment = async (plan) => {
+    if (!user) {
+      alert("Please login first.");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      // Step 1: Create Razorpay order from backend
+      const orderResponse = await axios.post(
+        `${API}api/payment/create-order`,
+        { amount: plan.price }
+      );
+
+      const { id: order_id, currency, amount } = orderResponse.data;
+
+      // Step 2: Setup Razorpay options
+      const options = {
+        key: RAZORPAY_KEY, // Your Razorpay key id from env variables
+        amount: amount,
+        currency: currency,
+        name: "Your Company Name",
+        description: `${plan.name} Plan Purchase`,
+        order_id: order_id,
+        handler: async function (response) {
+          // Step 4: Verify payment with backend
+          try {
+            const verifyResponse = await axios.post(
+              "http://localhost:3000/api/payment/verify-payment",
+              {
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_signature: response.razorpay_signature,
+                userId: user._id,
+                plan: plan.credits, // Credits to add
+                planName: plan.name,
+              }
+            );
+
+            alert("Payment Successful! Credits Added.");
+            console.log("Receipt:", verifyResponse.data.receipt);
+            // You can update your app state here, refresh user credits etc.
+          } catch (error) {
+            console.error("Payment verification failed", error);
+            alert("Payment verification failed.");
+          }
+        },
+        prefill: {
+          name: user.firstName + " " + user.lastName,
+          email: user.emailId,
+          contact: user.mobileNumber,
+        },
+        theme: {
+          color: "#EB5757",
+        },
+      };
+
+      // Step 3: Open Razorpay checkout
+      const rzp = new window.Razorpay(options);
+      rzp.open();
+
+      rzp.on("payment.failed", function (response) {
+        alert("Payment failed: " + response.error.description);
+      });
+    } catch (error) {
+      console.error("Error in payment process:", error);
+      alert("Something went wrong. Please try again.");
+    }
+    setLoading(false);
+  };
+
   return (
     <div className="bg-gray-50 py-10 px-4 sm:px-6 lg:px-10">
-      {/* Title Section */}
       <div className="text-center mb-10 px-2">
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black gilda-display-regular leading-tight">
           Upgrade to Prem
@@ -62,7 +133,6 @@ const FifthSection = () => {
         <h2 className="text-lg sm:text-xl mt-2 text-gray-700">Exclusive Features</h2>
       </div>
 
-      {/* Plans Grid */}
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 jost px-2">
         {plans.map((plan, index) => (
           <div
@@ -71,19 +141,22 @@ const FifthSection = () => {
               hover:shadow-lg hover:bg-[#EB5757] hover:text-white transition-all duration-300"
           >
             <h2 className="text-xl sm:text-2xl font-semibold mb-3">
-              {plan.name}{' '}
-              <span className="text-gray-900 group-hover:text-white text-sm sm:text-base font-normal">
-                {plan.duration}
-              </span>
+              {plan.name}
             </h2>
 
             <p className="text-2xl sm:text-3xl font-bold text-black group-hover:text-white mb-1">
-              {plan.price}
+              ₹{plan.price}
             </p>
-            <p className="text-sm sm:text-base text-black group-hover:text-white mb-4">{plan.monthly}</p>
+            <p className="text-sm sm:text-base text-black group-hover:text-white mb-4">
+              {plan.credits} Credits
+            </p>
 
-            <button className="bg-black cursor-pointer text-white px-6 py-2 rounded-full mb-5 hover:bg-gray-800 text-sm sm:text-base">
-              Continue
+            <button
+              disabled={loading}
+              onClick={() => handlePayment(plan)}
+              className="bg-black cursor-pointer text-white px-6 py-2 rounded-full mb-5 hover:bg-gray-800 text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {loading ? "Processing..." : "Continue"}
             </button>
 
             <ul className="text-left font-light text-black group-hover:text-white space-y-3 text-sm sm:text-base">

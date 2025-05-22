@@ -15,13 +15,14 @@ import {
 } from 'react-icons/gi';
 
 function ProfileDetails() {
+  let API= import.meta.env.VITE_APP_API_URL
   const { userId } = useParams();
   const navigate = useNavigate();
   const [profile, setProfile] = useState(null);
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/user/user-Profile/${userId}`)
+      .get(`${API}user/user-Profile/${userId}`)
       .then((response) => setProfile(response.data))
       .catch((error) => console.error('Error fetching profile data:', error));
   }, [userId]);

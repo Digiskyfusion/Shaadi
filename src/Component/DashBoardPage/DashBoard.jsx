@@ -4,6 +4,7 @@ import ProfileOne from '../MyProfilePage/ProfileOne';
 import axios from 'axios';
 
 function DashBoard() {
+  let API= import.meta.env.VITE_APP_API_URL
   const [invitations, setInvitations] = useState([]);
   const [credits, setcredits]= useState();
   const scrollRef = useRef(null);
@@ -15,7 +16,7 @@ function DashBoard() {
   useEffect(() => {
     const fetchInvitations = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/user/opposite/${userId}`);
+        const res = await axios.get(`${API}user/opposite/${userId}`);
         setInvitations(res.data); // Adjust according to actual API structure
         // console.log(res.data)
       } catch (error) {
@@ -25,7 +26,7 @@ function DashBoard() {
 
     const credits= async ()=>
     {
-     let res=  await axios.get(`http://localhost:3000/user/${userId}`)
+     let res=  await axios.get(`${API}user/${userId}`)
     //  console.log(res.data.user);
      
    setcredits(res.data.user)

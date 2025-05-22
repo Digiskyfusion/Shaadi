@@ -140,7 +140,7 @@ function Login() {
             <div className="text-center">
               <button
                 type="submit"
-                className="w-full sm:w-1/2 bg-[#EB5757] text-white py-2 rounded-full text-xl"
+                className="w-full sm:w-1/2 bg-[#EB5757] cursor-pointer text-white py-2 rounded-full text-xl"
                 disabled={loading}
               >
                 {loading ? "Logging in..." : "Login"}

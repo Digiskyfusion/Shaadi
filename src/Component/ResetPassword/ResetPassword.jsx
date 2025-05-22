@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
 
 const ResetPassword = () => {
-  const URL = import.meta.env.VITE_API_URL;
+let API= import.meta.env.VITE_APP_API_URL
   const navigate = useNavigate();
 
   const [password, setPassword] = useState("");
@@ -39,7 +39,7 @@ const ResetPassword = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:3000/user/reset-password?token=${token}`,
+        `${API}user/reset-password?token=${token}`,
         {
           method: "POST",
           headers: {

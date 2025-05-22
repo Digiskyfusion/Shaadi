@@ -5,6 +5,7 @@ import { faPen } from "@fortawesome/free-solid-svg-icons";
 import { Navigate, useNavigate } from "react-router-dom";
 
 const ProfileFour = () => {
+  let API= import.meta.env.VITE_APP_API_URL
   const [isEditing, setIsEditing] = useState(false);
   const [profile, setProfile] = useState({
     age: "",
@@ -26,7 +27,7 @@ const ProfileFour = () => {
        
        
         
-        const response = await axios.get(`http://localhost:3000/api/profileget/${userId}`);
+        const response = await axios.get(`${API}api/profileget/${userId}`);
         // const res= await axios.get(`http://localhost:3000/user/${userId}`)
         const data = response.data.data;
         // const data1 = res.data;
@@ -75,7 +76,7 @@ const ProfileFour = () => {
         mothertongue: profile.mothertongue,
       };
 
-      await axios.put(`http://localhost:3000/api/profileupdate/${userId}`, updatedData);
+      await axios.put(`${API}api/profileupdate/${userId}`, updatedData);
       setIsEditing(false);
       navigate("/userprofile")
     } catch (error) {

@@ -23,13 +23,14 @@ const fieldSections = [
 ];
 
 function DetailFromOne() {
+  let API= import.meta.env.VITE_APP_API_URL
   const [partnerData, setPartnerData] = useState({});
   const [isEditing, setIsEditing] = useState(false);
   const userId = JSON.parse(localStorage.getItem("userProfile"))?._id;
 
   useEffect(() => {
     if (userId) {
-      axios.get(`http://localhost:3000/api/patner/${userId}`)
+      axios.get(`${API}api/patner/${userId}`)
         .then(res => res.data && setPartnerData(res.data))
         .catch(err => console.error("Fetch error:", err));
     }
@@ -41,8 +42,8 @@ function DetailFromOne() {
 
   const handleSave = () => {
     const request = partnerData._id
-      ? axios.put(`http://localhost:3000/api/patner/${userId}`, partnerData)
-      : axios.post(`http://localhost:3000/api/patner`, { ...partnerData, userId});
+      ? axios.put(`${API}api/patner/${userId}`, partnerData)
+      : axios.post(`${API}api/patner`, { ...partnerData, userId});
 
     request
       .then(res => {

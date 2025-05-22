@@ -4,6 +4,7 @@ import { FaPencilAlt } from "react-icons/fa";
 import { LuDot } from "react-icons/lu";
 
 function DetailOne() {
+  let API= import.meta.env.VITE_APP_API_URL
   const [isEditing, setIsEditing] = useState(false);
   const [editContent, setEditContent] = useState('');
   const a = JSON.parse(localStorage.getItem('userProfile')) // Assuming the userId is stored in localStorage
@@ -12,7 +13,7 @@ function DetailOne() {
     // Fetch user profile data on component mount
     const fetchProfileData = async () => {
       try {
-        const response = await axios.get(`http://192.168.29.50:3000/api/profileget/${userId}`);
+        const response = await axios.get(`${API}api/profileget/${userId}`);
         // console.log(response.data.data.familydetail);
         
         setEditContent(response.data.data.familydetail || 'No details available.');
@@ -27,7 +28,7 @@ function DetailOne() {
   const handleSave = async () => {
     try {
       // Send the updated content to the backend
-      await axios.put(`http://localhost:3000/api/profileupdate/${userId}`, {
+      await axios.put(`${API}api/profileupdate/${userId}`, {
         familydetail: editContent,
       });
       setIsEditing(false);

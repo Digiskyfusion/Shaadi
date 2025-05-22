@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 
 function SettingEight() {
+  let API= import.meta.env.VITE_APP_API_URL
   const [selectedReason, setSelectedReason] = useState('');
   const [customReason, setCustomReason] = useState('');
   const navigate = useNavigate();

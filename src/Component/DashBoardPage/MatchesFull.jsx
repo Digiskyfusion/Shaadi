@@ -9,6 +9,7 @@ import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 function MatchesFull() {
+  let API= import.meta.env.VITE_APP_API_URL
   const matchData = [
     { img: Ellipse1, details: `22 yrs, 4' 5", Never Married, Punjabi` },
     { img: Ellipse2, details: `22 yrs, 4' 5", Never Married, Punjabi` },
@@ -28,7 +29,7 @@ function MatchesFull() {
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/user/opposite/${userId}`);
+        const res = await axios.get(`${API}user/opposite/${userId}`);
         setData(res.data); // Assuming res.data is an array
         // console.log(res.data);
         

@@ -39,7 +39,7 @@ let API= import.meta.env.VITE_APP_API_URL
     setLoading(true);
     try {
       const response = await fetch(
-        `${API}user/reset-password?token=${token}`,
+        `http://localhost:3000/user/reset-password?token=${token}`,
         {
           method: "POST",
           headers: {

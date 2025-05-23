@@ -2,11 +2,26 @@ import React, { useState, useEffect } from 'react';
 import { FiSearch } from 'react-icons/fi'; 
 import Image2 from '../../assets/Images/Image2.png';
 import Image1 from '../../assets/Images/Image1.png';
+import { useNavigate } from 'react-router-dom';
 
 const images = [Image1, Image2];
 
 function FirstSection() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const navigate= useNavigate();
+ let token= localStorage.getItem("token")
+console.log(token);
+ 
+
+const viewProfile= ()=>
+{
+  if(!token){
+    navigate("/login")
+  }
+  else{
+    navigate("/allprofile")
+  }
+}
 
   // Preload images to prevent flickering
   useEffect(() => {
@@ -71,8 +86,9 @@ function FirstSection() {
               <FiSearch size={18} />
               <span>Find Your Match</span>
             </button> */}
-            <button className="bg-white text-[#EB5757] px-15 jost py-3 cursor-pointer rounded-full text-lg font-medium shadow-lg hover:bg-gray-100 transition">
-              Join Now
+            <button className="bg-white text-[#EB5757] px-15 jost py-3 cursor-pointer rounded-full text-lg font-medium shadow-lg hover:bg-gray-100 transition" 
+            onClick={viewProfile}>
+              Find Your Match
             </button>
           </div>
         </div>

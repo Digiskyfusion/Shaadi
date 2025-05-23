@@ -40,7 +40,7 @@ function SecondFooter() {
 
       {/* Right: Contact */}
       <div className="flex flex-col items-center md:items-end text-center md:text-right gap-2">
-        <h3 className="text-xl sm:text-2xl font-normal mr-20">Contact us</h3>
+        <h3 className="text-xl sm:text-2xl font-normal mr-3">Contact us</h3>
         <input
           type="email"
           placeholder="Enter Your Email"

@@ -6,6 +6,7 @@ import Image17 from '../../assets/Images/Image17.png';
 import Navbar3 from "../Navbar/Navbar3";
 import { ToastContainer, toast } from 'react-toastify';
 import { Eye, EyeOff } from 'lucide-react'; // optional icons
+import Footer from "../FooterPage/Footer";
 
   const StepTwo = ({ formData, setFormData, prevStep }) => {
   let API= import.meta.env.VITE_APP_API_URL
@@ -55,7 +56,7 @@ import { Eye, EyeOff } from 'lucide-react'; // optional icons
 
   return (
 
-    
+    <>
     <div
       className="min-h-screen"
       style={{
@@ -69,7 +70,7 @@ import { Eye, EyeOff } from 'lucide-react'; // optional icons
       <div className="w-full max-w-md bg-[#DE5353] bg-opacity-90 rounded-2xl p-4 shadow-xl">
        <Link to="/register/step-one">
        <FaArrowCircleLeft
-          className="text-2xl text-black cursor-pointer"
+          className="text-2xl text-white cursor-pointer"
           onClick={prevStep}
         />
        </Link>
@@ -86,10 +87,11 @@ import { Eye, EyeOff } from 'lucide-react'; // optional icons
           </h2>
 
             <div className="space-y-1">
-              <label className="text-white block text-sm sm:text-xl">Phone Number</label>
+              <label className="text-white block text-sm sm:text-xl">Phone Number/<span className="lowercase text-lg">use whatsapp number</span></label>
+
               <input
                 type="text"
-                placeholder="Mobile Number"
+                placeholder="Use Whatsup Number"
                 value={formData.mobileNumber}
                 onChange={(e) =>
                   setFormData({ ...formData, mobileNumber: e.target.value })
@@ -246,6 +248,9 @@ import { Eye, EyeOff } from 'lucide-react'; // optional icons
       </div>
       </div>
     </div>
+
+    <Footer />
+    </>
   );
 };
 

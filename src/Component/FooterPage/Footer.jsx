@@ -1,10 +1,4 @@
 import React from "react";
-import {
-  FaInstagram,
-  FaFacebookF,
-  FaTwitter,
-  FaLinkedinIn,
-} from "react-icons/fa";
 // import photo from "../../assets/Images/Group 22.png";
 import photo1 from "../../assets/Images/Rectangle 45.png";
 import photo2 from "../../assets/Images/Rectangle 47.png";
@@ -16,7 +10,14 @@ import photo7 from "../../assets/Images/image play.png";
 import photo8 from "../../assets/Images/image 2.png";
 import Logo2 from '../../assets/Images/Shaadi Sanskar 2.png';
 
+import { FaInstagram, FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 
+const socialLinks = [
+  { icon: FaInstagram, url: "https://www.instagram.com/shaadi_sanskar?igsh=MW0yc3lkcm50bXNvag==" },
+  { icon: FaFacebookF, url: "https://www.facebook.com/share/19Wzi4je1y/" },
+  // { icon: FaTwitter, url: "https://www.twitter.com" },
+  // { icon: FaLinkedinIn, url: "https://www.linkedin.com" },
+];
 
 const obj = [
   { image: photo1 },
@@ -60,19 +61,22 @@ const Footer = () => {
        
 
         {/* Social Icons Section on the Right */}
-      <div className="">
-  <h3 className="text-xl font-semibold gilda-display-regular lg:text-center">Follow us</h3>
-  <div className="flex flex-wrap  mt-2 lg:justify-center items-center gap-2">
-    {[FaInstagram, FaFacebookF, FaTwitter, FaLinkedinIn].map((Icon, idx) => (
-      <div
-        key={idx}
-        className="bg-[#D0BEA9] border border-[#EFE1CD] cursor-pointer rounded-lg p-3 w-12 h-12 flex items-center justify-center hover:scale-105 transition"
-      >
-        <Icon className="text-[#53321B] text-xl"/>
+   <div className="">
+      <h3 className="text-xl font-semibold gilda-display-regular lg:text-center">Follow us</h3>
+      <div className="flex flex-wrap mt-2 lg:justify-center items-center gap-2">
+        {socialLinks.map(({ icon: Icon, url }, idx) => (
+          <a
+            key={idx}
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#D0BEA9] border border-[#EFE1CD] rounded-lg p-3 w-12 h-12 flex items-center justify-center hover:scale-105 transition"
+          >
+            <Icon className="text-[#53321B] text-xl" />
+          </a>
+        ))}
       </div>
-    ))}
-  </div>
-</div>
+    </div>
 
 
 

@@ -41,6 +41,8 @@ import PlanPageFull from "./Pages/PlanPageFull";
 import UserReceipts from "./Component/Receipts/UserReceipts";
 import ScrollToTop from "./Component/ScrollTop/ScrollToTop";
 
+
+
 function App() {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -105,7 +107,7 @@ function App() {
         <Route path="/Chat" element={<ChatPage  />} />
         <Route path="/plans" element={<PlanPageFull  />} />
         <Route path="/userReceipts" element={<UserReceipts  />} />
-        
+         
       </Routes>
      
 

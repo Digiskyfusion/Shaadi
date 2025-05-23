@@ -1,8 +1,20 @@
 import React from 'react';
 import sunimage from '../../assets/Images/sunimage.png';
 import Filter from '../../assets/Images/Filter.png';
+import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 function FourthSections() {
+  const navigate = useNavigate();
+   
+  
+   const viewProfile = () => {
+    navigate("/allprofile");
+  };
+  
+  
+    
+ 
   return (
     <div
       className="relative w-full h-[32rem] sm:h-[28rem]" // increased height
@@ -27,9 +39,12 @@ function FourthSections() {
         <h2 className="text-2xl sm:text-4xl font-semibold mb-4 text-[#EB5757]">
           Sole Mate
         </h2>
-        <button className="bg-[#EB5757] text-white cursor-pointer px-4 sm:px-6 py-2 rounded-full font-medium text-sm sm:text-base">
+        
+        <button className="bg-[#EB5757] text-white cursor-pointer px-4 sm:px-6 py-2 rounded-full font-medium text-sm sm:text-base"
+        onClick={viewProfile}>
           Join Now
         </button>
+        
       </div>
     </div>
   );

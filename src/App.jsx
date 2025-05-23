@@ -39,6 +39,8 @@ import ChatPage from "./Pages/ChatPage";
 import Massage from "./Component/ChatPage/Message";
 import PlanPageFull from "./Pages/PlanPageFull";
 import UserReceipts from "./Component/Receipts/UserReceipts";
+import ScrollToTop from "./Component/ScrollTop/ScrollToTop";
+import SinglePlanCard from "./Component/RegestrationFeesPages/FeesCharge";
 
 function App() {
   const [step, setStep] = useState(1);
@@ -56,6 +58,7 @@ function App() {
 
   return (
     <>
+    <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route
@@ -104,8 +107,11 @@ function App() {
         <Route path="/plans" element={<PlanPageFull  />} />
         <Route path="/userReceipts" element={<UserReceipts  />} />
         
+        
+        
       </Routes>
-     
+    
+
 
     </>
     

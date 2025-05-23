@@ -140,7 +140,7 @@ function ProfileOne() {
           <div className="w-full sm:w-auto">
             {editMode ? (
               <>
-                <label className="text-lg font-medium text-gray-700 mr-2">Name:</label>
+                <label className="text-lg font-medium text-gray-700 mr-2">Namennnnnn:</label>
                 <div className="flex flex-col gap-2">
                   <input
                     type="text"

@@ -7,6 +7,7 @@ import Navbar from '../Component/Navbar/Navbar'
 
 import Footer from '../Component/FooterPage/Footer'
 import FifthSection from '../Component/HomePage/FifthSection'
+import FeesCharge from '../Component/RegestrationFeesPages/FeesCharge'
 
 function  HomePage() {
   return (
@@ -42,7 +43,8 @@ function  HomePage() {
     <SecondSection />
     <ThirdSection />
     <FourthSection />
-    <FifthSection />
+    <FeesCharge />
+    {/* <FifthSection /> */}
     
     <Footer />
         

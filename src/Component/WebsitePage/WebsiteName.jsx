@@ -39,7 +39,7 @@ function WebsiteName() {
   return (
     <div className="bg-[#DE5353] text-white py-2 px-4 jost  sm:px-6 md:px-10 text-center">
       <h2 className="text-xl sm:text-2xl md:text-3xl mt-6 font-semibold mb-1">
-        Why Register on Website Name?
+        Why Register on Shaadi Sanskar?
       </h2>
       <div className="w-20 sm:w-28 h-1 bg-white mx-auto mb-4"></div>
 

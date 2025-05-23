@@ -1,11 +1,12 @@
-  import React, { useState } from "react";
-  import axios from "axios";
-  import { Link, useNavigate } from "react-router-dom";
-  import { FaArrowCircleLeft } from "react-icons/fa";
-  import Image17 from '../../assets/Images/Image17.png';
-  import Navbar3 from "../Navbar/Navbar3";
-  import { ToastContainer, toast } from 'react-toastify';
-  import { Eye, EyeOff } from 'lucide-react'; // optional icons
+import React, { useState } from "react";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+import { FaArrowCircleLeft } from "react-icons/fa";
+import Image17 from '../../assets/Images/Image17.png';
+import Navbar3 from "../Navbar/Navbar3";
+import { ToastContainer, toast } from 'react-toastify';
+import { Eye, EyeOff } from 'lucide-react'; // optional icons
+import Footer from "../FooterPage/Footer";
 
   const StepTwo = ({ formData, setFormData, prevStep }) => {
   let API= import.meta.env.VITE_APP_API_URL
@@ -53,37 +54,37 @@
       }
     };
 
-    return (
+  return (
 
-      
-      <div
-        className="min-h-screen"
-        style={{
-          backgroundImage: `url(${Image17})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-      <Navbar3 />
-      <div className="min-h-screen flex items-center jost justify-center px-4 py-4 sm:px-6 lg:px-8">
-        <div className="w-full max-w-md bg-[#DE5353] bg-opacity-90 rounded-2xl p-4 shadow-xl">
-        <Link to="/register/step-one">
-        <FaArrowCircleLeft
-            className="text-2xl text-black cursor-pointer"
-            onClick={prevStep}
-          />
-        </Link>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleSubmit();
-            }}
-            className="space-y-3"
-          >
-          <ToastContainer />
-            <h2 className="text-sm sm:text-xl text-center font-semibold text-black">
-              Great! Now fill some basic details
-            </h2>
+    <>
+    <div
+      className="min-h-screen"
+      style={{
+        backgroundImage: `url(${Image17})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+    <Navbar3 />
+    <div className="min-h-screen flex items-center jost justify-center px-4 py-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-md bg-[#DE5353] bg-opacity-90 rounded-2xl p-4 shadow-xl">
+       <Link to="/register/step-one">
+       <FaArrowCircleLeft
+          className="text-2xl text-white cursor-pointer"
+          onClick={prevStep}
+        />
+       </Link>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleSubmit();
+          }}
+          className="space-y-3"
+        >
+         <ToastContainer />
+          <h2 className="text-sm sm:text-xl text-center font-semibold text-black">
+            Great! Now fill some basic details
+          </h2>
 
             <div className="space-y-1">
               <label className="text-white block text-sm sm:text-xl">Phone Number/<span className="lowercase text-lg">use whatsapp number</span></label>
@@ -237,17 +238,20 @@
               Sign Up
             </button>
 
-            <p className="text-center text-sm text-black mt-2">
-              By signing up, you agree to our{" "}
-              <span className=" cursor-pointer text-white">
-                terms 
-              </span>
-            </p>
-          </form>
-        </div>
-        </div>
+          <p className="text-center text-sm text-black mt-2">
+            By signing up, you agree to our{" "}
+            <span className=" cursor-pointer text-white">
+              terms 
+            </span>
+          </p>
+        </form>
       </div>
-    );
-  };
+      </div>
+    </div>
+
+    <Footer />
+    </>
+  );
+};
 
   export default StepTwo;

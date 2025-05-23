@@ -40,6 +40,7 @@ import Massage from "./Component/ChatPage/Message";
 import PlanPageFull from "./Pages/PlanPageFull";
 import UserReceipts from "./Component/Receipts/UserReceipts";
 import ScrollToTop from "./Component/ScrollTop/ScrollToTop";
+import SinglePlanCard from "./Component/RegestrationFeesPages/FeesCharge";
 
 
 
@@ -107,9 +108,12 @@ function App() {
         <Route path="/Chat" element={<ChatPage  />} />
         <Route path="/plans" element={<PlanPageFull  />} />
         <Route path="/userReceipts" element={<UserReceipts  />} />
-         
+        
+        
+        
       </Routes>
-     
+    
+
 
     </>
     

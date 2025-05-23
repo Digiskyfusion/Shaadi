@@ -40,6 +40,7 @@ import Massage from "./Component/ChatPage/Message";
 import PlanPageFull from "./Pages/PlanPageFull";
 import UserReceipts from "./Component/Receipts/UserReceipts";
 import ScrollToTop from "./Component/ScrollTop/ScrollToTop";
+import ConnectreistrationProfile from "./Component/ProfileDetails/connectregistrationProfile";
 
 function App() {
   const [step, setStep] = useState(1);
@@ -94,7 +95,8 @@ function App() {
         <Route path='/FirstMatch' element={<TodayProfilePage /> }/>
         <Route path='/secondmatch' element={<SecondMatchPage /> }/> 
         <Route path='/newmatch' element={<NewMatchesPage /> }/>
-        <Route path="/profile/:userId" element={<ProfilesDetailsPage />} />
+        {/* <Route path="/profile/:userId" element={<ProfilesDetailsPage />} /> */}
+        <Route path="/profile/:userId" element={<ConnectreistrationProfile />} />
         <Route path="/allprofile" element={<AllProfilePage />} />
         <Route path="/forget-password" element={<ForgetPasswordPage  />} />
         <Route path="/reset-password" element={<ResetPasswordPage  />} />

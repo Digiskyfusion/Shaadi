@@ -50,7 +50,7 @@ const FourthMatch = () => {
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {profiles.map((profile, idx) => {
+        {[...profiles].reverse().map((profile, idx) => {
           const user = profile.userId || {};
           return (
             <div

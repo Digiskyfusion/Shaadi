@@ -109,30 +109,39 @@ function ProfileOne() {
   return (
     <div className="p-4 sm:p-6 md:p-8 bg-[#FF5A60] rounded-2xl shadow-2xl space-y-6 max-w-xl mx-auto">
       {/* Profile Picture */}
-      <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mx-auto drop-shadow-lg">
+      <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mx-auto drop-shadow-lg mb-15">
         <img
           src={previewUrl || imageUrl}
           alt="Profile"
-          className="w-full h-full object-cover rounded-full"
+          className="w-full h-full object-cover rounded-full "
         />
         <div className="absolute bottom-2 right-2 bg-black bg-opacity-70 text-white rounded-full p-1 cursor-pointer">
           <MdPhotoCamera className="text-lg sm:text-xl" />
         </div>
         {editMode && (
-              <input
-        type="file"
-        onChange={(e) => {
-          const file = e.target.files[0];
-          setImage(file);
-          if (file) {
-            setPreviewUrl(URL.createObjectURL(file)); 
-          }
-        }}
-        className="w-full text-sm text-gray-800 h-10 px-3 mt-2 rounded border border-gray-400"
-      />
-        )}
+  <div>
+    <input
+      type="file"
+      id="file-upload"
+      style={{ display: 'none' }}
+      onChange={(e) => {
+        const file = e.target.files[0];
+        setImage(file);
+        if (file) {
+          setPreviewUrl(URL.createObjectURL(file));
+        }
+      }}
+    />
+    <label htmlFor="file-upload">
+      <div
+        className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 inline-block cursor-pointer mt-2"
+      >
+        Upload File
       </div>
-
+    </label>
+  </div>
+)}
+</div>
       {/* User Info */}
       <div className="bg-[#FFE2CE] px-4 sm:px-6 py-6 sm:py-8 rounded-xl shadow-lg space-y-4">
         {/* Name */}

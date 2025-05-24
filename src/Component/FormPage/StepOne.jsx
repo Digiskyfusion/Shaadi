@@ -5,6 +5,8 @@ import Image17 from '../../assets/Images/Image17.png';
 import Navbar3 from "../Navbar/Navbar3";
 import { CiCircleQuestion } from "react-icons/ci";
 import { ToastContainer, toast } from 'react-toastify';
+import SecondFooter from "../FooterPage/SecondFooter";
+import Footer from "../FooterPage/Footer";
 const StepOne = ({ formData, setFormData }) => {
   const navigate = useNavigate();
 
@@ -138,6 +140,7 @@ const StepOne = ({ formData, setFormData }) => {
         </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

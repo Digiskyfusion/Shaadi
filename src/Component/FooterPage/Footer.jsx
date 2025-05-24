@@ -38,7 +38,7 @@ const Footer = () => {
           <img src={Logo2} alt="Logo2" className="h-20 w-30 mb-2" />
           <p className="mb-1">Shaadi Sanskar - Where true love begins.</p>
           <p className="mb-1">
-            At Shaadi Sanskar, we believe in real connections that lead to lasting love. 
+            At Shaadi Sanskar, we believe in real connections that lead to lasting love.
             Join a trusted platform where meaningful relationships begin.
           </p>
         </div>

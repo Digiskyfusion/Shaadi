@@ -34,13 +34,12 @@ import BlogPage from "./Pages/BlogPage";
 import SecondpageBlogs from "./Pages/SecondpageBlogs";
 import ProfilesDetailsPage from "./Pages/ProfilesDetailsPage";
 import ContactUsPage from "./Pages/ContactUsPage";
-import ProfileShow from "./Component/ChatPage/ProfileShow";
 import ChatPage from "./Pages/ChatPage";
-import Massage from "./Component/ChatPage/Message";
 import PlanPageFull from "./Pages/PlanPageFull";
-import UserReceipts from "./Component/Receipts/UserReceipts";
 import ScrollToTop from "./Component/ScrollTop/ScrollToTop";
-import ConnectreistrationProfile from "./Component/ProfileDetails/connectregistrationProfile";
+import UserReceiptPage from "./Pages/UserReceiptPage";
+// import ConnectreistrationProfilePage from "./Pages/ConnectreistrationProfilePage";
+
 
 function App() {
   const [step, setStep] = useState(1);
@@ -95,8 +94,8 @@ function App() {
         <Route path='/FirstMatch' element={<TodayProfilePage /> }/>
         <Route path='/secondmatch' element={<SecondMatchPage /> }/> 
         <Route path='/newmatch' element={<NewMatchesPage /> }/>
-        {/* <Route path="/profile/:userId" element={<ProfilesDetailsPage />} /> */}
-        <Route path="/profile/:userId" element={<ConnectreistrationProfile />} />
+        <Route path="/profile/:userId" element={<ProfilesDetailsPage />} />
+        {/* <Route path="/profile/:userId" element={<ConnectreistrationProfilePage />} /> */}
         <Route path="/allprofile" element={<AllProfilePage />} />
         <Route path="/forget-password" element={<ForgetPasswordPage  />} />
         <Route path="/reset-password" element={<ResetPasswordPage  />} />
@@ -106,10 +105,11 @@ function App() {
         <Route path="/contactUs" element={<ContactUsPage  />} />
         <Route path="/Chat" element={<ChatPage  />} />
         <Route path="/plans" element={<PlanPageFull  />} />
-        <Route path="/userReceipts" element={<UserReceipts  />} />
+        <Route path="/userReceipts" element={<UserReceiptPage  />} />
         
       </Routes>
-     
+    
+
 
     </>
     

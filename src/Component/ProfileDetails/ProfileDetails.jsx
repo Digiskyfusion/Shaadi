@@ -53,21 +53,10 @@ const [hasDeductedCredits, setHasDeductedCredits] = useState(false);
 
 const handleConnect = () => {
   if (CurrentUser > 0) {
-    if (!hasDeductedCredits) {
       axios.post(`${API}user/credits/${id}`)
         .then((res) => {
           console.log("hello credits", res.data);
-          setShowNumber(true); // show number after first deduction
-          setHasDeductedCredits(true); // prevent future deductions
         })
-        .catch((err) => {
-          console.error("Credit deduction failed:", err);
-        });
-    } else {
-      // Already deducted once, just toggle the visibility
-      setShowNumber(prev => !prev);
-    }
-    console.log("cure", id);
   } else {
     toast.info("You Need To Purchase Any Plan");
     setTimeout(() => {
@@ -75,8 +64,6 @@ const handleConnect = () => {
     }, 1500);
   }
 };
-
-
 
   const iconMap = {
     'Age': <FaBirthdayCake />,
@@ -190,14 +177,14 @@ const handleConnect = () => {
   </div>
 
   {/* Mobile Number Display */}
-  {showNumber && (
+  {/* {showNumber && (
     <div className="text-center mt-4 text-lg font-semibold text-green-600 flex items-center gap-1">
       <FaWhatsapp /> Whatsapp Number: {profile.userId?.mobileNumber || 'Not Provided'}
     </div>
-  )}
+  )} */}
 
   {/* WhatsApp Button */}
-  {showNumber && profile.userId?.mobileNumber && (
+  {/* {showNumber && profile.userId?.mobileNumber && (
     <a
       href={`https://wa.me/${profile.userId.mobileNumber}`}
       target="_blank"
@@ -213,7 +200,7 @@ const handleConnect = () => {
       </svg>
       Chat on WhatsApp
     </a>
-  )}
+  )} */}
 </div>
 
 

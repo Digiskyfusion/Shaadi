@@ -21,9 +21,6 @@ function ConnectreistrationProfile() {
   const { userId } = useParams();
   const navigate = useNavigate();
   const [profile, setProfile] = useState(null);
-  const [CurrentUser, setCurrentUser]= useState(null)
-  const [showNumber, setShowNumber] = useState(false);
-const [hasDeductedCredits, setHasDeductedCredits] = useState(false);
   let a = JSON.parse(localStorage.getItem("userProfile"));
   let id= a?._id
   // console.log("hello id ", id);
@@ -36,15 +33,7 @@ const [hasDeductedCredits, setHasDeductedCredits] = useState(false);
         setProfile(response.data)
       })
       .catch((error) => console.error('Error fetching profile data:', error));
-      
-
-      axios.get(`${API}user/${id}`)
-      .then((res)=>
-      {
-        setCurrentUser(res.data.user.credits)
-        // console.log("hello",res.data.user.credits);
-        
-      })
+    
       // console.log("current", CurrentUser);
   }, [userId]);
 
@@ -52,28 +41,10 @@ const [hasDeductedCredits, setHasDeductedCredits] = useState(false);
 
 
 const handleConnect = () => {
-  if (CurrentUser > 0) {
-    // if (!hasDeductedCredits) {
-    //   axios.post(`${API}user/credits/${id}`)
-    //     .then((res) => {
-    //       console.log("hello credits", res.data);
-    //       setShowNumber(true); // show number after first deduction
-    //       setHasDeductedCredits(true); // prevent future deductions
-    //     })
-    //     .catch((err) => {
-    //       console.error("Credit deduction failed:", err);
-    //     });
-    // } else {
-    //   // Already deducted once, just toggle the visibility
-    //   setShowNumber(prev => !prev);
-    // }
-    // console.log("cure", id);
-  } else {
-    toast.info("You Need To Purchase Any Plan");
-    setTimeout(() => {
-      navigate('/plans');
-    }, 1500);
-  }
+  toast.info("You Need To Purchase Any Plan");
+  setTimeout(() => {
+    navigate('/plans', { state: { clickedUserId: profile.userId?._id ,userId: id } });
+  }, 1500);
 };
 
 

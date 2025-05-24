@@ -42,7 +42,7 @@ function Navbar4() {
         MATCHES: [
             // { label: 'New Profile', path: '/FirstMatch' },
             // { label: 'Todays Profiles', path: '/firstProfile' },
-            // { label: 'Near Me', path: '/secondmatch' },
+            { label: 'Near Me', path: '/secondmatch' },
             { label: 'All Profiles', path: '/allprofile' },
         ],
         // SEARCH: [

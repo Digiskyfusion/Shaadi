@@ -1,207 +1,173 @@
-import React from "react";
-import { IoIosChatbubbles } from "react-icons/io";
-
-// Image imports
-import image1 from "../../assets/Images/Rectangle 268 (1).png";
-import image2 from "../../assets/Images/Rectangle 271 (1).png";
-import image3 from "../../assets/Images/Rectangle 274 (1).png";
-import image4 from "../../assets/Images/Rectangle 277 (1).png";
-import image5 from "../../assets/Images/Rectangle 280 (1).png";
-import image6 from "../../assets/Images/Rectangle 283.png";
-import image7 from "../../assets/Images/Rectangle 286.png";
-import image8 from "../../assets/Images/Rectangle 289.png";
-import image9 from "../../assets/Images/Rectangle 292.png";
-
-const profiles = [
-  {
-    name: "Kuldeep kaur",
-    image: image1,
-    onlineStatus: "Online 1 day ago",
-    age: "21 yrs",
-    height: "4'6''",
-    zodiac: "Gemini",
-    language: "Punjabi",
-    religion: "Sikh, Gursikh",
-    education: "Bachelors degree in Finance",
-    maritalStatus: "Never Married",
-    city: "Chandigarh",
-    profession: "Finance Professional",
-    income: "Earns Upto INR 1 Lakh annually",
-  },
-  {
-    name: "Rammu",
-    image: image2,
-    onlineStatus: "Online 1 day ago",
-    age: "21 yrs",
-    height: "4'6''",
-    zodiac: "Gemini",
-    language: "Punjabi",
-    religion: "Sikh, Gursikh",
-    education: "Bachelors degree in Finance",
-    maritalStatus: "Never Married",
-    city: "Chandigarh",
-    profession: "Finance Professional",
-    income: "Earns Upto INR 1 Lakh annually",
-  },
-  {
-    name: "Simran Kaur",
-    image: image3,
-    onlineStatus: "Online 1 day ago",
-    age: "21 yrs",
-    height: "4'6''",
-    zodiac: "Gemini",
-    language: "Punjabi",
-    religion: "Sikh, Gursikh",
-    education: "Bachelors degree in Finance",
-    maritalStatus: "Never Married",
-    city: "Chandigarh",
-    profession: "Finance Professional",
-    income: "Earns Upto INR 1 Lakh annually",
-  },
-  {
-    name: "Aman",
-    image: image4,
-    onlineStatus: "Online 1 day ago",
-    age: "21 yrs",
-    height: "4'6''",
-    zodiac: "Gemini",
-    language: "Punjabi",
-    religion: "Sikh, Gursikh",
-    education: "Bachelors degree in Finance",
-    maritalStatus: "Never Married",
-    city: "Chandigarh",
-    profession: "Finance Professional",
-    income: "Earns Upto INR 1 Lakh annually",
-  },
-  {
-    name: "Dinesh",
-    image: image5,
-    onlineStatus: "Online 1 day ago",
-    age: "21 yrs",
-    height: "4'6''",
-    zodiac: "Gemini",
-    language: "Punjabi",
-    religion: "Sikh, Gursikh",
-    education: "Bachelors degree in Finance",
-    maritalStatus: "Never Married",
-    city: "Chandigarh",
-    profession: "Finance Professional",
-    income: "Earns Upto INR 1 Lakh annually",
-  },
-  {
-    name: "Richa",
-    image: image6,
-    onlineStatus: "Online 1 day ago",
-    age: "21 yrs",
-    height: "4'6''",
-    zodiac: "Gemini",
-    language: "Punjabi",
-    religion: "Sikh, Gursikh",
-    education: "Bachelors degree in Finance",
-    maritalStatus: "Never Married",
-    city: "Chandigarh",
-    profession: "Finance Professional",
-    income: "Earns Upto INR 1 Lakh annually",
-  },
-  {
-    name: "Riya",
-    image: image7,
-    onlineStatus: "Online 1 day ago",
-    age: "21 yrs",
-    height: "4'6''",
-    zodiac: "Gemini",
-    language: "Punjabi",
-    religion: "Sikh, Gursikh",
-    education: "Bachelors degree in Finance",
-    maritalStatus: "Never Married",
-    city: "Chandigarh",
-    profession: "Finance Professional",
-    income: "Earns Upto INR 1 Lakh annually",
-  },
-  {
-    name: "Tanya",
-    image: image8,
-    onlineStatus: "Online 1 day ago",
-    age: "21 yrs",
-    height: "4'6''",
-    zodiac: "Gemini",
-    language: "Punjabi",
-    religion: "Sikh, Gursikh",
-    education: "Bachelors degree in Finance",
-    maritalStatus: "Never Married",
-    city: "Chandigarh",
-    profession: "Finance Professional",
-    income: "Earns Upto INR 1 Lakh annually",
-  },
-  {
-    name: "Sanya",
-    image: image9,
-    onlineStatus: "Online 1 day ago",
-    age: "21 yrs",
-    height: "4'6''",
-    zodiac: "Gemini",
-    language: "Punjabi",
-    religion: "Sikh, Gursikh",
-    education: "Bachelors degree in Finance",
-    maritalStatus: "Never Married",
-    city: "Chandigarh",
-    profession: "Finance Professional",
-    income: "Earns Upto INR 1 Lakh annually",
-  },
-];
-
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import { FaBirthdayCake, FaCity, FaUser, FaHeart, FaGraduationCap, FaMoneyBillWave, FaWeight, FaTransgender, FaAppleAlt, FaWheelchair } from "react-icons/fa";
 const FourthMatch = () => {
-  return (
-    <div className="p-4 md:p-8 jost">
-      <h2 className="text-xl md:text-2xl font-normal mb-5 text-center md:mr-56 mx-auto px-4 gilda-display-regular">
-  Members that match your Partner Preferences
-</h2>
+  const API = import.meta.env.VITE_APP_API_URL;
+  const [profiles, setProfiles] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
-      <div className="space-y-6">
-        {profiles.map((profile, index) => (
-          <div
-            key={index}
-            className="bg-[#FF5A60] p-4 rounded-xl flex flex-col md:flex-row items-center md:items-start justify-between shadow-md max-w-full md:max-w-3xl mx-auto"
-          >
-            <div className="flex flex-col sm:flex-row gap-4 items-center sm:items-start w-full">
-              <img
-                src={profile.image} 
-                alt={profile.name}
-                className="w-full sm:w-32 h-48 rounded-lg object-cover"
-              />
-              <div className="text-white text-center sm:text-left">
-                <h3 className="text-lg md:text-xl font-normal">
-                  {profile.name}
+  const userProfile = JSON.parse(localStorage.getItem("userProfile"));
+  const userid = userProfile?._id;
+
+  useEffect(() => {
+    const fetchProfilesByCity = async () => {
+      try {
+        if (!userid) {
+          setError("User ID not found.");
+          setLoading(false);
+          return;
+        }
+        const res = await axios.get(`${API}city/profilebycity/${userid}`);
+        setProfiles(res.data.users);
+      } catch (err) {
+        setError("Failed to fetch profiles.");
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProfilesByCity();
+  }, [userid, API]);
+
+  if (loading)
+    return <div className="text-center mt-10 text-[#FF5A60] font-semibold">Loading...</div>;
+  if (error)
+    return (
+      <div className="text-center text-red-500 mt-10 font-semibold">{error}</div>
+    );
+  if (profiles.length === 0)
+    return (
+      <div className="text-center mt-10 text-gray-600 min-h-screen font-semibold">
+           No matching users found in your city.
+      </div>
+    );
+
+  return (
+    <div className="p-6 md:p-10  mx-auto font-sans">
+      <h2 className="text-3xl font-semibold mb-10 text-center text-[#FF5A60] tracking-wide">
+        Members that match your Partner Preferences
+      </h2>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {profiles.map((profile, idx) => {
+          const user = profile.userId || {};
+          return (
+            <div
+              key={idx}
+              className="bg-[#FF5A60] rounded-xl shadow-lg border-2 border-[#FF5A60] hover:shadow-xl hover:scale-[1.02] transition-transform duration-300 flex flex-col md:flex-row p-6 gap-6"
+            >
+              {/* Profile Image */}
+              <div className="flex-shrink-0 flex justify-center items-center">
+                <img
+                  src={user.profileImage || "/default-image.jpg"}
+                  alt={`${user.firstName} ${user.lastName}`}
+                  className="w-28 h-28 md:w-32 md:h-32 rounded-full object-cover shadow-md border-4 border-[#FF5A60]"
+                />
+              </div>
+
+              {/* Info Section */}
+              <div className="flex flex-col justify-between flex-1">
+                {/* Name */}
+               
+                <h3 className="text-2xl font-bold flex gap-2 items-center text-white mb-4">
+                 <FaUser className="text-xl" />
+                  {user.firstName} {user.lastName}
                 </h3>
-                <p className="text-xs md:text-sm flex items-center justify-center sm:justify-start mt-1">
-                  <IoIosChatbubbles className="text-amber-50 mr-1"/>
-                  {profile.onlineStatus}
-                </p>
-                <div className="h-px bg-white my-2  w-140"></div>
-                <div className="text-xs md:text-sm space-y-1 mt-3">
-                  <div>
-                    {profile.age}, {profile.height}, {profile.zodiac}
+
+                {/* Info grid */}
+                <div className="grid grid-cols-2 gap-y-3 gap-x-6 text-white text-sm md:text-base">
+                  <div className="flex items-center gap-2">
+                    <FaBirthdayCake className="" />
+                    <span>
+                      <strong>Age:</strong> {profile.age || "N/A"}
+                    </span>
                   </div>
-                  <div>{profile.language}</div>
-                  <div>{profile.religion}</div>
-                  <div>{profile.education}</div>
+
+                  <div className="flex items-center gap-2">
+                    <FaWeight className="" />
+                    <span>
+                      <strong>Height:</strong> {profile.height || "N/A"}
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <FaUser className="" />
+                    <span>
+                      <strong>Gender:</strong> {user.gender || "N/A"}
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <FaHeart className="" />
+                    <span>
+                      <strong>Marital Status:</strong> {profile.maritalStatus || "N/A"}
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <FaCity className="" />
+                    <span>
+                      <strong>City:</strong> {profile.city || "N/A"}
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <FaMoneyBillWave className="" />
+                    <span>
+                      <strong>Annual Income:</strong> {profile.annualincome || "N/A"}
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <FaGraduationCap className="" />
+                    <span>
+                      <strong>Qualification:</strong> {profile.highestqualification || "N/A"}
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <FaAppleAlt className="" />
+                    <span>
+                      <strong>Diet:</strong> {profile.diet || "N/A"}
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <FaWheelchair className="" />
+                    <span>
+                      <strong>Disability:</strong> {profile.disability || "N/A"}
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <FaBirthdayCake className="" />
+                    <span>
+                      <strong>DOB:</strong>{" "}
+                      {user.dob
+                        ? new Date(user.dob).toLocaleDateString("en-GB", {
+                            day: "2-digit",
+                            month: "short",
+                            year: "numeric",
+                          })
+                        : "N/A"}
+                    </span>
+                  </div>
+
+                </div>
+
+                {/* Button */}
+                <div className="mt-6 flex justify-center md:justify-end">
+                  <Link to={`/profile/${user._id}`}>
+                    <button className="bg-[#FFCCA8] text- font-semibold px-6 py-2 rounded-md  ">
+                      View Details
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
-            <div className="flex flex-col justify-between items-center sm:items-end mt-4 sm:mt-0 text-white text-xs md:text-sm w-full sm:w-auto">
-              <button className="bg-white text-black font-normal cursor-pointer px-6 py-0.5 rounded-md mb-2 hover:bg-black hover:text-white transition duration-300">
-                Follow
-              </button>
-
-              <div className="space-y-1 mt-5 sm:mt-10 text-center sm:text-right md:text-left">
-                <div>{profile.maritalStatus}</div>
-                <div>{profile.city}</div>
-                <div>{profile.profession}</div>
-                <div>{profile.income}</div>
-              </div>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

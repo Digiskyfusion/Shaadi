@@ -159,7 +159,7 @@ const FourthMatch = () => {
                 {/* Button */}
                 <div className="mt-6 flex justify-center md:justify-end">
                   <Link to={`/profile/${user._id}`}>
-                    <button className="bg-[#FFCCA8] text- font-semibold px-6 py-2 rounded-md  ">
+                    <button className="bg-[#FFCCA8] cursor-pointer font-semibold px-6 py-2 rounded-md  ">
                       View Details
                     </button>
                   </Link>

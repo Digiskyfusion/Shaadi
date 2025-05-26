@@ -38,12 +38,11 @@ import ChatPage from "./Pages/ChatPage";
 import PlanPageFull from "./Pages/PlanPageFull";
 import ScrollToTop from "./Component/ScrollTop/ScrollToTop";
 import SinglePlanCard from "./Component/RegestrationFeesPages/FeesCharge";
+import UserReceiptPage from "./Pages/UserReceiptPage";
 import TermAndConditionPage from "./Pages/TermAndConditionPage";
 import PrivacyAndPolicyPage from "./Pages/PrivacyAndPolicyPage";
+import CancelAndRefund from "./Component/PolicysComponent/CancelAndRefund";
 import CancelAndRefundPage from "./Pages/CancelAndRefundPage";
-import UserReceiptPage from "./Pages/UserReceiptPage";
-// import ConnectreistrationProfilePage from "./Pages/ConnectreistrationProfilePage";
-
 
 
 
@@ -111,15 +110,16 @@ function App() {
         <Route path="/contactUs" element={<ContactUsPage  />} />
         <Route path="/Chat" element={<ChatPage  />} />
         <Route path="/plans" element={<PlanPageFull  />} />
-        <Route path="/userReceipts" element={<UserReceiptPage  />} />
+        <Route path="/userReceipt" element={<UserReceiptPage  />} />
         <Route path="/termandcondition" element={<TermAndConditionPage />} />
         <Route path="/privacy" element={<PrivacyAndPolicyPage  />} />
-        <Route path="/refund" element={<CancelAndRefundPage  />} />
-        
+        <Route path="/refund" element={<CancelAndRefundPage />} />
+        <Route path="/userReceipts" element={<UserReceiptPage  />} />
         
         
         
       </Routes>
+     
     
 
 

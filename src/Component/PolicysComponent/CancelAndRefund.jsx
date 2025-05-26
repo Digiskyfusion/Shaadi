@@ -2,8 +2,8 @@ import React from 'react';
 
 function CancelAndRefund() {
   return (
-    <div className="bg-gray-50 px-4 pt-24 pb-10 sm:px-10 md:px-20 lg:px-40">
-      <h1 className="text-3xl font-bold text-gray-800 mb-6 border-b pb-3">Cancellation & Refund Policy</h1>
+    <div className="bg-gray-50 px-4 pt-24 pb-10 jost sm:px-10 md:px-20 lg:px-40 bg-gradient-to-b from-[#FFCCA8]">
+      <h1 className="text-3xl font-bold text-[#C34040] mb mb-6 text-center gilda-display-regular pb-3">Cancellation & Refund Policy</h1>
       <p className="text-gray-600 mb-8">
         At Shaadi Sanskar, we believe in keeping things simple and transparent for our users.
       </p>

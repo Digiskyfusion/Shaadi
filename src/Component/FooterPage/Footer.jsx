@@ -11,6 +11,7 @@ import photo8 from "../../assets/Images/image 2.png";
 import Logo2 from '../../assets/Images/Shaadi Sanskar 2.png';
 
 import { FaInstagram, FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const socialLinks = [
   { icon: FaInstagram, url: "https://www.instagram.com/shaadi_sanskar?igsh=MW0yc3lkcm50bXNvag==" },
@@ -31,7 +32,7 @@ const obj = [
 const Footer = () => {
   return (
     <footer className="bg-[#53321B] text-[#EFE1CD] px-6 py-12 sm:px-10 md:px-16">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-12 border-b-2 border-gray-50 pb-5">
         
         {/* Brand Section */}
         <div className="jost">
@@ -42,6 +43,8 @@ const Footer = () => {
             Join a trusted platform where meaningful relationships begin.
           </p>
         </div>
+
+        
 
         {/* Gallery Section */}
         <div>
@@ -80,6 +83,8 @@ const Footer = () => {
 
 
 
+
+
          {/* Contact Section */}
         <div>
           <h3 className="text-xl font-semibold mb-4 gilda-display-regular">Contact us</h3>
@@ -102,6 +107,13 @@ const Footer = () => {
             />
           </div> */}
         </div>
+      </div>
+      <div className="mt-3 text-[10px] sm:text-[15px] lg:text-[17px]">
+        <ul className="flex sm:justify-center items-center gap-1">
+          <li className="border-r-2 border-white px-2"><Link to="/privacy">Privacy Policy</Link></li>
+          <li className="border-r-2 border-white px-2"><Link to="/termandcondition">TermAnd Condition</Link></li>
+          <li className="px-2"><Link to="/refund">Cancel Refund</Link></li>
+        </ul>
       </div>
     </footer>
   );

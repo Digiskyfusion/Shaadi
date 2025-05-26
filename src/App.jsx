@@ -34,13 +34,14 @@ import BlogPage from "./Pages/BlogPage";
 import SecondpageBlogs from "./Pages/SecondpageBlogs";
 import ProfilesDetailsPage from "./Pages/ProfilesDetailsPage";
 import ContactUsPage from "./Pages/ContactUsPage";
-import ProfileShow from "./Component/ChatPage/ProfileShow";
 import ChatPage from "./Pages/ChatPage";
-import Massage from "./Component/ChatPage/Message";
 import PlanPageFull from "./Pages/PlanPageFull";
-import UserReceipts from "./Component/Receipts/UserReceipts";
 import ScrollToTop from "./Component/ScrollTop/ScrollToTop";
 import SinglePlanCard from "./Component/RegestrationFeesPages/FeesCharge";
+import UserReceiptPage from "./Pages/UserReceiptPage";
+import TermAndConditionPage from "./Pages/TermAndConditionPage";
+import PrivacyAndPolicyPage from "./Pages/PrivacyAndPolicyPage";
+import CancelAndRefund from "./Component/PolicysComponent/CancelAndRefund";
 
 
 
@@ -98,6 +99,7 @@ function App() {
         <Route path='/secondmatch' element={<SecondMatchPage /> }/> 
         <Route path='/newmatch' element={<NewMatchesPage /> }/>
         <Route path="/profile/:userId" element={<ProfilesDetailsPage />} />
+        {/* <Route path="/profile/:userId" element={<ConnectreistrationProfilePage />} /> */}
         <Route path="/allprofile" element={<AllProfilePage />} />
         <Route path="/forget-password" element={<ForgetPasswordPage  />} />
         <Route path="/reset-password" element={<ResetPasswordPage  />} />
@@ -107,11 +109,15 @@ function App() {
         <Route path="/contactUs" element={<ContactUsPage  />} />
         <Route path="/Chat" element={<ChatPage  />} />
         <Route path="/plans" element={<PlanPageFull  />} />
-        <Route path="/userReceipts" element={<UserReceipts  />} />
+        <Route path="/userReceipt" element={<UserReceiptPage  />} />
+        <Route path="/termandcondition" element={<TermAndConditionPage />} />
+        <Route path="/privacy" element={<PrivacyAndPolicyPage  />} />
+        <Route path="/refund" element={<CancelAndRefund />} />
         
         
         
       </Routes>
+     
     
 
 

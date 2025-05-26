@@ -36,7 +36,7 @@ const UserReceipts = () => {
 
   return (
     <>
-      <Navbar4 />
+      
       <div className="max-w-6xl mx-auto px-4 py-10">
         <h2 className="text-3xl font-bold text-center mb-10 text-gray-800">📄 Your Payment Receipts</h2>
         
@@ -71,7 +71,7 @@ const UserReceipts = () => {
           </div>
         )}
       </div>
-      <Footer />
+      
     </>
   );
 };

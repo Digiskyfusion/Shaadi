@@ -53,10 +53,10 @@ function DetailTwo() {
               Basic & Lifestyle
             </h1>
           </div>
-          <div className='sm:flex justify-center'>
+          <div className='flex sm:justify-center'>
             <div
               onClick={() => setIsEditing(true)}
-              className='flex items-center mt-2 md:mt-0 gap-1  w-1/3 sm:w-full bg-black cursor-pointer rounded-full text-white px-4 py-1 hover:bg-gray-800 transition'
+              className='flex items-center mt-2 md:mt-0 gap-2  w-1/3 sm:w-full bg-black cursor-pointer rounded-full text-white px-4 py-1 hover:bg-gray-800 transition'
             >
               <FaPencilAlt />
               <span>Edit</span>

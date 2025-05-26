@@ -52,7 +52,7 @@ function DetailSeven() {
             {!isEditing && (
               <div
                 onClick={() => setIsEditing(true)}
-                className='flex items-center w-1/3 sm:w-full mt-2 md:mt-0 gap-1 bg-black rounded-full text-white px-4 py-1 cursor-pointer hover:bg-gray-800 transition'
+                className='flex items-center w-1/3 sm:w-full mt-2 md:mt-0 gap-2 bg-black rounded-full text-white px-4 py-1 cursor-pointer hover:bg-gray-800 transition'
               >
                 <FaPencilAlt />
                 <span>Edit</span>

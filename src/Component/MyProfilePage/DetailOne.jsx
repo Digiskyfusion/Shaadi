@@ -49,10 +49,10 @@ function DetailOne() {
           </div>
 
           {!isEditing && (
-            <div className='md:flex justify-center'>
+            <div className='flex sm:justify-center'>
               <div
                 onClick={() => setIsEditing(true)}
-                className='flex items-center gap-1 mt-2 w-1/3 sm:w-full cursor-pointer md:mt-0 bg-black rounded-full text-white px-4 md:px-6 py-1 hover:bg-gray-800 transition'
+                className='flex items-center gap-2 mt-2 w-1/3 sm:w-full cursor-pointer md:mt-0 bg-black rounded-full text-white px-4 md:px-6 py-1 hover:bg-gray-800 transition'
               >
                 <FaPencilAlt />
                 Edit

@@ -41,8 +41,6 @@ import UserReceiptPage from "./Pages/UserReceiptPage";
 import TermAndConditionPage from "./Pages/TermAndConditionPage";
 import PrivacyAndPolicyPage from "./Pages/PrivacyAndPolicyPage";
 import CancelAndRefundPage from "./Pages/CancelAndRefundPage";
-import UserImagesManager from "./Component/AllImages/UserImagesManager";
-
 
 
 function App() {

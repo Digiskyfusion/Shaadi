@@ -10,7 +10,8 @@ const UploadSection = () => {
   const [images, setImages] = useState([]);
   const [userImages, setUserImages] = useState(null);
   const [uploading, setUploading] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null); // 🆕
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [error, setError] = useState(null); // New state for errors
 
   const user = JSON.parse(localStorage.getItem("userProfile"));
   const userId = user?._id;
@@ -37,11 +38,18 @@ const UploadSection = () => {
   }, [userId]);
 
   const handleUpload = async (files) => {
+    setError(null);
     if (!files.length) return;
+
+    // Check total images count after upload
+    if ((images.length + files.length) > 5) {
+      setError("You can upload a maximum of 5 images.");
+      return;
+    }
+
     setUploading(true);
     try {
       const urls = [];
-
       for (const file of files) {
         const fileRef = ref(storage, `uploads/${Date.now()}_${file.name}`);
         const snapshot = await uploadBytes(fileRef, file);
@@ -57,6 +65,11 @@ const UploadSection = () => {
         setUserImages(res.data.data);
         setImages(res.data.data.images);
       } else {
+        if (urls.length < 3) {
+          setError("Please upload at least 3 images.");
+          setUploading(false);
+          return;
+        }
         const res = await axios.post(`${API}api/images`, {
           userId,
           images: urls,
@@ -66,6 +79,7 @@ const UploadSection = () => {
       }
     } catch (error) {
       console.error("Upload failed:", error);
+      setError("Upload failed, please try again.");
     } finally {
       setUploading(false);
     }
@@ -73,6 +87,12 @@ const UploadSection = () => {
 
   const handleDelete = async (urlToDelete) => {
     if (!userImages || !userImages._id) return;
+
+    // Prevent deleting if less than 3 images will remain
+    if (images.length <= 3) {
+      setError("You must have at least 3 images.");
+      return;
+    }
 
     try {
       const path = decodeURIComponent(new URL(urlToDelete).pathname.split("/o/")[1].split("?")[0]);
@@ -87,8 +107,10 @@ const UploadSection = () => {
 
       setImages(res.data.data.images);
       setUserImages(res.data.data);
+      setError(null); // clear error on successful delete
     } catch (error) {
       console.error("Failed to delete image:", error);
+      setError("Failed to delete image.");
     }
   };
 
@@ -99,16 +121,20 @@ const UploadSection = () => {
           <div className='flex justify-center gap-3 mt-3'>
             <Link to="/setting">
               <button className='px-5 py-1 cursor-pointer bg-[#FF5A60] text-white text-center rounded-full'>
-              Setting
-            </button>
+                Setting
+              </button>
             </Link>
           </div>
 
           <ProfileThree onUpload={handleUpload} />
 
+          {error && (
+            <p className="text-center text-red-600 font-semibold mt-2">{error}</p>
+          )}
+
           <div className='md:w-3/4 lg:w-1/2 mx-auto'>
             <p className='text-center'>
-              Note: You can upload 20 photos to your profile. Each photo must be less than 15 MB and in jpg, jpeg, png or webp format. All photos uploaded are screened as per Photo Guidelines and 98% of those get activated within 2 hours.
+              Note: You can upload minimum 3 and maximum 5 photos to your profile. Each photo must be less than 15 MB and in jpg, jpeg, png or webp format.
             </p>
           </div>
         </div>
@@ -122,26 +148,24 @@ const UploadSection = () => {
               <img
                 src={url}
                 alt={`photo-${index}`}
-                onClick={() => setSelectedImage(url)} // 🆕 click to zoom
+                onClick={() => setSelectedImage(url)}
                 className="w-full h-full object-cover rounded-xl shadow-md cursor-pointer"
               />
-             <button
-  onClick={() => handleDelete(url)}
-  title="Delete Image"
-  className="absolute top-1 right-1 bg-white text-red-600 border border-red-600 rounded-full p-1 text-sm hover:bg-red-600 hover:text-white transition-colors duration-200"
->
-  <MdDelete className='cursor-pointer' />
-</button>
-
+              <button
+                onClick={() => handleDelete(url)}
+                title="Delete Image"
+                className="absolute top-1 right-1 bg-white text-red-600 border border-red-600 rounded-full p-1 text-sm hover:bg-red-600 hover:text-white transition-colors duration-200"
+              >
+                <MdDelete className='cursor-pointer' />
+              </button>
             </div>
           ))}
         </div>
       </div>
 
-      {/* 🆕 Fullscreen popup for zoomed image */}
       {selectedImage && (
         <div
-          onClick={() => setSelectedImage(null)} // close on click
+          onClick={() => setSelectedImage(null)}
           className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 cursor-zoom-out"
         >
           <img

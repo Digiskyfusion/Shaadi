@@ -115,9 +115,9 @@ function ProfileOne() {
           alt="Profile"
           className="w-full h-full object-cover rounded-full "
         />
-        <div className="absolute bottom-2 right-2 bg-black bg-opacity-70 text-white rounded-full p-1 cursor-pointer">
+        {/* <div className="absolute bottom-2 right-2 bg-black bg-opacity-70 text-white rounded-full p-1 cursor-pointer">
           <MdPhotoCamera className="text-lg sm:text-xl" />
-        </div>
+        </div> */}
         {editMode && (
   <div className="w-full flex flex-col items-center">
   <input

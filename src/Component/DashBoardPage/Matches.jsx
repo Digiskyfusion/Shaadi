@@ -6,7 +6,7 @@ function Matches({ data }) {
     <div className="p-4 bg-[#f5d4bd] border-2 border-gray-500 w-full mb-3  md:mb-5 rounded-lg shadow ">
       {data && data.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {data.map((item, index) => (
+          {[...data].reverse().map((item, index) => (
             <div
               key={item._id}
               className="flex flex-col gap-3 bg-white/30 p-4 rounded-md transition duration-150 hover:scale-104"

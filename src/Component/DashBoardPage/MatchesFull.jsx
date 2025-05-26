@@ -48,7 +48,7 @@ function MatchesFull() {
         <div className="w-full">
           <h2 className="text-lg font-semibold text-gray-800 mb-3 gilda-display-regular text-center">New Profiles</h2>
 
-          <Matches data={data.slice(0,3).reverse()} />
+          <Matches data={data.slice(-3)} />
         </div>
        
         {/* <div className="w-full max-w-md">

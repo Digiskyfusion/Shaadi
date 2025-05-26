@@ -52,8 +52,9 @@ function Navbar4() {
         //     { label: 'Saved Searches', path: '/saved-searches' },
         // ],
         INBOX: [
-             { label: 'Plans', path: '/plans' },
+
             { label: 'Messages', path: '/Chat' }, 
+            { label: 'Plans', path: '/plans' },
             { label: 'Receipt', path: '/userReceipts' }, 
             // { label: 'Sent Requests', path: '/sent-requests' },
             // { label: 'Messages', path: '/messages' }, 

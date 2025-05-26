@@ -41,6 +41,9 @@ import PlanPageFull from "./Pages/PlanPageFull";
 import UserReceipts from "./Component/Receipts/UserReceipts";
 import ScrollToTop from "./Component/ScrollTop/ScrollToTop";
 import SinglePlanCard from "./Component/RegestrationFeesPages/FeesCharge";
+import TermAndConditionPage from "./Pages/TermAndConditionPage";
+import PrivacyAndPolicyPage from "./Pages/PrivacyAndPolicyPage";
+import CancelAndRefundPage from "./Pages/CancelAndRefundPage";
 
 
 
@@ -108,6 +111,9 @@ function App() {
         <Route path="/Chat" element={<ChatPage  />} />
         <Route path="/plans" element={<PlanPageFull  />} />
         <Route path="/userReceipts" element={<UserReceipts  />} />
+        <Route path="/termandcondition" element={<TermAndConditionPage />} />
+        <Route path="/privacy" element={<PrivacyAndPolicyPage  />} />
+        <Route path="/refund" element={<CancelAndRefundPage  />} />
         
         
         

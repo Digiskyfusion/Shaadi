@@ -37,10 +37,11 @@ import ContactUsPage from "./Pages/ContactUsPage";
 import ChatPage from "./Pages/ChatPage";
 import PlanPageFull from "./Pages/PlanPageFull";
 import ScrollToTop from "./Component/ScrollTop/ScrollToTop";
-import SinglePlanCard from "./Component/RegestrationFeesPages/FeesCharge";
 import UserReceiptPage from "./Pages/UserReceiptPage";
 import { initializeSocket } from "./utils/socket";
-
+import TermAndConditionPage from "./Pages/TermAndConditionPage";
+import PrivacyAndPolicyPage from "./Pages/PrivacyAndPolicyPage";
+import CancelAndRefundPage from "./Pages/CancelAndRefundPage";
 
 
 function App() {
@@ -131,11 +132,15 @@ function App() {
         <Route path="/Chat/:id" element={<ChatPage  />} />
         <Route path="/Chat" element={<ChatPage  />} />
         <Route path="/plans" element={<PlanPageFull  />} />
+        <Route path="/termandcondition" element={<TermAndConditionPage />} />
+        <Route path="/privacy" element={<PrivacyAndPolicyPage  />} />
+        <Route path="/refund" element={<CancelAndRefundPage />} />
         <Route path="/userReceipts" element={<UserReceiptPage  />} />
         
         
         
       </Routes>
+     
     
 
 

@@ -52,10 +52,10 @@ function DetailSix() {
               Location
             </h1>
           </div>
-          <div className='flex justify-center'>
+          <div className='flex sm:justify-center'>
             <div
               onClick={() => setIsEditing(true)}
-              className='flex items-center mt-2 md:mt-0 gap-1 bg-black rounded-full text-white px-4 py-1 cursor-pointer hover:bg-gray-800 transition'>
+              className='flex items-center w-1/3 sm:w-full mt-2 md:mt-0 gap-2 bg-black rounded-full text-white px-4 py-1 cursor-pointer hover:bg-gray-800 transition'>
               <FaPencilAlt />
               <span>Edit</span>
             </div>
@@ -75,7 +75,7 @@ function DetailSix() {
                       type="text"
                       className="border p-2 rounded-md"
                       value={editData.currentresidence || ''}
-                      onChange={(e) => setEditData({ ...editData, currentresidence: e.target.value })}
+                      onChange={(e) => setEditData({ ...editData, currentresidence: e.target.value.toUpperCase() })}
                     />
                   ) : (
                     locationData.currentresidence
@@ -88,7 +88,7 @@ function DetailSix() {
                       type="text"
                       className="border p-2 rounded-md"
                       value={editData.stateofresidence || ''}
-                      onChange={(e) => setEditData({ ...editData, stateofresidence: e.target.value })}
+                      onChange={(e) => setEditData({ ...editData, stateofresidence: e.target.value.toUpperCase() })}
                     />
                   ) : (
                     locationData.stateofresidence
@@ -105,7 +105,7 @@ function DetailSix() {
                       type="text"
                       className="border p-2 rounded-md"
                       value={editData.residencystatus || ''}
-                      onChange={(e) => setEditData({ ...editData, residencystatus: e.target.value })}
+                      onChange={(e) => setEditData({ ...editData, residencystatus: e.target.value.toUpperCase() })}
                     />
                   ) : (
                     locationData.residencystatus
@@ -118,7 +118,7 @@ function DetailSix() {
                       type="text"
                       className="border p-2 rounded-md"
                       value={editData.zippincode || ''}
-                      onChange={(e) => setEditData({ ...editData, zippincode: e.target.value })}
+                      onChange={(e) => setEditData({ ...editData, zippincode: e.target.value.toUpperCase() })}
                     />
                   ) : (
                     locationData.zippincode

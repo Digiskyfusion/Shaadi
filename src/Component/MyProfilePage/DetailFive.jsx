@@ -68,10 +68,10 @@ export default function DetailFive() {
               Education & Career
             </h1>
           </div>
-          <div className='flex justify-center'>
+          <div className='flex sm:justify-center'>
             <div
               onClick={() => setIsEditing(true)}
-              className='flex items-center mt-2 md:mt-0 gap-1 bg-black rounded-full text-white px-4 py-1 cursor-pointer hover:bg-gray-800 transition'
+              className='flex items-center w-1/3 sm:w-full mt-2 md:mt-0 gap-2 bg-black rounded-full text-white px-4 py-1 cursor-pointer hover:bg-gray-800 transition'
             >
               <FaPencilAlt />
               <span>Edit</span>
@@ -91,7 +91,7 @@ export default function DetailFive() {
                     <input
                       type="text"
                       value={editData.highestqualification}
-                      onChange={(e) => setEditData({ ...editData, highestqualification: e.target.value })}
+                      onChange={(e) => setEditData({ ...editData, highestqualification: e.target.value.toUpperCase() })}
                       className="border rounded-md px-2 py-1 mt-2 md:mt-0 w-full"
                     />
                   ) : (
@@ -104,7 +104,7 @@ export default function DetailFive() {
                     <input
                       type="text"
                       value={editData.collegesattended}
-                      onChange={(e) => setEditData({ ...editData, collegesattended: e.target.value })}
+                      onChange={(e) => setEditData({ ...editData, collegesattended: e.target.value.toUpperCase() })}
                       className="border rounded-md px-2 py-1 mt-2 md:mt-0 w-full"
                     />
                   ) : (
@@ -117,7 +117,7 @@ export default function DetailFive() {
                     <input
                       type="text"
                       value={editData.annualincome}
-                      onChange={(e) => setEditData({ ...editData, annualincome: e.target.value })}
+                      onChange={(e) => setEditData({ ...editData, annualincome: e.target.value.toUpperCase() })}
                       className="border rounded-md px-2 py-1 mt-2 md:mt-0 w-full"
                     />
                   ) : (
@@ -134,7 +134,7 @@ export default function DetailFive() {
                     <input
                       type="text"
                       value={editData.workingwith}
-                      onChange={(e) => setEditData({ ...editData, workingwith: e.target.value })}
+                      onChange={(e) => setEditData({ ...editData, workingwith: e.target.value.toUpperCase() })}
                       className="border rounded-md px-2 py-1 mt-2 md:mt-0 w-full"
                     />
                   ) : (
@@ -147,7 +147,7 @@ export default function DetailFive() {
                     <input
                       type="text"
                       value={editData.workingas}
-                      onChange={(e) => setEditData({ ...editData, workingas: e.target.value })}
+                      onChange={(e) => setEditData({ ...editData, workingas: e.target.value.toUpperCase() })}
                       className="border rounded-md px-2 py-1 mt-2 md:mt-0 w-full"
                     />
                   ) : (
@@ -160,7 +160,7 @@ export default function DetailFive() {
                     <input
                       type="text"
                       value={editData.employername}
-                      onChange={(e) => setEditData({ ...editData, employername: e.target.value })}
+                      onChange={(e) => setEditData({ ...editData, employername: e.target.value.toUpperCase() })}
                       className="border rounded-md px-2 py-1 mt-2 md:mt-0 w-full"
                     />
                   ) : (

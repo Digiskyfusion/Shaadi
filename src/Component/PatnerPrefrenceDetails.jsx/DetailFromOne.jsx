@@ -37,7 +37,7 @@ function DetailFromOne() {
   }, [userId]);
 
   const handleChange = (e) => {
-    setPartnerData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    setPartnerData(prev => ({ ...prev, [e.target.name]: e.target.value.toUpperCase() }));
   };
 
   const handleSave = () => {
@@ -109,7 +109,7 @@ function DetailFromOne() {
           </div>
           <button
             onClick={() => setIsEditing(!isEditing)}
-            className="flex items-center gap-2 mt-4 md:mt-0 cursor-pointer bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800 transition"
+            className="flex items-center gap-2 mt-4 md:mt-0 cursor-pointer bg-black text-white px-4 py-1 rounded-full hover:bg-gray-800 transition"
           >
             <FaPencilAlt />
             <span>{isEditing ? "Cancel" : "Edit"}</span>

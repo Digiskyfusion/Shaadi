@@ -46,7 +46,7 @@ const FourthMatch = () => {
   return (
     <div className="p-6 md:p-10  mx-auto font-sans">
       <h2 className="text-3xl font-semibold mb-10 text-center text-[#FF5A60] tracking-wide">
-        Members that match your Partner Preferences
+        Members that match your According Your City
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

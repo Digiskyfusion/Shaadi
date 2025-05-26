@@ -67,13 +67,18 @@ function DetailFour() {
               Family Details
             </h1>
           </div>
-          <div className='flex justify-center'>
+          <div className='flex sm:justify-center'>
             <div
               onClick={() => setIsEditing(true)}
-              className='flex items-center mt-2 md:mt-0 gap-1 bg-black rounded-full text-white px-4 py-1 cursor-pointer hover:bg-gray-800 transition'
+              className='flex items-center mt-2 w-1/3 sm:w-full md:mt-0 gap-2 bg-black rounded-full text-white px-4 py-1 cursor-pointer hover:bg-gray-800 transition'
             >
               <FaPencilAlt />
-              <span>Edit</span>
+              <button
+                
+                className="bg-balck   text-white cursor-pointer rounded-md"
+              >
+                Edit
+              </button>
             </div>
           </div>
         </div>
@@ -90,7 +95,7 @@ function DetailFour() {
                     <input
                       type="text"
                       value={editData.motherdetails}
-                      onChange={(e) => setEditData({ ...editData, motherdetails: e.target.value })}
+                      onChange={(e) => setEditData({ ...editData, motherdetails: e.target.value.toUpperCase() })}
                       className="border rounded-md px-2 py-1 mt-2 md:mt-0 w-full"
                     />
                   ) : (
@@ -103,7 +108,7 @@ function DetailFour() {
                     <input
                       type="text"
                       value={editData.fatherdetails}
-                      onChange={(e) => setEditData({ ...editData, fatherdetails: e.target.value })}
+                      onChange={(e) => setEditData({ ...editData, fatherdetails: e.target.value.toUpperCase() })}
                       className="border rounded-md px-2 py-1 mt-2 md:mt-0 w-full"
                     />
                   ) : (
@@ -116,7 +121,7 @@ function DetailFour() {
                     <input
                       type="text"
                       value={editData.familylocation}
-                      onChange={(e) => setEditData({ ...editData, familylocation: e.target.value })}
+                      onChange={(e) => setEditData({ ...editData, familylocation: e.target.value.toUpperCase() })}
                       className="border rounded-md px-2 py-1 mt-2 md:mt-0 w-full"
                     />
                   ) : (
@@ -133,7 +138,7 @@ function DetailFour() {
                     <input
                       type="number"
                       value={editData.nosisters}
-                      onChange={(e) => setEditData({ ...editData, nosisters: e.target.value })}
+                      onChange={(e) => setEditData({ ...editData, nosisters: e.target.value.toUpperCase() })}
                       className="border rounded-md px-2 py-1 mt-2 md:mt-0 w-full"
                     />
                   ) : (
@@ -146,7 +151,7 @@ function DetailFour() {
                     <input
                       type="number"
                       value={editData.nobrothers}
-                      onChange={(e) => setEditData({ ...editData, nobrothers: e.target.value })}
+                      onChange={(e) => setEditData({ ...editData, nobrothers: e.target.value.toUpperCase() })}
                       className="border rounded-md px-2 py-1 mt-2 md:mt-0 w-full"
                     />
                   ) : (
@@ -159,7 +164,7 @@ function DetailFour() {
                     <input
                       type="text"
                       value={editData.familyfinancialstatus}
-                      onChange={(e) => setEditData({ ...editData, familyfinancialstatus: e.target.value })}
+                      onChange={(e) => setEditData({ ...editData, familyfinancialstatus: e.target.value.toUpperCase() })}
                       className="border rounded-md px-2 py-1 mt-2 md:mt-0 w-full"
                     />
                   ) : (

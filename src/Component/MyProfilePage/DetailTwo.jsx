@@ -53,10 +53,10 @@ function DetailTwo() {
               Basic & Lifestyle
             </h1>
           </div>
-          <div className='flex justify-center'>
+          <div className='flex sm:justify-center'>
             <div
               onClick={() => setIsEditing(true)}
-              className='flex items-center mt-2 md:mt-0 gap-1 bg-black cursor-pointer rounded-full text-white px-4 py-1 hover:bg-gray-800 transition'
+              className='flex items-center mt-2 md:mt-0 gap-2  w-1/3 sm:w-full bg-black cursor-pointer rounded-full text-white px-4 py-1 hover:bg-gray-800 transition'
             >
               <FaPencilAlt />
               <span>Edit</span>
@@ -76,7 +76,7 @@ function DetailTwo() {
                     <input
                       type="text"
                       value={editData.growup}
-                      onChange={(e) => setEditData({ ...editData, growup: e.target.value })}
+                      onChange={(e) => setEditData({ ...editData, growup: e.target.value.toUpperCase() })}
                       className="border rounded-md px-2 py-1"
                     />
                   ) : (
@@ -89,7 +89,7 @@ function DetailTwo() {
                     <input
                       type="text"
                       value={editData.diet}
-                      onChange={(e) => setEditData({ ...editData, diet: e.target.value })}
+                      onChange={(e) => setEditData({ ...editData, diet: e.target.value.toUpperCase() })}
                       className="border rounded-md px-2 py-1"
                     />
                   ) : (
@@ -106,7 +106,7 @@ function DetailTwo() {
                     <input
                       type="text"
                       value={editData.healthinformation}
-                      onChange={(e) => setEditData({ ...editData, healthinformation: e.target.value })}
+                      onChange={(e) => setEditData({ ...editData, healthinformation: e.target.value.toUpperCase() })}
                       className="border rounded-md px-2 py-1"
                     />
                   ) : (
@@ -119,7 +119,7 @@ function DetailTwo() {
                     <input
                       type="text"
                       value={editData.disability}
-                      onChange={(e) => setEditData({ ...editData, disability: e.target.value })}
+                      onChange={(e) => setEditData({ ...editData, disability: e.target.value.toUpperCase() })}
                       className="border rounded-md px-2 py-1"
                     />
                   ) : (

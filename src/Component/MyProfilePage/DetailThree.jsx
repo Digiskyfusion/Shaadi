@@ -33,12 +33,19 @@ function DetailThree() {
     fetchProfile();
   }, [userId]);
 
-  const handleChange = (e) => {
-    setEditData({
-      ...editData,
-      [e.target.name]: e.target.value
-    });
-  };
+  // const handleChange = (e) => {
+  //   setEditData({
+  //     ...editData,
+  //     [e.target.name]: e.target.value
+  //   });
+  // };
+const handleChange = (e) => {
+  const { name, value } = e.target;
+  setEditData({
+    ...editData,
+    [name]: value.toUpperCase()
+  });
+};
 
   const handleSave = async () => {
     try {
@@ -63,13 +70,13 @@ function DetailThree() {
           {/* Edit Button */}
           <div>
             {!isEditing ? (
-              <div className='flex w-1/2 sm:w-auto  items-center mt-2 md:mt-0 gap-2 bg-black cursor-pointer rounded-full text-white px-4 py-1  hover:bg-gray-800 transition'
+              <div className='flex  w-1/3 sm:w-full  items-center mt-2 md:mt-0 gap-2 bg-black cursor-pointer rounded-full text-white px-4 py-1  hover:bg-gray-800 transition'
               onClick={() => setIsEditing(true)}
               >
                  <FaPencilAlt />
               <button
                 
-                className="bg-balck  text-white cursor-pointer rounded-md"
+                className="bg-balck   text-white cursor-pointer rounded-md"
               >
                 Edit
               </button>
@@ -106,12 +113,12 @@ function DetailThree() {
       className="border rounded-md px-10 py-2"
     >
       <option value="">Select Religion</option>
-      <option value="Hindu">Hindu</option>
-      <option value="Christian">Christian</option>
-      <option value="Sikh">Sikh</option>
-      <option value="Buddhist">Buddhist</option>
-      <option value="Jain">Jain</option>
-      <option value="Other">Other</option>
+      <option value="Hindu">HINDU</option>
+      <option value="Christian">CHRISTIAN</option>
+      <option value="Sikh">SIKH</option>
+      <option value="Buddhist">BUDDHIST</option>
+      <option value="Jain">JAIN</option>
+      <option value="Other">OTHER</option>
     </select>
   ) : (
     <span>{profile.religion}</span>

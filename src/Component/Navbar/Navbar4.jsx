@@ -36,8 +36,9 @@ function Navbar4() {
         'MY SHAADI': [
             { label: 'Dashboard', path: '/dashboard' },
             { label: 'My Profile', path: '/userprofile' },
-            // { label: 'My Photos', path: '/photo' },
+            { label: 'My Photos', path: '/photo' },
             { label: 'Settings', path: '/setting' },
+            // { label: 'All images', path: '/images' },
         ],
         MATCHES: [
             // { label: 'New Profile', path: '/FirstMatch' },

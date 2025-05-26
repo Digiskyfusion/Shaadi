@@ -48,11 +48,11 @@ function DetailSeven() {
               Hobbies
             </h1>
           </div>
-          <div className='flex justify-center'>
+          <div className='flex sm:justify-center'>
             {!isEditing && (
               <div
                 onClick={() => setIsEditing(true)}
-                className='flex items-center mt-2 md:mt-0 gap-1 bg-black rounded-full text-white px-4 py-1 cursor-pointer hover:bg-gray-800 transition'
+                className='flex items-center w-1/3 sm:w-full mt-2 md:mt-0 gap-2 bg-black rounded-full text-white px-4 py-1 cursor-pointer hover:bg-gray-800 transition'
               >
                 <FaPencilAlt />
                 <span>Edit</span>
@@ -72,7 +72,7 @@ function DetailSeven() {
                     type="text"
                     className="border p-2 rounded-md"
                     value={editHobbies}
-                    onChange={(e) => setEditHobbies(e.target.value)}
+                    onChange={(e) => setEditHobbies(e.target.value.toUpperCase())}
                     placeholder="e.g., Photography, Gaming, Hiking"
                   />
                   <div className="flex justify-end gap-4 mt-4">
@@ -94,7 +94,7 @@ function DetailSeven() {
                 <div className='flex flex-wrap pl-6 gap-2'>
   {(typeof hobbies === 'string' ? hobbies.split(",") : []).map((hobby, index) => (
     <span className='bg-rose-200 px-3 py-1 rounded-md' key={index}>
-      {hobby.trim()}
+      {hobby.trim().toUpperCase()}
     </span>
   ))}
 </div>

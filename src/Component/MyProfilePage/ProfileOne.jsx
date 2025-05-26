@@ -119,37 +119,35 @@ function ProfileOne() {
           <MdPhotoCamera className="text-lg sm:text-xl" />
         </div>
         {editMode && (
-  <div>
-    <input
-      type="file"
-      id="file-upload"
-      style={{ display: 'none' }}
-      onChange={(e) => {
-        const file = e.target.files[0];
-        setImage(file);
-        if (file) {
-          setPreviewUrl(URL.createObjectURL(file));
-        }
-      }}
-    />
-    <label htmlFor="file-upload">
-      <div
-        className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 inline-block cursor-pointer mt-2"
-      >
-        Upload File
-      </div>
-    </label>
-  </div>
+  <div className="w-full flex flex-col items-center">
+  <input
+    type="file"
+    id="file-upload"
+    style={{ display: 'none' }}
+    onChange={(e) => {
+      const file = e.target.files[0];
+      setImage(file);
+      if (file) {
+        setPreviewUrl(URL.createObjectURL(file));
+      }
+    }}
+  />
+  <label htmlFor="file-upload" className="w-40 max-w-xs">
+    <div className="w-full text-center px-4 py-2 bg-red-800 text-white rounded hover:bg-black cursor-pointer mt-2 text-sm sm:text-base">
+      Upload File
+    </div>
+  </label>
+</div>
 )}
 </div>
       {/* User Info */}
       <div className="bg-[#FFE2CE] px-4 sm:px-6 py-6 sm:py-8 rounded-xl shadow-lg space-y-4">
-        {/* Name */}
+        {/* Name */} 
         <div className="flex sm:flex-row sm:items-center justify-between gap-2">
           <div className="w-full sm:w-auto">
             {editMode ? (
               <>
-                <label className="text-lg font-medium text-gray-700 mr-2">Namennnnnn:</label>
+                <label className="text-lg font-medium text-gray-700 mr-2">Name:</label>
                 <div className="flex flex-col gap-2">
                   <input
                     type="text"
@@ -278,4 +276,6 @@ function ProfileOne() {
   )
 }
 
-export default ProfileOne
+export default ProfileOne;
+
+

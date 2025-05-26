@@ -8,7 +8,7 @@ function CancelAndRefundPage() {
     <>
     <Navbar />
     <CancelAndRefund />
-    <Footer />
+   <Footer />
       
     </>
   )

@@ -16,14 +16,11 @@ import {
 } from 'react-icons/gi';
   import { ToastContainer, toast } from 'react-toastify';
 
-function ProfileDetails() {
+function ConnectreistrationProfile() {
   let API= import.meta.env.VITE_APP_API_URL
   const { userId } = useParams();
   const navigate = useNavigate();
   const [profile, setProfile] = useState(null);
-  const [CurrentUser, setCurrentUser]= useState(null)
-  const [showNumber, setShowNumber] = useState(false);
-const [hasDeductedCredits, setHasDeductedCredits] = useState(false);
   let a = JSON.parse(localStorage.getItem("userProfile"));
   let id= a?._id
   // console.log("hello id ", id);
@@ -36,15 +33,7 @@ const [hasDeductedCredits, setHasDeductedCredits] = useState(false);
         setProfile(response.data)
       })
       .catch((error) => console.error('Error fetching profile data:', error));
-      
-
-      axios.get(`${API}user/${id}`)
-      .then((res)=>
-      {
-        setCurrentUser(res.data.user.credits)
-        // console.log("hello",res.data.user.credits);
-        
-      })
+    
       // console.log("current", CurrentUser);
   }, [userId]);
 
@@ -52,18 +41,13 @@ const [hasDeductedCredits, setHasDeductedCredits] = useState(false);
 
 
 const handleConnect = () => {
-  if (CurrentUser > 0) {
-      axios.post(`${API}user/credits/${id}`)
-        .then((res) => {
-          console.log("hello credits", res.data);
-        })
-  } else {
-    toast.info("You Need To Purchase Any Plan");
-    setTimeout(() => {
-      navigate('/plans');
-    }, 1500);
-  }
+  toast.info("You Need To Purchase Any Plan");
+  setTimeout(() => {
+    navigate('/plans', { state: { clickedUserId: profile.userId?._id ,userId: id } });
+  }, 1500);
 };
+
+
 
   const iconMap = {
     'Age': <FaBirthdayCake />,
@@ -308,4 +292,4 @@ const handleConnect = () => {
   );
 }
 
-export default ProfileDetails;
+export default ConnectreistrationProfile ;

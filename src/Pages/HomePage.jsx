@@ -43,8 +43,8 @@ function  HomePage() {
     <SecondSection />
     <ThirdSection />
     <FourthSection />
-    <FeesCharge />
-    {/* <FifthSection /> */}
+    {/* <FeesCharge /> */}
+    <FifthSection />
     
     <Footer />
         

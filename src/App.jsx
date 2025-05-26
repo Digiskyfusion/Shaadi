@@ -38,6 +38,7 @@ import ChatPage from "./Pages/ChatPage";
 import PlanPageFull from "./Pages/PlanPageFull";
 import ScrollToTop from "./Component/ScrollTop/ScrollToTop";
 import SinglePlanCard from "./Component/RegestrationFeesPages/FeesCharge";
+import UserReceiptPage from "./Pages/UserReceiptPage";
 
 
 
@@ -105,7 +106,7 @@ function App() {
         <Route path="/contactUs" element={<ContactUsPage  />} />
         <Route path="/Chat" element={<ChatPage  />} />
         <Route path="/plans" element={<PlanPageFull  />} />
-        <Route path="/userReceipts" element={<UserReceipts  />} />
+        <Route path="/userReceipts" element={<UserReceiptPage  />} />
         
         
         

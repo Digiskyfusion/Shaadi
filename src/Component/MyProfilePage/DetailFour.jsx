@@ -90,7 +90,7 @@ function DetailFour() {
                     <input
                       type="text"
                       value={editData.motherdetails}
-                      onChange={(e) => setEditData({ ...editData, motherdetails: e.target.value })}
+                      onChange={(e) => setEditData({ ...editData, motherdetails: e.target.value.toUpperCase() })}
                       className="border rounded-md px-2 py-1 mt-2 md:mt-0 w-full"
                     />
                   ) : (
@@ -103,7 +103,7 @@ function DetailFour() {
                     <input
                       type="text"
                       value={editData.fatherdetails}
-                      onChange={(e) => setEditData({ ...editData, fatherdetails: e.target.value })}
+                      onChange={(e) => setEditData({ ...editData, fatherdetails: e.target.value.toUpperCase() })}
                       className="border rounded-md px-2 py-1 mt-2 md:mt-0 w-full"
                     />
                   ) : (
@@ -116,7 +116,7 @@ function DetailFour() {
                     <input
                       type="text"
                       value={editData.familylocation}
-                      onChange={(e) => setEditData({ ...editData, familylocation: e.target.value })}
+                      onChange={(e) => setEditData({ ...editData, familylocation: e.target.value.toUpperCase() })}
                       className="border rounded-md px-2 py-1 mt-2 md:mt-0 w-full"
                     />
                   ) : (
@@ -133,7 +133,7 @@ function DetailFour() {
                     <input
                       type="number"
                       value={editData.nosisters}
-                      onChange={(e) => setEditData({ ...editData, nosisters: e.target.value })}
+                      onChange={(e) => setEditData({ ...editData, nosisters: e.target.value.toUpperCase() })}
                       className="border rounded-md px-2 py-1 mt-2 md:mt-0 w-full"
                     />
                   ) : (
@@ -146,7 +146,7 @@ function DetailFour() {
                     <input
                       type="number"
                       value={editData.nobrothers}
-                      onChange={(e) => setEditData({ ...editData, nobrothers: e.target.value })}
+                      onChange={(e) => setEditData({ ...editData, nobrothers: e.target.value.toUpperCase() })}
                       className="border rounded-md px-2 py-1 mt-2 md:mt-0 w-full"
                     />
                   ) : (
@@ -159,7 +159,7 @@ function DetailFour() {
                     <input
                       type="text"
                       value={editData.familyfinancialstatus}
-                      onChange={(e) => setEditData({ ...editData, familyfinancialstatus: e.target.value })}
+                      onChange={(e) => setEditData({ ...editData, familyfinancialstatus: e.target.value.toUpperCase() })}
                       className="border rounded-md px-2 py-1 mt-2 md:mt-0 w-full"
                     />
                   ) : (

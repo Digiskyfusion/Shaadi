@@ -37,7 +37,7 @@ function DetailFromOne() {
   }, [userId]);
 
   const handleChange = (e) => {
-    setPartnerData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    setPartnerData(prev => ({ ...prev, [e.target.name]: e.target.value.toUpperCase() }));
   };
 
   const handleSave = () => {

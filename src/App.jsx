@@ -113,6 +113,7 @@ function App() {
         <Route path="/termandcondition" element={<TermAndConditionPage />} />
         <Route path="/privacy" element={<PrivacyAndPolicyPage  />} />
         <Route path="/refund" element={<CancelAndRefund />} />
+        <Route path="/userReceipts" element={<UserReceiptPage  />} />
         
         
         

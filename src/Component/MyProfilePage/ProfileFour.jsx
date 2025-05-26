@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen } from "@fortawesome/free-solid-svg-icons";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const ProfileFour = () => {
-  let API= import.meta.env.VITE_APP_API_URL
+  let API = import.meta.env.VITE_APP_API_URL;
   const [isEditing, setIsEditing] = useState(false);
   const [profile, setProfile] = useState({
     age: "",
@@ -17,25 +17,16 @@ const ProfileFour = () => {
     gothram: "",
     mothertongue: "",
   });
-  const navigate= useNavigate()
-  let a = JSON.parse(localStorage.getItem("userProfile"))
-  let userId= a._id
-  //  console.log("userId", userId);
+
+  const navigate = useNavigate();
+  let a = JSON.parse(localStorage.getItem("userProfile"));
+  let userId = a._id;
+
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-       
-       
-        
         const response = await axios.get(`${API}api/profileget/${userId}`);
-        // const res= await axios.get(`http://localhost:3000/user/${userId}`)
         const data = response.data.data;
-        // const data1 = res.data;
-// console.log(data);
-
-        // Calculate age from DOB
-        const birthDate = new Date(data.dob);
-        // const age = new Date().getFullYear() - birthDate.getFullYear();
 
         setProfile({
           age: data.age,
@@ -61,7 +52,18 @@ const ProfileFour = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setProfile((prev) => ({ ...prev, [name]: value }));
+    let formattedValue = value;
+
+    // Capitalize each word in the city input
+    if (name === "city") {
+      formattedValue = value
+        .toLowerCase()
+        .split(" ")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ");
+    }
+
+    setProfile((prev) => ({ ...prev, [name]: formattedValue }));
   };
 
   const handleSave = async () => {
@@ -78,7 +80,7 @@ const ProfileFour = () => {
 
       await axios.put(`${API}api/profileupdate/${userId}`, updatedData);
       setIsEditing(false);
-      navigate("/userprofile")
+      navigate("/userprofile");
     } catch (error) {
       console.error("Failed to update profile:", error);
     }
@@ -94,7 +96,6 @@ const ProfileFour = () => {
             onChange={handleInputChange}
             placeholder="Age"
             className="border p-2 rounded"
-            // disabled // age is calculated, not editable
           />
           <input
             name="height"
@@ -121,15 +122,14 @@ const ProfileFour = () => {
             name="city"
             value={profile.city}
             onChange={handleInputChange}
-            placeholder="Religion"
+            placeholder="City"
             className="border p-2 rounded"
           />
-        
           <input
             name="gothram"
-            placeholder="Gothram"
             value={profile.gothram}
             onChange={handleInputChange}
+            placeholder="Gothram"
             className="border p-2 rounded"
           />
           <input
@@ -139,7 +139,6 @@ const ProfileFour = () => {
             placeholder="Mother Tongue"
             className="border p-2 rounded"
           />
-
           <div className="col-span-1 sm:col-span-2 flex justify-end gap-4 mt-4">
             <button
               onClick={() => setIsEditing(false)}
@@ -149,7 +148,7 @@ const ProfileFour = () => {
             </button>
             <button
               onClick={handleSave}
-              className="px-4 py-2 bg-[#4ac429]  text-white rounded"
+              className="px-4 py-2 bg-[#4ac429] text-white rounded"
             >
               Save
             </button>
@@ -181,16 +180,12 @@ const ProfileFour = () => {
             <div className="flex">
               <span className="w-40">City</span>
               <span className="mr-2">:</span>
-              <span>
-                {profile.city || "-"}
-              </span>
+              <span>{profile.city || "-"}</span>
             </div>
             <div className="flex">
               <span className="w-40">Gothram</span>
               <span className="mr-2">:</span>
-              <span>
-                {profile.gothram || "-"}
-              </span>
+              <span>{profile.gothram || "-"}</span>
             </div>
             <div className="flex">
               <span className="w-40">Mother Tongue</span>

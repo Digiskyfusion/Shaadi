@@ -69,7 +69,7 @@ function DetailOne() {
                   rows={6}
                   className="w-full border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
                   value={editContent}
-                  onChange={(e) => setEditContent(e.target.value)}
+                  onChange={(e) => setEditContent(e.target.value.toUpperCase())}
                 />
                 <div className="flex justify-end gap-3 mt-4">
                   <button

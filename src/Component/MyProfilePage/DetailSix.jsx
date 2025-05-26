@@ -75,7 +75,7 @@ function DetailSix() {
                       type="text"
                       className="border p-2 rounded-md"
                       value={editData.currentresidence || ''}
-                      onChange={(e) => setEditData({ ...editData, currentresidence: e.target.value })}
+                      onChange={(e) => setEditData({ ...editData, currentresidence: e.target.value.toUpperCase() })}
                     />
                   ) : (
                     locationData.currentresidence
@@ -88,7 +88,7 @@ function DetailSix() {
                       type="text"
                       className="border p-2 rounded-md"
                       value={editData.stateofresidence || ''}
-                      onChange={(e) => setEditData({ ...editData, stateofresidence: e.target.value })}
+                      onChange={(e) => setEditData({ ...editData, stateofresidence: e.target.value.toUpperCase() })}
                     />
                   ) : (
                     locationData.stateofresidence
@@ -105,7 +105,7 @@ function DetailSix() {
                       type="text"
                       className="border p-2 rounded-md"
                       value={editData.residencystatus || ''}
-                      onChange={(e) => setEditData({ ...editData, residencystatus: e.target.value })}
+                      onChange={(e) => setEditData({ ...editData, residencystatus: e.target.value.toUpperCase() })}
                     />
                   ) : (
                     locationData.residencystatus
@@ -118,7 +118,7 @@ function DetailSix() {
                       type="text"
                       className="border p-2 rounded-md"
                       value={editData.zippincode || ''}
-                      onChange={(e) => setEditData({ ...editData, zippincode: e.target.value })}
+                      onChange={(e) => setEditData({ ...editData, zippincode: e.target.value.toUpperCase() })}
                     />
                   ) : (
                     locationData.zippincode

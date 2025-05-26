@@ -33,12 +33,19 @@ function DetailThree() {
     fetchProfile();
   }, [userId]);
 
-  const handleChange = (e) => {
-    setEditData({
-      ...editData,
-      [e.target.name]: e.target.value
-    });
-  };
+  // const handleChange = (e) => {
+  //   setEditData({
+  //     ...editData,
+  //     [e.target.name]: e.target.value
+  //   });
+  // };
+const handleChange = (e) => {
+  const { name, value } = e.target;
+  setEditData({
+    ...editData,
+    [name]: value.toUpperCase()
+  });
+};
 
   const handleSave = async () => {
     try {
@@ -106,12 +113,12 @@ function DetailThree() {
       className="border rounded-md px-10 py-2"
     >
       <option value="">Select Religion</option>
-      <option value="Hindu">Hindu</option>
-      <option value="Christian">Christian</option>
-      <option value="Sikh">Sikh</option>
-      <option value="Buddhist">Buddhist</option>
-      <option value="Jain">Jain</option>
-      <option value="Other">Other</option>
+      <option value="Hindu">HINDU</option>
+      <option value="Christian">CHRISTIAN</option>
+      <option value="Sikh">SIKH</option>
+      <option value="Buddhist">BUDDHIST</option>
+      <option value="Jain">JAIN</option>
+      <option value="Other">OTHER</option>
     </select>
   ) : (
     <span>{profile.religion}</span>

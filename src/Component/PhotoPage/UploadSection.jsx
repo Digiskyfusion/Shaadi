@@ -62,8 +62,8 @@ function UploadSection() {
     const token = user?.token;
 
     try {
-      const res = await axios.post(
-        `${API}api/profile`,
+      const res = await axios.put(
+        `${API}api/profileupdate/${userId}`,
         formData,
         {
           headers: {
@@ -72,11 +72,11 @@ function UploadSection() {
           },
         }
       );
-      console.log(res.data);
+      console.log(res.data.data);
       
 
       toast.success("Images uploaded successfully!");
-      setUploadedImages(res.data.allImages || []);
+      setUploadedImages(res.data.data.allImages || []);
       setSelectedFiles([]);
     } catch (error) {
       console.error("Upload failed:", error);
@@ -135,14 +135,14 @@ function UploadSection() {
 
         <div className="flex justify-center gap-4 flex-wrap">
           {/* Static Images */}
-          {staticImages.map((image, index) => (
+          {/* {staticImages.map((image, index) => (
             <img
               key={index}
               src={image.src}
               alt={image.alt}
               className="w-24 h-24 sm:w-40 sm:h-40 object-cover rounded-xl shadow-md hover:scale-105 transition-transform duration-300"
             />
-          ))}
+          ))} */}
 
           {/* Uploaded Images */}
           {uploadedImages.map((url, index) => (

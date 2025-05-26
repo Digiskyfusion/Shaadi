@@ -30,13 +30,13 @@ const ProfileFour = () => {
 
         setProfile({
           age: data.age,
-          height: data.height || "",
-          maritalstatus: data.maritalStatus || "",
-          bloodgroup: data.bloodgroup || "",
-          city: data.city || "",
-          community: data.community || "",
-          gothram: data.gothram || "",
-          mothertongue: data.mothertongue || "",
+          height: data.height?.toUpperCase() || "",
+          maritalstatus: data.maritalStatus?.toUpperCase() || "",
+          bloodgroup: data.bloodgroup?.toUpperCase() || "",
+          city: data.city?.toUpperCase() || "",
+          community: data.community?.toUpperCase() || "",
+          gothram: data.gothram?.toUpperCase() || "",
+          mothertongue: data.mothertongue?.toUpperCase() || "",
         });
       } catch (error) {
         console.error("Failed to fetch profile:", error);
@@ -52,18 +52,7 @@ const ProfileFour = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    let formattedValue = value;
-
-    // Capitalize each word in the city input
-    if (name === "city") {
-      formattedValue = value
-        .toLowerCase()
-        .split(" ")
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(" ");
-    }
-
-    setProfile((prev) => ({ ...prev, [name]: formattedValue }));
+    setProfile((prev) => ({ ...prev, [name]: value.toUpperCase() }));
   };
 
   const handleSave = async () => {

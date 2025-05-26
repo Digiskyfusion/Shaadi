@@ -14,7 +14,6 @@ const Message = ({ recipientId }) => {
   const [loading, setLoading] = useState(true);
   const [socket, setSocket] = useState(null);
   const chatEndRef = useRef(null);
-  const [autoScroll, setAutoScroll] = useState(true);
   const user = JSON.parse(localStorage.getItem('userProfile'));
   const currentUserId = user?._id;
   const [UserCredits, setUserCredits] = useState(null);
@@ -34,7 +33,6 @@ const Message = ({ recipientId }) => {
     socket.on('receive_message', (message) => {
       setMessages(prev => [...prev, message]);
       toast.success('New message received!');
-      if (autoScroll) scrollToBottom();
     });
 
     socket.on('message_delivered', (message) => {
@@ -51,7 +49,7 @@ const Message = ({ recipientId }) => {
       socket.off('message_delivered');
       socket.off('message_error');
     };
-  }, [socket, conversation, autoScroll]);
+  }, [socket, conversation]);
 
   useEffect(() => {
     if (!currentUserId || !recipientId) {
@@ -141,18 +139,10 @@ const Message = ({ recipientId }) => {
         setNewChat(false);
       }
 
-      if (autoScroll) scrollToBottom();
-
     } catch (err) {
       console.error('Error sending message:', err);
       toast.error('Failed to send message.');
       setMessages(prev => prev.filter(msg => msg.timestamp !== messageData.timestamp));
-    }
-  };
-
-  const scrollToBottom = () => {
-    if (chatEndRef.current) {
-      chatEndRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -173,8 +163,7 @@ const Message = ({ recipientId }) => {
   }
 
   return (
-   <div className="max-w-6xl mx-auto flex flex-col h-screen overflow-hidden bg-[#FFCCA8] rounded-t-2xl rounded-b-2xl mt-2 mb-4">
-
+    <div className="max-w-6xl mx-auto flex flex-col h-screen overflow-hidden bg-[#FFCCA8] rounded-t-2xl rounded-b-2xl mt-2 mb-4">
       <Toaster />
 
       {/* Header */}
@@ -193,8 +182,7 @@ const Message = ({ recipientId }) => {
       </div>
 
       {/* Messages */}
-   <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-hide">
-
+      <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-hide">
         {messages.map((msg, index) => (
           <div
             key={index}
@@ -210,16 +198,15 @@ const Message = ({ recipientId }) => {
               />
             )}
             <div>
-             <div
-  className={`px-4 py-2 rounded-2xl shadow text-sm break-words max-w-[13rem] md:max-w-md ${
-    (msg.sender?._id || msg.senderId) === currentUserId
-      ? 'bg-[#FF5A60] text-white'
-      : 'bg-white text-gray-800'
-  }`}
->
-  {msg.text}
-</div>
-
+              <div
+                className={`px-4 py-2 rounded-2xl shadow text-sm break-words max-w-[13rem] md:max-w-md ${
+                  (msg.sender?._id || msg.senderId) === currentUserId
+                    ? 'bg-[#FF5A60] text-white'
+                    : 'bg-white text-gray-800'
+                }`}
+              >
+                {msg.text}
+              </div>
               <div className="text-xs text-[#000000] mt-1">
                 {new Date(msg.timestamp).toLocaleTimeString([], {
                   hour: "2-digit",
@@ -262,9 +249,6 @@ const Message = ({ recipientId }) => {
           <Send className="w-4 h-4" />
         </button>
       </div>
-
-      {/* Auto-scroll Toggle */}
-      
     </div>
   );
 };

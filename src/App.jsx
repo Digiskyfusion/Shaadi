@@ -113,7 +113,6 @@ function App() {
         <Route path="/privacy" element={<PrivacyAndPolicyPage  />} />
         <Route path="/refund" element={<CancelAndRefundPage />} />
         <Route path="/userReceipts" element={<UserReceiptPage  />} />
-        <Route path="/images" element={<UserImagesManager  />} />
         
         
         

@@ -40,7 +40,7 @@ function DetailOne() {
   return (
     <div className='px-5 py-2'>
       <div className='bg-[#FFE7D6] p-5 rounded-md'>
-        <div className='md:flex justify-between'>
+        <div className='md:flex md:justify-between'>
           <div className='flex items-center gap-2'>
             <LuDot className='text-4xl text-red-600' />
             <h1 className='text-red-600 text-base md:text-xl font-bold'>
@@ -49,10 +49,10 @@ function DetailOne() {
           </div>
 
           {!isEditing && (
-            <div className='flex justify-center'>
+            <div className='md:flex justify-center'>
               <div
                 onClick={() => setIsEditing(true)}
-                className='flex items-center gap-1 mt-2 cursor-pointer md:mt-0 bg-black rounded-full text-white px-4 md:px-6 py-1 hover:bg-gray-800 transition'
+                className='flex items-center gap-1 mt-2 w-1/3 sm:w-full cursor-pointer md:mt-0 bg-black rounded-full text-white px-4 md:px-6 py-1 hover:bg-gray-800 transition'
               >
                 <FaPencilAlt />
                 Edit

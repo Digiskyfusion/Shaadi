@@ -70,13 +70,13 @@ const handleChange = (e) => {
           {/* Edit Button */}
           <div>
             {!isEditing ? (
-              <div className='flex w-1/2 sm:w-auto  items-center mt-2 md:mt-0 gap-2 bg-black cursor-pointer rounded-full text-white px-4 py-1  hover:bg-gray-800 transition'
+              <div className='flex  w-1/3 sm:w-full  items-center mt-2 md:mt-0 gap-2 bg-black cursor-pointer rounded-full text-white px-4 py-1  hover:bg-gray-800 transition'
               onClick={() => setIsEditing(true)}
               >
                  <FaPencilAlt />
               <button
                 
-                className="bg-balck  text-white cursor-pointer rounded-md"
+                className="bg-balck   text-white cursor-pointer rounded-md"
               >
                 Edit
               </button>

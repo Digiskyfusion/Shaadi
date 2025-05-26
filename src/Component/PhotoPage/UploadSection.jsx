@@ -4,6 +4,7 @@ import axios from 'axios';
 import { storage } from '../../firebase';
 import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage';
 import { MdDelete } from "react-icons/md";
+import { Link } from 'react-router-dom';
 
 const UploadSection = () => {
   const [images, setImages] = useState([]);
@@ -96,9 +97,11 @@ const UploadSection = () => {
       <div className='p-2 md:p-4 jost md:px-10 md:py-5'>
         <div className='bg-[#FFCCA8] py-2 md:py-3 md:px-5 rounded-md'>
           <div className='flex justify-center gap-3 mt-3'>
-            <button className='px-5 py-1 cursor-pointer bg-[#FF5A60] text-white text-center rounded-full'>
-              Photo
+            <Link to="/setting">
+              <button className='px-5 py-1 cursor-pointer bg-[#FF5A60] text-white text-center rounded-full'>
+              Setting
             </button>
+            </Link>
           </div>
 
           <ProfileThree onUpload={handleUpload} />

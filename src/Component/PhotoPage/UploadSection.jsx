@@ -122,13 +122,14 @@ const UploadSection = () => {
                 onClick={() => setSelectedImage(url)} // 🆕 click to zoom
                 className="w-full h-full object-cover rounded-xl shadow-md cursor-pointer"
               />
-              <button
-                onClick={() => handleDelete(url)}
-                title="Delete Image"
-                className="absolute top-1 right-1 bg-white text-red-600 border border-red-600 rounded-full p-1 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-red-600 hover:text-white"
-              >
-                <MdDelete className='cursor-pointer' />
-              </button>
+             <button
+  onClick={() => handleDelete(url)}
+  title="Delete Image"
+  className="absolute top-1 right-1 bg-white text-red-600 border border-red-600 rounded-full p-1 text-sm hover:bg-red-600 hover:text-white transition-colors duration-200"
+>
+  <MdDelete className='cursor-pointer' />
+</button>
+
             </div>
           ))}
         </div>

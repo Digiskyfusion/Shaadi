@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import HomePage from "./Pages/HomePage";
 import LoginNavbarPage from "./Pages/LoginNavbarPage";
 import StepOne from "./Component/FormPage/StepOne";
@@ -39,6 +39,7 @@ import PlanPageFull from "./Pages/PlanPageFull";
 import ScrollToTop from "./Component/ScrollTop/ScrollToTop";
 import SinglePlanCard from "./Component/RegestrationFeesPages/FeesCharge";
 import UserReceiptPage from "./Pages/UserReceiptPage";
+import { initializeSocket } from "./utils/socket";
 
 
 
@@ -55,6 +56,29 @@ function App() {
     location: "",
     password: "",
   });
+
+
+   useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      const socket = initializeSocket(token);
+
+      socket.on("receive_message", (message) => {
+        const user = JSON.parse(localStorage.getItem("user"));
+        const currentPath = window.location.pathname;
+
+        const isChatOpen = currentPath.includes(`/chat/${message.senderId}`);
+
+        if (!isChatOpen && user?._id !== message.senderId) { // Ensure the message isn't from yourself
+          // toast.success(`📨 New message from ${message.senderName || 'someone'}`);
+        }
+      });
+
+      return () => {
+        socket.off("receive_message");
+      };
+    }
+  }, []);
 
   return (
     <>
@@ -104,6 +128,7 @@ function App() {
         <Route path="/blog" element={<BlogPage  />} />
         <Route path="/seocd" element={<SecondpageBlogs  />} />
         <Route path="/contactUs" element={<ContactUsPage  />} />
+        <Route path="/Chat/:id" element={<ChatPage  />} />
         <Route path="/Chat" element={<ChatPage  />} />
         <Route path="/plans" element={<PlanPageFull  />} />
         <Route path="/userReceipts" element={<UserReceiptPage  />} />

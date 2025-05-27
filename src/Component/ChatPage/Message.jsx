@@ -170,7 +170,7 @@ const Message = ({ recipientId }) => {
       <div className="flex items-center p-5 bg-[#FFEADC] rounded-t-2xl shrink-0">
         <div className="relative">
           <img
-            src={recipient.image}
+            src={recipient.profileImage}
             alt="profile"
             className="w-12 h-12 rounded-full object-cover"
           />
@@ -192,7 +192,7 @@ const Message = ({ recipientId }) => {
           >
             {(msg.sender?._id || msg.senderId) !== currentUserId && (
               <img
-                src={msg.sender?.image}
+                src={msg.sender?.profileImage}
                 alt="user"
                 className="w-8 h-8 rounded-full object-cover"
               />
@@ -216,7 +216,7 @@ const Message = ({ recipientId }) => {
             </div>
             {(msg.sender?._id || msg.senderId) === currentUserId && (
               <img
-                src={user?.image}
+                src={user?.profileImage}
                 alt="receiver"
                 className="w-8 h-8 rounded-full object-cover"
               />

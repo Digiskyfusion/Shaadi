@@ -19,6 +19,7 @@ const Message = ({ recipientId }) => {
   const [UserCredits, setUserCredits] = useState(null);
   const [newChat, setNewChat] = useState(false);
 
+
   useEffect(() => {
     const token = localStorage.getItem('token');
     const newSocket = initializeSocket(token);
@@ -97,6 +98,8 @@ const Message = ({ recipientId }) => {
 
     fetchConversation();
   }, [currentUserId, recipientId]);
+
+
 
   const sendMessage = async () => {
     if (input.trim() === '' || !conversation || !currentUserId) return;

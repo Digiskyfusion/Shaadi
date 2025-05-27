@@ -10,7 +10,7 @@ function ChatPage() {
   const [currentUserId, setCurrentUserId] = useState(null);
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('user'));
+    const user = JSON.parse(localStorage.getItem('userProfile'));
     if (user && user._id) {
       setCurrentUserId(user._id);
     }

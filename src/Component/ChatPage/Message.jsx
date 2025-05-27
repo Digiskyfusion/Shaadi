@@ -173,7 +173,7 @@ const Message = ({ recipientId }) => {
       <div className="flex items-center p-5 bg-[#FFEADC] rounded-t-2xl shrink-0">
         <div className="relative">
           <img
-            src={recipient.image}
+            src={recipient.profileImage}
             alt="profile"
             className="w-12 h-12 rounded-full object-cover"
           />
@@ -195,7 +195,7 @@ const Message = ({ recipientId }) => {
           >
             {(msg.sender?._id || msg.senderId) !== currentUserId && (
               <img
-                src={msg.sender?.image}
+                src={msg.sender?.profileImage}
                 alt="user"
                 className="w-8 h-8 rounded-full object-cover"
               />
@@ -219,7 +219,7 @@ const Message = ({ recipientId }) => {
             </div>
             {(msg.sender?._id || msg.senderId) === currentUserId && (
               <img
-                src={user?.image}
+                src={user?.profileImage}
                 alt="receiver"
                 className="w-8 h-8 rounded-full object-cover"
               />
@@ -230,7 +230,7 @@ const Message = ({ recipientId }) => {
       </div>
 
       {/* Input */}
-      <div className="flex items-center p-3 bg-[#FF9A56] rounded-xl m-4 mb-6 shrink-0">
+      <div className="flex items-center p-3 bg-[#FF9A56] rounded-xl m-4 shrink-0">
         <Paperclip className="w-5 h-5 text-gray-800 mr-3" />
         <input
           disabled={messages.length === 0 && (UserCredits === 0 || !UserCredits)}
@@ -252,6 +252,11 @@ const Message = ({ recipientId }) => {
           <Send className="w-4 h-4" />
         </button>
       </div>
+      {messages.length == 0 && (UserCredits == 0 || !UserCredits) && (
+        <div className="px-2 py-1 bg-red-50 text-red-600 text-sm rounded-md border border-red-200 mx-4 mb-4">
+          You have <strong>zero credits</strong>. Please <a href="/plans" className="underline hover:text-red-800">upgrade</a>.
+        </div>
+      )}
     </div>
   );
 };

@@ -14,45 +14,35 @@ import Footer from "../FooterPage/Footer";
   
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
-    const handleSubmit = async () => {
-      try {
-         const password = formData.password;
+   const handleSubmit = async () => {
+  try {
+    const res = await axios.post(`${API}user/register`, formData );
+    console.log(res);
+    const { token } = res.data;
 
-  const passwordRegex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+    localStorage.setItem("token", token);
+    localStorage.setItem("userProfile", JSON.stringify(res.data.user));
+    toast.success("Form submit successfully");
 
-  if (!passwordRegex.test(password)) {
-    toast.error("Password must be at least 8 characters and include uppercase, lowercase, number, and symbol.");
-    return;
+    setFormData({
+      profileFor: "",
+      firstName: "",
+      lastName: "",
+      gender: "",
+      mobileNumber: "",
+      emailId: "",
+      dob: "",
+      password: "",
+    });
+
+    setTimeout(() => {
+      navigate("/StepThree");
+    }, 1500);
+  } catch (err) {
+    toast.warning("user register already");
   }
+};
 
-        const res = await axios.post(`${API}user/register`, formData );
-        console.log(res);
-        const { token } = res.data;
-        // const {user}= res.data
-
-        localStorage.setItem("token", token);
-        localStorage.setItem("userProfile", JSON.stringify(res.data.user));
-        toast.success("Form submit successfully");
-        setFormData({
-          profileFor: "",
-          firstName: "",
-          lastName: "",
-          gender: "",
-          mobileNumber: "",
-          emailId: "",
-          dob: "",
-          password: "",
-        });
-        setTimeout(()=>
-      {
-          navigate("/StepThree");
-      },1500)
-      } catch (err) {
-        // alert("user register already");
-        toast.warning("user register already");
-      }
-    };
 
   return (
 
@@ -227,9 +217,9 @@ import Footer from "../FooterPage/Footer";
           {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
         </button>
       </div>
-    <marquee> <p className="text-center text-yellow-500 text-sm  rounded-md ">
+    {/* <marquee> <p className="text-center text-yellow-500 text-sm  rounded-md ">
     You have to use uppercase, lowercase, numeric, and symbol for your password and Password must be at least 8 characters.
-  </p></marquee>
+  </p></marquee> */}
 
             <button
               type="submit"

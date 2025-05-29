@@ -41,7 +41,7 @@ function ProfilePage() {
         <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-black/30">
           <div className="bg-white rounded-2xl shadow-xl px-6 py-8 max-w-md w-[90%] text-center relative">
             <h2 className="text-xl font-semibold text-red-600 mb-4">
-              Please fill all the details
+             If you haven't filled it, then please fill it.
             </h2>
             <p className="text-gray-600 mb-6">
               Your profile seems incomplete. Kindly fill in all the required

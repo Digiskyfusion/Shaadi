@@ -65,7 +65,7 @@ function SecondSection() {
                 <img
                   src={story.image}
                   alt={`Photo of ${story.name}`}
-                  className="w-full h-[200px] md:h-[450px] object-cover transform transition duration-500 hover:scale-105"
+                  className="w-full h-[200px] md:h-[450px] object-cover transform transition duration-500 hover:scale-105 blur-md"
                 />
                 <div className="absolute inset-3 border-4 border-white pointer-events-none"></div>
               </div>

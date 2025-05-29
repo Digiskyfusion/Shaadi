@@ -23,7 +23,6 @@ function ProfilePage() {
       navigate("/login");
     }
 
-    // Show popup only once per user
     const popupShown = localStorage.getItem("profilePopupShown");
     if (!popupShown) {
       setShowPopup(true);
@@ -50,7 +49,7 @@ function ProfilePage() {
             </p>
             <button
               onClick={closePopup}
-              className="bg-red-600 hover:bg-red-700 transition text-white px-5 py-2 rounded-full font-medium"
+              className="bg-red-600 hover:bg-red-700 transition cursor-pointer text-white px-5 py-2 rounded-full font-medium"
             >
               Got it
             </button>
@@ -58,41 +57,44 @@ function ProfilePage() {
         </div>
       )}
 
-      <Navbar4 />
-      <ErrorBoundary>
-        <ProfileFull />
-        <div className="md:flex items-center gap-3 p-4 md:px-7">
-          <button className="bg-red-600 text-white px-5 py-1 cursor-pointer rounded-full">
-            About Myself
-          </button>
-        </div>
-        <p className="text-center text-red-500 text-sm mb-3 font-medium mt-2 animate-pulse">
-          Please fill in all the details if not already filled.
-        </p>
+      {/* Main content container with conditional blur */}
+      <div className={`${showPopup ? "blur-sm pointer-events-none select-none" : ""}`}>
+        <Navbar4 />
+        <ErrorBoundary>
+          <ProfileFull />
+          <div className="md:flex items-center gap-3 p-4 md:px-7">
+            <button className="bg-red-600 text-white px-5 py-1 cursor-pointer rounded-full">
+              About Myself
+            </button>
+          </div>
+          <p className="text-center text-red-500 text-sm mb-3 font-medium mt-2 animate-pulse">
+            Please fill in all the details if not already filled.
+          </p>
 
-        <DetailOne />
-        <DetailTwo />
-        <DetailThree />
-        <DetailFour />
-        <DetailFive />
-        <DetailSix />
-        <DetailSeven />
-        <div className="md:flex gap-3 p-4 md:px-7">
-          <button className="bg-red-600 text-white px-5 py-1 cursor-pointer rounded-full">
-            Partner Preferences
-          </button>
-        </div>
-        <DetailFromOne />
-        <div className="md:flex gap-3 p-4 md:px-7">
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="bg-[#FFE7D6] text-black font-bold px-5 py-1 cursor-pointer rounded-full"
-          >
-            Back To Top
-          </button>
-        </div>
-      </ErrorBoundary>
-      <Footer />
+          <DetailOne />
+          <DetailTwo />
+          <DetailThree />
+          <DetailFour />
+          <DetailFive />
+          <DetailSix />
+          <DetailSeven />
+          <div className="md:flex gap-3 p-4 md:px-7">
+            <button className="bg-red-600 text-white px-5 py-1 cursor-pointer rounded-full">
+              Partner Preferences
+            </button>
+          </div>
+          <DetailFromOne />
+          <div className="md:flex gap-3 p-4 md:px-7">
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="bg-[#FFE7D6] text-black font-bold px-5 py-1 cursor-pointer rounded-full"
+            >
+              Back To Top
+            </button>
+          </div>
+        </ErrorBoundary>
+        <Footer />
+      </div>
     </div>
   );
 }

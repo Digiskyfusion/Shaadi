@@ -10,7 +10,7 @@ import Footer from "../FooterPage/Footer";
 
   const StepTwo = ({ formData, setFormData, prevStep }) => {
   let API= import.meta.env.VITE_APP_API_URL
-  console.log(API);
+  // console.log(API);
   
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);

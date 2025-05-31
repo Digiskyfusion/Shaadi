@@ -25,8 +25,8 @@ function Navbar() {
   return (
     <header
       className={`w-full fixed top-0 z-50 transition-all  duration-300 ${
-        scrolled ? "bg-white shadow-md text-black" : "bg-transparent text-white"
-      } py-4 px-4 sm:px-6`}
+        scrolled ? "bg-white shadow-md text-black" : "bg-white text-black"
+      }  px-4 sm:px-6`}
     >
       <div className="container mx-auto flex items-center justify-between">
         {/* {/ Logo /} */}

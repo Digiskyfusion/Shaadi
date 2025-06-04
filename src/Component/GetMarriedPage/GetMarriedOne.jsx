@@ -7,7 +7,7 @@ function GetMarriedOne() {
   const headingText = 'Your Legal Marriage, Simplified by ShaadiSanskar.';
 
   return (
-    <div className="w-full p-8 bg-gradient-to-r from-green-100 via-green-50 to-white rounded-xl shadow-xl mt-25 lg:mt-25 animate-fadeIn">
+    <div className="w-full p-8 bg-gradient-to-r from-green-100 via-green-50 to-white rounded-xl shadow-xl  animate-fadeIn">
       <div className="flex flex-col md:flex-row items-center gap-10">
         {/* Image Section */}
         <div className="md:w-1/2 flex justify-center">

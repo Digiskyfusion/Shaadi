@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // import Group from '../../assets/Images/Group 22.png';
 import { FaChevronDown, FaHeart, FaBars, FaTimes } from 'react-icons/fa';
-import { useNavigate,useLocation, Link } from 'react-router-dom';
+import { useNavigate,useLocation, Link, NavLink } from 'react-router-dom';
 import Logo2 from '../../assets/Images/Shaadi Sanskar 2.png';
 
 function Navbar4() {
@@ -61,6 +61,9 @@ function Navbar4() {
            
             // { label: 'Received Requests', path: '/received-requests' },
         ],
+         'GET STARTED': [
+    { label: 'Get Started', path: '/getmarried' },
+  ],
     };
 
     useEffect(() => {

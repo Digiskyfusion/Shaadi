@@ -7,7 +7,9 @@ import Navbar from '../Component/Navbar/Navbar'
 
 import Footer from '../Component/FooterPage/Footer'
 import FifthSection from '../Component/HomePage/FifthSection'
-import FeesCharge from '../Component/RegestrationFeesPages/FeesCharge'
+import LegalMarriagePage from '../Component/HomePage/LegalMarriagePage'
+// import FeesCharge from '../Component/RegestrationFeesPages/FeesCharge'
+
 
 function  HomePage() {
   return (
@@ -16,7 +18,7 @@ function  HomePage() {
      <Navbar />
     <FirstSection />
 <div>
-  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-black text-center mt-24 gilda-display-regular">
+  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-black text-center mt-24 gilda-display-regular"  >
     Success Stor
     <span className="relative inline-flex items-center justify-center mx-1">
       {/* Vertical line */}
@@ -43,6 +45,7 @@ function  HomePage() {
     <SecondSection />
     <ThirdSection />
     <FourthSection />
+    <LegalMarriagePage />
     {/* <FeesCharge /> */}
     <FifthSection />
     

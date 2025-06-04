@@ -54,11 +54,13 @@ function ThirdSection() {
             className="bg-white rounded-3xl gilda-display-regular shadow-2xl p-6 hover:shadow-2xl hover:scale-105 transition-all duration-300"
           >
             <div className="relative mb-6">
-              <img
-                src={member.image}
-                alt={member.name}
-                className="w-full h-80 object-cover rounded-2xl shadow-md"
-              />
+            <img
+  src={member.image}
+  alt={member.name}
+  className="w-full h-80 object-cover rounded-2xl shadow-md blur-md"
+/>
+
+
 
               {/* Heart top-right */}
               <div className="absolute -top-3 -right-3 bg-white p-2 rounded-full shadow-md">

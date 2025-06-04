@@ -10,49 +10,39 @@ import Footer from "../FooterPage/Footer";
 
   const StepTwo = ({ formData, setFormData, prevStep }) => {
   let API= import.meta.env.VITE_APP_API_URL
-  console.log(API);
+  // console.log(API);
   
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
-    const handleSubmit = async () => {
-      try {
-         const password = formData.password;
+   const handleSubmit = async () => {
+  try {
+    const res = await axios.post(`${API}user/register`, formData );
+    console.log(res);
+    const { token } = res.data;
 
-  const passwordRegex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+    localStorage.setItem("token", token);
+    localStorage.setItem("userProfile", JSON.stringify(res.data.user));
+    toast.success("Form submit successfully");
 
-  if (!passwordRegex.test(password)) {
-    toast.error("Password must be at least 8 characters and include uppercase, lowercase, number, and symbol.");
-    return;
+    setFormData({
+      profileFor: "",
+      firstName: "",
+      lastName: "",
+      gender: "",
+      mobileNumber: "",
+      emailId: "",
+      dob: "",
+      password: "",
+    });
+
+    setTimeout(() => {
+      navigate("/StepThree");
+    }, 1500);
+  } catch (err) {
+    toast.warning("user register already");
   }
+};
 
-        const res = await axios.post(`${API}user/register`, formData );
-        console.log(res);
-        const { token } = res.data;
-        // const {user}= res.data
-
-        localStorage.setItem("token", token);
-        localStorage.setItem("userProfile", JSON.stringify(res.data.user));
-        toast.success("Form submit successfully");
-        setFormData({
-          profileFor: "",
-          firstName: "",
-          lastName: "",
-          gender: "",
-          mobileNumber: "",
-          emailId: "",
-          dob: "",
-          password: "",
-        });
-        setTimeout(()=>
-      {
-          navigate("/StepThree");
-      },1500)
-      } catch (err) {
-        // alert("user register already");
-        toast.warning("user register already");
-      }
-    };
 
   return (
 

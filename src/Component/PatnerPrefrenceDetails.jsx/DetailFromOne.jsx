@@ -10,16 +10,17 @@ const fieldSections = [
   },
   {
     title: "Education & Career",
-    fields: ['highestqualification', 'workingwith']
+     fields: ['highestqualification']
+    // fields: ['highestqualification', 'workingwith']
   },
-  {
-    title: "Location",
-    fields: ['currentresidence', 'stateofresidence', 'residencystatus', 'zippincode']
-  },
-  {
-    title: "My Contact Details",
-    fields: ['mobile', 'name', 'whatsappno', 'emailId']
-  }
+  // {
+  //   title: "Location",
+  //   fields: ['currentresidence', 'stateofresidence', 'residencystatus', 'zippincode']
+  // },
+  // {
+  //   title: "My Contact Details",
+  //   fields: ['mobile', 'name', 'whatsappno', 'emailId']
+  // }
 ];
 
 function DetailFromOne() {

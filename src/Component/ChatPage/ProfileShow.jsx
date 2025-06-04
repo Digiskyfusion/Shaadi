@@ -24,14 +24,14 @@ const ProfileShow = ({ currentUserId }) => {
       try {
         const token = localStorage.getItem("token");
         const response = await axios.get(
-          `${API_URL}/chat/user-conversations/${currentUserId}`,
+          `${API_URL}chat/user-conversations/${currentUserId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`
             }
           }
         );
-        setConversations(response.data.data);
+        setConversations(response.data.data.filter(conversation => conversation.messages?.length > 0));
       } catch (err) {
         console.error("Error fetching conversations:", err);
         setError("Failed to load conversations.");
@@ -52,12 +52,16 @@ const ProfileShow = ({ currentUserId }) => {
   };
 
   // You can filter conversations based on search term or online status
-  const filteredConversations = conversations.filter(conversation => {
+  let filteredConversations = [];
+  if(searchTerm?.length > 0){
+    filteredConversations = conversations.filter(conversation => {
     const otherUser = getOtherParticipant(conversation.participants);
-    const matchesSearch = otherUser?.name.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSearch = (otherUser.firstName + ' ' + otherUser.lastName).toLowerCase().includes(searchTerm.toLowerCase());
     return matchesSearch;
   });
-
+  }else{
+    filteredConversations = conversations;
+  }
   return (
     <div className="p-4  min-h-screen bg-white rounded-l-2xl">
       {/* Search */}
@@ -111,13 +115,13 @@ const ProfileShow = ({ currentUserId }) => {
               >
                 <div className="relative">
                   <img
-                    src={otherUser.image || defaultAvatar}
-                    alt={otherUser.name}
+                    src={otherUser.profileImage || defaultAvatar}
+                    alt={otherUser.firstName + ' ' + otherUser.lastName}
                     className="w-12 h-12 rounded-full object-cover"
                   />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-semibold text-base">{otherUser.name}</h3>
+                  <h3 className="font-semibold text-base">{otherUser.firstName + ' ' + otherUser.lastName}</h3>
                   {lastMessage && (
                     <p className="text-sm text-gray-500 truncate">
                       {lastMessage.sender?._id === currentUserId ? "You: " : ""}

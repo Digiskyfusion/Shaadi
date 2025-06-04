@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import Image18 from '../../assets/Images/Image18.png';
-
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
 function FileFour() {
+    let API= import.meta.env.VITE_APP_API_URL
   const [isChecked, setIsChecked] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -17,19 +19,27 @@ function FileFour() {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // You can add form submission logic here, like sending data to an API
-    console.log('Form Submitted:', formData);
-    console.log('Save Info:', isChecked);
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    const response = await axios.post(`${API}contact`, formData);
+    console.log('Message sent:', response.data);
+     toast.success("Form submit successfully");
+    // alert("Message sent successfully!");
 
-    // Reset form (optional)
+    // Reset form
     setFormData({ name: '', email: '', message: '' });
     setIsChecked(false);
-  };
+  } catch (error) {
+    console.error('Error sending message:', error);
+    // alert("Failed to send message.");
+    toast.error("Failed to send message.");
+  }
+};
 
   return (
     <div className="flex justify-center items-center py-5  bg-gray-100">
+       <ToastContainer />
       <div className="flex flex-col md:flex-row bg-white rounded-2xl shadow-lg overflow-hidden w-full max-w-5xl">
         
         {/* Left Side - Image */}

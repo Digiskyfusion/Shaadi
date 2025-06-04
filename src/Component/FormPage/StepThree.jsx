@@ -46,13 +46,28 @@
       fetchUserAndProfile();
     }, []);
 
-    const handleChange = (e) => {
-      const { name, value, type, checked } = e.target;
-      setFormData((prev) => ({
-        ...prev,
-        [name]: type === 'checkbox' ? checked : value,
-      }));
-    };
+    // const handleChange = (e) => {
+    //   const { name, value, type, checked } = e.target;
+    //   setFormData((prev) => ({
+    //     ...prev,
+    //     [name]: type === 'checkbox' ? checked : value.toUpperCase(),
+    //   }));
+    // };
+  
+const handleChange = (e) => {
+  const { name, value, type, checked } = e.target;
+
+  let finalValue = value;
+  if (name === 'city') {
+    finalValue = value.toUpperCase(); // Only uppercase city
+  }
+
+  setFormData((prev) => ({
+    ...prev,
+    [name]: type === 'checkbox' ? checked : finalValue,
+  }));
+};
+
 
     const handleFamilyClick = (value) => {
       setFormData((prev) => ({ ...prev, liveWithFamily: value }));
@@ -124,7 +139,7 @@
                   name="city"
                   value={formData.city}
                   onChange={handleChange}
-                  className="mt-1 w-full border  bg-[#E9D8C0] rounded-lg p-2"
+                  className="mt-1 w-full border  bg-[#E9D8C0] rounded-lg p-2  text-[11px] sm:text-[15px]"
                 />
               </div>
 
@@ -135,14 +150,14 @@
                   <button
                     type="button"
                     onClick={() => handleFamilyClick(true)}
-                    className={`px-4 py-2 cursor-pointer rounded-lg ${formData.liveWithFamily ? 'bg-[#824A23] text-white' : 'bg-[#E9D8C0]'}`}
+                    className={`px-4 py-2 cursor-pointer  text-[11px] sm:text-[15px] rounded-lg ${formData.liveWithFamily ? 'bg-[#824A23] text-white' : 'bg-[#E9D8C0]'}`}
                   >
                     Yes
                   </button>
                   <button
                     type="button"
                     onClick={() => handleFamilyClick(false)}
-                    className={`px-4 py-2 cursor-pointer rounded-lg ${!formData.liveWithFamily ? 'bg-[#824A23] text-white' : 'bg-[#E9D8C0]'}`}
+                    className={`px-4 py-2 cursor-pointer rounded-lg  text-[11px] sm:text-[15px] ${!formData.liveWithFamily ? 'bg-[#824A23] text-white' : 'bg-[#E9D8C0]'}`}
                   >
                     No
                   </button>
@@ -155,9 +170,9 @@
                   name="livingInIndiaSince"
                   value={formData.livingInIndiaSince}
                   onChange={handleChange}
-                  className="mt-1 w-full border-0 cursor-pointer border-b border-gray-400 py-2 pr-6 bg-transparent focus:outline-none appearance-none"
+                  className="mt-1 w-full    text-[15px] sm:text-[19px] border-0 cursor-pointer  border-b border-gray-400 py-2 pr-6 bg-transparent focus:outline-none appearance-none"
                 >
-                  <option value="">You are living in India since*</option>
+                  <option value=" relative left-3">You are living in India since*</option>
                   <option value="Birth">Birth</option>
                   <option value="Less than a year">Less than a year</option>
                   <option value="1 year">1 year</option>
@@ -176,28 +191,28 @@
               </div>
 
               {/* Marital status */}
-              <div className="relative">
-                <select
-                  name="maritalStatus"
-                  value={formData.maritalStatus}
-                  onChange={handleChange}
-                  className="mt-1 w-full border-0 cursor-pointer border-b border-gray-400 py-2 pr-6 bg-transparent focus:outline-none appearance-none"
-                >
-                  <option value="">Your marital status*</option>
-                  <option value="Single">Single</option>
-                  <option value="Married">Married</option>
-                  <option value="Divorced">Divorced</option>
-                  <option value="Widowed">Widowed</option>
-                </select>
-                <FaChevronDown className="pointer-events-none absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm" />
-              </div>
+             <div className="relative">
+  <select
+    name="maritalStatus"
+    value={formData.maritalStatus}
+    onChange={handleChange}
+    className="mt-1 w-full text-[14px] sm:text-[19px] border-0 cursor-pointer border-b border-gray-400 py-2 bg-transparent focus:outline-none appearance-none"
+  >
+    <option value="">Your marital status*</option>
+    <option value="Single">Single</option>
+    <option value="Married">Married</option>
+    <option value="Divorced">Divorced</option>
+    <option value="Widowed">Widowed</option>
+  </select>
+  <FaChevronDown className="pointer-events-none absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm" />
+</div>
 
               {/* Diet */}
               <div>
-                <label className="block font-medium">Your diet</label>
-                <div className="grid grid-cols-2 gap-2 mt-1 cursor-pointer">
+                <label className="block font-medium text-[14px] sm:text-[19px] ">Your diet</label>
+                <div className="grid grid-cols-2 gap-2 mt-1 cursor-pointer text-[11px] sm:text-[19px] ">
                   {['Vegetarian', 'Non-Vegetarian', 'Vegan', 'Other'].map((diet) => (
-                    <label key={diet} className="flex items-center gap-2 cursor-pointer">
+                    <label key={diet} className="flex items-center gap-2 cursor-pointer ">
                       <input
                         type="radio"
                         name="diet"
@@ -205,7 +220,7 @@
                         checked={formData.diet === diet}
                         onChange={handleChange}
                       />
-                      {diet}
+                      {diet.toUpperCase()}
                     </label>
                   ))}
                 </div>
@@ -217,7 +232,7 @@
                   name="height"
                   value={formData.height}
                   onChange={handleChange}
-                  className="mt-1 w-full border-0 border-b cursor-pointer border-gray-400 py-2 pr-6 bg-transparent focus:outline-none appearance-none"
+                  className="mt-1 w-full  text-[14px] sm:text-[19px] border-0 border-b cursor-pointer border-gray-400 py-2 pr-6 bg-transparent focus:outline-none appearance-none"
                 >
                   <option value="">Your height?*</option>
                   {Array.from({ length: (7 - 4) * 12 + 1 }, (_, i) => {
@@ -237,7 +252,7 @@
                   name="subCommunity"
                   value={formData.subCommunity}
                   onChange={handleChange}
-                  className="mt-1 w-full border-0 cursor-pointer border-b border-gray-400 py-2 pr-6 bg-transparent focus:outline-none appearance-none"
+                  className="mt-1 w-full  text-[15px] sm:text-[19px] border-0 cursor-pointer border-b border-gray-400 py-2 pr-6 bg-transparent focus:outline-none appearance-none"
                 >
                   <option value="">Your sub-community?*</option>
                   {[
@@ -247,7 +262,7 @@
                     'Garhwali', 'Kumaoni', 'Dogri', 'Bhutia', 'Santhali', 'Garo', 'Khasi', 'Meitei', 'Tulu',
                     'Konkan', 'Coorgi', 'Parsi', 'Jain', 'Buddhist', 'Other'
                   ].map((community) => (
-                    <option key={community} value={community}>{community}</option>
+                    <option key={community} value={community}>{community.toUpperCase()}</option>
                   ))}
                 </select>
                 <FaChevronDown className="pointer-events-none absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm" />

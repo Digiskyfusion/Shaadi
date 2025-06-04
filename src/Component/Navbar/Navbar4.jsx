@@ -94,7 +94,7 @@ function Navbar4() {
                     <div className="w-full flex flex-col md:flex-row items-center justify-between px-6  py-4">
                         <div className="flex items-center justify-between w-full md:w-auto">
                             <Link to="/dashboard">
-                            <img src={Logo2} alt="Logo2" className="w-22 h-15" />
+                            <img src={Logo2} alt="Logo2" className="w-30 h-20" />
                             </Link> 
                             <div className="md:hidden text-black" onClick={toggleMobileMenu}>
                                 {mobileMenuOpen ? <FaTimes size={22} /> : <FaBars size={22} />}

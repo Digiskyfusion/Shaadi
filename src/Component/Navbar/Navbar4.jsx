@@ -62,7 +62,7 @@ function Navbar4() {
             // { label: 'Received Requests', path: '/received-requests' },
         ],
          'GET MARRIED': [
-    { label: 'Get MARRIED', path: '/getmarried' },
+    { label: 'Get Married', path: '/getmarried' },
   ],
     };
 

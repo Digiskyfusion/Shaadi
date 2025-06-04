@@ -149,7 +149,7 @@ const [scale, setScale] = useState(1);
           
           {/* Top Buttons */}
           <div className="flex justify-between cursor-pointer">
-            <button onClick={() => navigate(-1)} className={`px-5 py-2 ${buttonBg} text-white rounded-full shadow-md`}>
+            <button onClick={() => navigate(-1)} className={`px-5 py-2 ${buttonBg} text-white cursor-pointer rounded-full shadow-md`}>
               ⬅ Back
             </button>
             <button onClick={() => navigate(`/Chat/${userId}`)} className={`flex items-center gap-2 cursor-pointer px-5 py-2 ${buttonBg} text-white rounded-full shadow-md`}>

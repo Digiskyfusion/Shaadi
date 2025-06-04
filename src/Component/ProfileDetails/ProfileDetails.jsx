@@ -23,6 +23,10 @@ function ProfileDetails() {
   const [profile, setProfile] = useState(null);
   const [CurrentUser, setCurrentUser] = useState(null);
   const [userImages, setUserImages] = useState([]);
+
+  const [zoomImage, setZoomImage] = useState(null);
+const [scale, setScale] = useState(1);
+
   const [showNumber, setShowNumber] = useState(false);
   const [hasDeductedCredits, setHasDeductedCredits] = useState(false);
 
@@ -231,13 +235,59 @@ function ProfileDetails() {
           {userImages.length > 0 ? (
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {userImages.map((imgUrl, index) => (
-                <img
-                  key={index}
-                  src={imgUrl}
-                  alt={`User Image ${index + 1}`}
-                  className="w-full h-48 object-cover rounded-xl shadow-sm border"
-                />
+               <img
+  key={index}
+  src={imgUrl}
+  alt={`User Image ${index + 1}`}
+  className="w-full h-48 object-cover rounded-xl shadow-sm border cursor-zoom-in"
+  onClick={() => {
+    setZoomImage(imgUrl);
+    setScale(1);
+  }}
+/>
               ))}
+              {zoomImage && (
+  <div
+    className="fixed inset-0 bg-black bg-opacity-80 flex flex-col items-center justify-center z-50"
+    onClick={() => setZoomImage(null)}
+  >
+    <img
+      src={zoomImage}
+      alt="Zoomed"
+      style={{ transform: `scale(${scale})`, transition: 'transform 0.3s' }}
+      className="max-h-[80vh] max-w-[80vw] object-contain cursor-zoom-out"
+      onClick={(e) => e.stopPropagation()} // Prevent modal close on image click
+    />
+
+    <div className="mt-4 flex space-x-4">
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          setScale((prev) => Math.min(prev + 0.2, 3));
+        }}
+        className="bg-white text-black px-4 py-2 rounded"
+      >
+        Zoom In
+      </button>
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          setScale((prev) => Math.max(prev - 0.2, 1));
+        }}
+        className="bg-white text-black px-4 py-2 rounded"
+      >
+        Zoom Out
+      </button>
+      <button
+        onClick={() => setZoomImage(null)}
+        className="bg-red-600 text-white px-4 py-2 rounded"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+)}
+
             </div>
           ) : (
             <p className="text-gray-600">No images uploaded.</p>

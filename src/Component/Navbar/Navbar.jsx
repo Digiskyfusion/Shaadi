@@ -25,7 +25,7 @@ function Navbar() {
   return (
     <header
       className={`w-full fixed top-0 z-50 transition-all  duration-300 ${
-        scrolled ? "bg-white shadow-md text-black" : "bg-transparent text-white"
+        scrolled ? "bg-white shadow-md text-black" : "bg-white text-black"
       } py-4 px-6`}
     >
       <div className="container mx-auto flex items-center justify-between">
@@ -64,6 +64,11 @@ function Navbar() {
             <NavLink to="/contactUs" className="block py-2 px-6">
              CONTACT US
             </NavLink>
+
+            <NavLink to="/getmarried" className="block py-2 px-6">
+             GET MARRIED
+            </NavLink>
+
 
             {/* {/ Mobile Register Button /} */}
             <div className="md:hidden jost py-2">

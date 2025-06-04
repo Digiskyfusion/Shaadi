@@ -227,9 +227,9 @@ import Footer from "../FooterPage/Footer";
           {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
         </button>
       </div>
-    <marquee> <p className="text-center text-yellow-500 text-sm  rounded-md ">
+    {/* <marquee> <p className="text-center text-yellow-500 text-sm  rounded-md ">
     You have to use uppercase, lowercase, numeric, and symbol for your password and Password must be at least 8 characters.
-  </p></marquee>
+  </p></marquee> */}
 
             <button
               type="submit"
@@ -245,7 +245,7 @@ import Footer from "../FooterPage/Footer";
             </span>
           </p>
         </form>
-      </div>
+      </div> 
       </div>
     </div>
 

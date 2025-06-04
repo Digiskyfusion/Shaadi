@@ -230,7 +230,7 @@ const [scale, setScale] = useState(1);
         </div>
 
         {/* Image Section */}
-        <div className="max-w-6xl mx-auto mt-10 bg-white/80 p-6 rounded-2xl border shadow-md">
+        <div className="max-w-6xl mx-auto mt-10 bg-white/80 p-6 rounded-2xl border shadow-md ">
           <h3 className={`text-2xl font-bold mb-4 ${textColor}`}>📸 Photo Gallery</h3>
           {userImages.length > 0 ? (
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -259,7 +259,7 @@ const [scale, setScale] = useState(1);
       onClick={(e) => e.stopPropagation()} // Prevent modal close on image click
     />
 
-    <div className="mt-4 flex space-x-4">
+    <div className="mt-4 flex space-x-4 ">
       <button
         onClick={(e) => {
           e.stopPropagation();

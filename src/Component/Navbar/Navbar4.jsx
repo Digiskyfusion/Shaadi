@@ -61,8 +61,8 @@ function Navbar4() {
            
             // { label: 'Received Requests', path: '/received-requests' },
         ],
-         'GET STARTED': [
-    { label: 'Get Started', path: '/getmarried' },
+         'GET MARRIED': [
+    { label: 'Get MARRIED', path: '/getmarried' },
   ],
     };
 

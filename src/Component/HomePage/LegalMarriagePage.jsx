@@ -8,7 +8,7 @@ function LegalMarriagePage() {
     <div className="bg-white min-h-screen flex flex-col items-center px-6 py-16">
       
       {/* Heading with typing effect */}
-      <h1 className="text-2xl sm:text-5xl font-extrabold text-[#C34040] mb-12 min-h-[3rem] text-center ">
+      <h1 className="text-2xl sm:text-5xl font-extrabold text-[#C34040] mb-12 min-h-[3rem] text-center">
         <Typewriter
           words={['Legal Marriage Made Easy with ShaadiSanskar']}
           loop={1}
@@ -20,13 +20,13 @@ function LegalMarriagePage() {
         />
       </h1>
       
-      <div className=" w-full flex flex-col lg:flex-row items-center gap-16">
+      <div className="w-full flex flex-col lg:flex-row items-center gap-10">
         
-        {/* Left Side - Image with fade-in animation */}
+        {/* Left Side - Image with Y-axis animation */}
         <motion.div 
           className="lg:w-1/2 w-full"
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
@@ -38,11 +38,11 @@ function LegalMarriagePage() {
           />
         </motion.div>
         
-        {/* Right Side - Content with fade-in animation */}
+        {/* Right Side - Content with Y-axis animation */}
         <motion.div 
           className="lg:w-1/2 w-full"
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
         >
@@ -67,20 +67,13 @@ function LegalMarriagePage() {
             ))}
           </ul>
 
-          <div className=" ">
+          <div>
             <h3 className="text-2xl font-semibold text-[#C34040] mb-4">
               No stress, no delays
             </h3>
             <p className="text-gray-700 mb-8 leading-relaxed">
               We provide easy, hassle-free legal marriage support for couples who met on ShaadiSanskar.
             </p>
-            {/* <button 
-              onClick={() => alert('Redirecting to signup/contact page...')} 
-              className="bg-[#C34040] text-white px-8 py-3 rounded-full font-semibold cursor-pointer transition duration-300 shadow-lg"
-              aria-label="Get Started Today"
-            >
-              Get Started Today
-            </button> */}
           </div>
         </motion.div>
       </div>

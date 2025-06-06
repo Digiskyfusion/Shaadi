@@ -84,6 +84,12 @@ const Message = ({ recipientId }) => {
   }
 }, [file]);
 
+useEffect(() => {
+  if (chatEndRef.current) {
+    chatEndRef.current.scrollIntoView({ behavior: messages.length > 1 ? 'smooth' : 'auto' });
+  }
+}, [messages]);
+
 
   useEffect(() => {
     if (!currentUserId || !recipientId) {

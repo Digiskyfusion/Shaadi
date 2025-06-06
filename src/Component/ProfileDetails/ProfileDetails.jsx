@@ -15,6 +15,7 @@ import {
   GiBodyHeight, GiGothicCross
 } from 'react-icons/gi';
 import { ToastContainer, toast } from 'react-toastify';
+import { Typewriter } from 'react-simple-typewriter';
 
 function ProfileDetails() {
   let API = import.meta.env.VITE_APP_API_URL;
@@ -23,94 +24,49 @@ function ProfileDetails() {
   const [profile, setProfile] = useState(null);
   const [CurrentUser, setCurrentUser] = useState(null);
   const [userImages, setUserImages] = useState([]);
-
   const [zoomImage, setZoomImage] = useState(null);
-const [scale, setScale] = useState(1);
-
-  const [showNumber, setShowNumber] = useState(false);
-  const [hasDeductedCredits, setHasDeductedCredits] = useState(false);
+  const [scale, setScale] = useState(1);
+  const [showGallery, setShowGallery] = useState(false); // gallery toggle
 
   let a = JSON.parse(localStorage.getItem("userProfile"));
   let id = a?._id;
 
   useEffect(() => {
-    // userprofile
-    axios
-      .get(`${API}user/user-Profile/${userId}`)
-      .then((response) => {
-        setProfile(response.data);
-      })
+    axios.get(`${API}user/user-Profile/${userId}`)
+      .then((response) => setProfile(response.data))
       .catch((error) => console.error('Error fetching profile data:', error));
-// credits
+
     axios.get(`${API}user/${id}`)
-      .then((res) => {
-        setCurrentUser(res.data.user.credits);
-      });
+      .then((res) => setCurrentUser(res.data.user.credits));
   }, [userId]);
 
   useEffect(() => {
-    // images
     axios
       .get(`${API}api/images/user/${userId}`)
-      .then((res) => {
-        console.log("User Images Response:", res.data);
-        setUserImages(res.data.images || []);
-      })
-      .catch((err) => {
-        console.error("Error fetching user images:", err);
-      });
+      .then((res) => setUserImages(res.data.images || []))
+      .catch((err) => console.error("Error fetching user images:", err));
   }, [userId]);
 
   const iconMap = {
-    'Age': <FaBirthdayCake />,
-    'Gender': <FaVenusMars />,
-    'Blood Group': <FaHeartbeat />,
-    'City': <FaCity />,
-    'Height': <GiBodyHeight />,
-    'Diet': <FaUtensils />,
-    'Hobbies': <FaUsers />,
-    'Marital Status': <GiLoveMystery />,
-    'Religion': <FaBalanceScale />,
-    'Community': <FaUsers />,
-    'Sub Community': <FaUsers />,
-    'Mother Tongue': <FaLanguage />,
-    'Manglik': <FaBalanceScale />,
-    'Grow Up Location': <FaMapMarkerAlt />,
-    'Health Information': <GiHealthNormal />,
-    'Disability': <GiHealthNormal />,
-    'Gothram': <GiGothicCross />,
-    'Family Details': <GiFamilyTree />,
-    'Father': <FaUser />,
-    'Mother': <FaUser />,
-    'Location': <FaMapMarkerAlt />,
-    'No. of Sisters': <FaUsers />,
-    'No. of Brothers': <FaUsers />,
-    'Family Financial Status': <FaMoneyBillWave />,
-    'Qualification': <FaUniversity />,
-    'Colleges Attended': <FaUniversity />,
-    'Working As': <FaBuilding />,
-    'Employer': <FaBuilding />,
-    'Annual Income': <FaMoneyBillWave />,
-    'Working With': <FaBuilding />,
-    'Current Residence': <FaHome />,
-    'State of Residence': <GiIndiaGate />,
-    'Residency Status': <FaHome />,
-    'City of Birth': <FaCity />,
-    'Time of Birth': <FaRegClock />,
-    'Zip Code': <FaMapMarkerAlt />,
-    'Living In India Since': <GiIndiaGate />,
-    'Live with Family': <FaHome />
+    'Age': <FaBirthdayCake />, 'Gender': <FaVenusMars />, 'Blood Group': <FaHeartbeat />,
+    'City': <FaCity />, 'Height': <GiBodyHeight />, 'Diet': <FaUtensils />,
+    'Hobbies': <FaUsers />, 'Marital Status': <GiLoveMystery />, 'Religion': <FaBalanceScale />,
+    'Community': <FaUsers />, 'Sub Community': <FaUsers />, 'Mother Tongue': <FaLanguage />,
+    'Manglik': <FaBalanceScale />, 'Grow Up Location': <FaMapMarkerAlt />, 'Health Information': <GiHealthNormal />,
+    'Disability': <GiHealthNormal />, 'Gothram': <GiGothicCross />, 'Family Details': <GiFamilyTree />,
+    'Father': <FaUser />, 'Mother': <FaUser />, 'Location': <FaMapMarkerAlt />,
+    'No. of Sisters': <FaUsers />, 'No. of Brothers': <FaUsers />, 'Family Financial Status': <FaMoneyBillWave />,
+    'Qualification': <FaUniversity />, 'Colleges Attended': <FaUniversity />, 'Working As': <FaBuilding />,
+    'Employer': <FaBuilding />, 'Annual Income': <FaMoneyBillWave />, 'Working With': <FaBuilding />,
+    'Current Residence': <FaHome />, 'State of Residence': <GiIndiaGate />, 'Residency Status': <FaHome />,
+    'City of Birth': <FaCity />, 'Time of Birth': <FaRegClock />, 'Zip Code': <FaMapMarkerAlt />,
+    'Living In India Since': <GiIndiaGate />, 'Live with Family': <FaHome />
   };
 
   if (!profile) {
-    return (
-      <div className="text-center py-24 text-pink-600 text-xl font-semibold animate-pulse">
-        Loading profile...
-      </div>
-    );
+    return <div className="text-center py-24 text-pink-600 text-xl font-semibold animate-pulse">Loading profile...</div>;
   }
 
-  // Theme based on gender
   const gender = profile.userId?.gender;
   let bgGradient, borderColor, textColor, cardBg, cardBorder, buttonBg, backgroundImage;
 
@@ -140,19 +96,18 @@ const [scale, setScale] = useState(1);
     backgroundImage = "none";
   }
 
+
   return (
     <>
-      
       <div className={`${bgGradient} bg-fixed bg-cover min-h-screen py-10 px-2`} style={{ backgroundImage }}>
         <ToastContainer />
         <div className={`max-w-6xl mx-auto bg-white/80 backdrop-blur-lg p-4 md:p-10 rounded-3xl border ${borderColor} shadow-xl space-y-10`}>
-          
           {/* Top Buttons */}
-          <div className="flex justify-between cursor-pointer">
+          <div className="flex justify-between">
             <button onClick={() => navigate(-1)} className={`px-5 py-2 ${buttonBg} text-white cursor-pointer rounded-full shadow-md`}>
               ⬅ Back
             </button>
-            <button onClick={() => navigate(`/Chat/${userId}`)} className={`flex items-center gap-2 cursor-pointer px-5 py-2 ${buttonBg} text-white rounded-full shadow-md`}>
+            <button onClick={() => navigate(`/Chat/${userId}`)} className={`flex items-center cursor-pointer gap-2 px-5 py-2 ${buttonBg} text-white rounded-full shadow-md`}>
               <BsChatRightHeartFill /> Connect Now
             </button>
           </div>
@@ -218,9 +173,7 @@ const [scale, setScale] = useState(1);
                   {section.data.map(([label, value], i) => (
                     <div key={i} className={`flex gap-3 items-center ${cardBg} p-3 rounded-xl`}>
                       <div className={`${textColor} text-xl`}>{iconMap[label]}</div>
-                      <div className="text-sm">
-                        <strong>{label}:</strong> {value || 'N/A'}
-                      </div>
+                      <div className="text-sm"><strong>{label}:</strong> {value || 'N/A'}</div>
                     </div>
                   ))}
                 </div>
@@ -229,70 +182,126 @@ const [scale, setScale] = useState(1);
           </div>
         </div>
 
-        {/* Image Section */}
-        <div className="max-w-6xl mx-auto mt-10 bg-white/80 p-6 rounded-2xl border shadow-md">
-          <h3 className={`text-2xl font-bold mb-4 ${textColor}`}>📸 Photo Gallery</h3>
-          {userImages.length > 0 ? (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {userImages.map((imgUrl, index) => (
-               <img
-  key={index}
-  src={imgUrl}
-  alt={`User Image ${index + 1}`}
-  className="w-full h-48 object-cover rounded-xl shadow-sm border cursor-zoom-in"
-  onClick={() => {
-    setZoomImage(imgUrl);
-    setScale(1);
-  }}
-/>
-              ))}
-              {zoomImage && (
+        {/* Gallery Toggle Button */}
+        <div className="max-w-6xl mx-auto mt-10 flex justify-center">
+          <button
+            onClick={() => setShowGallery(!showGallery)}
+            className={`${buttonBg} text-white font-semibold px-6 py-3 cursor-pointer rounded-full shadow-md`}
+          >
+            {showGallery ? "Hide Gallery" : "Show Photo Gallery"}
+          </button>
+        </div>
+
+        {/* Conditional Gallery */}
+        {showGallery && (
+          <div className="max-w-6xl mx-auto mt-6 bg-white/80 p-6 rounded-2xl border shadow-md">
+            <h3 className={`text-2xl font-bold mb-4 ${textColor}`}>📸 Photo Gallery</h3>
+            {userImages.length > 0 ? (
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {userImages.map((imgUrl, index) => (
+                  <img
+                    key={index}
+                    src={imgUrl}
+                    alt={`User Image ${index + 1}`}
+                    className="w-full h-48 object-cover rounded-xl shadow-sm border cursor-zoom-in"
+                    onClick={() => {
+                      setZoomImage(imgUrl);
+                      setScale(1);
+                    }}
+                  />
+                ))}
+              </div>
+            ) : (
+              <p className="text-gray-600">No images uploaded.</p>
+            )}
+          </div>
+        )}
+
+        {/* Zoomed Image Modal */}
+ {zoomImage && (
   <div
-    className="fixed inset-0 bg-black bg-opacity-80 flex flex-col items-center justify-center z-50"
+    className="fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm z-50 flex items-center justify-center px-4"
     onClick={() => setZoomImage(null)}
   >
-    <img
-      src={zoomImage}
-      alt="Zoomed"
-      style={{ transform: `scale(${scale})`, transition: 'transform 0.3s' }}
-      className="max-h-[80vh] max-w-[80vw] object-contain cursor-zoom-out"
-      onClick={(e) => e.stopPropagation()} // Prevent modal close on image click
-    />
+    <div
+      className="relative bg-white/10 backdrop-blur-2xl rounded-2xl p-6 w-full max-w-4xl max-h-[90vh] flex flex-col items-center gap-6 border border-white/20 shadow-xl"
+      onClick={(e) => e.stopPropagation()}
+    >
+      {/* Image Section */}
+      <div className="overflow-hidden border border-white/30 rounded-xl shadow-md max-h-[70vh]">
+        <img
+          src={zoomImage}
+          alt="Zoomed"
+          style={{
+            transform: `scale(${scale})`,
+            transition: 'transform 0.3s ease-in-out',
+          }}
+          className="object-contain max-h-[70vh] max-w-full"
+        />
+      </div>
 
-    <div className="mt-4 flex space-x-4">
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          setScale((prev) => Math.min(prev + 0.2, 3));
-        }}
-        className="bg-white text-black px-4 py-2 rounded"
-      >
-        Zoom In
-      </button>
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          setScale((prev) => Math.max(prev - 0.2, 1));
-        }}
-        className="bg-white text-black px-4 py-2 rounded"
-      >
-        Zoom Out
-      </button>
-      <button
-        onClick={() => setZoomImage(null)}
-        className="bg-red-600 text-white px-4 py-2 rounded"
-      >
-        Close
-      </button>
+      {/* Action Buttons */}
+      <div className="flex flex-wrap justify-center gap-4">
+        <button
+          onClick={() => setScale((prev) => Math.min(prev + 0.2, 3))}
+          className="px-5 py-2 rounded-xl bg-white/20 text-white cursor-pointer font-medium hover:bg-white/30 hover:scale-105 transition-all duration-300 shadow-md backdrop-blur-lg border border-white/30"
+        >
+          🔍 Zoom In
+        </button>
+        <button
+          onClick={() => setScale((prev) => Math.max(prev - 0.2, 1))}
+          className="px-5 py-2 rounded-xl bg-white/20 text-white cursor-pointer font-medium hover:bg-white/30 hover:scale-105 transition-all duration-300 shadow-md backdrop-blur-lg border border-white/30"
+        >
+          🔎 Zoom Out
+        </button>
+        <button
+          onClick={() => setZoomImage(null)}
+          className="px-5 py-2 rounded-xl bg-red-500 text-white cursor-pointer font-semibold hover:bg-red-600 hover:scale-105 transition-all duration-300 shadow-md"
+        >
+          ❌ Close
+        </button>
+      </div>
+      <div className="mt-6 text-lg font-semibold text-pink-200 tracking-wider">
+  <Typewriter
+    words={['ShaadiSanskar Profiles']}
+    loop={true}
+    cursor
+    cursorStyle="_"
+    typeSpeed={100}
+    deleteSpeed={80}
+    delaySpeed={1500}
+  />
+</div>
     </div>
   </div>
 )}
 
-            </div>
-          ) : (
-            <p className="text-gray-600">No images uploaded.</p>
-          )}
-        </div>
+
+<div className="flex justify-center mt-10">
+  <button
+    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+    className={`
+      ${buttonBg} 
+      relative 
+      text-white 
+      font-semibold 
+      px-8 py-4 
+      cursor-pointer 
+      rounded-lg 
+      shadow-[0_6px_0_0_rgba(0,0,0,0.3)] 
+      hover:shadow-[0_2px_0_0_rgba(0,0,0,0.3)] 
+      active:shadow-[0_0px_0_0_rgba(0,0,0,0.3)] 
+      transition-all duration-150 
+      transform 
+      active:translate-y-[6px]
+      `
+    }
+  >
+    Back To Top
+  </button>
+</div>
+
+
       </div>
     </>
   );

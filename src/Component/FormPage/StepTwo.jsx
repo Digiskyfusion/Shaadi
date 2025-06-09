@@ -14,7 +14,10 @@ import Footer from "../FooterPage/Footer";
   
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+
    const handleSubmit = async () => {
+    setIsLoading(true);
   try {
     const res = await axios.post(`${API}user/register`, formData );
     console.log(res);
@@ -221,12 +224,15 @@ import Footer from "../FooterPage/Footer";
     You have to use uppercase, lowercase, numeric, and symbol for your password and Password must be at least 8 characters.
   </p></marquee> */}
 
-            <button
-              type="submit"
-              className="w-full mt-2 cursor-pointer bg-black text-white font-semibold text-sm sm:text-xl py-2 rounded-lg hover:bg-gray-900 transition"
-            >
-              Sign Up
-            </button>
+          <button
+  type="submit"
+  disabled={isLoading}
+  className={`w-full mt-2 bg-black text-white font-semibold text-sm sm:text-xl py-2 rounded-lg transition ${
+    isLoading ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-900"
+  }`}
+>
+  {isLoading ? "Signing Up..." : "Sign Up"}
+</button>
 
           <p className="text-center text-sm text-black mt-2">
             By signing up, you agree to our{" "}

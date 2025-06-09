@@ -9,6 +9,7 @@
     let API= import.meta.env.VITE_APP_API_URL
     const navigate = useNavigate();
     const [userId, setUserId] = useState('');
+      const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState({
       city: '',
       liveWithFamily: false,
@@ -75,6 +76,7 @@ const handleChange = (e) => {
 
     const handleSubmit = async (e) => {
       e.preventDefault();
+       setIsLoading(true);
       if (!userId) {
         alert("User ID is missing. Please login again.");
         return;
@@ -270,9 +272,16 @@ const handleChange = (e) => {
 
               {/* Submit */}
               <div className="flex justify-center">
-                <button type="submit" className="bg-[#824A23] w-full cursor-pointer text-white px-8 py-2 rounded-full">
-                  Continue
-                </button>
+               <button
+  type="submit"
+  className={`bg-[#824A23] w-full text-white px-8 py-2 rounded-full transition-all duration-300 ${
+    isLoading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-900'
+  }`}
+  disabled={isLoading}
+>
+  {isLoading ? 'Loading...' : 'Continue'}
+</button>
+
               </div>
             </form>
           </div>

@@ -65,8 +65,8 @@ const UploadSection = () => {
         setUserImages(res.data.data);
         setImages(res.data.data.images);
       } else {
-        if (urls.length < 3) {
-          setError("Please upload at least 3 images.");
+        if (urls.length < 1) {
+          setError("Please upload at least 1 images.");
           setUploading(false);
           return;
         }
@@ -89,8 +89,8 @@ const UploadSection = () => {
     if (!userImages || !userImages._id) return;
 
     // Prevent deleting if less than 3 images will remain
-    if (images.length <= 3) {
-      setError("You must have at least 3 images.");
+    if (images.length <= 1) {
+      setError("You must have at least 1 images.");
       return;
     }
 

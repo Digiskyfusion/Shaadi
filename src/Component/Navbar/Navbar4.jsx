@@ -54,13 +54,19 @@ function Navbar4() {
         INBOX: [
 
             { label: 'Messages', path: '/Chat' }, 
-            { label: 'Plans', path: '/plans' },
-            { label: 'Receipt', path: '/userReceipts' }, 
+           
             // { label: 'Sent Requests', path: '/sent-requests' },
             // { label: 'Messages', path: '/messages' }, 
            
             // { label: 'Received Requests', path: '/received-requests' },
         ],
+
+        PLANS:[
+              { label: 'Plans', path: '/plans' },
+            { label: 'Receipt', path: '/userReceipts' },
+
+        ],
+
          'GET MARRIED': [
     { label: 'Get Married', path: '/getmarried' },
   ],

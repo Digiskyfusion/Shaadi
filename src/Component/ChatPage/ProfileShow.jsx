@@ -130,11 +130,11 @@ const ProfileShow = ({ currentUserId }) => {
                   )}
                 </div>
                 {/* Unread message indicator */}
-                {conversation.messages.some(
+                {/* {conversation.messages.some(
                   msg => !msg.read && msg.sender._id !== currentUserId
                 ) && (
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                )}
+                  // <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                )} */}
               </div>
             );
           })}

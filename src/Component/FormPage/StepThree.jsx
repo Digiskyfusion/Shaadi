@@ -263,8 +263,8 @@ const handleChange = (e) => {
                     'Maharashtrian', 'North East Indian', 'Manipuri', 'Himachali','Tripuri', 'Mizo', 'Naga', 'Sikkimese',
                     'Garhwali', 'Kumaoni', 'Dogri', 'Bhutia', 'Santhali', 'Garo', 'Khasi', 'Meitei', 'Tulu',
                     'Konkan', 'Coorgi', 'Parsi', 'Jain', 'Buddhist', 'Other'
-                  ].map((community) => (
-                    <option key={community} value={community}>{community.toUpperCase()}</option>
+                  ].map((community) => ( 
+                    <option key={community} value={community}>{community.toUpperCase()}</option> 
                   ))}
                 </select>
                 <FaChevronDown className="pointer-events-none absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm" />
